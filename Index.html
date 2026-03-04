@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -34,224 +33,224 @@ a{color:var(--te);text-decoration:none}
 svg{display:block;flex-shrink:0}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(13,9,6,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(–bd);transition:box-shadow 0.3s}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(13,9,6,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--bd);transition:box-shadow 0.3s}
 nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.55)}
 .nav-inner{max-width:68rem;margin:0 auto;padding:0 1.25rem;height:3.75rem;display:flex;align-items:center;gap:0.625rem}
-.logo{display:flex;align-items:center;gap:0.5625rem;font-family:var(–fd);font-size:1.4375rem;font-weight:600;color:var(–t1);flex-shrink:0;margin-right:auto;text-decoration:none}
-.logo em{font-style:italic;color:var(–te)}
+.logo{display:flex;align-items:center;gap:0.5625rem;font-family:var(--fd);font-size:1.4375rem;font-weight:600;color:var(--t1);flex-shrink:0;margin-right:auto;text-decoration:none}
+.logo em{font-style:italic;color:var(--te)}
 .nav-links{display:flex;gap:0.125rem;list-style:none}
 .nav-links>li>a,.nav-links>li>span{font-size:0.8125rem;color:rgba(196,168,130,0.65);font-weight:500;padding:0.4375rem 0.8rem;border-radius:0.5rem;transition:color 0.2s,background 0.2s;display:flex;align-items:center;gap:0.3rem;white-space:nowrap;cursor:pointer;text-decoration:none}
-.nav-links>li>a:hover,.nav-links>li>span:hover,.nav-links>li>a.active{color:var(–te);background:var(–ember-s)}
+.nav-links>li>a:hover,.nav-links>li>span:hover,.nav-links>li>a.active{color:var(--te);background:var(--ember-s)}
 .nav-arrow{font-size:0.55rem;opacity:0.5;transition:transform 0.25s;margin-top:1px}
 .has-drop{position:relative}
 .has-drop:hover .nav-arrow{transform:rotate(180deg)}
 /* TOOLS DROPDOWN */
-.nav-drop{position:absolute;top:calc(100% + 0.5rem);left:50%;transform:translateX(-50%) translateY(-6px);background:rgba(13,9,6,0.99);backdrop-filter:blur(24px);border:1px solid var(–bd2);border-radius:1.125rem;padding:0.625rem;min-width:20rem;opacity:0;pointer-events:none;transition:opacity 0.18s,transform 0.18s;box-shadow:0 24px 60px rgba(0,0,0,0.7);z-index:50}
+.nav-drop{position:absolute;top:calc(100% + 0.5rem);left:50%;transform:translateX(-50%) translateY(-6px);background:rgba(13,9,6,0.99);backdrop-filter:blur(24px);border:1px solid var(--bd2);border-radius:1.125rem;padding:0.625rem;min-width:20rem;opacity:0;pointer-events:none;transition:opacity 0.18s,transform 0.18s;box-shadow:0 24px 60px rgba(0,0,0,0.7);z-index:50}
 .has-drop:hover .nav-drop{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
 .ndrop-item{display:flex;align-items:flex-start;gap:0.75rem;padding:0.75rem 0.875rem;border-radius:0.75rem;cursor:pointer;transition:background 0.15s;text-decoration:none}
-.ndrop-item:hover{background:var(–ember-s)}
+.ndrop-item:hover{background:var(--ember-s)}
 .ndi-dot{width:0.5rem;height:0.5rem;border-radius:50%;flex-shrink:0;margin-top:0.35rem}
-.dot-ember{background:var(–ember)}.dot-gold{background:var(–gold)}.dot-rose{background:var(–rose)}
-.ndi-title{font-size:0.84rem;font-weight:600;color:var(–t1);line-height:1.25;margin-bottom:0.15rem}
-.ndi-desc{font-size:0.73rem;color:var(–t3);line-height:1.45}
-.ndrop-item:hover .ndi-title{color:var(–te)}
-.nav-pill{font-size:0.8rem;color:var(–sage);font-weight:600;padding:0.4375rem 0.875rem;border-radius:999px;border:1px solid var(–sage-b);background:var(–sage-s);transition:all 0.2s;white-space:nowrap;text-decoration:none}
-.nav-pill:hover{background:rgba(122,170,136,0.18);color:var(–sage)}
-.nav-cta{background:var(–gm);color:var(–t1);padding:0.5rem 1.125rem;border-radius:999px;font-size:0.8125rem;font-weight:700;border:none;cursor:pointer;font-family:var(–fb);box-shadow:0 3px 14px rgba(217,95,53,0.3);transition:all 0.25s var(–sp);white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
-.nav-cta:hover{transform:translateY(-1px);filter:brightness(1.1);color:var(–t1)}
+.dot-ember{background:var(--ember)}.dot-gold{background:var(--gold)}.dot-rose{background:var(--rose)}
+.ndi-title{font-size:0.84rem;font-weight:600;color:var(--t1);line-height:1.25;margin-bottom:0.15rem}
+.ndi-desc{font-size:0.73rem;color:var(--t3);line-height:1.45}
+.ndrop-item:hover .ndi-title{color:var(--te)}
+.nav-pill{font-size:0.8rem;color:var(--sage);font-weight:600;padding:0.4375rem 0.875rem;border-radius:999px;border:1px solid var(--sage-b);background:var(--sage-s);transition:all 0.2s;white-space:nowrap;text-decoration:none}
+.nav-pill:hover{background:rgba(122,170,136,0.18);color:var(--sage)}
+.nav-cta{background:var(--gm);color:var(--t1);padding:0.5rem 1.125rem;border-radius:999px;font-size:0.8125rem;font-weight:700;border:none;cursor:pointer;font-family:var(--fb);box-shadow:0 3px 14px rgba(217,95,53,0.3);transition:all 0.25s var(--sp);white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.nav-cta:hover{transform:translateY(-1px);filter:brightness(1.1);color:var(--t1)}
 /* HAMBURGER */
-.nav-burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:2.375rem;height:2.375rem;background:none;border:1px solid var(–bd2);border-radius:0.625rem;cursor:pointer;margin-left:0.5rem;flex-shrink:0;transition:border-color 0.2s,background 0.2s}
-.nav-burger:hover{background:var(–ember-s);border-color:var(–ember-b)}
-.burger-line{width:1.125rem;height:1.5px;background:var(–t2);border-radius:2px;transition:all 0.3s}
+.nav-burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:2.375rem;height:2.375rem;background:none;border:1px solid var(--bd2);border-radius:0.625rem;cursor:pointer;margin-left:0.5rem;flex-shrink:0;transition:border-color 0.2s,background 0.2s}
+.nav-burger:hover{background:var(--ember-s);border-color:var(--ember-b)}
+.burger-line{width:1.125rem;height:1.5px;background:var(--t2);border-radius:2px;transition:all 0.3s}
 .nav-burger.open .burger-line:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
 .nav-burger.open .burger-line:nth-child(2){opacity:0;transform:scaleX(0)}
 .nav-burger.open .burger-line:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 /* MOBILE DRAWER */
 .mobile-drawer{position:fixed;inset:0;z-index:190;pointer-events:none}
 .drawer-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.65);opacity:0;transition:opacity 0.3s;cursor:pointer}
-.drawer-panel{position:absolute;top:0;right:0;bottom:0;width:min(21rem,100vw);background:rgba(10,6,4,0.99);backdrop-filter:blur(32px);border-left:1px solid var(–bd2);transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;overflow-y:auto}
+.drawer-panel{position:absolute;top:0;right:0;bottom:0;width:min(21rem,100vw);background:rgba(10,6,4,0.99);backdrop-filter:blur(32px);border-left:1px solid var(--bd2);transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;overflow-y:auto}
 .mobile-drawer.open{pointer-events:all}
 .mobile-drawer.open .drawer-backdrop{opacity:1}
 .mobile-drawer.open .drawer-panel{transform:translateX(0)}
-.drawer-top{padding:1.125rem 1.25rem;border-bottom:1px solid var(–bd);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-.drawer-logo{font-family:var(–fd);font-size:1.25rem;font-weight:600;color:var(–t1)}
-.drawer-logo em{font-style:italic;color:var(–te)}
-.drawer-close{background:none;border:1px solid var(–bd2);border-radius:0.5rem;width:2rem;height:2rem;cursor:pointer;color:var(–t2);font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
-.drawer-close:hover{background:var(–ember-s);border-color:var(–ember-b);color:var(–te)}
+.drawer-top{padding:1.125rem 1.25rem;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.drawer-logo{font-family:var(--fd);font-size:1.25rem;font-weight:600;color:var(--t1)}
+.drawer-logo em{font-style:italic;color:var(--te)}
+.drawer-close{background:none;border:1px solid var(--bd2);border-radius:0.5rem;width:2rem;height:2rem;cursor:pointer;color:var(--t2);font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.drawer-close:hover{background:var(--ember-s);border-color:var(--ember-b);color:var(--te)}
 .drawer-nav{padding:0.875rem;flex:1}
-.drawer-link{display:block;font-size:1rem;font-weight:500;color:var(–t2);padding:0.8125rem 0.75rem;border-radius:0.75rem;cursor:pointer;transition:all 0.18s;border:1px solid transparent;text-decoration:none}
-.drawer-link:hover{background:var(–ember-s);border-color:var(–ember-b);color:var(–te)}
-.drawer-section-label{font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(–t3);padding:0.875rem 0.75rem 0.375rem;opacity:0.6}
+.drawer-link{display:block;font-size:1rem;font-weight:500;color:var(--t2);padding:0.8125rem 0.75rem;border-radius:0.75rem;cursor:pointer;transition:all 0.18s;border:1px solid transparent;text-decoration:none}
+.drawer-link:hover{background:var(--ember-s);border-color:var(--ember-b);color:var(--te)}
+.drawer-section-label{font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--t3);padding:0.875rem 0.75rem 0.375rem;opacity:0.6}
 .drawer-tool-link{display:flex;align-items:center;gap:0.75rem;padding:0.625rem 0.75rem;border-radius:0.75rem;cursor:pointer;transition:background 0.15s;text-decoration:none}
-.drawer-tool-link:hover{background:var(–ember-s)}
+.drawer-tool-link:hover{background:var(--ember-s)}
 .dtl-dot{width:0.4375rem;height:0.4375rem;border-radius:50%;flex-shrink:0}
-.dtl-name{font-size:0.875rem;font-weight:600;color:var(–t2);margin-bottom:0.1rem}
-.dtl-desc{font-size:0.72rem;color:var(–t4)}
-.drawer-tool-link:hover .dtl-name{color:var(–te)}
-.drawer-div{height:1px;background:var(–bd);margin:0.375rem 0.75rem}
-.drawer-bottom{padding:1.125rem 1.25rem;border-top:1px solid var(–bd);flex-shrink:0;display:flex;flex-direction:column;gap:0.625rem}
-.drawer-cta-sage{display:block;width:100%;background:linear-gradient(135deg,#5a9a6a,#7aaa88);color:var(–t1);font-size:0.9375rem;font-weight:700;padding:0.9375rem;border-radius:999px;border:none;cursor:pointer;font-family:var(–fb);text-align:center;text-decoration:none}
-.drawer-cta-ember{display:block;width:100%;background:var(–gm);color:var(–t1);font-size:0.9375rem;font-weight:700;padding:0.9375rem;border-radius:999px;border:none;cursor:pointer;font-family:var(–fb);text-align:center;box-shadow:0 4px 20px rgba(217,95,53,0.3);text-decoration:none}
+.dtl-name{font-size:0.875rem;font-weight:600;color:var(--t2);margin-bottom:0.1rem}
+.dtl-desc{font-size:0.72rem;color:var(--t4)}
+.drawer-tool-link:hover .dtl-name{color:var(--te)}
+.drawer-div{height:1px;background:var(--bd);margin:0.375rem 0.75rem}
+.drawer-bottom{padding:1.125rem 1.25rem;border-top:1px solid var(--bd);flex-shrink:0;display:flex;flex-direction:column;gap:0.625rem}
+.drawer-cta-sage{display:block;width:100%;background:linear-gradient(135deg,#5a9a6a,#7aaa88);color:var(--t1);font-size:0.9375rem;font-weight:700;padding:0.9375rem;border-radius:999px;border:none;cursor:pointer;font-family:var(--fb);text-align:center;text-decoration:none}
+.drawer-cta-ember{display:block;width:100%;background:var(--gm);color:var(--t1);font-size:0.9375rem;font-weight:700;padding:0.9375rem;border-radius:999px;border:none;cursor:pointer;font-family:var(--fb);text-align:center;box-shadow:0 4px 20px rgba(217,95,53,0.3);text-decoration:none}
 
 /* Mobile bottom bar */
-.bottom-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:150;background:#0a0604;border-top:1px solid var(–bd);padding:0.625rem 1rem calc(0.625rem + env(safe-area-inset-bottom,0px));gap:0.5rem}
-.bb-btn{flex:1;padding:0.75rem 0.5rem;border-radius:0.875rem;font-size:0.8125rem;font-weight:700;font-family:var(–fb);border:1px solid;cursor:pointer;text-align:center;transition:all 0.2s}
-.bb-me{background:var(–ember-s);color:var(–te);border-color:var(–ember-b)}
-.bb-pro{background:var(–sage-s);color:var(–sage);border-color:var(–sage-b)}
+.bottom-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:150;background:#0a0604;border-top:1px solid var(--bd);padding:0.625rem 1rem calc(0.625rem + env(safe-area-inset-bottom,0px));gap:0.5rem}
+.bb-btn{flex:1;padding:0.75rem 0.5rem;border-radius:0.875rem;font-size:0.8125rem;font-weight:700;font-family:var(--fb);border:1px solid;cursor:pointer;text-align:center;transition:all 0.2s}
+.bb-me{background:var(--ember-s);color:var(--te);border-color:var(--ember-b)}
+.bb-pro{background:var(--sage-s);color:var(--sage);border-color:var(--sage-b)}
 
 /* LAYOUT */
 .w{max-width:68rem;margin:0 auto;padding:0 1.25rem;position:relative;z-index:1}
-.sec{padding:5rem 0;background:var(–bg);position:relative;z-index:1}
-.sec-alt{padding:5rem 0;background:var(–bg2);position:relative;z-index:1}
-.sec-dark{padding:5rem 0;background:var(–bg3);position:relative;z-index:1}
+.sec{padding:5rem 0;background:var(--bg);position:relative;z-index:1}
+.sec-alt{padding:5rem 0;background:var(--bg2);position:relative;z-index:1}
+.sec-dark{padding:5rem 0;background:var(--bg3);position:relative;z-index:1}
 
 /* TYPE */
-.label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(–te)}
-.h2{font-family:var(–fd);font-size:clamp(1.875rem,4vw,3rem);font-weight:600;line-height:1.1;letter-spacing:-0.025em;color:var(–t1);margin-bottom:0.875rem}
-.h2 em{font-style:italic;background:var(–gt);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.lead{font-size:1rem;color:var(–t2);line-height:1.8}
+.label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--te)}
+.h2{font-family:var(--fd);font-size:clamp(1.875rem,4vw,3rem);font-weight:600;line-height:1.1;letter-spacing:-0.025em;color:var(--t1);margin-bottom:0.875rem}
+.h2 em{font-style:italic;background:var(--gt);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.lead{font-size:1rem;color:var(--t2);line-height:1.8}
 
 /* BUTTONS */
-.btn{background:var(–gm);color:var(–t1);padding:0.9375rem 1.875rem;border-radius:999px;font-size:1rem;font-weight:700;border:none;cursor:pointer;font-family:var(–fb);box-shadow:var(–sh);transition:all 0.3s var(–sp);display:inline-flex;align-items:center;gap:0.5rem;justify-content:center}
-.btn:hover{transform:translateY(-3px);filter:brightness(1.1);color:var(–t1)}
+.btn{background:var(--gm);color:var(--t1);padding:0.9375rem 1.875rem;border-radius:999px;font-size:1rem;font-weight:700;border:none;cursor:pointer;font-family:var(--fb);box-shadow:var(--sh);transition:all 0.3s var(--sp);display:inline-flex;align-items:center;gap:0.5rem;justify-content:center}
+.btn:hover{transform:translateY(-3px);filter:brightness(1.1);color:var(--t1)}
 .btn-sage{background:linear-gradient(135deg,#5a9a6a,#7aaa88);box-shadow:0 10px 28px rgba(122,170,136,0.28)}
-.btn-ghost{background:transparent;color:var(–t2);padding:0.75rem 1.5rem;border-radius:999px;font-size:0.875rem;font-weight:600;border:1px solid var(–bd2);cursor:pointer;font-family:var(–fb);transition:all 0.25s;display:inline-flex;align-items:center;gap:0.5rem}
-.btn-ghost:hover{border-color:var(–ember-b);color:var(–te)}
+.btn-ghost{background:transparent;color:var(--t2);padding:0.75rem 1.5rem;border-radius:999px;font-size:0.875rem;font-weight:600;border:1px solid var(--bd2);cursor:pointer;font-family:var(--fb);transition:all 0.25s;display:inline-flex;align-items:center;gap:0.5rem}
+.btn-ghost:hover{border-color:var(--ember-b);color:var(--te)}
 .btn-full{width:100%}
 
 /* HERO */
-.hero{min-height:100svh;display:flex;align-items:center;padding:5.5rem 0 4rem;background:var(–bg);position:relative;overflow:hidden;z-index:1}
+.hero{min-height:100svh;display:flex;align-items:center;padding:5.5rem 0 4rem;background:var(--bg);position:relative;overflow:hidden;z-index:1}
 .hero-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 80% 70% at 0% 0%,rgba(217,95,53,0.07),transparent),radial-gradient(ellipse 60% 50% at 100% 60%,rgba(232,160,48,0.05),transparent)}
 .hero-inner{max-width:68rem;margin:0 auto;padding:0 1.25rem;position:relative;z-index:1;width:100%;display:grid;gap:3rem;align-items:center}
 @media(min-width:820px){.hero-inner{grid-template-columns:1.15fr 0.85fr}}
 .hero-right{display:none}
 @media(min-width:820px){.hero-right{display:flex;flex-direction:column}}
-.hsc{background:var(–gc);border:1px solid var(–bd2);border-radius:1.125rem;padding:1.125rem 1.25rem;display:flex;align-items:center;gap:0.875rem;transition:all 0.3s var(–sp);text-decoration:none;margin-bottom:0.625rem}
-.hsc:hover{border-color:var(–ember-b);transform:translateX(4px);box-shadow:0 8px 24px rgba(217,95,53,0.15)}
+.hsc{background:var(--gc);border:1px solid var(--bd2);border-radius:1.125rem;padding:1.125rem 1.25rem;display:flex;align-items:center;gap:0.875rem;transition:all 0.3s var(--sp);text-decoration:none;margin-bottom:0.625rem}
+.hsc:hover{border-color:var(--ember-b);transform:translateX(4px);box-shadow:0 8px 24px rgba(217,95,53,0.15)}
 .hsc-icon{font-size:1.5rem;flex-shrink:0;line-height:1}
-.hsc-lbl{font-size:0.63rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(–te);margin-bottom:0.15rem}
-.hsc-title{font-family:var(–fd);font-size:0.9375rem;font-weight:600;color:var(–t1);line-height:1.2}
-.hsc-desc{font-size:0.75rem;color:var(–t3);font-weight:300;margin-top:0.1rem;line-height:1.4}
-.hsc-arr{margin-left:auto;color:var(–t4);font-size:0.875rem;transition:color 0.2s,transform 0.2s;flex-shrink:0;padding-left:0.375rem}
-.hsc:hover .hsc-arr{color:var(–te);transform:translateX(3px)}
-.hsc-gold:hover{border-color:var(–gold-b)}
-.hsc-gold:hover .hsc-lbl{color:var(–tg)}
-.hsc-gold:hover .hsc-arr{color:var(–tg)}
-.hsc-rose:hover{border-color:var(–rose-b)}
+.hsc-lbl{font-size:0.63rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--te);margin-bottom:0.15rem}
+.hsc-title{font-family:var(--fd);font-size:0.9375rem;font-weight:600;color:var(--t1);line-height:1.2}
+.hsc-desc{font-size:0.75rem;color:var(--t3);font-weight:300;margin-top:0.1rem;line-height:1.4}
+.hsc-arr{margin-left:auto;color:var(--t4);font-size:0.875rem;transition:color 0.2s,transform 0.2s;flex-shrink:0;padding-left:0.375rem}
+.hsc:hover .hsc-arr{color:var(--te);transform:translateX(3px)}
+.hsc-gold:hover{border-color:var(--gold-b)}
+.hsc-gold:hover .hsc-lbl{color:var(--tg)}
+.hsc-gold:hover .hsc-arr{color:var(--tg)}
+.hsc-rose:hover{border-color:var(--rose-b)}
 .hsc-rose:hover .hsc-lbl{color:#e08898}
 .hsc-rose:hover .hsc-arr{color:#e08898}
 .hsc-trust{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:0.25rem}
-.hsc-ti{font-size:0.7rem;color:var(–t3);display:flex;align-items:center;gap:0.3rem}
-.hsc-dot{width:0.3rem;height:0.3rem;border-radius:50%;background:var(–sage);flex-shrink:0}
-.hero-felt{font-family:var(–fd);font-style:italic;font-size:clamp(1rem,2.2vw,1.3125rem);color:var(–t3);margin-bottom:2rem;line-height:1.65;max-width:38ch;padding-left:1rem;border-left:2px solid var(–ember-b)}
-.hero-h1{font-family:var(–fd);font-size:clamp(3rem,9vw,6.25rem);font-weight:600;line-height:0.96;letter-spacing:-0.035em;color:var(–t1);margin-bottom:1.25rem}
-.hero-h1 em{font-style:italic;background:var(–gt);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-p{font-size:1.0625rem;color:var(–t2);line-height:1.82;max-width:46ch;margin-bottom:2.25rem}
+.hsc-ti{font-size:0.7rem;color:var(--t3);display:flex;align-items:center;gap:0.3rem}
+.hsc-dot{width:0.3rem;height:0.3rem;border-radius:50%;background:var(--sage);flex-shrink:0}
+.hero-felt{font-family:var(--fd);font-style:italic;font-size:clamp(1rem,2.2vw,1.3125rem);color:var(--t3);margin-bottom:2rem;line-height:1.65;max-width:38ch;padding-left:1rem;border-left:2px solid var(--ember-b)}
+.hero-h1{font-family:var(--fd);font-size:clamp(3rem,9vw,6.25rem);font-weight:600;line-height:0.96;letter-spacing:-0.035em;color:var(--t1);margin-bottom:1.25rem}
+.hero-h1 em{font-style:italic;background:var(--gt);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-p{font-size:1.0625rem;color:var(--t2);line-height:1.82;max-width:46ch;margin-bottom:2.25rem}
 .hero-prompt{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.125rem}
-.hero-prompt-line{height:1px;flex:1;background:var(–bd2)}
-.hero-prompt-text{font-size:0.8rem;color:var(–t3);white-space:nowrap;font-style:italic;font-family:var(–fd)}
-.hero-disclaimer{font-size:0.8rem;color:var(–t4);line-height:1.65;margin-top:1.5rem;padding:0.75rem 1rem;background:rgba(255,200,140,0.03);border:1px solid var(–bd);border-radius:0.75rem;max-width:42ch}
-.hero-disclaimer a{color:var(–t3);text-decoration:underline}
+.hero-prompt-line{height:1px;flex:1;background:var(--bd2)}
+.hero-prompt-text{font-size:0.8rem;color:var(--t3);white-space:nowrap;font-style:italic;font-family:var(--fd)}
+.hero-disclaimer{font-size:0.8rem;color:var(--t4);line-height:1.65;margin-top:1.5rem;padding:0.75rem 1rem;background:rgba(255,200,140,0.03);border:1px solid var(--bd);border-radius:0.75rem;max-width:42ch}
+.hero-disclaimer a{color:var(--t3);text-decoration:underline}
 
 /* HERO DOORS */
 .hero-doors{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1.25rem}
-.hero-door{border-radius:1.125rem;padding:1.375rem;cursor:pointer;border:1px solid;transition:all 0.3s var(–sp);display:flex;flex-direction:column;gap:0.375rem;background:none;font-family:var(–fb);width:100%;text-align:left}
-.door-me{background:var(–ember-s);border-color:var(–ember-b)}
+.hero-door{border-radius:1.125rem;padding:1.375rem;cursor:pointer;border:1px solid;transition:all 0.3s var(--sp);display:flex;flex-direction:column;gap:0.375rem;background:none;font-family:var(--fb);width:100%;text-align:left}
+.door-me{background:var(--ember-s);border-color:var(--ember-b)}
 .door-me:hover{background:rgba(217,95,53,0.16);transform:translateY(-3px);box-shadow:0 14px 36px rgba(217,95,53,0.2)}
-.door-pro{background:var(–sage-s);border-color:var(–sage-b)}
+.door-pro{background:var(--sage-s);border-color:var(--sage-b)}
 .door-pro:hover{background:rgba(122,170,136,0.16);transform:translateY(-3px);box-shadow:0 14px 36px rgba(122,170,136,0.18)}
 .door-icon{font-size:1.5rem;line-height:1}
 .door-lbl{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase}
-.door-me .door-lbl{color:var(–te)}.door-pro .door-lbl{color:var(–sage)}
-.door-title{font-family:var(–fd);font-size:1.0625rem;font-weight:600;color:var(–t1);line-height:1.2}
+.door-me .door-lbl{color:var(--te)}.door-pro .door-lbl{color:var(--sage)}
+.door-title{font-family:var(--fd);font-size:1.0625rem;font-weight:600;color:var(--t1);line-height:1.2}
 .door-sub{font-size:0.78rem;line-height:1.5}
 .door-me .door-sub{color:rgba(244,160,122,0.65)}.door-pro .door-sub{color:rgba(122,170,136,0.65)}
 .door-cta{font-size:0.78rem;font-weight:700;margin-top:0.25rem}
-.door-me .door-cta{color:var(–te)}.door-pro .door-cta{color:var(–sage)}
+.door-me .door-cta{color:var(--te)}.door-pro .door-cta{color:var(--sage)}
 
 /* TOOL MATCHER */
-.matcher{padding:4rem 0 5rem;background:var(–bg);position:relative;z-index:1}
+.matcher{padding:4rem 0 5rem;background:var(--bg);position:relative;z-index:1}
 .matcher-grid{display:grid;gap:1rem}
 @media(min-width:720px){.matcher-grid{grid-template-columns:repeat(3,1fr)}}
 
-.mcard{border-radius:1.375rem;overflow:hidden;border:1px solid var(–bd2);background:var(–gc);display:flex;flex-direction:column;transition:transform 0.35s var(–sp),box-shadow 0.35s,border-color 0.25s;cursor:pointer}
+.mcard{border-radius:1.375rem;overflow:hidden;border:1px solid var(--bd2);background:var(--gc);display:flex;flex-direction:column;transition:transform 0.35s var(--sp),box-shadow 0.35s,border-color 0.25s;cursor:pointer}
 .mcard:hover{transform:translateY(-6px)}
-.mcard-ember:hover{border-color:var(–ember-b);box-shadow:0 20px 48px rgba(217,95,53,0.18)}
-.mcard-gold:hover{border-color:var(–gold-b);box-shadow:0 20px 48px rgba(232,160,48,0.15)}
-.mcard-rose:hover{border-color:var(–rose-b);box-shadow:0 20px 48px rgba(196,96,122,0.15)}
+.mcard-ember:hover{border-color:var(--ember-b);box-shadow:0 20px 48px rgba(217,95,53,0.18)}
+.mcard-gold:hover{border-color:var(--gold-b);box-shadow:0 20px 48px rgba(232,160,48,0.15)}
+.mcard-rose:hover{border-color:var(--rose-b);box-shadow:0 20px 48px rgba(196,96,122,0.15)}
 
 .mcard-bar{height:3px}
-.mcard-ember .mcard-bar{background:var(–gm)}
+.mcard-ember .mcard-bar{background:var(--gm)}
 .mcard-gold .mcard-bar{background:linear-gradient(135deg,#e8a030,#f5b845)}
 .mcard-rose .mcard-bar{background:linear-gradient(135deg,#c4607a,#d95f35)}
 
 .mcard-top{padding:1.75rem 1.75rem 1.25rem}
 .mcard-icon{font-size:2.25rem;margin-bottom:0.875rem}
 .mcard-num{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem}
-.mcard-ember .mcard-num{color:var(–te)}
-.mcard-gold .mcard-num{color:var(–gold)}
-.mcard-rose .mcard-num{color:var(–rose)}
-.mcard-name{font-family:var(–fd);font-size:1.5rem;font-weight:600;color:var(–t1);line-height:1.15;margin-bottom:0.625rem}
-.mcard-hook{font-size:0.9375rem;color:var(–t2);line-height:1.65}
+.mcard-ember .mcard-num{color:var(--te)}
+.mcard-gold .mcard-num{color:var(--gold)}
+.mcard-rose .mcard-num{color:var(--rose)}
+.mcard-name{font-family:var(--fd);font-size:1.5rem;font-weight:600;color:var(--t1);line-height:1.15;margin-bottom:0.625rem}
+.mcard-hook{font-size:0.9375rem;color:var(--t2);line-height:1.65}
 
-.mcard-fit{padding:1.125rem 1.75rem;background:rgba(255,200,140,0.03);border-top:1px solid var(–bd);border-bottom:1px solid var(–bd);flex:1}
+.mcard-fit{padding:1.125rem 1.75rem;background:rgba(255,200,140,0.03);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);flex:1}
 .mcard-fit-label{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.625rem}
-.mcard-ember .mcard-fit-label{color:var(–te)}
-.mcard-gold .mcard-fit-label{color:var(–gold)}
-.mcard-rose .mcard-fit-label{color:var(–rose)}
+.mcard-ember .mcard-fit-label{color:var(--te)}
+.mcard-gold .mcard-fit-label{color:var(--gold)}
+.mcard-rose .mcard-fit-label{color:var(--rose)}
 .mcard-fits{list-style:none;display:flex;flex-direction:column;gap:0.4rem}
-.mcard-fits li{font-size:0.8375rem;color:var(–t3);display:flex;gap:0.5rem;align-items:flex-start;line-height:1.45}
-.mcard-fits li::before{content:‘→’;font-size:0.7rem;flex-shrink:0;margin-top:0.2rem}
-.mcard-ember .mcard-fits li::before{color:var(–te)}
-.mcard-gold .mcard-fits li::before{color:var(–gold)}
-.mcard-rose .mcard-fits li::before{color:var(–rose)}
+.mcard-fits li{font-size:0.8375rem;color:var(--t3);display:flex;gap:0.5rem;align-items:flex-start;line-height:1.45}
+.mcard-fits li::before{content:'→';font-size:0.7rem;flex-shrink:0;margin-top:0.2rem}
+.mcard-ember .mcard-fits li::before{color:var(--te)}
+.mcard-gold .mcard-fits li::before{color:var(--gold)}
+.mcard-rose .mcard-fits li::before{color:var(--rose)}
 
-.mcard-peek{padding:1.125rem 1.75rem;border-top:1px solid var(–bd)}
-.mcard-peek-label{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;color:var(–t4)}
+.mcard-peek{padding:1.125rem 1.75rem;border-top:1px solid var(--bd)}
+.mcard-peek-label{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;color:var(--t4)}
 .mcard-peek-items{display:flex;flex-wrap:wrap;gap:0.3rem}
-.peek-chip{font-size:0.72rem;padding:0.2rem 0.6rem;border-radius:999px;border:1px solid var(–bd);color:var(–t3);background:rgba(255,200,140,0.03)}
+.peek-chip{font-size:0.72rem;padding:0.2rem 0.6rem;border-radius:999px;border:1px solid var(--bd);color:var(--t3);background:rgba(255,200,140,0.03)}
 
-.mcard-foot{padding:1.25rem 1.75rem;border-top:1px solid var(–bd);background:rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:space-between;gap:0.75rem}
-.mcard-price{font-family:var(–fd);font-size:1.1875rem;font-weight:600;color:var(–tg)}
-.mcard-price small{font-family:var(–fb);font-size:0.75rem;color:var(–t4);font-weight:400;display:block;margin-top:0.1rem}
+.mcard-foot{padding:1.25rem 1.75rem;border-top:1px solid var(--bd);background:rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:space-between;gap:0.75rem}
+.mcard-price{font-family:var(--fd);font-size:1.1875rem;font-weight:600;color:var(--tg)}
+.mcard-price small{font-family:var(--fb);font-size:0.75rem;color:var(--t4);font-weight:400;display:block;margin-top:0.1rem}
 .mcard-cta{font-size:0.8125rem;font-weight:700;display:flex;align-items:center;gap:0.3rem;transition:gap 0.2s}
-.mcard-ember .mcard-cta{color:var(–te)}
-.mcard-gold .mcard-cta{color:var(–gold)}
-.mcard-rose .mcard-cta{color:var(–rose)}
+.mcard-ember .mcard-cta{color:var(--te)}
+.mcard-gold .mcard-cta{color:var(--gold)}
+.mcard-rose .mcard-cta{color:var(--rose)}
 .mcard:hover .mcard-cta{gap:0.5rem}
 
 /* NOT SURE STRIP */
-.not-sure{background:var(–bg2);border-top:1px solid var(–bd);border-bottom:1px solid var(–bd);padding:2.5rem 0;position:relative;z-index:1}
+.not-sure{background:var(--bg2);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:2.5rem 0;position:relative;z-index:1}
 .not-sure-inner{display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
-.not-sure-title{font-family:var(–fd);font-size:1.5rem;font-weight:600;color:var(–t1);margin-bottom:0.375rem}
-.not-sure-p{font-size:0.9rem;color:var(–t3);line-height:1.65;max-width:46ch}
+.not-sure-title{font-family:var(--fd);font-size:1.5rem;font-weight:600;color:var(--t1);margin-bottom:0.375rem}
+.not-sure-p{font-size:0.9rem;color:var(--t3);line-height:1.65;max-width:46ch}
 
 /* THERAPIST */
-.therapist-kicker{display:inline-flex;align-items:center;gap:0.5rem;background:var(–sage-s);border:1px solid var(–sage-b);color:var(–sage);font-size:0.75rem;font-weight:700;padding:0.375rem 0.875rem;border-radius:999px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.25rem}
+.therapist-kicker{display:inline-flex;align-items:center;gap:0.5rem;background:var(--sage-s);border:1px solid var(--sage-b);color:var(--sage);font-size:0.75rem;font-weight:700;padding:0.375rem 0.875rem;border-radius:999px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.25rem}
 .th-grid{display:grid;gap:0.875rem}
 @media(min-width:600px){.th-grid{grid-template-columns:1fr 1fr}}
 @media(min-width:900px){.th-grid{grid-template-columns:repeat(4,1fr)}}
-.th-card{background:rgba(122,170,136,0.05);border:1px solid var(–sage-b);border-radius:1.125rem;padding:1.5rem;transition:all 0.3s var(–sp)}
+.th-card{background:rgba(122,170,136,0.05);border:1px solid var(--sage-b);border-radius:1.125rem;padding:1.5rem;transition:all 0.3s var(--sp)}
 .th-card:hover{background:rgba(122,170,136,0.1);transform:translateY(-3px)}
 .th-icon{font-size:1.5rem;margin-bottom:0.75rem}
-.th-name{font-size:0.9rem;font-weight:700;color:var(–t1);margin-bottom:0.375rem}
-.th-desc{font-size:0.8375rem;color:var(–t3);line-height:1.65}
-.th-pill{display:inline-flex;margin-top:0.75rem;background:rgba(122,170,136,0.1);border:1px solid rgba(122,170,136,0.2);color:var(–sage);font-size:0.72rem;font-weight:700;padding:0.2rem 0.625rem;border-radius:999px}
+.th-name{font-size:0.9rem;font-weight:700;color:var(--t1);margin-bottom:0.375rem}
+.th-desc{font-size:0.8375rem;color:var(--t3);line-height:1.65}
+.th-pill{display:inline-flex;margin-top:0.75rem;background:rgba(122,170,136,0.1);border:1px solid rgba(122,170,136,0.2);color:var(--sage);font-size:0.72rem;font-weight:700;padding:0.2rem 0.625rem;border-radius:999px}
 
 /* Printable pack card */
-.printable-card{background:linear-gradient(135deg,rgba(122,170,136,0.1),rgba(90,154,106,0.05));border:1px solid var(–sage-b);border-radius:1.25rem;padding:2rem}
-.printable-price{font-family:var(–fd);font-size:3rem;font-weight:600;color:var(–t1);line-height:1}
-.printable-unit{font-family:var(–fb);font-size:0.9375rem;color:var(–sage);font-weight:400}
-.printable-sub{font-size:0.8rem;color:var(–t3);margin:0.5rem 0 1.25rem}
+.printable-card{background:linear-gradient(135deg,rgba(122,170,136,0.1),rgba(90,154,106,0.05));border:1px solid var(--sage-b);border-radius:1.25rem;padding:2rem}
+.printable-price{font-family:var(--fd);font-size:3rem;font-weight:600;color:var(--t1);line-height:1}
+.printable-unit{font-family:var(--fb);font-size:0.9375rem;color:var(--sage);font-weight:400}
+.printable-sub{font-size:0.8rem;color:var(--t3);margin:0.5rem 0 1.25rem}
 .printable-feats{list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.75rem}
-.printable-feats li{font-size:0.875rem;color:var(–t2);display:flex;gap:0.5rem;align-items:flex-start}
-.printable-feats li::before{content:‘✓’;color:var(–sage);font-weight:700;flex-shrink:0}
+.printable-feats li{font-size:0.875rem;color:var(--t2);display:flex;gap:0.5rem;align-items:flex-start}
+.printable-feats li::before{content:'✓';color:var(--sage);font-weight:700;flex-shrink:0}
 
-.bonus{background:linear-gradient(135deg,rgba(232,160,48,0.09),rgba(217,95,53,0.07));border:1px solid var(–gold-b);border-radius:1.125rem;padding:1.5rem}
+.bonus{background:linear-gradient(135deg,rgba(232,160,48,0.09),rgba(217,95,53,0.07));border:1px solid var(--gold-b);border-radius:1.125rem;padding:1.5rem}
 .bonus-icon{font-size:1.5rem;margin-bottom:0.75rem}
-.bonus-title{font-size:0.9375rem;font-weight:700;color:var(–t1);margin-bottom:0.375rem}
-.bonus-text{font-size:0.875rem;color:var(–t2);line-height:1.65;margin-bottom:1.125rem}
-.bonus-hl{color:var(–tg);font-weight:700}
+.bonus-title{font-size:0.9375rem;font-weight:700;color:var(--t1);margin-bottom:0.375rem}
+.bonus-text{font-size:0.875rem;color:var(--t2);line-height:1.65;margin-bottom:1.125rem}
+.bonus-hl{color:var(--tg);font-weight:700}
 
 .th-bottom{display:grid;gap:1rem;margin-top:1.5rem}
 @media(min-width:640px){.th-bottom{grid-template-columns:1fr 1fr;align-items:start}}
@@ -261,120 +260,120 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.55)}
 @media(min-width:540px){.blog-grid{grid-template-columns:1fr 1fr}}
 @media(min-width:900px){.blog-grid{grid-template-columns:repeat(3,1fr)}}
 
-.blog-card{background:var(–gc);border:1px solid var(–bd);border-radius:1.25rem;overflow:hidden;transition:transform 0.35s var(–sp),border-color 0.25s,box-shadow 0.35s;cursor:pointer;display:flex;flex-direction:column}
+.blog-card{background:var(--gc);border:1px solid var(--bd);border-radius:1.25rem;overflow:hidden;transition:transform 0.35s var(--sp),border-color 0.25s,box-shadow 0.35s;cursor:pointer;display:flex;flex-direction:column}
 .blog-card:hover{transform:translateY(-5px)}
-.blog-card-ember:hover{border-color:var(–ember-b);box-shadow:0 16px 40px rgba(217,95,53,0.15)}
-.blog-card-gold:hover{border-color:var(–gold-b);box-shadow:0 16px 40px rgba(232,160,48,0.12)}
-.blog-card-rose:hover{border-color:var(–rose-b);box-shadow:0 16px 40px rgba(196,96,122,0.12)}
+.blog-card-ember:hover{border-color:var(--ember-b);box-shadow:0 16px 40px rgba(217,95,53,0.15)}
+.blog-card-gold:hover{border-color:var(--gold-b);box-shadow:0 16px 40px rgba(232,160,48,0.12)}
+.blog-card-rose:hover{border-color:var(--rose-b);box-shadow:0 16px 40px rgba(196,96,122,0.12)}
 
 .blog-bar{height:2px}
-.blog-card-ember .blog-bar{background:var(–gm)}
+.blog-card-ember .blog-bar{background:var(--gm)}
 .blog-card-gold .blog-bar{background:linear-gradient(90deg,#e8a030,#f5b845)}
 .blog-card-rose .blog-bar{background:linear-gradient(90deg,#c4607a,#d95f35)}
 
 .blog-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
 .blog-tag{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.625rem;display:block}
-.bt-ember{color:var(–te)}.bt-gold{color:var(–gold)}.bt-rose{color:var(–rose)}
-.blog-title{font-family:var(–fd);font-size:1.1875rem;font-weight:600;color:var(–t1);line-height:1.3;margin-bottom:0.625rem}
-.blog-snip{font-size:0.875rem;color:var(–t3);line-height:1.68;flex:1;margin-bottom:1.125rem}
-.blog-hook{font-size:0.8125rem;font-weight:700;font-style:italic;font-family:var(–fd);margin-bottom:1.125rem;line-height:1.5}
-.blog-hook-ember{color:var(–te)}.blog-hook-gold{color:var(–tg)}.blog-hook-rose{color:var(–rose)}
-.blog-foot{display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(–bd)}
+.bt-ember{color:var(--te)}.bt-gold{color:var(--gold)}.bt-rose{color:var(--rose)}
+.blog-title{font-family:var(--fd);font-size:1.1875rem;font-weight:600;color:var(--t1);line-height:1.3;margin-bottom:0.625rem}
+.blog-snip{font-size:0.875rem;color:var(--t3);line-height:1.68;flex:1;margin-bottom:1.125rem}
+.blog-hook{font-size:0.8125rem;font-weight:700;font-style:italic;font-family:var(--fd);margin-bottom:1.125rem;line-height:1.5}
+.blog-hook-ember{color:var(--te)}.blog-hook-gold{color:var(--tg)}.blog-hook-rose{color:var(--rose)}
+.blog-foot{display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--bd)}
 .blog-read{font-size:0.8rem;font-weight:700;display:flex;align-items:center;gap:0.35rem;transition:gap 0.2s}
-.bt-ember.blog-read{color:var(–te)}.bt-gold.blog-read{color:var(–tg)}.bt-rose.blog-read{color:var(–rose)}
+.bt-ember.blog-read{color:var(--te)}.bt-gold.blog-read{color:var(--tg)}.bt-rose.blog-read{color:var(--rose)}
 .blog-card:hover .blog-read{gap:0.55rem}
-.blog-app-pill{font-size:0.68rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:999px;border:1px solid var(–bd)}
-.pill-ember{color:var(–te);border-color:var(–ember-b);background:var(–ember-s)}
-.pill-gold{color:var(–gold);border-color:var(–gold-b);background:var(–gold-s)}
-.pill-rose{color:var(–rose);border-color:var(–rose-b);background:var(–rose-s)}
+.blog-app-pill{font-size:0.68rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:999px;border:1px solid var(--bd)}
+.pill-ember{color:var(--te);border-color:var(--ember-b);background:var(--ember-s)}
+.pill-gold{color:var(--gold);border-color:var(--gold-b);background:var(--gold-s)}
+.pill-rose{color:var(--rose);border-color:var(--rose-b);background:var(--rose-s)}
 
 /* ABOUT */
 .about-grid{display:grid;gap:2.5rem}
 @media(min-width:720px){.about-grid{grid-template-columns:1fr 1fr;align-items:center}}
-.about-card{background:var(–gc);border:1px solid var(–bd);border-radius:1.25rem;padding:2rem;position:relative;overflow:hidden}
-.about-card::before{content:’’;position:absolute;top:0;left:0;right:0;height:2px;background:var(–gm)}
-.about-av{width:3.75rem;height:3.75rem;border-radius:0.875rem;background:var(–gm);display:flex;align-items:center;justify-content:center;font-family:var(–fd);font-size:1.75rem;font-weight:600;color:var(–t1);margin-bottom:1.125rem;box-shadow:var(–sh)}
-.about-name{font-family:var(–fd);font-size:1.375rem;font-weight:600;color:var(–t1);margin-bottom:0.2rem}
-.about-title{font-size:0.8125rem;color:var(–te);font-weight:600;margin-bottom:1.25rem}
-.about-q{font-family:var(–fd);font-style:italic;font-size:0.9375rem;color:var(–t2);line-height:1.72;border-left:2px solid var(–ember-b);padding-left:1rem;margin-bottom:1.25rem}
+.about-card{background:var(--gc);border:1px solid var(--bd);border-radius:1.25rem;padding:2rem;position:relative;overflow:hidden}
+.about-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gm)}
+.about-av{width:3.75rem;height:3.75rem;border-radius:0.875rem;background:var(--gm);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1.75rem;font-weight:600;color:var(--t1);margin-bottom:1.125rem;box-shadow:var(--sh)}
+.about-name{font-family:var(--fd);font-size:1.375rem;font-weight:600;color:var(--t1);margin-bottom:0.2rem}
+.about-title{font-size:0.8125rem;color:var(--te);font-weight:600;margin-bottom:1.25rem}
+.about-q{font-family:var(--fd);font-style:italic;font-size:0.9375rem;color:var(--t2);line-height:1.72;border-left:2px solid var(--ember-b);padding-left:1rem;margin-bottom:1.25rem}
 .about-chips{display:flex;flex-wrap:wrap;gap:0.375rem}
-.about-chip{font-size:0.72rem;color:var(–t3);background:rgba(255,200,140,0.04);border:1px solid var(–bd);border-radius:999px;padding:0.2rem 0.625rem}
-.about-text p{font-size:0.9375rem;color:var(–t2);line-height:1.82;margin-bottom:0.875rem}
+.about-chip{font-size:0.72rem;color:var(--t3);background:rgba(255,200,140,0.04);border:1px solid var(--bd);border-radius:999px;padding:0.2rem 0.625rem}
+.about-text p{font-size:0.9375rem;color:var(--t2);line-height:1.82;margin-bottom:0.875rem}
 .about-text p:last-child{margin-bottom:0}
-.phil-block{margin-top:1.75rem;padding:1.25rem;background:var(–ember-s);border:1px solid var(–ember-b);border-radius:0.875rem}
-.phil-lbl{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(–te);margin-bottom:0.5rem}
-.phil-text{font-family:var(–fd);font-style:italic;font-size:0.9375rem;color:var(–t2);line-height:1.72}
+.phil-block{margin-top:1.75rem;padding:1.25rem;background:var(--ember-s);border:1px solid var(--ember-b);border-radius:0.875rem}
+.phil-lbl{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--te);margin-bottom:0.5rem}
+.phil-text{font-family:var(--fd);font-style:italic;font-size:0.9375rem;color:var(--t2);line-height:1.72}
 
 /* CRISIS */
 .crisis{background:#2a1410;border-top:2px solid rgba(220,80,70,0.4);border-bottom:2px solid rgba(220,80,70,0.4);padding:1rem 0;position:relative;z-index:1}
 .crisis-inner{display:flex;align-items:center;justify-content:center;gap:0.75rem;flex-wrap:wrap}
 .crisis-icon{font-size:1.5rem;flex-shrink:0;line-height:1;display:flex;align-items:center}
-.crisis-text{font-size:0.9375rem;color:var(–t2);line-height:1.55;text-align:center}
-.crisis-text strong{color:var(–t1);font-weight:700}
+.crisis-text{font-size:0.9375rem;color:var(--t2);line-height:1.55;text-align:center}
+.crisis-text strong{color:var(--t1);font-weight:700}
 .crisis-text a{color:#ffb09c;text-decoration:underline;text-underline-offset:2px}
 
 /* FINAL */
-.final{padding:6rem 0 7rem;background:var(–bg);text-align:center;isolation:isolate;position:relative;overflow:hidden}
-.final-h2{font-family:var(–fd);font-size:clamp(2.5rem,7vw,5rem);font-weight:600;line-height:1;letter-spacing:-0.03em;color:var(–t1);margin-bottom:1.125rem}
-.final-h2 em{font-style:italic;background:var(–gt);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.final-p{font-size:1rem;color:var(–t2);line-height:1.78;max-width:34ch;margin:0 auto 2rem}
+.final{padding:6rem 0 7rem;background:var(--bg);text-align:center;isolation:isolate;position:relative;overflow:hidden}
+.final-h2{font-family:var(--fd);font-size:clamp(2.5rem,7vw,5rem);font-weight:600;line-height:1;letter-spacing:-0.03em;color:var(--t1);margin-bottom:1.125rem}
+.final-h2 em{font-style:italic;background:var(--gt);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.final-p{font-size:1rem;color:var(--t2);line-height:1.78;max-width:34ch;margin:0 auto 2rem}
 .trust-row{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-top:1.25rem}
-.ti{display:flex;align-items:center;gap:0.35rem;font-size:0.78rem;color:var(–t3)}
-.ti svg{width:0.75rem;height:0.75rem;color:var(–sage)}
+.ti{display:flex;align-items:center;gap:0.35rem;font-size:0.78rem;color:var(--t3)}
+.ti svg{width:0.75rem;height:0.75rem;color:var(--sage)}
 
 /* FOOTER */
-footer{background:#0d0906;border-top:1px solid var(–bd);padding:2.5rem 0;padding-bottom:calc(2.5rem + env(safe-area-inset-bottom,0px));position:relative;z-index:2;margin-bottom:0}
+footer{background:#0d0906;border-top:1px solid var(--bd);padding:2.5rem 0;padding-bottom:calc(2.5rem + env(safe-area-inset-bottom,0px));position:relative;z-index:2;margin-bottom:0}
 .footer-grid{display:grid;gap:2rem}
 @media(min-width:540px){.footer-grid{grid-template-columns:1.5fr 1fr 1fr}}
-.footer-logo{font-family:var(–fd);font-size:1.375rem;font-weight:600;color:var(–t1);margin-bottom:0.625rem}
-.footer-logo em{font-style:italic;color:var(–te)}
-.footer-tag{font-size:0.8rem;color:var(–t3);line-height:1.65;max-width:24ch}
-.footer-col-h{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(–t2);margin-bottom:0.875rem}
+.footer-logo{font-family:var(--fd);font-size:1.375rem;font-weight:600;color:var(--t1);margin-bottom:0.625rem}
+.footer-logo em{font-style:italic;color:var(--te)}
+.footer-tag{font-size:0.8rem;color:var(--t3);line-height:1.65;max-width:24ch}
+.footer-col-h{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t2);margin-bottom:0.875rem}
 .footer-links{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
-.footer-links a{font-size:0.875rem;color:var(–t3);transition:color 0.2s}
-.footer-links a:hover{color:var(–te)}
-.footer-bottom{margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(–bd);display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:space-between;align-items:flex-start}
-.footer-copy{font-size:0.75rem;color:var(–t3)}
-.footer-legal{font-size:0.72rem;color:var(–t3);max-width:50ch;line-height:1.6}
+.footer-links a{font-size:0.875rem;color:var(--t3);transition:color 0.2s}
+.footer-links a:hover{color:var(--te)}
+.footer-bottom{margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--bd);display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:space-between;align-items:flex-start}
+.footer-copy{font-size:0.75rem;color:var(--t3)}
+.footer-legal{font-size:0.72rem;color:var(--t3);max-width:50ch;line-height:1.6}
 
 /* THERAPIST SERVICES */
 .th-services-grid{display:grid;gap:1.25rem}
 @media(min-width:720px){.th-services-grid{grid-template-columns:1fr 1fr}}
-.th-service-card{border-radius:1.375rem;overflow:hidden;display:flex;flex-direction:column;border:1px solid var(–bd2);background:var(–gc);transition:transform 0.35s var(–sp),box-shadow 0.35s}
+.th-service-card{border-radius:1.375rem;overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--bd2);background:var(--gc);transition:transform 0.35s var(--sp),box-shadow 0.35s}
 .th-service-card:hover{transform:translateY(-4px)}
-.th-service-sage:hover{border-color:var(–sage-b);box-shadow:0 20px 48px rgba(122,170,136,0.15)}
-.th-service-ember:hover{border-color:var(–ember-b);box-shadow:0 20px 48px rgba(217,95,53,0.15)}
-.th-service-top{padding:1.75rem 1.75rem 1.25rem;border-bottom:1px solid var(–bd)}
+.th-service-sage:hover{border-color:var(--sage-b);box-shadow:0 20px 48px rgba(122,170,136,0.15)}
+.th-service-ember:hover{border-color:var(--ember-b);box-shadow:0 20px 48px rgba(217,95,53,0.15)}
+.th-service-top{padding:1.75rem 1.75rem 1.25rem;border-bottom:1px solid var(--bd)}
 .th-service-sage .th-service-top{background:linear-gradient(135deg,rgba(122,170,136,0.1),transparent)}
 .th-service-ember .th-service-top{background:linear-gradient(135deg,rgba(217,95,53,0.08),transparent)}
 .th-service-icon{font-size:2rem;margin-bottom:0.75rem}
 .th-service-label{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem}
-.th-service-sage .th-service-label{color:var(–sage)}
-.th-service-ember .th-service-label{color:var(–te)}
-.th-service-name{font-family:var(–fd);font-size:1.625rem;font-weight:600;color:var(–t1);line-height:1.15;margin-bottom:0.625rem}
-.th-service-hook{font-size:0.9rem;color:var(–t2);line-height:1.65}
+.th-service-sage .th-service-label{color:var(--sage)}
+.th-service-ember .th-service-label{color:var(--te)}
+.th-service-name{font-family:var(--fd);font-size:1.625rem;font-weight:600;color:var(--t1);line-height:1.15;margin-bottom:0.625rem}
+.th-service-hook{font-size:0.9rem;color:var(--t2);line-height:1.65}
 .th-service-body{padding:1.5rem 1.75rem;flex:1;display:flex;flex-direction:column;gap:1.25rem}
 .th-service-feats{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
-.th-service-feats li{font-size:0.875rem;color:var(–t2);display:flex;gap:0.625rem;align-items:flex-start;line-height:1.5}
-.th-service-feats li::before{content:”\2713”;font-weight:700;flex-shrink:0;font-size:0.75rem;margin-top:0.175rem}
-.th-service-sage .th-service-feats li::before{color:var(–sage)}
-.th-service-ember .th-service-feats li::before{color:var(–te)}
+.th-service-feats li{font-size:0.875rem;color:var(--t2);display:flex;gap:0.625rem;align-items:flex-start;line-height:1.5}
+.th-service-feats li::before{content:"\2713";font-weight:700;flex-shrink:0;font-size:0.75rem;margin-top:0.175rem}
+.th-service-sage .th-service-feats li::before{color:var(--sage)}
+.th-service-ember .th-service-feats li::before{color:var(--te)}
 .th-service-options{display:flex;flex-direction:column;gap:0.625rem}
-.th-option{background:rgba(122,170,136,0.05);border:1px solid var(–sage-b);border-radius:0.875rem;padding:1rem}
-.th-option-name{font-size:0.9rem;font-weight:700;color:var(–t1);margin-bottom:0.25rem}
-.th-option-desc{font-size:0.8125rem;color:var(–t3);line-height:1.6;margin-bottom:0.5rem}
-.th-option-gift{font-size:0.72rem;color:var(–sage);font-weight:700}
-.th-feel-note{background:var(–ember-s);border:1px solid var(–ember-b);border-radius:0.875rem;padding:1.125rem}
-.th-feel-note-label{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(–te);margin-bottom:0.5rem}
-.th-feel-note-text{font-size:0.8375rem;color:var(–t2);line-height:1.65;margin-bottom:0.625rem}
-.th-feel-note-text strong{color:var(–t1)}
-.th-feel-link{font-size:0.8rem;font-weight:700;color:var(–te);display:inline-flex;align-items:center;gap:0.3rem}
-.th-service-foot{padding:1.25rem 1.75rem;border-top:1px solid var(–bd);background:rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:space-between;gap:0.75rem;flex-wrap:wrap}
-.th-service-price{font-family:var(–fd);font-size:1.5rem;font-weight:600;color:var(–tg)}
-.th-service-price small{font-family:var(–fb);font-size:0.75rem;color:var(–t4);font-weight:400;display:block;margin-top:0.1rem}
+.th-option{background:rgba(122,170,136,0.05);border:1px solid var(--sage-b);border-radius:0.875rem;padding:1rem}
+.th-option-name{font-size:0.9rem;font-weight:700;color:var(--t1);margin-bottom:0.25rem}
+.th-option-desc{font-size:0.8125rem;color:var(--t3);line-height:1.6;margin-bottom:0.5rem}
+.th-option-gift{font-size:0.72rem;color:var(--sage);font-weight:700}
+.th-feel-note{background:var(--ember-s);border:1px solid var(--ember-b);border-radius:0.875rem;padding:1.125rem}
+.th-feel-note-label{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--te);margin-bottom:0.5rem}
+.th-feel-note-text{font-size:0.8375rem;color:var(--t2);line-height:1.65;margin-bottom:0.625rem}
+.th-feel-note-text strong{color:var(--t1)}
+.th-feel-link{font-size:0.8rem;font-weight:700;color:var(--te);display:inline-flex;align-items:center;gap:0.3rem}
+.th-service-foot{padding:1.25rem 1.75rem;border-top:1px solid var(--bd);background:rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:space-between;gap:0.75rem;flex-wrap:wrap}
+.th-service-price{font-family:var(--fd);font-size:1.5rem;font-weight:600;color:var(--tg)}
+.th-service-price small{font-family:var(--fb);font-size:0.75rem;color:var(--t4);font-weight:400;display:block;margin-top:0.1rem}
 
 /* REVEAL */
-.r{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s var(–sm);will-change:opacity,transform}
+.r{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s var(--sm);will-change:opacity,transform}
 .r.in{opacity:1;transform:none;will-change:auto}
 .r.d1{transition-delay:0.1s}.r.d2{transition-delay:0.2s}.r.d3{transition-delay:0.3s}
 
@@ -382,13 +381,11 @@ footer{background:#0d0906;border-top:1px solid var(–bd);padding:2.5rem 0;paddi
 @media(max-width:760px){body{padding-bottom:0}.bottom-bar{display:flex}.nav-links,.nav-pill,.nav-cta{display:none}.nav-burger{display:flex}}
 @media(min-width:761px){.bottom-bar{display:none !important}}
 @media(max-width:460px){.hero-doors{grid-template-columns:1fr}.not-sure-inner{flex-direction:column}.footer-bottom{flex-direction:column}}
-</style>
-
+  </style>
 </head>
 <body>
 
 <!-- NAV -->
-
 <nav id="nav">
   <div class="nav-inner">
     <a href="/" class="logo">
@@ -424,7 +421,6 @@ footer{background:#0d0906;border-top:1px solid var(–bd);padding:2.5rem 0;paddi
 </nav>
 
 <!-- MOBILE DRAWER -->
-
 <div class="mobile-drawer" id="mobile-drawer">
   <div class="drawer-backdrop" onclick="closeDrawer()"></div>
   <div class="drawer-panel">
@@ -463,59 +459,58 @@ footer{background:#0d0906;border-top:1px solid var(–bd);padding:2.5rem 0;paddi
 </div>
 
 <!-- HERO -->
-
 <section class="hero">
   <div class="hero-glow"></div>
   <div class="w">
     <div class="hero-inner">
       <div class="hero-left">
-      <p class="hero-felt r">
-        You&rsquo;ve tried to understand yourself.<br>
-        Maybe you&rsquo;ve done therapy. Read the books.<br>
-        Something is still not quite clicking.
-      </p>
-      <h1 class="hero-h1 r">
-        Come home<br>to <em>yourself.</em>
-      </h1>
-      <p class="hero-p r">
-        Three independent tools built by a licensed therapist in New York.
-        Each one is designed for a different moment in your life.
-        Find the one that&rsquo;s right for where you are right now.
-      </p>
-      <div class="hero-prompt r">
-        <div class="hero-prompt-line"></div>
-        <span class="hero-prompt-text">Which one is you?</span>
-        <div class="hero-prompt-line"></div>
-      </div>
-      <div class="hero-doors r">
-        <button class="hero-door door-me" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">
-          <div class="door-icon">🙋</div>
-          <div class="door-lbl">For me</div>
-          <div class="door-title">I want to understand myself.</div>
-          <div class="door-sub">Three self-guided tools built by a licensed therapist. Go deep on one emotion, find your values, or understand how you love.</div>
-          <div class="door-cta">Show me the tools &rarr;</div>
-        </button>
-        <button class="hero-door door-pro" onclick="document.getElementById('therapists').scrollIntoView({behavior:'smooth'})">
-          <div class="door-icon">🧑‍⚕️</div>
-          <div class="door-lbl">I&rsquo;m a therapist</div>
-          <div class="door-title">A website that earns trust before they call.</div>
-          <div class="door-sub">Custom-built therapy websites — written by a clinician. Plus a printable worksheet library for between sessions.</div>
-          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.5rem">
-            <span style="font-size:0.68rem;font-weight:700;color:var(--sage);background:rgba(122,170,136,0.12);border:1px solid rgba(122,170,136,0.25);border-radius:999px;padding:0.15rem 0.6rem">Websites from $1,800</span>
-            <span style="font-size:0.68rem;font-weight:700;color:rgba(122,170,136,0.7);background:rgba(122,170,136,0.07);border:1px solid rgba(122,170,136,0.15);border-radius:999px;padding:0.15rem 0.6rem">Worksheets $19/mo</span>
-          </div>
-          <div class="door-cta">See both services &rarr;</div>
-        </button>
-      </div>
-      <div class="hero-disclaimer r">
-        Wellovie is a self-guided educational tool &mdash; designed to be used on your own or alongside therapy.
-        If you&rsquo;re in a mental health crisis, please <a href="https://988lifeline.org" target="_blank" rel="noopener">call or text 988</a>.
-      </div>
+        <p class="hero-felt r">
+          You&rsquo;ve tried to understand yourself.<br>
+          Maybe you&rsquo;ve done therapy. Read the books.<br>
+          Something is still not quite clicking.
+        </p>
+        <h1 class="hero-h1 r">
+          Come home<br>to <em>yourself.</em>
+        </h1>
+        <p class="hero-p r">
+          Three independent tools built by a licensed therapist in New York.
+          Each one is designed for a different moment in your life.
+          Find the one that&rsquo;s right for where you are right now.
+        </p>
+        <div class="hero-prompt r">
+          <div class="hero-prompt-line"></div>
+          <span class="hero-prompt-text">Which one is you?</span>
+          <div class="hero-prompt-line"></div>
+        </div>
+        <div class="hero-doors r">
+          <button class="hero-door door-me" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">
+            <div class="door-icon">🙋</div>
+            <div class="door-lbl">For me</div>
+            <div class="door-title">I want to understand myself.</div>
+            <div class="door-sub">Three self-guided tools built by a licensed therapist. Go deep on one emotion, find your values, or understand how you love.</div>
+            <div class="door-cta">Show me the tools &rarr;</div>
+          </button>
+          <button class="hero-door door-pro" onclick="document.getElementById('therapists').scrollIntoView({behavior:'smooth'})">
+            <div class="door-icon">🧑‍⚕️</div>
+            <div class="door-lbl">I&rsquo;m a therapist</div>
+            <div class="door-title">A website that earns trust before they call.</div>
+            <div class="door-sub">Custom-built therapy websites — written by a clinician. Plus a printable worksheet library for between sessions.</div>
+            <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.5rem">
+              <span style="font-size:0.68rem;font-weight:700;color:var(--sage);background:rgba(122,170,136,0.12);border:1px solid rgba(122,170,136,0.25);border-radius:999px;padding:0.15rem 0.6rem">Websites from $1,800</span>
+              <span style="font-size:0.68rem;font-weight:700;color:rgba(122,170,136,0.7);background:rgba(122,170,136,0.07);border:1px solid rgba(122,170,136,0.15);border-radius:999px;padding:0.15rem 0.6rem">Worksheets $19/mo</span>
+            </div>
+            <div class="door-cta">See both services &rarr;</div>
+          </button>
+        </div>
+        <div class="hero-disclaimer r">
+          Wellovie is a self-guided educational tool &mdash; designed to be used on your own or alongside therapy.
+          If you&rsquo;re in a mental health crisis, please <a href="https://988lifeline.org" target="_blank" rel="noopener">call or text 988</a>.
+        </div>
       </div><!-- /hero-left -->
       <div class="hero-right r d2">
-        <a href="#tools" class="hsc"><span class="hsc-icon">&#128293;</span><div style="flex:1"><div class="hsc-lbl">Wellovie Feel</div><div class="hsc-title">20-week emotional deep dives</div><div class="hsc-desc">Go deep into one emotion at a time &mdash; anger, grief, shame &amp; more.</div></div><span class="hsc-arr">&#8594;</span></a>
-        <a href="#tools" class="hsc hsc-gold"><span class="hsc-icon">&#129517;</span><div style="flex:1"><div class="hsc-lbl" style="color:var(--tg)">Wellovie Find</div><div class="hsc-title">Match with the right therapist</div><div class="hsc-desc">For the moments when self-guided isn&rsquo;t enough.</div></div><span class="hsc-arr">&#8594;</span></a>
-        <a href="#tools" class="hsc hsc-rose"><span class="hsc-icon">&#128161;</span><div style="flex:1"><div class="hsc-lbl" style="color:#e08898">Wellovie Know</div><div class="hsc-title">Understand what you&rsquo;re feeling</div><div class="hsc-desc">A reference for when you can&rsquo;t find the words.</div></div><span class="hsc-arr">&#8594;</span></a>
+        <a href="#tools" class="hsc"><span class="hsc-icon">🔥</span><div style="flex:1"><div class="hsc-lbl">Wellovie Feel</div><div class="hsc-title">20-week emotional deep dives</div><div class="hsc-desc">Go deep into one emotion at a time &mdash; anger, grief, shame &amp; more.</div></div><span class="hsc-arr">→</span></a>
+        <a href="#tools" class="hsc hsc-gold"><span class="hsc-icon">🧑‍🤝‍🧑</span><div style="flex:1"><div class="hsc-lbl" style="color:var(--tg)">Wellovie Find</div><div class="hsc-title">Match with the right therapist</div><div class="hsc-desc">For the moments when self-guided isn&rsquo;t enough.</div></div><span class="hsc-arr">→</span></a>
+        <a href="#tools" class="hsc hsc-rose"><span class="hsc-icon">💡</span><div style="flex:1"><div class="hsc-lbl" style="color:#e08898">Wellovie Know</div><div class="hsc-title">Understand what you&rsquo;re feeling</div><div class="hsc-desc">A reference for when you can&rsquo;t find the words.</div></div><span class="hsc-arr">→</span></a>
         <div class="hsc-trust"><span class="hsc-ti"><span class="hsc-dot"></span>Free to start</span><span class="hsc-ti"><span class="hsc-dot"></span>No App Store</span><span class="hsc-ti"><span class="hsc-dot"></span>Works offline</span><span class="hsc-ti"><span class="hsc-dot"></span>Built by a licensed therapist</span></div>
       </div>
     </div>
@@ -523,129 +518,122 @@ footer{background:#0d0906;border-top:1px solid var(–bd);padding:2.5rem 0;paddi
 </section>
 
 <!-- TOOL MATCHER -->
-
 <section id="tools" class="matcher">
   <div class="w">
     <div class="matcher-grid">
-
-```
-  <!-- BETWEEN SESSIONS -->
-  <a href="wellovie-feel.html" class="mcard mcard-ember r" style="text-decoration:none">
-    <div class="mcard-bar"></div>
-    <div class="mcard-top">
-      <div class="mcard-icon">🌀</div>
-      <div class="mcard-num">Wellovie &mdash; Feel</div>
-      <div class="mcard-name">Go 20 weeks deep<br>into one emotion.</div>
-      <div class="mcard-hook">Anxiety. Shame. Grief. Anger. Each has its own full 20-week course. Real depth, not a summary.</div>
-    </div>
-    <div class="mcard-fit">
-      <div class="mcard-fit-label">This is for you if&hellip;</div>
-      <ul class="mcard-fits">
-        <li>One emotion keeps running your life and you want to truly understand it</li>
-        <li>You want worksheets and structured work, not just reading</li>
-        <li>You&rsquo;re in therapy and want something real to do between sessions</li>
-        <li>You want to go 20 weeks deep into one thing instead of skimming twenty</li>
-      </ul>
-    </div>
-    <div class="mcard-peek">
-      <div class="mcard-peek-label">Courses available</div>
-      <div class="mcard-peek-items">
-        <span class="peek-chip">Anxiety</span><span class="peek-chip">Shame</span><span class="peek-chip">Grief</span>
-        <span class="peek-chip">Anger</span><span class="peek-chip">Loneliness</span><span class="peek-chip">Fear</span>
-        <span class="peek-chip">Guilt</span><span class="peek-chip">+ more</span>
-      </div>
-    </div>
-    <div class="mcard-foot">
-      <div class="mcard-price">
-        <div style="display:flex;align-items:baseline;gap:0.375rem">
-          <span>Free to start</span>
+      <!-- BETWEEN SESSIONS -->
+      <a href="wellovie-feel.html" class="mcard mcard-ember r" style="text-decoration:none">
+        <div class="mcard-bar"></div>
+        <div class="mcard-top">
+          <div class="mcard-icon">🌀</div>
+          <div class="mcard-num">Wellovie — Feel</div>
+          <div class="mcard-name">Go 20 weeks deep<br>into one emotion.</div>
+          <div class="mcard-hook">Anxiety. Shame. Grief. Anger. Each has its own full 20-week course. Real depth, not a summary.</div>
         </div>
-        <small>Full access $9.99/mo or $79/yr &mdash; no card needed to begin</small>
-      </div>
-      <div class="mcard-cta">Explore <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    </div>
-  </a>
-
-  <!-- LIFE NAVIGATION ACADEMY -->
-  <a href="wellovie-find.html" class="mcard mcard-gold r d1" style="text-decoration:none">
-    <div class="mcard-bar"></div>
-    <div class="mcard-top">
-      <div class="mcard-num">Wellovie &mdash; Find</div>
-      <div class="mcard-name">Figure out who you are<br>and where you're going.</div>
-      <div class="mcard-name">Wellovie Find</div>
-      <div class="mcard-hook">Self-paced courses for the person who senses there is more of themselves to inhabit — but isn’t sure how to find it.</div>
-    </div>
-    <div class="mcard-fit">
-      <div class="mcard-fit-label">This is for you if&hellip;</div>
-      <ul class="mcard-fits">
-        <li>You feel like you&rsquo;re living someone else&rsquo;s life and aren&rsquo;t sure how you got here</li>
-        <li>You struggle to know what you actually want, apart from what you should want</li>
-        <li>You keep losing yourself in relationships without meaning to</li>
-        <li>You want to understand your identity, not just manage your feelings</li>
-      </ul>
-    </div>
-    <div class="mcard-peek">
-      <div class="mcard-peek-label">Course tracks</div>
-      <div class="mcard-peek-items">
-        <span class="peek-chip">Values Discovery</span><span class="peek-chip">Identity Exploration</span>
-        <span class="peek-chip">Relationships</span><span class="peek-chip">Processing Emotions</span>
-      </div>
-    </div>
-    <div class="mcard-foot">
-      <div class="mcard-price">
-        <div style="display:flex;align-items:baseline;gap:0.375rem">
-          <span>Free to start</span>
+        <div class="mcard-fit">
+          <div class="mcard-fit-label">This is for you if&hellip;</div>
+          <ul class="mcard-fits">
+            <li>One emotion keeps running your life and you want to truly understand it</li>
+            <li>You want worksheets and structured work, not just reading</li>
+            <li>You&rsquo;re in therapy and want something real to do between sessions</li>
+            <li>You want to go 20 weeks deep into one thing instead of skimming twenty</li>
+          </ul>
         </div>
-        <small>Full access $9.99/mo or $79/yr &mdash; no card needed to begin</small>
-      </div>
-      <div class="mcard-cta" style="color:var(--gold)">Explore <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    </div>
-  </a>
-
-  <!-- WELLNESS SCHOOL -->
-  <a href="wellovie-know.html" class="mcard mcard-rose r d2" style="text-decoration:none">
-    <div class="mcard-bar"></div>
-    <div class="mcard-top">
-      <div class="mcard-num">Wellovie &mdash; Know</div>
-      <div class="mcard-name">Understand how your<br>mind actually works.</div>
-      <div class="mcard-name">Wellovie Know</div>
-      <div class="mcard-hook">The real mechanics of thought, emotion, and behavior — drawn from CBT, ACT, and DBT, written for everyday life.</div>
-    </div>
-    <div class="mcard-fit">
-      <div class="mcard-fit-label">This is for you if&hellip;</div>
-      <ul class="mcard-fits">
-        <li>You want to understand the mechanics &mdash; why you think, react, and feel the way you do</li>
-        <li>You&rsquo;ve been told to &ldquo;challenge your thoughts&rdquo; but nobody explained how</li>
-        <li>You want the insight therapy offers without being in therapy right now</li>
-        <li>You learn best by understanding the why before the how</li>
-      </ul>
-    </div>
-    <div class="mcard-peek">
-      <div class="mcard-peek-label">Sample modules</div>
-      <div class="mcard-peek-items">
-        <span class="peek-chip">Thought Patterns</span><span class="peek-chip">Emotional Regulation</span>
-        <span class="peek-chip">Values &amp; Fear</span><span class="peek-chip">Mindfulness</span>
-      </div>
-    </div>
-    <div class="mcard-foot">
-      <div class="mcard-price">
-        <div style="display:flex;align-items:baseline;gap:0.375rem">
-          <span>Free to start</span>
+        <div class="mcard-peek">
+          <div class="mcard-peek-label">Courses available</div>
+          <div class="mcard-peek-items">
+            <span class="peek-chip">Anxiety</span><span class="peek-chip">Shame</span><span class="peek-chip">Grief</span>
+            <span class="peek-chip">Anger</span><span class="peek-chip">Loneliness</span><span class="peek-chip">Fear</span>
+            <span class="peek-chip">Guilt</span><span class="peek-chip">+ more</span>
+          </div>
         </div>
-        <small>Full access $9.99/mo or $79/yr &mdash; no card needed to begin</small>
-      </div>
-      <div class="mcard-cta" style="color:var(--rose)">Explore <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <div class="mcard-foot">
+          <div class="mcard-price">
+            <div style="display:flex;align-items:baseline;gap:0.375rem">
+              <span>Free to start</span>
+            </div>
+            <small>Full access $9.99/mo or $79/yr — no card needed to begin</small>
+          </div>
+          <div class="mcard-cta">Explore <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <!-- LIFE NAVIGATION ACADEMY -->
+      <a href="wellovie-find.html" class="mcard mcard-gold r d1" style="text-decoration:none">
+        <div class="mcard-bar"></div>
+        <div class="mcard-top">
+          <div class="mcard-icon">🧭</div>
+          <div class="mcard-num">Wellovie — Find</div>
+          <div class="mcard-name">Figure out who you are<br>and where you're going.</div>
+          <div class="mcard-hook">Self-paced courses for the person who senses there is more of themselves to inhabit — but isn't sure how to find it.</div>
+        </div>
+        <div class="mcard-fit">
+          <div class="mcard-fit-label">This is for you if&hellip;</div>
+          <ul class="mcard-fits">
+            <li>You feel like you&rsquo;re living someone else&rsquo;s life and aren&rsquo;t sure how you got here</li>
+            <li>You struggle to know what you actually want, apart from what you should want</li>
+            <li>You keep losing yourself in relationships without meaning to</li>
+            <li>You want to understand your identity, not just manage your feelings</li>
+          </ul>
+        </div>
+        <div class="mcard-peek">
+          <div class="mcard-peek-label">Course tracks</div>
+          <div class="mcard-peek-items">
+            <span class="peek-chip">Values Discovery</span><span class="peek-chip">Identity Exploration</span>
+            <span class="peek-chip">Relationships</span><span class="peek-chip">Processing Emotions</span>
+          </div>
+        </div>
+        <div class="mcard-foot">
+          <div class="mcard-price">
+            <div style="display:flex;align-items:baseline;gap:0.375rem">
+              <span>Free to start</span>
+            </div>
+            <small>Full access $9.99/mo or $79/yr — no card needed to begin</small>
+          </div>
+          <div class="mcard-cta" style="color:var(--gold)">Explore <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <!-- WELLNESS SCHOOL -->
+      <a href="wellovie-know.html" class="mcard mcard-rose r d2" style="text-decoration:none">
+        <div class="mcard-bar"></div>
+        <div class="mcard-top">
+          <div class="mcard-icon">🧠</div>
+          <div class="mcard-num">Wellovie — Know</div>
+          <div class="mcard-name">Understand how your<br>mind actually works.</div>
+          <div class="mcard-hook">The real mechanics of thought, emotion, and behavior — drawn from CBT, ACT, and DBT, written for everyday life.</div>
+        </div>
+        <div class="mcard-fit">
+          <div class="mcard-fit-label">This is for you if&hellip;</div>
+          <ul class="mcard-fits">
+            <li>You want to understand the mechanics — why you think, react, and feel the way you do</li>
+            <li>You&rsquo;ve been told to &ldquo;challenge your thoughts&rdquo; but nobody explained how</li>
+            <li>You want the insight therapy offers without being in therapy right now</li>
+            <li>You learn best by understanding the why before the how</li>
+          </ul>
+        </div>
+        <div class="mcard-peek">
+          <div class="mcard-peek-label">Sample modules</div>
+          <div class="mcard-peek-items">
+            <span class="peek-chip">Thought Patterns</span><span class="peek-chip">Emotional Regulation</span>
+            <span class="peek-chip">Values &amp; Fear</span><span class="peek-chip">Mindfulness</span>
+          </div>
+        </div>
+        <div class="mcard-foot">
+          <div class="mcard-price">
+            <div style="display:flex;align-items:baseline;gap:0.375rem">
+              <span>Free to start</span>
+            </div>
+            <small>Full access $9.99/mo or $79/yr — no card needed to begin</small>
+          </div>
+          <div class="mcard-cta" style="color:var(--rose)">Explore <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
     </div>
-  </a>
-
-</div>
-```
-
   </div>
 </section>
 
 <!-- NOT SURE STRIP -->
-
 <div class="not-sure">
   <div class="w">
     <div class="not-sure-inner r">
@@ -665,7 +653,6 @@ footer{background:#0d0906;border-top:1px solid var(–bd);padding:2.5rem 0;paddi
 </div>
 
 <!-- CRISIS -->
-
 <section class="crisis">
   <div class="w">
     <div class="crisis-inner">
@@ -676,7 +663,6 @@ footer{background:#0d0906;border-top:1px solid var(–bd);padding:2.5rem 0;paddi
 </section>
 
 <!-- BLOG -->
-
 <section id="blog" class="sec-alt">
   <div class="w">
     <div class="r" style="margin-bottom:2.5rem">
@@ -685,238 +671,226 @@ footer{background:#0d0906;border-top:1px solid var(–bd);padding:2.5rem 0;paddi
       <p class="lead" style="max-width:46ch">Honest, useful writing on the emotions and patterns that shape your life. No wellness fluff. No advice you&rsquo;ve already heard.</p>
     </div>
 
-```
-<div class="blog-grid">
+    <div class="blog-grid">
+      <!-- Wellovie Feel #1 -->
+      <article class="blog-card blog-card-ember r">
+        <div class="blog-bar"></div>
+        <div class="blog-body">
+          <span class="blog-tag bt-ember">Shame • Wellovie Feel</span>
+          <h3 class="blog-title">Shame Is Not Guilt. The Difference Changes Everything.</h3>
+          <p class="blog-snip">Most people use shame and guilt interchangeably. They are not the same thing. One is about what you did. The other is about who you are. That distinction is the beginning of understanding one of the most powerful emotions we carry.</p>
+          <p class="blog-hook blog-hook-ember">&ldquo;Shame says: I am bad. Guilt says: I did something bad. Only one of those has a way out.&rdquo;</p>
+          <div class="blog-foot">
+            <span class="blog-read bt-ember">Read the article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            <span class="blog-app-pill pill-ember">Wellovie Feel</span>
+          </div>
+        </div>
+      </article>
 
-  <!-- Wellovie Feel #1 -->
-  <article class="blog-card blog-card-ember r">
-    <div class="blog-bar"></div>
-    <div class="blog-body">
-      <span class="blog-tag bt-ember">Shame • Wellovie Feel</span>
-      <h3 class="blog-title">Shame Is Not Guilt. The Difference Changes Everything.</h3>
-      <p class="blog-snip">Most people use shame and guilt interchangeably. They are not the same thing. One is about what you did. The other is about who you are. That distinction is the beginning of understanding one of the most powerful emotions we carry.</p>
-      <p class="blog-hook blog-hook-ember">&ldquo;Shame says: I am bad. Guilt says: I did something bad. Only one of those has a way out.&rdquo;</p>
-      <div class="blog-foot">
-        <span class="blog-read bt-ember">Read the article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        <span class="blog-app-pill pill-ember">Wellovie Feel</span>
-      </div>
+      <!-- Wellovie Feel #2 -->
+      <article class="blog-card blog-card-ember r d1">
+        <div class="blog-bar"></div>
+        <div class="blog-body">
+          <span class="blog-tag bt-ember">Anxiety • Wellovie Feel</span>
+          <h3 class="blog-title">Your Anxiety Is Not Broken. It&rsquo;s Just Misfiring.</h3>
+          <p class="blog-snip">Anxiety evolved to protect you. The problem is it can&rsquo;t always tell the difference between a real threat and an email you&rsquo;ve been avoiding. Understanding what anxiety is actually doing for you is the first step to working with it instead of against it.</p>
+          <p class="blog-hook blog-hook-ember">&ldquo;The goal is not to eliminate anxiety. It&rsquo;s to stop letting it make decisions for you.&rdquo;</p>
+          <div class="blog-foot">
+            <span class="blog-read bt-ember">Read the article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            <span class="blog-app-pill pill-ember">Wellovie Feel</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Academy #1 -->
+      <article class="blog-card blog-card-gold r d2">
+        <div class="blog-bar"></div>
+        <div class="blog-body">
+          <span class="blog-tag bt-gold">Identity • Wellovie Find</span>
+          <h3 class="blog-title">You Don&rsquo;t Know What You Want Because Nobody Ever Asked.</h3>
+          <p class="blog-snip">Most people have spent their whole lives optimizing for what they think they should want — the job, the relationship, the version of success that makes sense to everyone else. No wonder it feels hollow. This is what it looks like to start over from your actual values.</p>
+          <p class="blog-hook blog-hook-gold">&ldquo;Knowing what you want is not selfishness. It is the foundation of being genuinely useful to anyone else.&rdquo;</p>
+          <div class="blog-foot">
+            <span class="blog-read bt-gold">Read the article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            <span class="blog-app-pill pill-gold">Wellovie Find</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Academy #2 -->
+      <article class="blog-card blog-card-gold r">
+        <div class="blog-bar"></div>
+        <div class="blog-body">
+          <span class="blog-tag bt-gold">Relationships • Wellovie Find</span>
+          <h3 class="blog-title">Why You Keep Losing Yourself in Relationships.</h3>
+          <p class="blog-snip">It starts small. You bend your preference here, soften your opinion there. And somewhere along the way you realize you have no idea what you actually think anymore. This pattern has a name, a reason it started, and — importantly — a way through it.</p>
+          <p class="blog-hook blog-hook-gold">&ldquo;You cannot truly connect with someone else until you have somewhere to connect from.&rdquo;</p>
+          <div class="blog-foot">
+            <span class="blog-read bt-gold">Read the article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            <span class="blog-app-pill pill-gold">Wellovie Find</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- School #1 -->
+      <article class="blog-card blog-card-rose r d1">
+        <div class="blog-bar"></div>
+        <div class="blog-body">
+          <span class="blog-tag bt-rose">Thought Patterns • Wellovie Know</span>
+          <h3 class="blog-title">You Are Not Your Thoughts. But Your Thoughts Are Running the Show.</h3>
+          <p class="blog-snip">CBT has been around for fifty years, and for good reason. The relationship between how you think and how you feel is more mechanical than most people realize — which means it&rsquo;s also more changeable than you might think. Here is what that actually looks like in practice.</p>
+          <p class="blog-hook blog-hook-rose">&ldquo;Challenging a thought doesn&rsquo;t mean arguing with it. It means asking whether it&rsquo;s actually true.&rdquo;</p>
+          <div class="blog-foot">
+            <span class="blog-read bt-rose">Read the article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            <span class="blog-app-pill pill-rose">Wellovie Know</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- School #2 -->
+      <article class="blog-card blog-card-rose r d2">
+        <div class="blog-bar"></div>
+        <div class="blog-body">
+          <span class="blog-tag bt-rose">Emotional Regulation • Wellovie Know</span>
+          <h3 class="blog-title">Emotional Regulation Is Not About Staying Calm. It&rsquo;s About Staying You.</h3>
+          <p class="blog-snip">Regulation gets confused with suppression. The goal is not to flatten your emotional life — it&rsquo;s to stay connected to yourself even when feelings are intense. That distinction changes everything about how you practice it and what it actually feels like to get better at it.</p>
+          <p class="blog-hook blog-hook-rose">&ldquo;The opposite of emotional reactivity is not numbness. It is presence.&rdquo;</p>
+          <div class="blog-foot">
+            <span class="blog-read bt-rose">Read the article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            <span class="blog-app-pill pill-rose">Wellovie Know</span>
+          </div>
+        </div>
+      </article>
     </div>
-  </article>
-
-  <!-- Wellovie Feel #2 -->
-  <article class="blog-card blog-card-ember r d1">
-    <div class="blog-bar"></div>
-    <div class="blog-body">
-      <span class="blog-tag bt-ember">Anxiety &bull; Wellovie Feel</span>
-      <h3 class="blog-title">Your Anxiety Is Not Broken. It&rsquo;s Just Misfiring.</h3>
-      <p class="blog-snip">Anxiety evolved to protect you. The problem is it can&rsquo;t always tell the difference between a real threat and an email you&rsquo;ve been avoiding. Understanding what anxiety is actually doing for you is the first step to working with it instead of against it.</p>
-      <p class="blog-hook blog-hook-ember">&ldquo;The goal is not to eliminate anxiety. It&rsquo;s to stop letting it make decisions for you.&rdquo;</p>
-      <div class="blog-foot">
-        <span class="blog-read bt-ember">Read the article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        <span class="blog-app-pill pill-ember">Wellovie Feel</span>
-      </div>
-    </div>
-  </article>
-
-  <!-- Academy #1 -->
-  <article class="blog-card blog-card-gold r d2">
-    <div class="blog-bar"></div>
-    <div class="blog-body">
-      <span class="blog-tag bt-gold">Identity &bull; Wellovie Find</span>
-      <h3 class="blog-title">You Don&rsquo;t Know What You Want Because Nobody Ever Asked.</h3>
-      <p class="blog-snip">Most people have spent their whole lives optimizing for what they think they should want &mdash; the job, the relationship, the version of success that makes sense to everyone else. No wonder it feels hollow. This is what it looks like to start over from your actual values.</p>
-      <p class="blog-hook blog-hook-gold">&ldquo;Knowing what you want is not selfishness. It is the foundation of being genuinely useful to anyone else.&rdquo;</p>
-      <div class="blog-foot">
-        <span class="blog-read bt-gold">Read the article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        <span class="blog-app-pill pill-gold">Wellovie Find</span>
-      </div>
-    </div>
-  </article>
-
-  <!-- Academy #2 -->
-  <article class="blog-card blog-card-gold r">
-    <div class="blog-bar"></div>
-    <div class="blog-body">
-      <span class="blog-tag bt-gold">Relationships &bull; Wellovie Find</span>
-      <h3 class="blog-title">Why You Keep Losing Yourself in Relationships.</h3>
-      <p class="blog-snip">It starts small. You bend your preference here, soften your opinion there. And somewhere along the way you realize you have no idea what you actually think anymore. This pattern has a name, a reason it started, and &mdash; importantly &mdash; a way through it.</p>
-      <p class="blog-hook blog-hook-gold">&ldquo;You cannot truly connect with someone else until you have somewhere to connect from.&rdquo;</p>
-      <div class="blog-foot">
-        <span class="blog-read bt-gold">Read the article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        <span class="blog-app-pill pill-gold">Wellovie Find</span>
-      </div>
-    </div>
-  </article>
-
-  <!-- School #1 -->
-  <article class="blog-card blog-card-rose r d1">
-    <div class="blog-bar"></div>
-    <div class="blog-body">
-      <span class="blog-tag bt-rose">Thought Patterns &bull; Wellovie Know</span>
-      <h3 class="blog-title">You Are Not Your Thoughts. But Your Thoughts Are Running the Show.</h3>
-      <p class="blog-snip">CBT has been around for fifty years, and for good reason. The relationship between how you think and how you feel is more mechanical than most people realize &mdash; which means it&rsquo;s also more changeable than you might think. Here is what that actually looks like in practice.</p>
-      <p class="blog-hook blog-hook-rose">&ldquo;Challenging a thought doesn&rsquo;t mean arguing with it. It means asking whether it&rsquo;s actually true.&rdquo;</p>
-      <div class="blog-foot">
-        <span class="blog-read bt-rose">Read the article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        <span class="blog-app-pill pill-rose">Wellovie Know</span>
-      </div>
-    </div>
-  </article>
-
-  <!-- School #2 -->
-  <article class="blog-card blog-card-rose r d2">
-    <div class="blog-bar"></div>
-    <div class="blog-body">
-      <span class="blog-tag bt-rose">Emotional Regulation &bull; Wellovie Know</span>
-      <h3 class="blog-title">Emotional Regulation Is Not About Staying Calm. It&rsquo;s About Staying You.</h3>
-      <p class="blog-snip">Regulation gets confused with suppression. The goal is not to flatten your emotional life &mdash; it&rsquo;s to stay connected to yourself even when feelings are intense. That distinction changes everything about how you practice it and what it actually feels like to get better at it.</p>
-      <p class="blog-hook blog-hook-rose">&ldquo;The opposite of emotional reactivity is not numbness. It is presence.&rdquo;</p>
-      <div class="blog-foot">
-        <span class="blog-read bt-rose">Read the article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        <span class="blog-app-pill pill-rose">Wellovie Know</span>
-      </div>
-    </div>
-  </article>
-
-</div>
-```
-
   </div>
 </section>
 
 <!-- THERAPISTS -->
-
 <section id="therapists" class="sec-dark" style="border-top:2px solid var(--sage-b)">
   <div class="w">
     <div class="r" style="margin-bottom:2.5rem">
-      <div class="therapist-kicker">&#129657; For licensed therapists</div>
+      <div class="therapist-kicker">🧑‍⚕️ For licensed therapists</div>
       <h2 class="h2" style="margin-bottom:0.5rem">Two ways we support<br>your <em>practice.</em></h2>
-      <p class="lead" style="max-width:52ch">A professional website that earns client trust before they ever reach out. And a growing library of printable worksheets your clients can use between sessions &mdash; on paper, no technology required.</p>
+      <p class="lead" style="max-width:52ch">A professional website that earns client trust before they ever reach out. And a growing library of printable worksheets your clients can use between sessions — on paper, no technology required.</p>
     </div>
 
-```
-<!-- THERAPIST VALUE PROPS -->
-<div class="r" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:0.75rem;margin-bottom:2rem">
-  <div style="display:flex;align-items:flex-start;gap:0.75rem;padding:1rem 1.125rem;background:rgba(122,170,136,0.05);border:1px solid rgba(122,170,136,0.14);border-radius:0.875rem">
-    <span style="font-size:1.25rem;flex-shrink:0">🖊️</span>
-    <div><div style="font-size:0.8375rem;font-weight:700;color:var(--t1);margin-bottom:0.2rem">Copy written for your clients</div><div style="font-size:0.78rem;color:var(--t3);line-height:1.5">Not your resume. The words that make a scared person pick up the phone.</div></div>
-  </div>
-  <div style="display:flex;align-items:flex-start;gap:0.75rem;padding:1rem 1.125rem;background:rgba(122,170,136,0.05);border:1px solid rgba(122,170,136,0.14);border-radius:0.875rem">
-    <span style="font-size:1.25rem;flex-shrink:0">💸</span>
-    <div><div style="font-size:0.8375rem;font-weight:700;color:var(--t1);margin-bottom:0.2rem">Free hosting, forever</div><div style="font-size:0.78rem;color:var(--t3);line-height:1.5">No Squarespace. No monthly platform fees. You pay once and own everything.</div></div>
-  </div>
-  <div style="display:flex;align-items:flex-start;gap:0.75rem;padding:1rem 1.125rem;background:rgba(122,170,136,0.05);border:1px solid rgba(122,170,136,0.14);border-radius:0.875rem">
-    <span style="font-size:1.25rem;flex-shrink:0">🔒</span>
-    <div><div style="font-size:0.8375rem;font-weight:700;color:var(--t1);margin-bottom:0.2rem">HIPAA-safe by design</div><div style="font-size:0.78rem;color:var(--t3);line-height:1.5">Contact form collects no health data. EHR booking integration included.</div></div>
-  </div>
-  <div style="display:flex;align-items:flex-start;gap:0.75rem;padding:1rem 1.125rem;background:rgba(122,170,136,0.05);border:1px solid rgba(122,170,136,0.14);border-radius:0.875rem">
-    <span style="font-size:1.25rem;flex-shrink:0">📂</span>
-    <div><div style="font-size:0.8375rem;font-weight:700;color:var(--t1);margin-bottom:0.2rem">You own the code</div><div style="font-size:0.78rem;color:var(--t3);line-height:1.5">GitHub repo handed to you at launch. No vendor lock-in, ever.</div></div>
-  </div>
-</div>
-
-<!-- TWO SERVICE CARDS -->
-<div class="th-services-grid r">
-
-  <!-- SERVICE 1: WEBSITE -->
-  <div class="th-service-card th-service-sage" style="position:relative;overflow:hidden">
-    <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#5a9a6a,#7aaa88)"></div>
-    <div class="th-service-top">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.875rem">
-        <div class="th-service-icon" style="margin-bottom:0">&#128187;</div>
-        <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);background:rgba(122,170,136,0.1);border:1px solid rgba(122,170,136,0.25);border-radius:999px;padding:0.25rem 0.75rem">Highest revenue service</span>
+    <!-- THERAPIST VALUE PROPS -->
+    <div class="r" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:0.75rem;margin-bottom:2rem">
+      <div style="display:flex;align-items:flex-start;gap:0.75rem;padding:1rem 1.125rem;background:rgba(122,170,136,0.05);border:1px solid rgba(122,170,136,0.14);border-radius:0.875rem">
+        <span style="font-size:1.25rem;flex-shrink:0">🖊️</span>
+        <div><div style="font-size:0.8375rem;font-weight:700;color:var(--t1);margin-bottom:0.2rem">Copy written for your clients</div><div style="font-size:0.78rem;color:var(--t3);line-height:1.5">Not your resume. The words that make a scared person pick up the phone.</div></div>
       </div>
-      <div class="th-service-label">Service 01 &mdash; Website Design</div>
-      <div class="th-service-name">A site that makes clients<br>feel safe before they call.</div>
-      <div class="th-service-hook">Built by a licensed therapist who understands what a scared, uncertain person needs to feel before they reach out. Not a template. Not a page builder. A real site written in a real clinician&rsquo;s voice.</div>
+      <div style="display:flex;align-items:flex-start;gap:0.75rem;padding:1rem 1.125rem;background:rgba(122,170,136,0.05);border:1px solid rgba(122,170,136,0.14);border-radius:0.875rem">
+        <span style="font-size:1.25rem;flex-shrink:0">💸</span>
+        <div><div style="font-size:0.8375rem;font-weight:700;color:var(--t1);margin-bottom:0.2rem">Free hosting, forever</div><div style="font-size:0.78rem;color:var(--t3);line-height:1.5">No Squarespace. No monthly platform fees. You pay once and own everything.</div></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:0.75rem;padding:1rem 1.125rem;background:rgba(122,170,136,0.05);border:1px solid rgba(122,170,136,0.14);border-radius:0.875rem">
+        <span style="font-size:1.25rem;flex-shrink:0">🔒</span>
+        <div><div style="font-size:0.8375rem;font-weight:700;color:var(--t1);margin-bottom:0.2rem">HIPAA-safe by design</div><div style="font-size:0.78rem;color:var(--t3);line-height:1.5">Contact form collects no health data. EHR booking integration included.</div></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:0.75rem;padding:1rem 1.125rem;background:rgba(122,170,136,0.05);border:1px solid rgba(122,170,136,0.14);border-radius:0.875rem">
+        <span style="font-size:1.25rem;flex-shrink:0">📂</span>
+        <div><div style="font-size:0.8375rem;font-weight:700;color:var(--t1);margin-bottom:0.2rem">You own the code</div><div style="font-size:0.78rem;color:var(--t3);line-height:1.5">GitHub repo handed to you at launch. No vendor lock-in, ever.</div></div>
+      </div>
     </div>
-    <div class="th-service-body">
-      <ul class="th-service-feats">
-        <li>Copy written specifically for your specialty and population &mdash; not generic</li>
-        <li>Profile Website or Full Custom Site with blog, groups &amp; resources pages</li>
-        <li>Free hosting forever on Cloudflare &mdash; no monthly platform fees</li>
-        <li>You own the code outright &mdash; GitHub repo handed to you at launch</li>
-        <li>HIPAA-safe contact form setup included</li>
-        <li>SimplePractice &amp; EHR booking integration if you use one</li>
-      </ul>
-      <!-- DEMO LINKS -->
-      <div style="background:rgba(122,170,136,0.06);border:1px solid rgba(122,170,136,0.18);border-radius:0.875rem;padding:1.125rem;margin-top:0.5rem">
-        <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);margin-bottom:0.75rem">&#128064; Live demos &mdash; click to explore</div>
-        <div style="display:flex;flex-direction:column;gap:0.5rem">
-          <a href="therapist-profile-demo.html" style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem 0.875rem;background:rgba(0,0,0,0.2);border:1px solid rgba(122,170,136,0.15);border-radius:0.625rem;text-decoration:none;transition:border-color 0.2s" onmouseover="this.style.borderColor='rgba(122,170,136,0.4)'" onmouseout="this.style.borderColor='rgba(122,170,136,0.15)'">
-            <div>
-              <div style="font-size:0.8375rem;font-weight:600;color:var(--t1);margin-bottom:0.1rem">Profile Website</div>
-              <div style="font-size:0.72rem;color:var(--t3)">Single-page &middot; Dr. Sarah Marchetti, LMHC</div>
+
+    <!-- TWO SERVICE CARDS -->
+    <div class="th-services-grid r">
+      <!-- SERVICE 1: WEBSITE -->
+      <div class="th-service-card th-service-sage" style="position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#5a9a6a,#7aaa88)"></div>
+        <div class="th-service-top">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.875rem">
+            <div class="th-service-icon" style="margin-bottom:0">💻</div>
+            <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);background:rgba(122,170,136,0.1);border:1px solid rgba(122,170,136,0.25);border-radius:999px;padding:0.25rem 0.75rem">Highest revenue service</span>
+          </div>
+          <div class="th-service-label">Service 01 — Website Design</div>
+          <div class="th-service-name">A site that makes clients<br>feel safe before they call.</div>
+          <div class="th-service-hook">Built by a licensed therapist who understands what a scared, uncertain person needs to feel before they reach out. Not a template. Not a page builder. A real site written in a real clinician&rsquo;s voice.</div>
+        </div>
+        <div class="th-service-body">
+          <ul class="th-service-feats">
+            <li>Copy written specifically for your specialty and population — not generic</li>
+            <li>Profile Website or Full Custom Site with blog, groups &amp; resources pages</li>
+            <li>Free hosting forever on Cloudflare — no monthly platform fees</li>
+            <li>You own the code outright — GitHub repo handed to you at launch</li>
+            <li>HIPAA-safe contact form setup included</li>
+            <li>SimplePractice &amp; EHR booking integration if you use one</li>
+          </ul>
+          <!-- DEMO LINKS -->
+          <div style="background:rgba(122,170,136,0.06);border:1px solid rgba(122,170,136,0.18);border-radius:0.875rem;padding:1.125rem;margin-top:0.5rem">
+            <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);margin-bottom:0.75rem">👀 Live demos — click to explore</div>
+            <div style="display:flex;flex-direction:column;gap:0.5rem">
+              <a href="therapist-profile-demo.html" style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem 0.875rem;background:rgba(0,0,0,0.2);border:1px solid rgba(122,170,136,0.15);border-radius:0.625rem;text-decoration:none;transition:border-color 0.2s" onmouseover="this.style.borderColor='rgba(122,170,136,0.4)'" onmouseout="this.style.borderColor='rgba(122,170,136,0.15)'">
+                <div>
+                  <div style="font-size:0.8375rem;font-weight:600;color:var(--t1);margin-bottom:0.1rem">Profile Website</div>
+                  <div style="font-size:0.72rem;color:var(--t3)">Single-page · Dr. Sarah Marchetti, LMHC</div>
+                </div>
+                <span style="font-size:0.75rem;font-weight:700;color:var(--sage)">View demo →</span>
+              </a>
+              <a href="therapist-custom-demo.html" style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem 0.875rem;background:rgba(0,0,0,0.2);border:1px solid rgba(122,170,136,0.15);border-radius:0.625rem;text-decoration:none;transition:border-color 0.2s" onmouseover="this.style.borderColor='rgba(122,170,136,0.4)'" onmouseout="this.style.borderColor='rgba(122,170,136,0.15)'">
+                <div>
+                  <div style="font-size:0.8375rem;font-weight:600;color:var(--t1);margin-bottom:0.1rem">Full Custom Site</div>
+                  <div style="font-size:0.72rem;color:var(--t3)">Multi-page with blog, groups &amp; resources · Dr. Elena Vasquez</div>
+                </div>
+                <span style="font-size:0.75rem;font-weight:700;color:var(--sage)">View demo →</span>
+              </a>
             </div>
-            <span style="font-size:0.75rem;font-weight:700;color:var(--sage)">View demo &rarr;</span>
-          </a>
-          <a href="therapist-custom-demo.html" style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem 0.875rem;background:rgba(0,0,0,0.2);border:1px solid rgba(122,170,136,0.15);border-radius:0.625rem;text-decoration:none;transition:border-color 0.2s" onmouseover="this.style.borderColor='rgba(122,170,136,0.4)'" onmouseout="this.style.borderColor='rgba(122,170,136,0.15)'">
-            <div>
-              <div style="font-size:0.8375rem;font-weight:600;color:var(--t1);margin-bottom:0.1rem">Full Custom Site</div>
-              <div style="font-size:0.72rem;color:var(--t3)">Multi-page with blog, groups &amp; resources &middot; Dr. Elena Vasquez</div>
+          </div>
+          <!-- PRICING TIERS -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.625rem;margin-top:0.875rem">
+            <div style="padding:0.875rem;background:rgba(0,0,0,0.2);border:1px solid var(--bd);border-radius:0.75rem">
+              <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--sage);margin-bottom:0.25rem">Profile Website</div>
+              <div style="font-family:var(--fd);font-size:1.375rem;font-weight:600;color:var(--t1);line-height:1">$1,800</div>
+              <div style="font-size:0.72rem;color:var(--t3);margin-top:0.25rem">One-time · Free hosting forever</div>
             </div>
-            <span style="font-size:0.75rem;font-weight:700;color:var(--sage)">View demo &rarr;</span>
-          </a>
+            <div style="padding:0.875rem;background:rgba(122,170,136,0.07);border:1px solid rgba(122,170,136,0.2);border-radius:0.75rem">
+              <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--sage);margin-bottom:0.25rem">Full Custom Site</div>
+              <div style="font-family:var(--fd);font-size:1.375rem;font-weight:600;color:var(--t1);line-height:1">$3,500</div>
+              <div style="font-size:0.72rem;color:var(--t3);margin-top:0.25rem">One-time · 60-day support included</div>
+            </div>
+          </div>
+        </div>
+        <div class="th-service-foot">
+          <div class="th-service-price" style="font-size:1rem;font-weight:500;color:var(--t2)">Free 30-min discovery call<small>No commitment — we&rsquo;ll find the right fit</small></div>
+          <a href="wellovie-therapist-websites.html" class="btn btn-sage" style="font-size:0.875rem;padding:0.8125rem 1.625rem">See full details →</a>
         </div>
       </div>
-      <!-- PRICING TIERS -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.625rem;margin-top:0.875rem">
-        <div style="padding:0.875rem;background:rgba(0,0,0,0.2);border:1px solid var(--bd);border-radius:0.75rem">
-          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--sage);margin-bottom:0.25rem">Profile Website</div>
-          <div style="font-family:var(--fd);font-size:1.375rem;font-weight:600;color:var(--t1);line-height:1">$1,800</div>
-          <div style="font-size:0.72rem;color:var(--t3);margin-top:0.25rem">One-time &middot; Free hosting forever</div>
+
+      <!-- SERVICE 2: PRINTABLE SUBSCRIPTION -->
+      <div class="th-service-card th-service-ember">
+        <div class="th-service-top">
+          <div class="th-service-icon">📄</div>
+          <div class="th-service-label">Service 02</div>
+          <div class="th-service-name">Printable Worksheet<br>Subscription</div>
+          <div class="th-service-hook">A growing library of beautifully designed worksheets to print and hand to clients. New ones added every month — built around the same emotional framework as Wellovie Feel.</div>
         </div>
-        <div style="padding:0.875rem;background:rgba(122,170,136,0.07);border:1px solid rgba(122,170,136,0.2);border-radius:0.75rem">
-          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--sage);margin-bottom:0.25rem">Full Custom Site</div>
-          <div style="font-family:var(--fd);font-size:1.375rem;font-weight:600;color:var(--t1);line-height:1">$3,500</div>
-          <div style="font-size:0.72rem;color:var(--t3);margin-top:0.25rem">One-time &middot; 60-day support included</div>
+        <div class="th-service-body">
+          <ul class="th-service-feats">
+            <li>Pre-session reflection — clients arrive ready to go deeper</li>
+            <li>Emotion-specific worksheets: Shame, Anxiety, Grief, Anger, and more</li>
+            <li>Core therapy tools: thought records, values work, mood check-ins</li>
+            <li>Feelings wheel, week-in-review, safety and grounding plans</li>
+            <li>New worksheets added every single month — library always growing</li>
+            <li>Print as many as you need, for as many clients as you have</li>
+          </ul>
+          <!-- Feel app connection -->
+          <div class="th-feel-note">
+            <div class="th-feel-note-label">🔆 Also worth recommending</div>
+            <div class="th-feel-note-text">The printable worksheets cover the same emotional territory as <strong>Wellovie Feel</strong> — your clients can use the paper version you hand them <em>and</em> do the self-guided digital course on their own time. Two complementary tools. Zero coordination required from you.</div>
+            <a href="wellovie-feel.html" class="th-feel-link">Learn about Wellovie Feel →</a>
+          </div>
+        </div>
+        <div class="th-service-foot">
+          <div class="th-service-price">$19<span style="font-size:0.9rem;font-weight:400;color:var(--t3)">/month</span><small>First month completely free — no card needed</small></div>
+          <a href="subscribe.html" class="btn" style="font-size:0.875rem;padding:0.8125rem 1.625rem">Start free month →</a>
         </div>
       </div>
     </div>
-    <div class="th-service-foot">
-      <div class="th-service-price" style="font-size:1rem;font-weight:500;color:var(--t2)">Free 30-min discovery call<small>No commitment &mdash; we&rsquo;ll find the right fit</small></div>
-      <a href="wellovie-therapist-websites.html" class="btn btn-sage" style="font-size:0.875rem;padding:0.8125rem 1.625rem">See full details &#8594;</a>
-    </div>
-  </div>
-
-  <!-- SERVICE 2: PRINTABLE SUBSCRIPTION -->
-  <div class="th-service-card th-service-ember">
-    <div class="th-service-top">
-      <div class="th-service-icon">&#128196;</div>
-      <div class="th-service-label">Service 02</div>
-      <div class="th-service-name">Printable Worksheet<br>Subscription</div>
-      <div class="th-service-hook">A growing library of beautifully designed worksheets to print and hand to clients. New ones added every month &mdash; built around the same emotional framework as Wellovie Feel.</div>
-    </div>
-    <div class="th-service-body">
-      <ul class="th-service-feats">
-        <li>Pre-session reflection &mdash; clients arrive ready to go deeper</li>
-        <li>Emotion-specific worksheets: Shame, Anxiety, Grief, Anger, and more</li>
-        <li>Core therapy tools: thought records, values work, mood check-ins</li>
-        <li>Feelings wheel, week-in-review, safety and grounding plans</li>
-        <li>New worksheets added every single month &mdash; library always growing</li>
-        <li>Print as many as you need, for as many clients as you have</li>
-      </ul>
-      <!-- Feel app connection -->
-      <div class="th-feel-note">
-        <div class="th-feel-note-label">&#127774; Also worth recommending</div>
-        <div class="th-feel-note-text">The printable worksheets cover the same emotional territory as <strong>Wellovie Feel</strong> &mdash; your clients can use the paper version you hand them <em>and</em> do the self-guided digital course on their own time. Two complementary tools. Zero coordination required from you.</div>
-        <a href="wellovie-feel.html" class="th-feel-link">Learn about Wellovie Feel &#8594;</a>
-      </div>
-    </div>
-    <div class="th-service-foot">
-      <div class="th-service-price">$19<span style="font-size:0.9rem;font-weight:400;color:var(--t3)">/month</span><small>First month completely free &mdash; no card needed</small></div>
-      <a href="subscribe.html" class="btn" style="font-size:0.875rem;padding:0.8125rem 1.625rem">Start free month &#8594;</a>
-    </div>
-  </div>
-
-</div>
-```
-
   </div>
 </section>
 
 <!-- ABOUT -->
-
 <section id="about" class="sec">
   <div class="w">
     <div class="about-grid">
@@ -925,19 +899,19 @@ footer{background:#0d0906;border-top:1px solid var(–bd);padding:2.5rem 0;paddi
         <h2 class="h2">Built by someone who has<br>sat in <em>both chairs.</em></h2>
         <div class="about-text">
           <p>I am a licensed mental health professional based in New York. Over years of sitting with people in their most vulnerable moments, I kept noticing the same gap: the insight from a session had nowhere to land before the next one. And the self-help world kept offering affirmations instead of anything that actually worked.</p>
-          <p>Wellovie is built on one belief: if you want to understand an emotion, you need to go 20 weeks deep into it &mdash; not skim across twenty of them. Real understanding takes time, structure, and the right questions. That is what every course here is built to give you.</p>
+          <p>Wellovie is built on one belief: if you want to understand an emotion, you need to go 20 weeks deep into it — not skim across twenty of them. Real understanding takes time, structure, and the right questions. That is what every course here is built to give you.</p>
           <p>These tools are educational. They are designed to be used on your own, or as a complement to the therapy you&rsquo;re already doing. They are the most honest thing I can offer to people who deserve real support.</p>
         </div>
         <div class="phil-block">
           <div class="phil-lbl">The Wellovie Philosophy</div>
-          <div class="phil-text">&ldquo;Wellbeing is living as your grounded, creative, authentically expressed self &mdash; in conscious connection with others, choosing love and compassion, present in this moment, with the skills to move through whatever gets in the way.&rdquo;</div>
+          <div class="phil-text">&ldquo;Wellbeing is living as your grounded, creative, authentically expressed self — in conscious connection with others, choosing love and compassion, present in this moment, with the skills to move through whatever gets in the way.&rdquo;</div>
         </div>
       </div>
       <div class="r d1">
         <div class="about-card">
           <div class="about-av">W</div>
           <div class="about-name">Your Name, LMHC</div>
-          <div class="about-title">Licensed Mental Health Counselor &middot; New York</div>
+          <div class="about-title">Licensed Mental Health Counselor · New York</div>
           <div class="about-q">&ldquo;Most people are not broken. They are seeing the present through the glasses of the past. The work is learning to take them off.&rdquo;</div>
           <div class="about-chips">
             <span class="about-chip">Licensed LMHC, NY</span>
@@ -952,7 +926,6 @@ footer{background:#0d0906;border-top:1px solid var(–bd);padding:2.5rem 0;paddi
 </section>
 
 <!-- FINAL CTA -->
-
 <section class="final">
   <div class="w" style="max-width:40rem;margin:0 auto">
     <span class="label r" style="display:block;margin-bottom:1rem">Begin</span>
@@ -976,13 +949,12 @@ footer{background:#0d0906;border-top:1px solid var(–bd);padding:2.5rem 0;paddi
 </section>
 
 <!-- FOOTER -->
-
 <footer style="background:#0d0906">
   <div class="w">
     <div class="footer-grid">
       <div>
         <div class="footer-logo">Wello<em>vie</em></div>
-        <div class="footer-tag">Self-guided tools for emotional wellbeing &mdash; created by a licensed therapist.</div>
+        <div class="footer-tag">Self-guided tools for emotional wellbeing — created by a licensed therapist.</div>
       </div>
       <div>
         <div class="footer-col-h">Tools</div>
@@ -1007,7 +979,7 @@ footer{background:#0d0906;border-top:1px solid var(–bd);padding:2.5rem 0;paddi
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">&copy; 2025 Wellovie</div>
-      <div class="footer-legal">Wellovie is a self-guided educational tool &mdash; not therapy, not a clinical service. It is designed to be used on your own or alongside therapy. If you are in crisis, please call or text <strong>988</strong>.</div>
+      <div class="footer-legal">Wellovie is a self-guided educational tool — not therapy, not a clinical service. It is designed to be used on your own or alongside therapy. If you are in crisis, please call or text <strong>988</strong>.</div>
     </div>
   </div>
 </footer>
@@ -1058,6 +1030,5 @@ function closeDrawer(){
 // Close drawer on Escape
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer();});
 </script>
-
 </body>
 </html>
