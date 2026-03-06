@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="theme-color" content="#0d0906">
+<title>Shame Is Not Guilt. The Difference Changes Everything. — Wellovie</title>
+<meta name="description" content="Most people use shame and guilt like they mean the same thing. They don't — and that difference is where understanding actually starts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0d0906; --bg2:#110b07; --bg3:#0a0604;
+  --ember:#d95f35; --ember-s:rgba(217,95,53,0.1); --ember-b:rgba(217,95,53,0.22);
+  --gold:#e8a030; --gold-s:rgba(232,160,48,0.1); --gold-b:rgba(232,160,48,0.22);
+  --rose:#c4607a; --rose-s:rgba(196,96,122,0.1); --rose-b:rgba(196,96,122,0.22);
+  --sage:#7aaa88; --sage-s:rgba(122,170,136,0.1); --sage-b:rgba(122,170,136,0.22);
+  --t1:#fdf0e6; --t2:#c4a882; --t3:#7a6050; --t4:#3a2818;
+  --te:#f4a07a; --tg:#f5c865;
+  --bd:rgba(255,190,120,0.08); --bd2:rgba(255,190,120,0.15);
+  --gm:linear-gradient(135deg,#d95f35,#e8a030);
+  --gt:linear-gradient(135deg,#f4a07a,#f5c865);
+  --gc:linear-gradient(160deg,#1c1008,#110c06);
+  --sh:0 12px 32px rgba(217,95,53,0.25);
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --fb:'Outfit',-apple-system,sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--bg);-webkit-font-smoothing:antialiased;scroll-behavior:smooth;min-height:100%}
+body{font-family:var(--fb);background:var(--bg);color:var(--t1);overflow-x:hidden;line-height:1.6;min-height:100vh}
+a{color:var(--te);text-decoration:none}
+svg{display:block;flex-shrink:0}
+
+/* NAV — copied exact from hub */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(13,9,6,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(–bd)}
+.nav-inner{max-width:80rem;margin:0 auto;padding:0 1.75rem;height:4rem;display:flex;align-items:center;gap:0.625rem}
+.logo{display:flex;align-items:center;gap:0.5625rem;font-family:var(–fd);font-size:1.4375rem;font-weight:600;color:var(–t1);flex-shrink:0;margin-right:auto;text-decoration:none}
+.logo em{font-style:italic;color:var(–te)}
+.nav-back{font-size:0.8125rem;color:var(–t3);font-weight:500;padding:0.4375rem 0.875rem;border-radius:0.5rem;border:1px solid var(–bd2);transition:all 0.2s;display:flex;align-items:center;gap:0.375rem;text-decoration:none}
+.nav-back:hover{color:var(–te);border-color:var(–ember-b)}
+
+/* PROGRESS */
+.prog{position:fixed;top:4rem;left:0;right:0;height:2px;background:var(–bd);z-index:99}
+.prog-fill{height:100%;background:var(–gm);width:0%;transition:width 0.08s linear}
+
+/* ARTICLE HERO */
+.art-hero{padding:8rem 0 3.5rem;background:var(–bg);position:relative;overflow:hidden}
+.art-hero::before{content:’’;position:absolute;inset:0;background:radial-gradient(ellipse 55% 40% at 50% 0%,var(–ember-s),transparent 70%);pointer-events:none}
+.hi{max-width:50rem;margin:0 auto;padding:0 1.75rem}
+.art-tag{display:inline-flex;background:var(–ember-s);border:1px solid var(–ember-b);color:var(–te);font-size:0.68rem;font-weight:700;padding:0.3rem 0.875rem;border-radius:999px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.375rem}
+.art-h1{font-family:var(–fd);font-size:clamp(2.375rem,5.5vw,3.75rem);font-weight:600;line-height:1.06;letter-spacing:-0.02em;color:var(–t1);margin-bottom:1.125rem}
+.art-h1 em{font-style:italic;color:var(–te)}
+.art-deck{font-size:1.0625rem;color:var(–t2);line-height:1.75;max-width:46ch;margin-bottom:1.875rem;font-family:var(–fd);font-style:italic;font-weight:300}
+.art-meta{display:flex;align-items:center;gap:1.125rem;flex-wrap:wrap}
+.meta-av{width:2.25rem;height:2.25rem;border-radius:50%;background:var(–gm);display:flex;align-items:center;justify-content:center;font-family:var(–fd);font-weight:600;color:var(–t1);flex-shrink:0;font-size:1rem}
+.meta-name{font-size:0.8rem;font-weight:600;color:var(–t2)}
+.meta-cred{font-size:0.7rem;color:var(–t3)}
+.meta-sep{width:1px;height:1.375rem;background:var(–bd2)}
+.meta-info{font-size:0.75rem;color:var(–t3)}
+.meta-info strong{color:var(–t2);font-weight:500}
+
+/* LAYOUT */
+.w{max-width:50rem;margin:0 auto;padding:0 1.75rem}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(–ember-b),transparent);margin:2.75rem 0}
+
+/* PROSE */
+.prose p{font-size:1.03rem;color:var(–t2);line-height:1.9;margin-bottom:1.5rem}
+.prose p:last-child{margin-bottom:0}
+.prose strong{color:var(–t1);font-weight:600}
+.prose em{font-style:italic;color:var(–t1)}
+.prose h2{font-family:var(–fd);font-size:clamp(1.5rem,3.2vw,2.1rem);font-weight:600;line-height:1.15;letter-spacing:-0.015em;color:var(–t1);margin:2.75rem 0 0.875rem}
+
+/* PULL QUOTE */
+.pq{margin:2.25rem 0;padding:1.5rem 1.75rem 1.5rem 2.25rem;background:var(–ember-s);border:1px solid var(–ember-b);border-left:3px solid var(–ember);border-radius:0.75rem}
+.pq p{font-family:var(–fd);font-size:1.25rem;font-style:italic;color:var(–t1);line-height:1.58;margin:0}
+.pq cite{display:block;font-size:0.7rem;color:var(–t3);font-style:normal;margin-top:0.625rem;letter-spacing:0.07em;text-transform:uppercase;font-weight:600}
+
+/* CALLOUT NOTE */
+.note{background:var(–bg2);border:1px solid var(–bd2);border-left:3px solid var(–te);border-radius:0.625rem;padding:1.25rem 1.375rem;margin:1.875rem 0}
+.note-lbl{font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(–te);margin-bottom:0.4rem}
+.note p{font-size:0.9rem;color:var(–t2);line-height:1.75;margin:0}
+
+/* COMPARISON TABLE */
+.cmp{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(–bd2);border-radius:0.875rem;overflow:hidden;margin:1.875rem 0}
+.cmp-a{background:var(–ember-s);border-right:1px solid var(–bd2)}
+.cmp-b{background:var(–sage-s)}
+.cmp-col{padding:1.375rem}
+.cmp-lbl{font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;display:block}
+.cmp-a .cmp-lbl{color:var(–te)}
+.cmp-b .cmp-lbl{color:var(–sage)}
+.cmp-head{font-family:var(–fd);font-size:1.2rem;font-weight:600;color:var(–t1);margin-bottom:0.5rem}
+.cmp-list{list-style:none}
+.cmp-list li{font-size:0.825rem;color:var(–t3);line-height:1.55;padding:0.2rem 0;display:flex;gap:0.4rem}
+.cmp-list li::before{content:’—’;opacity:0.4;flex-shrink:0}
+
+/* STEPS */
+.steps{display:flex;flex-direction:column;gap:1.125rem;margin:1.75rem 0}
+.step{display:flex;gap:1rem;align-items:flex-start}
+.step-n{width:1.875rem;height:1.875rem;border-radius:50%;background:var(–ember-s);border:1.5px solid var(–ember-b);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:var(–te);flex-shrink:0;margin-top:0.125rem}
+.step-b strong{display:block;font-size:0.9rem;font-weight:600;color:var(–t1);margin-bottom:0.2rem}
+.step-b p{font-size:0.855rem;color:var(–t3);line-height:1.72;margin:0}
+
+/* TOOL CARD */
+.tc{background:var(–gc);border:1px solid var(–ember-b);border-radius:1.125rem;padding:1.5rem;margin:2.75rem 0;display:flex;gap:1.125rem;align-items:flex-start}
+.tc-icon{font-size:1.75rem;flex-shrink:0;line-height:1}
+.tc-lbl{font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(–te);margin-bottom:0.2rem}
+.tc-name{font-family:var(–fd);font-size:1.175rem;font-weight:600;color:var(–t1);margin-bottom:0.3rem}
+.tc-desc{font-size:0.845rem;color:var(–t3);line-height:1.65;margin-bottom:0.875rem}
+.tc-btn{display:inline-flex;align-items:center;gap:0.3rem;background:var(–gm);color:var(–t1);font-size:0.8rem;font-weight:700;padding:0.5rem 1.125rem;border-radius:999px;text-decoration:none;transition:opacity 0.2s;box-shadow:var(–sh)}
+.tc-btn:hover{opacity:0.88}
+
+/* MORE ARTICLES */
+.more{background:var(–bg2);border-top:1px solid var(–bd);padding:3.5rem 0 4.5rem;margin-top:4.5rem}
+.more-i{max-width:80rem;margin:0 auto;padding:0 1.75rem}
+.more-lbl{font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(–te);margin-bottom:0.375rem;display:block}
+.more-h{font-family:var(–fd);font-size:clamp(1.625rem,3.5vw,2.25rem);font-weight:600;color:var(–t1);margin-bottom:1.75rem;letter-spacing:-0.015em}
+.more-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(17rem,1fr));gap:1rem}
+.mcard{background:var(–gc);border:1px solid var(–bd2);border-radius:1.125rem;padding:1.375rem;text-decoration:none;display:flex;flex-direction:column;gap:0.4rem;transition:all 0.25s}
+.mcard:hover{border-color:var(–ember-b);transform:translateY(-3px);box-shadow:0 12px 32px rgba(217,95,53,0.12)}
+.mcard-tag{font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(–te)}
+.mcard-title{font-family:var(–fd);font-size:1.075rem;font-weight:600;color:var(–t1);line-height:1.3}
+.mcard-snip{font-size:0.79rem;color:var(–t3);line-height:1.58;flex:1}
+.mcard-read{font-size:0.75rem;font-weight:700;color:var(–te);margin-top:0.25rem;display:flex;align-items:center;gap:0.3rem}
+
+/* FOOTER */
+footer{background:var(–bg3);border-top:1px solid var(–bd);padding:2rem 0;text-align:center}
+footer p{font-size:0.75rem;color:var(–t3);line-height:1.7}
+footer a{color:var(–te)}
+footer strong{color:var(–t2)}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+.art-hero{padding:6.5rem 0 2.75rem}
+.prose p{font-size:0.975rem}
+.cmp{grid-template-columns:1fr}
+.cmp-a{border-right:none;border-bottom:1px solid var(–bd2)}
+.tc{flex-direction:column}
+.pq p{font-size:1.05rem}
+.art-meta{gap:0.75rem}
+.meta-sep{display:none}
+}</style>
+
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">Wello<em>vie</em></a>
+    <a href="../index.html" class="nav-back">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back
+    </a>
+  </div>
+</nav>
+<div class="prog"><div class="prog-fill" id="pf"></div></div>
+<section class="art-hero">
+  <div class="hi">
+    <div class="art-tag">Shame · Emotions</div>
+    <h1 class="art-h1"><em>Shame Is Not Guilt.</em><br>The Difference Changes Everything.</h1>
+    <p class="art-deck">Most people use them like they mean the same thing. They don't. One is about what you did. The other is about who you are. That gap matters more than almost anything in understanding why some feelings pass — and others just stay.</p>
+    <div class="art-meta">
+      <div class="meta-av">M</div>
+      <div><div class="meta-name">Meli Pil, LMHC</div><div class="meta-cred">Licensed Mental Health Counselor, LMHC</div></div>
+      <div class="meta-sep"></div>
+      <div class="meta-info"><strong>6 min read</strong></div>
+      <div class="meta-sep"></div>
+      <div class="meta-info">Shame · Guilt · Self-worth</div>
+    </div>
+  </div>
+</section>
+<div class="divider w"></div>
+<article class="w">
+<div class="prose">
+
+<p>Guilt says: <em>I did something wrong.</em> Shame says: <em>I am wrong.</em> It sounds like a small difference. It isn't. Guilt is uncomfortable, but it points somewhere useful — toward repair, apology, making things right. You acted against your own values. Address it, and the feeling can move.</p>
+
+<p>Shame doesn't work like that. When the belief is that <em>you</em> are the problem — not what you did, but who you are — there's nowhere to go. You can't fix being broken. So you hide instead.</p>
+
+<div class="cmp">
+  <div class="cmp-col cmp-a">
+    <span class="cmp-lbl">Shame</span>
+    <div class="cmp-head">"I am bad."</div>
+    <ul class="cmp-list">
+      <li>About who you are at your core</li>
+      <li>Makes you want to hide or disappear</li>
+      <li>Cuts you off from other people</li>
+      <li>Feels permanent — like it can't change</li>
+      <li>Hard to say out loud</li>
+    </ul>
+  </div>
+  <div class="cmp-col cmp-b">
+    <span class="cmp-lbl">Guilt</span>
+    <div class="cmp-head">"I did something bad."</div>
+    <ul class="cmp-list">
+      <li>About a specific action, not your identity</li>
+      <li>Pushes you toward repair and honesty</li>
+      <li>Can move toward reconnection</li>
+      <li>Bounded — once addressed, it can lift</li>
+      <li>Specific, so easier to name</li>
+    </ul>
+  </div>
+</div>
+
+<h2>How Shame Gets Built</h2>
+
+<p>Nobody is born with shame. It gets taught — usually not on purpose, and often by people who were carrying their own. It builds when someone important communicated, through words or just behavior, that something about you was too much, not enough, or fundamentally wrong. Children absorb those messages as permanent facts about themselves.</p>
+
+<p>Sometimes it's a single moment. Often it's the slow accumulation of being treated a certain way over years. Either way, the conclusion is the same: <em>there is something wrong with me that I need to keep hidden.</em></p>
+
+<h2>What Shame Does Inside You</h2>
+
+<p>The psychologist Leslie Greenberg, who has spent decades studying how emotions actually work, draws an important distinction: there's shame that functions normally — a passing discomfort when you act against your values, one that fades once addressed. And then there's what he calls <em>primary maladaptive shame</em> — a deep, chronic state that was wired in early through painful experiences and now fires automatically, often with no clear trigger in the present.</p>
+
+<p>This kind of shame doesn't respond to logic. You can know you're not worthless and still feel worthless. That's because the knowing and the feeling are in different systems. One is in your thinking mind. The other is wired into your body through years of experience. You can't think your way out of it.</p>
+
+<p>Greenberg also noticed that shame rarely stays in its own form. It's one of the most uncomfortable things a person can carry, so the mind converts it into something else. It becomes anger — a sudden flare when someone gets too close to something tender. It becomes contempt, toward others or yourself. It becomes that heavy, flat kind of depression that feels less like sadness and more like being switched off. The feeling on the surface is real. But underneath it, very often, is shame that was never named.</p>
+
+<div class="pq">
+  <p>Shame says: I am bad. Guilt says: I did something bad. Only one of those has a way out.</p>
+  <cite>— Meli Pil, LMHC</cite>
+</div>
+
+<p>Shame also lives in the body. There's a posture to it — the dropped gaze, the rounded shoulders, the impulse to take up less space. Guilt is uncomfortable but leaves you upright. Shame bends you. You can sometimes feel it in your body before you've found the words for it.</p>
+
+<h2>Why Shame Hides — and What Actually Moves It</h2>
+
+<p>Shame resists being looked at. It survives by staying in the dark. When it gets named out loud and met by someone who doesn't flinch — who hears it and doesn't leave — something real happens. It starts to lose its grip. Being fully seen and not rejected is a direct contradiction to everything shame believes about itself.</p>
+
+<div class="note">
+  <div class="note-lbl">Worth knowing</div>
+  <p>Shame is consistently linked to depression, anxiety, addiction, and disordered eating — not because people with those struggles are more broken, but because shame drives the kind of hiding that keeps everything else stuck. The shame is usually the thing underneath the thing.</p>
+</div>
+
+<p>Working with shame isn't about deciding to feel good about yourself. It starts with separating what happened from what you concluded about yourself because of it. The event was real. The conclusion — that it says something permanent about who you are — is something your mind built. And what the mind built, it can examine.</p>
+
+<p>But Greenberg's work makes something clear: insight alone isn't enough. You can't think your way out of a feeling that was wired in through experience. What actually changes things is relational — saying the unsayable out loud to someone who receives it without pulling away. That experience, over time, gives something new to learn from. Being fully known doesn't have to mean being rejected. That is where shame actually goes.</p>
+
+</div>
+
+<div class="tc">
+  <div class="tc-icon">🔦</div>
+  <div>
+    <div class="tc-lbl">Free worksheet</div>
+    <div class="tc-name">Seeing Shame Clearly</div>
+    <div class="tc-desc">A structured exercise that walks you through separating what happened from what you concluded about yourself — and gently examining whether that conclusion was ever actually true.</div>
+    <a href="../printables/seeing-shame.html" class="tc-btn">Open worksheet →</a>
+  </div>
+</div>
+</article>
+
+<section class="more">
+  <div class="more-i">
+    <span class="more-lbl">Continue reading</span>
+    <h2 class="more-h">More from Wellovie</h2>
+    <div class="more-grid">
+      <a href="anxiety.html" class="mcard">
+        <span class="mcard-tag">Anxiety</span>
+        <div class="mcard-title">Your Anxiety Isn't Broken. It's Just Misfiring.</div>
+        <div class="mcard-snip">Your brain learned to spot danger fast. The problem is it can't always tell a real threat from an email you've been avoiding.</div>
+        <div class="mcard-read">Read <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="11" height="11"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a><a href="relationships.html" class="mcard">
+        <span class="mcard-tag">Relationships</span>
+        <div class="mcard-title">You Keep Losing Yourself in Relationships. Here's Why.</div>
+        <div class="mcard-snip">It starts small. You stop saying what you think. One day you realize you've disappeared.</div>
+        <div class="mcard-read">Read <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="11" height="11"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="w">
+    <p>For information only — not a substitute for professional care.<br>
+    In crisis, call or text <strong>988</strong> · © 2025 <a href="../index.html">Wellovie</a> · Written by Meli Pil, LMHC</p>
+  </div>
+</footer>
+<script>
+window.addEventListener('scroll',()=>{
+  const d=document.documentElement;
+  document.getElementById('pf').style.width=((d.scrollTop||document.body.scrollTop)/(d.scrollHeight-d.clientHeight)*100)+'%';
+},{passive:true});
+</script>
+</body></html>
