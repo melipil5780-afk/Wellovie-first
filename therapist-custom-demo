@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Dr. Elena Vasquez, LCSW — Trauma and PTSD therapist in New York. EMDR certified. Somatic therapy.">
+<title>Dr. Elena Vasquez, LCSW — Trauma Therapist in New York</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#0f1f16;--forest2:#152318;--forest3:#0a1710;--moss:#1e3528;--fern:#2d4f3a;
+  --sage:#6a9070;--sage-l:#8aaa90;
+  --sage-s:rgba(106,144,112,0.1);--sage-b:rgba(106,144,112,0.25);--sage-b2:rgba(106,144,112,0.4);
+  --cream:#faf8f3;--parchment:#f2ede2;--bark:#5c4428;--clay:#8a6445;
+  --terra:#b85c38;--terra-s:rgba(184,92,56,0.08);--terra-b:rgba(184,92,56,0.2);
+  --gold:#c4902a;--t1:#faf8f3;--t2:#c8bfa8;--t3:#7a7060;--t4:#3a3028;
+  --bd:rgba(106,144,112,0.12);--bd2:rgba(106,144,112,0.22);--bd3:rgba(106,144,112,0.38);
+  --gs:linear-gradient(135deg,#2d4f3a,#6a9070);--gt:linear-gradient(135deg,#b85c38,#c4902a);
+  --gc:linear-gradient(160deg,#162a1e,#0f1f16);
+  --fd:"Playfair Display",Georgia,serif;--fb:"DM Sans",-apple-system,sans-serif;
+  --sp:cubic-bezier(0.34,1.56,0.64,1);--sm:cubic-bezier(0.4,0,0.2,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--forest);-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--forest);color:var(--t1);overflow-x:hidden;line-height:1.6}
+a{color:var(--sage-l);text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(15,31,22,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(–bd);transition:box-shadow 0.3s}
+nav.scrolled{background:rgba(15,31,22,0.97);box-shadow:0 4px 32px rgba(0,0,0,0.35)}
+.nav-inner{max-width:76rem;margin:0 auto;padding:0 2rem;height:4rem;display:flex;align-items:center;gap:1rem}
+.nav-logo{font-family:var(–fd);font-size:0.9375rem;font-weight:600;color:var(–t1);cursor:pointer;white-space:nowrap;flex-shrink:0}
+.nav-logo span{color:var(–sage-l)}
+
+/* DESKTOP LINKS */
+.nav-links{display:flex;gap:0;list-style:none;margin-left:auto}
+.nav-links>li>a{font-size:0.8125rem;font-weight:500;color:rgba(200,191,168,0.65);padding:0.4375rem 0.875rem;border-radius:0.5rem;transition:color 0.2s,background 0.2s;cursor:pointer;display:flex;align-items:center;gap:0.3rem;white-space:nowrap;letter-spacing:0.01em}
+.nav-links>li>a:hover,.has-drop:hover>a{color:var(–sage-l);background:var(–sage-s)}
+.nav-arrow{font-size:0.55rem;transition:transform 0.25s;opacity:0.5;margin-top:1px}
+.has-drop:hover .nav-arrow{transform:rotate(180deg)}
+
+/* DESKTOP DROPDOWN — Specialties only */
+.has-drop{position:relative}
+.nav-drop{position:absolute;top:calc(100% + 0.5rem);left:50%;transform:translateX(-50%) translateY(-6px);background:rgba(15,28,20,0.98);backdrop-filter:blur(24px);border:1px solid var(–bd2);border-radius:1.125rem;padding:0.625rem;min-width:22rem;opacity:0;pointer-events:none;transition:opacity 0.18s,transform 0.18s;box-shadow:0 24px 60px rgba(0,0,0,0.55);z-index:50}
+.has-drop:hover .nav-drop{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
+.nav-drop-item{display:flex;align-items:flex-start;gap:0.875rem;padding:0.75rem 0.875rem;border-radius:0.75rem;cursor:pointer;transition:background 0.15s;text-decoration:none}
+.nav-drop-item:hover{background:var(–sage-s)}
+.ndi-num{font-size:0.6rem;font-weight:700;letter-spacing:0.08em;color:rgba(106,144,112,0.45);margin-top:0.2rem;flex-shrink:0;min-width:1.5rem}
+.ndi-title{font-size:0.84rem;font-weight:600;color:var(–t1);line-height:1.25;margin-bottom:0.2rem}
+.ndi-desc{font-size:0.73rem;color:var(–t3);line-height:1.5;font-weight:300}
+.nav-drop-item:hover .ndi-title{color:var(–sage-l)}
+.nav-drop-footer{margin-top:0.375rem;padding:0.75rem 0.875rem 0.25rem;border-top:1px solid var(–bd);display:flex;align-items:center;justify-content:space-between}
+.ndf-label{font-size:0.72rem;color:var(–t3)}
+.ndf-cta{font-size:0.72rem;font-weight:600;color:var(–sage-l);cursor:pointer}
+.ndf-cta:hover{text-decoration:underline}
+
+/* DESKTOP CTA BUTTON */
+.nav-cta{background:var(–gs);color:var(–t1);font-size:0.8rem;font-weight:600;padding:0.5rem 1.125rem;border-radius:999px;cursor:pointer;border:none;font-family:var(–fb);transition:all 0.22s var(–sp);box-shadow:0 2px 12px rgba(45,79,58,0.4);white-space:nowrap;margin-left:0.5rem;flex-shrink:0}
+.nav-cta:hover{filter:brightness(1.12);transform:translateY(-1px)}
+
+/* HAMBURGER BUTTON */
+.nav-burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:2.5rem;height:2.5rem;background:none;border:1px solid var(–bd2);border-radius:0.625rem;cursor:pointer;margin-left:auto;flex-shrink:0;transition:border-color 0.2s,background 0.2s}
+.nav-burger:hover{background:var(–sage-s);border-color:var(–sage-b)}
+.burger-line{width:1.125rem;height:1.5px;background:var(–t2);border-radius:2px;transition:all 0.3s}
+.nav-burger.open .burger-line:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-burger.open .burger-line:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-burger.open .burger-line:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* MOBILE DRAWER */
+.mobile-drawer{position:fixed;inset:0;z-index:190;pointer-events:none}
+.drawer-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.6);opacity:0;transition:opacity 0.3s;cursor:pointer}
+.drawer-panel{position:absolute;top:0;right:0;bottom:0;width:min(22rem,100vw);background:rgba(12,24,16,0.99);backdrop-filter:blur(32px);border-left:1px solid var(–bd2);transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;overflow-y:auto}
+.mobile-drawer.open{pointer-events:all}
+.mobile-drawer.open .drawer-backdrop{opacity:1}
+.mobile-drawer.open .drawer-panel{transform:translateX(0)}
+.drawer-top{padding:1.25rem 1.5rem;border-bottom:1px solid var(–bd);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.drawer-logo{font-family:var(–fd);font-size:0.9375rem;font-weight:600;color:var(–t1)}
+.drawer-logo span{color:var(–sage-l)}
+.drawer-close{background:none;border:1px solid var(–bd2);border-radius:0.5rem;width:2rem;height:2rem;cursor:pointer;color:var(–t2);font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.drawer-close:hover{background:var(–sage-s);border-color:var(–sage-b);color:var(–sage-l)}
+.drawer-nav{padding:1rem 1rem;flex:1}
+.drawer-link{display:block;font-size:1.0625rem;font-weight:500;color:var(–t2);padding:0.875rem 0.75rem;border-radius:0.75rem;cursor:pointer;transition:all 0.18s;border:1px solid transparent}
+.drawer-link:hover{background:var(–sage-s);border-color:var(–sage-b);color:var(–sage-l)}
+.drawer-section-label{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(106,144,112,0.35);padding:0.875rem 0.75rem 0.375rem}
+.drawer-sub-link{display:flex;align-items:flex-start;gap:0.75rem;padding:0.625rem 0.75rem;border-radius:0.75rem;cursor:pointer;transition:background 0.15s}
+.drawer-sub-link:hover{background:var(–sage-s)}
+.dsl-num{font-size:0.6rem;font-weight:700;color:rgba(106,144,112,0.4);margin-top:0.25rem;flex-shrink:0;min-width:1.25rem}
+.dsl-title{font-size:0.875rem;font-weight:600;color:var(–t2);line-height:1.3;margin-bottom:0.1rem}
+.dsl-desc{font-size:0.72rem;color:var(–t3);font-weight:300}
+.drawer-sub-link:hover .dsl-title{color:var(–sage-l)}
+.drawer-div{height:1px;background:var(–bd);margin:0.5rem 0.75rem}
+.drawer-bottom{padding:1.25rem 1.5rem;border-top:1px solid var(–bd);flex-shrink:0}
+.drawer-cta{display:block;width:100%;background:var(–gs);color:var(–t1);font-size:1rem;font-weight:600;padding:1rem;border-radius:999px;border:none;cursor:pointer;font-family:var(–fb);text-align:center;box-shadow:0 4px 20px rgba(45,79,58,0.35);transition:filter 0.2s}
+.drawer-cta:hover{filter:brightness(1.1)}
+.drawer-sub-note{font-size:0.72rem;color:var(–t3);text-align:center;margin-top:0.625rem}
+
+@media(max-width:820px){
+.nav-links,.nav-cta{display:none}
+.nav-burger{display:flex}
+.about-float{display:none}
+}
+
+/* PAGES */
+.page{display:none}.page.active{display:block}
+
+/* LAYOUT */
+.w{max-width:76rem;margin:0 auto;padding:0 2rem}
+.w-mid{max-width:60rem;margin:0 auto;padding:0 2rem}
+.w-narrow{max-width:48rem;margin:0 auto;padding:0 2rem}
+.sec{padding:5.5rem 0;background:var(–forest)}
+.sec-moss{padding:5.5rem 0;background:var(–moss)}
+.sec-f2{padding:5.5rem 0;background:var(–forest2)}
+.sec-dark{padding:5.5rem 0;background:var(–forest3)}
+
+/* TYPE */
+.eyebrow{font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(–sage-l);display:block;margin-bottom:0.75rem}
+.eyebrow-terra{color:var(–terra)}
+.h2{font-family:var(–fd);font-size:clamp(2rem,4vw,3rem);font-weight:500;line-height:1.1;letter-spacing:-0.025em;color:var(–t1);margin-bottom:1rem}
+.h2 em{font-style:italic;color:var(–sage-l)}
+.lead{font-size:1rem;color:var(–t2);line-height:1.82;font-weight:300}
+
+/* BUTTONS */
+.btn-sage{background:var(–gs);color:var(–t1);padding:1rem 2rem;border-radius:999px;font-size:0.9375rem;font-weight:600;border:none;cursor:pointer;font-family:var(–fb);box-shadow:0 4px 20px rgba(45,79,58,0.35);transition:all 0.3s var(–sp);display:inline-flex;align-items:center;gap:0.5rem}
+.btn-sage:hover{filter:brightness(1.1);transform:translateY(-3px);color:var(–t1)}
+.btn-ghost{background:transparent;color:var(–t2);padding:0.9375rem 1.875rem;border-radius:999px;font-size:0.9375rem;font-weight:500;border:1.5px solid var(–bd2);cursor:pointer;font-family:var(–fb);transition:all 0.25s;display:inline-flex;align-items:center;gap:0.5rem}
+.btn-ghost:hover{border-color:var(–sage-b2);color:var(–sage-l)}
+.btn-full{width:100%;justify-content:center}
+
+/* HERO */
+.hero{min-height:100svh;background:var(–forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:5rem 0 4rem}
+.hero-atmo{position:absolute;inset:0;pointer-events:none}
+.hero-atmo::before{content:””;position:absolute;width:65vw;height:65vw;max-width:750px;max-height:750px;top:-15%;right:-10%;background:radial-gradient(ellipse,rgba(45,79,58,0.35),transparent 60%);border-radius:50%;animation:breathe 16s ease-in-out infinite}
+.hero-atmo::after{content:””;position:absolute;width:45vw;height:45vw;max-width:500px;max-height:500px;bottom:-10%;left:-10%;background:radial-gradient(ellipse,rgba(106,144,112,0.12),transparent 60%);border-radius:50%;animation:breathe 20s ease-in-out infinite reverse}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.08) translate(2%,2%)}}
+.hero-rule{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(–sage-b),transparent)}
+.hero-inner{max-width:76rem;margin:0 auto;padding:0 2rem;width:100%;display:grid;gap:4rem;align-items:center;position:relative;z-index:1}
+@media(min-width:820px){.hero-inner{grid-template-columns:1.1fr 0.9fr}}
+.hero-avail{display:inline-flex;align-items:center;gap:0.5rem;background:var(–sage-s);border:1px solid var(–sage-b);color:var(–sage-l);font-size:0.72rem;font-weight:600;padding:0.375rem 0.875rem;border-radius:999px;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:2rem}
+.avail-dot{width:0.5rem;height:0.5rem;border-radius:50%;background:var(–sage);flex-shrink:0;animation:pulsedot 2s ease-in-out infinite}
+@keyframes pulsedot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.75)}}
+.hero-h1{font-family:var(–fd);font-weight:500;font-size:clamp(2.75rem,6vw,5rem);line-height:1.05;letter-spacing:-0.03em;color:var(–t1);margin-bottom:1.5rem}
+.hero-h1 em{font-style:italic;color:var(–sage-l)}
+.hero-h1 .sub-line{display:block;font-size:0.52em;font-weight:400;color:var(–t3);margin-bottom:0.5rem;font-style:italic}
+.hero-p{font-size:1.0625rem;color:var(–t2);line-height:1.82;max-width:44ch;margin-bottom:2.25rem;font-weight:300}
+.hero-p strong{color:var(–t1);font-weight:500}
+.hero-actions{display:flex;gap:0.875rem;flex-wrap:wrap;margin-bottom:2rem}
+.hero-creds{display:flex;flex-wrap:wrap;gap:0.5rem}
+.cred-chip{font-size:0.72rem;font-weight:500;color:var(–t3);background:rgba(106,144,112,0.07);border:1px solid var(–bd);padding:0.25rem 0.75rem;border-radius:999px}
+.hero-card{background:var(–gc);border-radius:2rem;overflow:hidden;box-shadow:0 2px 0 var(–bd),0 20px 60px rgba(0,0,0,0.4);position:relative;border:1px solid var(–bd2)}
+.hero-card::before{content:””;position:absolute;top:0;left:0;right:0;height:3px;background:var(–gs);z-index:1}
+.hero-portrait{width:100%;aspect-ratio:4/3;overflow:hidden;position:relative}
+.portrait-bg{width:100%;height:100%;background:linear-gradient(160deg,#1e3528,#162a1e);position:relative;overflow:hidden}
+.portrait-glow{position:absolute;top:-20%;right:-20%;width:70%;height:70%;background:radial-gradient(ellipse,rgba(106,144,112,0.25),transparent 60%);border-radius:50%}
+.portrait-body{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:56%;height:80%;background:linear-gradient(170deg,#3d5540,#2d4030);border-radius:50% 50% 0 0}
+.portrait-head{position:absolute;bottom:42%;left:50%;transform:translateX(-50%);width:32%;height:32%;background:linear-gradient(160deg,#8a7060,#7a6050);border-radius:50%}
+.portrait-overlay{position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(15,31,22,0.5))}
+.portrait-label{position:absolute;bottom:1rem;left:1rem;right:1rem;text-align:center;font-family:var(–fd);font-style:italic;font-size:0.78rem;color:rgba(200,191,168,0.85)}
+.hcard-body{padding:1.75rem}
+.hc-name{font-family:var(–fd);font-size:1.375rem;font-weight:600;color:var(–t1);letter-spacing:-0.02em;margin-bottom:0.15rem}
+.hc-title{font-size:0.8125rem;color:var(–sage-l);font-weight:600;margin-bottom:1.125rem}
+.hc-quote{font-family:var(–fd);font-style:italic;font-size:0.9375rem;color:var(–t2);line-height:1.7;border-left:2px solid var(–sage-b);padding-left:1rem;margin-bottom:1.25rem}
+.hc-chips{display:flex;flex-wrap:wrap;gap:0.375rem}
+.hc-chip{font-size:0.7rem;font-weight:500;color:var(–t3);background:var(–sage-s);border:1px solid var(–bd);padding:0.2rem 0.625rem;border-radius:999px}
+
+/* GROUNDING STRIP */
+.grounding-strip{background:var(–moss);padding:3rem 0;border-top:1px solid var(–bd);border-bottom:1px solid var(–bd)}
+.gs-inner{max-width:58rem;margin:0 auto;padding:0 2rem;text-align:center}
+.gs-text{font-family:var(–fd);font-style:italic;font-size:clamp(1.25rem,3vw,1.875rem);color:rgba(200,191,168,0.9);line-height:1.55}
+.gs-text em{color:var(–sage-l);font-style:normal}
+.gs-attr{margin-top:1rem;font-size:0.8rem;color:rgba(106,144,112,0.7);font-weight:500;letter-spacing:0.05em}
+
+/* CONCERN CARDS */
+.concerns-grid{display:grid;gap:1rem}
+@media(min-width:540px){.concerns-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.concerns-grid{grid-template-columns:repeat(3,1fr)}}
+.concern-card{background:var(–gc);border:1px solid var(–bd);border-radius:1.25rem;padding:1.75rem;transition:all 0.35s var(–sp);position:relative;overflow:hidden}
+.concern-card::after{content:””;position:absolute;bottom:0;left:0;right:0;height:2px;background:var(–gs);transform:scaleX(0);transform-origin:left;transition:transform 0.35s var(–sm)}
+.concern-card:hover{transform:translateY(-5px);border-color:var(–sage-b);box-shadow:0 16px 40px rgba(45,79,58,0.2)}
+.concern-card:hover::after{transform:scaleX(1)}
+.concern-icon{font-size:1.75rem;margin-bottom:0.875rem}
+.concern-title{font-family:var(–fd);font-size:1.0625rem;font-weight:600;color:var(–t1);margin-bottom:0.5rem}
+.concern-desc{font-size:0.875rem;color:var(–t2);line-height:1.65;font-weight:300}
+.concern-feel{margin-top:0.875rem;font-style:italic;font-family:var(–fd);font-size:0.8125rem;color:var(–t3)}
+
+/* APPROACH */
+.approach-grid{display:grid;gap:3.5rem;align-items:center}
+@media(min-width:760px){.approach-grid{grid-template-columns:1fr 1fr}}
+.pillar{padding:1.5rem 0;border-bottom:1px solid var(–bd);display:flex;gap:1.25rem;align-items:flex-start}
+.pillar:first-child{padding-top:0}.pillar:last-child{border-bottom:none;padding-bottom:0}
+.pillar-dot{width:0.5rem;height:0.5rem;border-radius:50%;background:var(–sage);flex-shrink:0;margin-top:0.5rem}
+.pillar-title{font-size:0.9rem;font-weight:600;color:var(–t1);margin-bottom:0.25rem}
+.pillar-desc{font-size:0.875rem;color:var(–t2);line-height:1.65;font-weight:300}
+.approach-aside{background:linear-gradient(160deg,rgba(45,79,58,0.2),rgba(15,31,22,0.5));border-radius:1.5rem;padding:2.25rem;border:1px solid var(–bd2);position:relative;overflow:hidden}
+.approach-aside::before{content:””;position:absolute;top:0;left:0;right:0;height:2px;background:var(–gs)}
+.aa-quote{font-family:var(–fd);font-style:italic;font-size:1.125rem;color:var(–t1);line-height:1.65;margin-bottom:1.75rem}
+.aa-mods{display:flex;flex-wrap:wrap;gap:0.375rem;margin-bottom:1.5rem}
+.aa-mod{font-size:0.72rem;font-weight:500;color:var(–t3);background:var(–sage-s);border:1px solid var(–bd);padding:0.25rem 0.75rem;border-radius:999px}
+.aa-note{font-size:0.8125rem;color:var(–t2);line-height:1.65;font-weight:300}
+
+/* SPECIALTY PREVIEW */
+.spec-grid{display:grid;gap:1rem}
+@media(min-width:640px){.spec-grid{grid-template-columns:1fr 1fr}}
+.spec-card{background:var(–gc);border:1px solid var(–bd);border-radius:1.25rem;padding:1.75rem;transition:all 0.3s var(–sp);cursor:pointer;display:flex;flex-direction:column}
+.spec-card:hover{border-color:var(–sage-b);transform:translateY(-4px);box-shadow:0 16px 40px rgba(45,79,58,0.2)}
+.spec-num{font-family:var(–fd);font-size:2.5rem;font-weight:300;color:rgba(106,144,112,0.2);line-height:1;margin-bottom:0.75rem}
+.spec-title{font-family:var(–fd);font-size:1.125rem;font-weight:600;color:var(–t1);margin-bottom:0.5rem}
+.spec-desc{font-size:0.875rem;color:var(–t2);line-height:1.65;font-weight:300;flex:1;margin-bottom:1rem}
+.spec-link{font-size:0.8125rem;font-weight:600;color:var(–sage-l)}
+
+/* ABOUT */
+.about-grid{display:grid;gap:3rem;align-items:center}
+@media(min-width:760px){.about-grid{grid-template-columns:0.85fr 1.15fr}}
+.about-img-wrap{position:relative}
+.about-img{width:100%;aspect-ratio:3/4;border-radius:1.5rem;overflow:hidden;position:relative;box-shadow:0 24px 64px rgba(0,0,0,0.4)}
+.about-img-inner{width:100%;height:100%;background:linear-gradient(170deg,#1e3528,#162a1e);position:relative;overflow:hidden}
+.about-img-glow{position:absolute;top:-20%;right:-20%;width:70%;height:70%;background:radial-gradient(ellipse,rgba(106,144,112,0.2),transparent 60%);border-radius:50%}
+.about-img-body{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:66%;height:86%;background:linear-gradient(170deg,#3d5540,#2d4030);border-radius:50% 50% 0 0}
+.about-img-head{position:absolute;bottom:42%;left:50%;transform:translateX(-50%);width:33%;height:33%;background:linear-gradient(160deg,#8a7060,#7a6050);border-radius:50%}
+.about-img-label{position:absolute;bottom:1.25rem;left:1.25rem;right:1.25rem;background:rgba(15,31,22,0.9);backdrop-filter:blur(8px);border-radius:0.75rem;padding:0.875rem 1rem;border:1px solid var(–bd)}
+.ail-name{font-family:var(–fd);font-size:0.9375rem;font-weight:600;color:var(–t1)}
+.ail-cred{font-size:0.72rem;color:var(–sage-l);font-weight:600;margin-top:0.1rem}
+.about-float{position:absolute;bottom:-1rem;right:-1rem;background:var(–moss);border:1px solid var(–bd2);border-radius:1rem;padding:1rem 1.25rem;box-shadow:0 8px 32px rgba(0,0,0,0.3);max-width:13rem}
+.af-num{font-family:var(–fd);font-size:2rem;font-weight:600;color:var(–sage-l);line-height:1}
+.af-label{font-size:0.72rem;color:var(–t2);line-height:1.4;margin-top:0.2rem}
+.about-text p{font-size:0.9375rem;color:var(–t2);line-height:1.85;margin-bottom:1rem;font-weight:300}
+.about-text strong{color:var(–t1);font-weight:500}
+.creds-block{margin-top:2rem;padding:1.5rem;background:var(–gc);border-radius:1rem;border:1px solid var(–bd)}
+.cb-label{font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(–sage-l);margin-bottom:0.875rem}
+.cb-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.cb-list li{font-size:0.8375rem;color:var(–t2);display:flex;gap:0.625rem;align-items:flex-start;line-height:1.45}
+.cb-list li::before{content:“✓”;color:var(–sage);font-weight:700;flex-shrink:0;font-size:0.75rem;margin-top:0.125rem}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;gap:1.25rem}
+@media(min-width:640px){.testi-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.testi-grid{grid-template-columns:repeat(3,1fr)}}
+.testi-card{background:rgba(200,191,168,0.05);border:1px solid rgba(106,144,112,0.1);border-radius:1.25rem;padding:1.75rem}
+.testi-stars{font-size:0.75rem;color:var(–gold);letter-spacing:0.1em;margin-bottom:1rem}
+.testi-q{font-family:var(–fd);font-style:italic;font-size:1rem;color:rgba(200,191,168,0.85);line-height:1.72;margin-bottom:1.125rem;position:relative}
+.testi-q::before{content:”\201C”;font-size:3rem;color:rgba(106,144,112,0.25);line-height:0;vertical-align:-0.875rem;margin-right:0.1rem}
+.testi-name{font-size:0.8125rem;font-weight:600;color:rgba(200,191,168,0.65)}
+.testi-role{font-size:0.72rem;color:rgba(106,144,112,0.6);margin-top:0.1rem}
+
+/* BOOKING */
+.booking-section{padding:6rem 0;background:var(–forest2);position:relative;overflow:hidden}
+.booking-section::before{content:””;position:absolute;top:-20%;right:-10%;width:50%;height:80%;background:radial-gradient(ellipse,rgba(45,79,58,0.2),transparent 60%)}
+.booking-grid{display:grid;gap:3rem;align-items:start}
+@media(min-width:720px){.booking-grid{grid-template-columns:1fr 1fr}}
+.booking-promise{display:flex;flex-direction:column;gap:0.75rem}
+.bp-item{display:flex;gap:0.875rem;align-items:flex-start;padding:1rem 1.25rem;background:var(–gc);border:1px solid var(–bd);border-radius:0.875rem}
+.bp-icon{font-size:1.25rem;flex-shrink:0}
+.bp-title{font-size:0.875rem;font-weight:600;color:var(–t1);margin-bottom:0.15rem}
+.bp-desc{font-size:0.8rem;color:var(–t2);line-height:1.5;font-weight:300}
+.booking-card{background:var(–gc);border-radius:1.5rem;border:1px solid var(–bd2);box-shadow:0 20px 60px rgba(0,0,0,0.3);overflow:hidden;position:relative}
+.booking-card::before{content:””;position:absolute;top:0;left:0;right:0;height:3px;background:var(–gs)}
+.bc-top{padding:2rem;border-bottom:1px solid var(–bd)}
+.bc-title{font-family:var(–fd);font-size:1.375rem;font-weight:600;color:var(–t1);margin-bottom:0.375rem}
+.bc-sub{font-size:0.875rem;color:var(–t2);font-weight:300}
+.bc-body{padding:2rem}
+.bc-field{margin-bottom:1.25rem}
+.bc-label{display:block;font-size:0.75rem;font-weight:600;color:var(–t2);margin-bottom:0.375rem;letter-spacing:0.04em}
+.bc-input{width:100%;padding:0.8125rem 1rem;background:rgba(106,144,112,0.06);border:1.5px solid var(–bd2);border-radius:0.75rem;font-family:var(–fb);font-size:0.9375rem;color:var(–t1);outline:none;transition:border-color 0.2s,box-shadow 0.2s;-webkit-appearance:none}
+.bc-input:focus{border-color:var(–sage);box-shadow:0 0 0 3px var(–sage-s)}
+.bc-input::placeholder{color:var(–t3)}
+textarea.bc-input{resize:vertical;min-height:6rem;line-height:1.6}
+.bc-note{font-size:0.72rem;color:var(–t3);margin-top:0.375rem;font-style:italic}
+.bc-footer{padding:0 2rem 2rem}
+.bc-disclaimer{font-size:0.72rem;color:var(–t3);line-height:1.6;margin-top:1rem;text-align:center}
+
+/* FAQ */
+.faq-list{max-width:54rem;margin:0 auto}
+.faq-item{border-bottom:1px solid var(–bd)}
+.faq-item:first-child{border-top:1px solid var(–bd)}
+.faq-btn{width:100%;background:none;border:none;cursor:pointer;font-family:var(–fb);font-size:0.9375rem;font-weight:500;color:var(–t1);padding:1.375rem 0;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:color 0.2s}
+.faq-btn:hover{color:var(–sage-l)}
+.faq-icon{width:1.5rem;height:1.5rem;border-radius:50%;flex-shrink:0;background:var(–sage-s);border:1px solid var(–sage-b);display:flex;align-items:center;justify-content:center;font-size:0.875rem;color:var(–sage-l);font-weight:600;transition:transform 0.3s var(–sp),background 0.2s}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(–sage-b)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s var(–sm)}
+.faq-item.open .faq-answer{max-height:24rem}
+.faq-answer-inner{padding:0 0 1.375rem;font-size:0.9rem;color:var(–t2);line-height:1.78;font-weight:300}
+.faq-answer-inner strong{color:var(–t1);font-weight:500}
+
+/* SPECIALTIES PAGE */
+.page-hero{padding:8rem 0 4rem;background:var(–forest2);position:relative;overflow:hidden;border-bottom:1px solid var(–bd)}
+.page-hero::before{content:””;position:absolute;top:-20%;right:-10%;width:50%;height:80%;background:radial-gradient(ellipse,rgba(45,79,58,0.25),transparent 60%)}
+.page-hero-inner{max-width:76rem;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+.breadcrumb{font-size:0.75rem;color:var(–t3);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem}
+.breadcrumb a{color:var(–sage-l)}
+.spec-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;margin:2.5rem 0 0}
+.spec-tab{font-size:0.8125rem;font-weight:600;padding:0.5625rem 1.25rem;border-radius:999px;border:1px solid var(–bd2);color:var(–t3);background:none;cursor:pointer;font-family:var(–fb);transition:all 0.2s}
+.spec-tab:hover{border-color:var(–sage-b);color:var(–sage-l)}
+.spec-tab.active{background:var(–sage-s);border-color:var(–sage-b);color:var(–sage-l)}
+.spec-content{display:none;padding:4rem 0}
+.spec-content.active{display:block}
+.spec-detail-grid{display:grid;gap:4rem;align-items:start}
+@media(min-width:760px){.spec-detail-grid{grid-template-columns:1.1fr 0.9fr}}
+.spec-what-h{font-family:var(–fd);font-size:1.625rem;font-weight:600;color:var(–t1);margin-bottom:1rem}
+.spec-what-p{font-size:0.9375rem;color:var(–t2);line-height:1.85;margin-bottom:1rem;font-weight:300}
+.spec-what-p strong{color:var(–t1);font-weight:500}
+.spec-approach-block{background:var(–gc);border:1px solid var(–bd);border-radius:1.25rem;padding:1.75rem;margin-top:1.5rem}
+.sab-label{font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(–sage-l);margin-bottom:1rem}
+.sab-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.sab-list li{font-size:0.875rem;color:var(–t2);display:flex;gap:0.625rem;align-items:flex-start;line-height:1.5;font-weight:300}
+.sab-list li::before{content:“→”;color:var(–sage-l);flex-shrink:0;font-size:0.8rem;margin-top:0.15rem}
+.spec-side-card{background:linear-gradient(160deg,rgba(45,79,58,0.2),rgba(15,31,22,0.5));border:1px solid var(–bd2);border-radius:1.375rem;padding:2rem;position:sticky;top:5.5rem;overflow:hidden}
+.spec-side-card::before{content:””;position:absolute;top:0;left:0;right:0;height:2px;background:var(–gs)}
+.ssc-quote{font-family:var(–fd);font-style:italic;font-size:1.0625rem;color:var(–t1);line-height:1.65;margin-bottom:1.5rem}
+.ssc-syms-label{font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(–sage-l);margin-bottom:0.875rem}
+.ssc-syms{display:flex;flex-wrap:wrap;gap:0.375rem;margin-bottom:1.5rem}
+.ssc-sym{font-size:0.72rem;color:var(–t2);background:var(–sage-s);border:1px solid var(–bd);border-radius:999px;padding:0.25rem 0.75rem}
+.ssc-cta-label{font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(–t3);margin-bottom:0.75rem}
+
+/* BLOG */
+.blog-grid{display:grid;gap:1.5rem}
+@media(min-width:540px){.blog-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.blog-grid{grid-template-columns:repeat(3,1fr)}}
+.blog-card{background:var(–gc);border:1px solid var(–bd);border-radius:1.375rem;overflow:hidden;transition:all 0.35s var(–sp);cursor:pointer;display:flex;flex-direction:column}
+.blog-card:hover{border-color:var(–sage-b);transform:translateY(-5px);box-shadow:0 20px 48px rgba(45,79,58,0.2)}
+.blog-img{width:100%;aspect-ratio:16/9;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+.bi-1{background:linear-gradient(160deg,#1e3528,#0f2018)}.bi-2{background:linear-gradient(160deg,#1a1e28,#0f1018)}
+.bi-3{background:linear-gradient(160deg,#281a10,#180f06)}.bi-4{background:linear-gradient(160deg,#1a2a20,#0f1f14)}
+.bi-5{background:linear-gradient(160deg,#201828,#120f1a)}.bi-6{background:linear-gradient(160deg,#1e2018,#0f1408)}
+.blog-tag-pill{position:absolute;top:0.75rem;left:0.75rem;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(–sage-l);background:rgba(15,31,22,0.85);border:1px solid var(–sage-b);border-radius:999px;padding:0.2rem 0.625rem}
+.blog-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+.blog-title{font-family:var(–fd);font-size:1.125rem;font-weight:600;color:var(–t1);line-height:1.3;margin-bottom:0.625rem}
+.blog-snip{font-size:0.875rem;color:var(–t2);line-height:1.65;flex:1;margin-bottom:1rem;font-weight:300}
+.blog-foot{display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(–bd)}
+.blog-read{font-size:0.8rem;font-weight:600;color:var(–sage-l);display:flex;align-items:center;gap:0.35rem;transition:gap 0.2s}
+.blog-card:hover .blog-read{gap:0.6rem}
+.blog-meta{font-size:0.72rem;color:var(–t3)}
+
+/* ARTICLE */
+.article-header{padding:6rem 0 3rem;background:var(–forest2);border-bottom:1px solid var(–bd)}
+.article-wrap{max-width:48rem;margin:0 auto;padding:0 2rem}
+.article-tag{display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(–sage-l);background:var(–sage-s);border:1px solid var(–sage-b);border-radius:999px;padding:0.2rem 0.75rem;margin-bottom:1.25rem}
+.article-h1{font-family:var(–fd);font-size:clamp(1.875rem,4vw,2.75rem);font-weight:600;line-height:1.15;letter-spacing:-0.025em;color:var(–t1);margin-bottom:1rem}
+.article-meta{font-size:0.8rem;color:var(–t3)}
+.article-body{padding:3rem 0 5rem}
+.article-body h2{font-family:var(–fd);font-size:1.5rem;font-weight:600;color:var(–t1);margin:2.5rem 0 1rem}
+.article-body p{font-size:1rem;color:var(–t2);line-height:1.88;margin-bottom:1.25rem;font-weight:300}
+.article-body strong{color:var(–t1);font-weight:500}
+.article-body blockquote{border-left:2px solid var(–sage-b);padding-left:1.25rem;margin:2rem 0;font-family:var(–fd);font-style:italic;font-size:1.0625rem;color:var(–t1);line-height:1.65}
+.article-body ul{margin:1rem 0 1.25rem 1.5rem}
+.article-body li{font-size:1rem;color:var(–t2);line-height:1.75;margin-bottom:0.375rem;font-weight:300}
+.article-cta{margin-top:3rem;background:linear-gradient(135deg,rgba(45,79,58,0.2),rgba(15,31,22,0.5));border:1px solid var(–bd2);border-radius:1.25rem;padding:2rem;text-align:center}
+.acta-title{font-family:var(–fd);font-size:1.25rem;font-weight:600;color:var(–t1);margin-bottom:0.5rem}
+.acta-p{font-size:0.875rem;color:var(–t2);line-height:1.65;margin-bottom:1.25rem;font-weight:300}
+
+/* RESOURCES */
+.resources-grid{display:grid;gap:1.25rem}
+@media(min-width:540px){.resources-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.resources-grid{grid-template-columns:repeat(3,1fr)}}
+.resource-card{background:var(–gc);border:1px solid var(–bd);border-radius:1.25rem;padding:1.75rem;transition:all 0.3s var(–sp);display:flex;flex-direction:column}
+.resource-card:hover{border-color:var(–sage-b);transform:translateY(-4px);box-shadow:0 16px 40px rgba(45,79,58,0.2)}
+.rt{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;display:flex;align-items:center;justify-content:space-between}
+.rt-free{color:var(–sage-l)}.rt-guide{color:var(–gold)}.rt-tool{color:var(–terra)}
+.rb-free{font-size:0.65rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:999px;background:var(–sage-s);border:1px solid var(–sage-b);color:var(–sage-l)}
+.resource-title{font-family:var(–fd);font-size:1.0625rem;font-weight:600;color:var(–t1);margin-bottom:0.5rem}
+.resource-desc{font-size:0.875rem;color:var(–t2);line-height:1.65;font-weight:300;flex:1;margin-bottom:1.25rem}
+.resource-cta{font-size:0.8125rem;font-weight:600;color:var(–sage-l)}
+
+/* FOOTER */
+footer{background:var(–forest3);border-top:1px solid var(–bd);padding:3rem 0 2rem}
+.footer-inner{max-width:76rem;margin:0 auto;padding:0 2rem}
+.footer-top{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-start;padding-bottom:2rem;border-bottom:1px solid var(–bd);margin-bottom:1.5rem}
+.footer-name{font-family:var(–fd);font-size:1.25rem;font-weight:500;color:var(–t1);margin-bottom:0.25rem}
+.footer-cred{font-size:0.75rem;color:var(–sage-l);font-weight:600}
+.footer-blurb{font-size:0.8125rem;color:var(–t3);line-height:1.65;max-width:28ch;margin-top:0.5rem}
+.footer-col-h{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(106,144,112,0.4);margin-bottom:0.75rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:0.375rem}
+.footer-links a{font-size:0.8125rem;color:var(–t3);transition:color 0.2s;cursor:pointer}
+.footer-links a:hover{color:var(–sage-l)}
+.footer-bottom{display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:space-between;align-items:center}
+.footer-copy{font-size:0.72rem;color:var(–t4)}
+.footer-powered{font-size:0.7rem;color:var(–t4);display:flex;align-items:center;gap:0.375rem}
+.footer-powered a{color:rgba(106,144,112,0.5);transition:color 0.2s}
+.footer-powered a:hover{color:var(–sage-l)}
+.wellovie-badge{position:fixed;bottom:1.25rem;right:1.25rem;z-index:300;background:rgba(15,31,22,0.95);backdrop-filter:blur(12px);border:1px solid var(–bd2);border-radius:999px;padding:0.4375rem 0.875rem;display:flex;align-items:center;gap:0.375rem;font-size:0.7rem;color:var(–t2);font-weight:500;box-shadow:0 4px 20px rgba(0,0,0,0.3);transition:all 0.25s var(–sp);opacity:0;transform:translateY(8px);animation:badgein 0.6s 1.5s var(–sp) forwards}
+@keyframes badgein{to{opacity:1;transform:translateY(0)}}
+.wellovie-badge:hover{transform:translateY(-2px);color:var(–sage-l)}
+.wbadge-dot{width:0.375rem;height:0.375rem;border-radius:50%;background:var(–sage);flex-shrink:0}
+.r{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s var(–sm)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:0.1s}.r.d2{transition-delay:0.2s}.r.d3{transition-delay:0.3s}.r.d4{transition-delay:0.4s}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">Dr. Elena Vasquez<span>, LCSW</span></div>
+    <ul class="nav-links">
+      <li class="has-drop">
+        <a onclick="showPage('specialties')">Specialties <span class="nav-arrow">&#9660;</span></a>
+        <div class="nav-drop">
+          <div class="nav-drop-item" onclick="showPage('specialties');showSpec('trauma')">
+            <span class="ndi-num">01</span>
+            <div><div class="ndi-title">Trauma &amp; PTSD</div><div class="ndi-desc">Single-incident trauma. EMDR as primary modality.</div></div>
+          </div>
+          <div class="nav-drop-item" onclick="showPage('specialties');showSpec('cptsd')">
+            <span class="ndi-num">02</span>
+            <div><div class="ndi-title">Complex Trauma (C-PTSD)</div><div class="ndi-desc">Prolonged, relational trauma. IFS and attachment work.</div></div>
+          </div>
+          <div class="nav-drop-item" onclick="showPage('specialties');showSpec('somatic')">
+            <span class="ndi-num">03</span>
+            <div><div class="ndi-title">Somatic Approaches</div><div class="ndi-desc">Body-based work when talk therapy isn&rsquo;t enough.</div></div>
+          </div>
+          <div class="nav-drop-item" onclick="showPage('specialties');showSpec('childhood')">
+            <span class="ndi-num">04</span>
+            <div><div class="ndi-title">Childhood Trauma</div><div class="ndi-desc">The long reach of neglect and family wounds.</div></div>
+          </div>
+          <div class="nav-drop-footer">
+            <span class="ndf-label">EMDR Certified &middot; Somatic Trained &middot; IFS Level 2</span>
+            <span class="ndf-cta" onclick="showPage('specialties')">View all &rarr;</span>
+          </div>
+        </div>
+      </li>
+      <li><a onclick="showPage('groups')">Groups &amp; Workshops</a></li>
+      <li><a onclick="showPage('blog')">Blog</a></li>
+      <li><a onclick="showPage('resources')">Resources</a></li>
+      <li><a onclick="showPage('home');scrollToSection('about-section')">About</a></li>
+    </ul>
+    <button class="nav-cta" onclick="showPage('home');scrollToSection('book')">Book a free call</button>
+
+```
+<!-- HAMBURGER -->
+<button class="nav-burger" id="nav-burger" onclick="toggleDrawer()" aria-label="Open menu">
+  <span class="burger-line"></span>
+  <span class="burger-line"></span>
+  <span class="burger-line"></span>
+</button>
+```
+
+  </div>
+</nav>
+
+<!-- MOBILE DRAWER -->
+
+<div class="mobile-drawer" id="mobile-drawer">
+  <div class="drawer-backdrop" onclick="closeDrawer()"></div>
+  <div class="drawer-panel">
+    <div class="drawer-top">
+      <div class="drawer-logo">Dr. Elena Vasquez<span>, LCSW</span></div>
+      <button class="drawer-close" onclick="closeDrawer()">&#10005;</button>
+    </div>
+    <div class="drawer-nav">
+      <div class="drawer-link" onclick="closeDrawer();showPage('home')">Home</div>
+      <div class="drawer-div"></div>
+      <div class="drawer-section-label">Specialties</div>
+      <div class="drawer-sub-link" onclick="closeDrawer();showPage('specialties');showSpec('trauma')">
+        <span class="dsl-num">01</span><div><div class="dsl-title">Trauma &amp; PTSD</div><div class="dsl-desc">EMDR, somatic, nervous system work</div></div>
+      </div>
+      <div class="drawer-sub-link" onclick="closeDrawer();showPage('specialties');showSpec('cptsd')">
+        <span class="dsl-num">02</span><div><div class="dsl-title">Complex Trauma (C-PTSD)</div><div class="dsl-desc">Prolonged and relational trauma</div></div>
+      </div>
+      <div class="drawer-sub-link" onclick="closeDrawer();showPage('specialties');showSpec('somatic')">
+        <span class="dsl-num">03</span><div><div class="dsl-title">Somatic Approaches</div><div class="dsl-desc">Body-based therapy</div></div>
+      </div>
+      <div class="drawer-sub-link" onclick="closeDrawer();showPage('specialties');showSpec('childhood')">
+        <span class="dsl-num">04</span><div><div class="dsl-title">Childhood Trauma</div><div class="dsl-desc">Family wounds &amp; early experiences</div></div>
+      </div>
+      <div class="drawer-div"></div>
+      <div class="drawer-link" onclick="closeDrawer();showPage('groups')">Groups &amp; Workshops</div>
+      <div class="drawer-link" onclick="closeDrawer();showPage('blog')">Blog</div>
+      <div class="drawer-link" onclick="closeDrawer();showPage('resources')">Resources</div>
+      <div class="drawer-link" onclick="closeDrawer();showPage('home');scrollToSection('about-section')">About</div>
+    </div>
+    <div class="drawer-bottom">
+      <button class="drawer-cta" onclick="closeDrawer();showPage('home');scrollToSection('book')">Book a free 15-min call &rarr;</button>
+      <div class="drawer-sub-note">No commitment &middot; I respond within one business day</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ HOME PAGE ═══════════ -->
+
+<div id="page-home" class="page active">
+
+  <section class="hero">
+    <div class="hero-rule"></div>
+    <div class="hero-atmo"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-avail r"><span class="avail-dot"></span>Accepting new clients &mdash; New York</div>
+        <h1 class="hero-h1 r">
+          <span class="sub-line">What happened to you does not have to define you.</span>
+          Healing is not<br>just <em>possible.</em>
+        </h1>
+        <p class="hero-p r">I work with adults carrying the weight of trauma, PTSD, and complex childhood wounds. <strong>My approach is grounded, evidence-based, and built around the pace that feels safe for you</strong> &mdash; no rushing, no pressure, no reliving what isn&rsquo;t necessary.</p>
+        <div class="hero-actions r">
+          <button class="btn-sage" onclick="scrollToSection('book')">Book a free 15-min call</button>
+          <button class="btn-ghost" onclick="showPage('specialties')">Explore specialties</button>
+        </div>
+        <div class="hero-creds r">
+          <span class="cred-chip">Licensed LCSW, New York</span>
+          <span class="cred-chip">EMDR Certified</span>
+          <span class="cred-chip">Somatic trained</span>
+          <span class="cred-chip">Telehealth available</span>
+          <span class="cred-chip">Sliding scale offered</span>
+        </div>
+      </div>
+      <div class="hero-card r d2">
+        <div class="hero-portrait">
+          <div class="portrait-bg">
+            <div class="portrait-glow"></div>
+            <div class="portrait-body"></div>
+            <div class="portrait-head"></div>
+            <div class="portrait-overlay"></div>
+            <div class="portrait-label">Dr. Elena Vasquez &mdash; New York City</div>
+          </div>
+        </div>
+        <div class="hcard-body">
+          <div class="hc-name">Dr. Elena Vasquez</div>
+          <div class="hc-title">Licensed Clinical Social Worker, LCSW &middot; EMDR Certified</div>
+          <div class="hc-quote">&ldquo;Trauma is not what happened to you. It&rsquo;s what happened inside you as a result. And what happened inside you can change.&rdquo;</div>
+          <div class="hc-chips">
+            <span class="hc-chip">PTSD</span><span class="hc-chip">Complex Trauma</span>
+            <span class="hc-chip">C-PTSD</span><span class="hc-chip">EMDR</span><span class="hc-chip">Somatic</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SITE NAV STRIP -->
+
+  <div style="background:var(--forest3);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:0">
+    <div class="w" style="display:flex;overflow-x:auto;gap:0">
+      <button onclick="showPage('specialties')" style="background:none;border:none;border-right:1px solid var(--bd);padding:1.125rem 1.75rem;font-family:var(--fb);font-size:0.8125rem;font-weight:500;color:var(--t3);cursor:pointer;white-space:nowrap;transition:all 0.2s;display:flex;align-items:center;gap:0.5rem" onmouseover="this.style.background='var(--sage-s)';this.style.color='var(--sage-l)'" onmouseout="this.style.background='none';this.style.color='var(--t3)'">
+        <span style="font-size:1rem">&#127775;</span> 4 Specialty Pages
+      </button>
+      <button onclick="showPage('groups')" style="background:none;border:none;border-right:1px solid var(--bd);padding:1.125rem 1.75rem;font-family:var(--fb);font-size:0.8125rem;font-weight:500;color:var(--t3);cursor:pointer;white-space:nowrap;transition:all 0.2s;display:flex;align-items:center;gap:0.5rem" onmouseover="this.style.background='var(--sage-s)';this.style.color='var(--sage-l)'" onmouseout="this.style.background='none';this.style.color='var(--t3)'">
+        <span style="font-size:1rem">&#129309;</span> Groups &amp; Workshops
+      </button>
+      <button onclick="showPage('blog')" style="background:none;border:none;border-right:1px solid var(--bd);padding:1.125rem 1.75rem;font-family:var(--fb);font-size:0.8125rem;font-weight:500;color:var(--t3);cursor:pointer;white-space:nowrap;transition:all 0.2s;display:flex;align-items:center;gap:0.5rem" onmouseover="this.style.background='var(--sage-s)';this.style.color='var(--sage-l)'" onmouseout="this.style.background='none';this.style.color='var(--t3)'">
+        <span style="font-size:1rem">&#128221;</span> Blog with 6 Articles
+      </button>
+      <button onclick="showPage('resources')" style="background:none;border:none;border-right:1px solid var(--bd);padding:1.125rem 1.75rem;font-family:var(--fb);font-size:0.8125rem;font-weight:500;color:var(--t3);cursor:pointer;white-space:nowrap;transition:all 0.2s;display:flex;align-items:center;gap:0.5rem" onmouseover="this.style.background='var(--sage-s)';this.style.color='var(--sage-l)'" onmouseout="this.style.background='none';this.style.color='var(--t3)'">
+        <span style="font-size:1rem">&#128196;</span> Resources Library
+      </button>
+      <button onclick="scrollToSection('book')" style="background:none;border:none;padding:1.125rem 1.75rem;font-family:var(--fb);font-size:0.8125rem;font-weight:500;color:var(--t3);cursor:pointer;white-space:nowrap;transition:all 0.2s;display:flex;align-items:center;gap:0.5rem;margin-left:auto" onmouseover="this.style.background='var(--sage-s)';this.style.color='var(--sage-l)'" onmouseout="this.style.background='none';this.style.color='var(--t3)'">
+        <span style="font-size:1rem">&#128172;</span> Book a free call
+      </button>
+    </div>
+  </div>
+
+  <div class="grounding-strip">
+    <div class="gs-inner r">
+      <div class="gs-text">&ldquo;You don&rsquo;t have to explain your trauma to deserve support. You don&rsquo;t have to have the worst story in the room. You just have to be here. That&rsquo;s <em>enough</em>.&rdquo;</div>
+      <div class="gs-attr">&mdash; Dr. Elena Vasquez, LCSW</div>
+    </div>
+  </div>
+
+  <section class="sec">
+    <div class="w">
+      <div class="r" style="max-width:44rem;margin-bottom:3rem">
+        <span class="eyebrow">What brings people here</span>
+        <h2 class="h2">You might recognize<br><em>one of these.</em></h2>
+        <p class="lead">Many of my clients arrive unsure whether what they&rsquo;ve been through counts as trauma. It does. You don&rsquo;t need to have survived a war to be living with a nervous system that never felt safe.</p>
+      </div>
+      <div class="concerns-grid">
+        <div class="concern-card r">
+          <div class="concern-icon">&#9889;</div>
+          <div class="concern-title">Flashbacks &amp; intrusive memories</div>
+          <div class="concern-desc">Images, sensations, or memories that arrive without warning and pull you back into experiences you&rsquo;d rather leave behind. Your body responds as if it&rsquo;s happening again.</div>
+          <div class="concern-feel">&ldquo;Even when I&rsquo;m not thinking about it, it&rsquo;s there.&rdquo;</div>
+        </div>
+        <div class="concern-card r d1">
+          <div class="concern-icon">&#127807;</div>
+          <div class="concern-title">Hypervigilance &amp; never feeling safe</div>
+          <div class="concern-desc">Always scanning. Always braced. You can&rsquo;t explain why you feel unsafe in spaces that are objectively fine. Your nervous system has been running on high alert so long it feels like your baseline.</div>
+          <div class="concern-feel">&ldquo;Even when everything is fine, I&rsquo;m waiting for something bad to happen.&rdquo;</div>
+        </div>
+        <div class="concern-card r d2">
+          <div class="concern-icon">&#128274;</div>
+          <div class="concern-title">Emotional numbness &amp; disconnection</div>
+          <div class="concern-desc">Cut off from your body, from other people, from life. It was once a protection. Now it feels like a prison. You know something should register &mdash; and it just doesn&rsquo;t.</div>
+          <div class="concern-feel">&ldquo;It&rsquo;s like I&rsquo;m behind glass, watching my own life.&rdquo;</div>
+        </div>
+        <div class="concern-card r">
+          <div class="concern-icon">&#127752;</div>
+          <div class="concern-title">Childhood wounds that still run the show</div>
+          <div class="concern-desc">Experiences from early life that shaped how you see yourself and what you believe you deserve. Neglect, instability, not being seen &mdash; these don&rsquo;t just stay in the past.</div>
+          <div class="concern-feel">&ldquo;I know the way I react isn&rsquo;t about what&rsquo;s happening now. But I can&rsquo;t stop it.&rdquo;</div>
+        </div>
+        <div class="concern-card r d1">
+          <div class="concern-icon">&#129309;</div>
+          <div class="concern-title">Difficulty trusting or being close</div>
+          <div class="concern-desc">Intimacy feels dangerous. You want connection but pull away when it gets close. Or you attach too fast and brace for abandonment. Either way, relationships feel like a minefield.</div>
+          <div class="concern-feel">&ldquo;I don&rsquo;t know how to be safe with someone.&rdquo;</div>
+        </div>
+        <div class="concern-card r d2">
+          <div class="concern-icon">&#127769;</div>
+          <div class="concern-title">Sleep disruption &amp; body symptoms</div>
+          <div class="concern-desc">Nightmares. Chronic tension. Physical symptoms that don&rsquo;t have a clear medical explanation. Trauma lives in the body as much as the mind &mdash; often more.</div>
+          <div class="concern-feel">&ldquo;I&rsquo;m exhausted but I can&rsquo;t sleep. My body feels braced for something.&rdquo;</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-f2">
+    <div class="w">
+      <div class="approach-grid">
+        <div class="r">
+          <span class="eyebrow">My approach</span>
+          <h2 class="h2">Trauma-informed.<br><em>Body &amp; mind.</em></h2>
+          <p class="lead" style="max-width:40ch;margin-bottom:2.5rem">I use approaches that work with the whole nervous system &mdash; not just the story you can tell about what happened, but the way it&rsquo;s stored in your body.</p>
+          <div>
+            <div class="pillar"><div class="pillar-dot"></div><div><div class="pillar-title">Safety before anything else</div><div class="pillar-desc">We don&rsquo;t go near trauma material until your nervous system has the resources to handle it. Rushing this is not brave &mdash; it&rsquo;s counterproductive. We build the foundation first.</div></div></div>
+            <div class="pillar"><div class="pillar-dot"></div><div><div class="pillar-title">EMDR for trauma processing</div><div class="pillar-desc">Decades of evidence behind it. EMDR allows the brain to process stuck traumatic memories without requiring you to narrate them repeatedly &mdash; one of the most important advances in trauma care.</div></div></div>
+            <div class="pillar"><div class="pillar-dot"></div><div><div class="pillar-title">Working with the body</div><div class="pillar-desc">Talk alone isn&rsquo;t always enough. Somatic approaches help you recognize and work with the physical sensations that are part of how trauma is held &mdash; and how it heals.</div></div></div>
+            <div class="pillar"><div class="pillar-dot"></div><div><div class="pillar-title">Your timeline, always</div><div class="pillar-desc">Trauma healing is not linear. We go at the pace your nervous system can tolerate &mdash; and that pace will change as you build capacity. We follow your lead.</div></div></div>
+          </div>
+        </div>
+        <div class="r d1">
+          <div class="approach-aside">
+            <div class="eyebrow" style="margin-bottom:1rem">How I work</div>
+            <div class="aa-quote">&ldquo;The goal isn&rsquo;t to erase what happened. It&rsquo;s to help your nervous system stop treating the past as if it&rsquo;s still happening right now.&rdquo;</div>
+            <div class="aa-mods">
+              <span class="aa-mod">EMDR</span>
+              <span class="aa-mod">Somatic Experiencing</span>
+              <span class="aa-mod">Trauma-Focused CBT</span>
+              <span class="aa-mod">Internal Family Systems (IFS)</span>
+              <span class="aa-mod">Polyvagal-Informed</span>
+              <span class="aa-mod">Attachment-Based</span>
+            </div>
+            <div class="aa-note">Sessions are 50 minutes, weekly for trauma work. I see clients via HIPAA-compliant telehealth across New York State, and in-person in Manhattan.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIALTIES PREVIEW -->
+
+  <section class="sec-moss">
+    <div class="w">
+      <div class="r" style="margin-bottom:2.5rem">
+        <span class="eyebrow">Areas of focus</span>
+        <h2 class="h2">Four specialties.<br><em>Deeply understood.</em></h2>
+        <p class="lead" style="max-width:44ch">Each type of trauma has its own texture and requires a different approach. Explore what fits your experience.</p>
+      </div>
+      <div class="spec-grid">
+        <div class="spec-card r" onclick="showPage('specialties');showSpec('trauma')">
+          <div class="spec-num">01</div>
+          <div class="spec-title">Trauma &amp; PTSD</div>
+          <div class="spec-desc">For adults living with the aftermath of a specific traumatic event &mdash; accidents, assault, loss, medical trauma, or witnessing something that left a mark your nervous system can&rsquo;t file away.</div>
+          <div class="spec-link">Explore this specialty &rarr;</div>
+        </div>
+        <div class="spec-card r d1" onclick="showPage('specialties');showSpec('cptsd')">
+          <div class="spec-num">02</div>
+          <div class="spec-title">Complex Trauma (C-PTSD)</div>
+          <div class="spec-desc">For those whose trauma was prolonged, repeated, or relational &mdash; often beginning in childhood. The wounds are different from single-incident PTSD and need a different approach.</div>
+          <div class="spec-link">Explore this specialty &rarr;</div>
+        </div>
+        <div class="spec-card r d2" onclick="showPage('specialties');showSpec('somatic')">
+          <div class="spec-num">03</div>
+          <div class="spec-title">Somatic &amp; Body-Based Therapy</div>
+          <div class="spec-desc">For people who&rsquo;ve done the cognitive work but still feel it in their body. Chronic tension, dissociation, or a persistent disconnect between what you think and what you feel.</div>
+          <div class="spec-link">Explore this specialty &rarr;</div>
+        </div>
+        <div class="spec-card r d3" onclick="showPage('specialties');showSpec('childhood')">
+          <div class="spec-num">04</div>
+          <div class="spec-title">Childhood Trauma &amp; Family Wounds</div>
+          <div class="spec-desc">For adults still living with the effects of childhood neglect, abuse, or simply not being emotionally seen by the people who should have been there.</div>
+          <div class="spec-link">Explore this specialty &rarr;</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+
+  <section class="sec" id="about-section">
+    <div class="w">
+      <div class="about-grid">
+        <div class="r">
+          <div class="about-img-wrap">
+            <div class="about-img">
+              <div class="about-img-inner">
+                <div class="about-img-glow"></div>
+                <div class="about-img-body"></div>
+                <div class="about-img-head"></div>
+              </div>
+              <div class="about-img-label">
+                <div class="ail-name">Dr. Elena Vasquez</div>
+                <div class="ail-cred">Licensed Clinical Social Worker &middot; EMDR Certified</div>
+              </div>
+            </div>
+            <div class="about-float r d2">
+              <div class="af-num">12+</div>
+              <div class="af-label">years specializing in trauma in New York</div>
+            </div>
+          </div>
+        </div>
+        <div class="r d1">
+          <span class="eyebrow">About me</span>
+          <h2 class="h2">Trauma work is not like<br>other therapy. <em>I know why.</em></h2>
+          <div class="about-text">
+            <p>I&rsquo;ve spent twelve years working specifically with trauma &mdash; in community mental health, in hospital settings, and now in private practice. I didn&rsquo;t fall into this specialty by accident. I sought it out because I believe it&rsquo;s some of the most important work a therapist can do.</p>
+            <p>Trauma therapy requires a different kind of attention. You have to be able to stay regulated while someone else is activated. You have to know how to work with a nervous system that doesn&rsquo;t respond to logic. And <strong>you have to understand that the body is not a footnote to the mind &mdash; it&rsquo;s often where the real work lives</strong>.</p>
+            <p>My clients are often people who have tried other therapy and felt like it didn&rsquo;t quite reach the thing. If that&rsquo;s you: you&rsquo;re not the problem. The approach may not have been right for what you were carrying.</p>
+          </div>
+          <div class="creds-block r d2">
+            <div class="cb-label">Credentials &amp; Training</div>
+            <ul class="cb-list">
+              <li>Licensed Clinical Social Worker, New York State (LCSW)</li>
+              <li>EMDR Certified, EMDR International Association (EMDRIA)</li>
+              <li>Somatic Experiencing Practitioner (in progress)</li>
+              <li>Trained in Internal Family Systems (IFS) Level 2</li>
+              <li>Trauma-Focused Cognitive Behavioral Therapy Certified</li>
+              <li>Polyvagal Theory Applied, Porges Institute</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPCOMING WORKSHOPS -->
+
+  <section class="sec-f2">
+    <div class="w">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem">
+        <div class="r">
+          <span class="eyebrow">Upcoming</span>
+          <h2 class="h2" style="margin-bottom:0">Groups &amp; workshops<br><em>open for registration.</em></h2>
+        </div>
+        <button class="btn-ghost r d1" onclick="showPage('groups')" style="white-space:nowrap;flex-shrink:0">View all offerings &rarr;</button>
+      </div>
+      <div style="display:grid;gap:1rem">
+        <div class="r" style="background:var(--gc);border:1px solid var(--bd);border-radius:1.25rem;padding:1.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;transition:all 0.3s var(--sp);cursor:pointer" onmouseover="this.style.borderColor='var(--sage-b)'" onmouseout="this.style.borderColor='var(--bd)'">
+          <div style="background:var(--sage-s);border:1px solid var(--sage-b);border-radius:0.875rem;padding:0.875rem 1.25rem;text-align:center;flex-shrink:0;min-width:4.5rem">
+            <div style="font-family:var(--fd);font-size:1.5rem;font-weight:600;color:var(--sage-l);line-height:1">Feb<br><span style="font-size:1rem">15</span></div>
+          </div>
+          <div style="flex:1;min-width:200px">
+            <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-l);margin-bottom:0.25rem">Workshop &middot; 2 hours &middot; Telehealth</div>
+            <div style="font-family:var(--fd);font-size:1.0625rem;font-weight:600;color:var(--t1);margin-bottom:0.25rem">Understanding Your Nervous System</div>
+            <div style="font-size:0.875rem;color:var(--t2);font-weight:300">Plain-language polyvagal theory. Why your body does what it does. Leave with a real map of your nervous system.</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;flex-shrink:0">
+            <div style="font-family:var(--fd);font-size:1.25rem;font-weight:600;color:var(--t1)">$65</div>
+            <button class="btn-sage" style="padding:0.625rem 1.25rem;font-size:0.8125rem" onclick="showPage('groups')">Register &rarr;</button>
+          </div>
+        </div>
+        <div class="r d1" style="background:var(--gc);border:1px solid var(--bd);border-radius:1.25rem;padding:1.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;transition:all 0.3s var(--sp);cursor:pointer" onmouseover="this.style.borderColor='var(--sage-b)'" onmouseout="this.style.borderColor='var(--bd)'">
+          <div style="background:var(--sage-s);border:1px solid var(--sage-b);border-radius:0.875rem;padding:0.875rem 1.25rem;text-align:center;flex-shrink:0;min-width:4.5rem">
+            <div style="font-family:var(--fd);font-size:1.5rem;font-weight:600;color:var(--sage-l);line-height:1">Mar<br><span style="font-size:1rem">8</span></div>
+          </div>
+          <div style="flex:1;min-width:200px">
+            <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-l);margin-bottom:0.25rem">Workshop &middot; 2 hours &middot; Telehealth</div>
+            <div style="font-family:var(--fd);font-size:1.0625rem;font-weight:600;color:var(--t1);margin-bottom:0.25rem">Grounding When Everything Feels Like Too Much</div>
+            <div style="font-size:0.875rem;color:var(--t2);font-weight:300">Body-based grounding techniques that actually work when activated. You practice each one live during the session.</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;flex-shrink:0">
+            <div style="font-family:var(--fd);font-size:1.25rem;font-weight:600;color:var(--t1)">$65</div>
+            <button class="btn-sage" style="padding:0.625rem 1.25rem;font-size:0.8125rem" onclick="showPage('groups')">Register &rarr;</button>
+          </div>
+        </div>
+        <div class="r d2" style="background:linear-gradient(135deg,rgba(45,79,58,0.15),rgba(15,31,22,0.5));border:1px solid var(--sage-b);border-radius:1.25rem;padding:1.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap">
+          <div style="font-size:2rem;flex-shrink:0">&#127807;</div>
+          <div style="flex:1;min-width:200px">
+            <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-l);margin-bottom:0.25rem">Ongoing group &middot; Forming now</div>
+            <div style="font-family:var(--fd);font-size:1.0625rem;font-weight:600;color:var(--t1);margin-bottom:0.25rem">Trauma Recovery Process Group &mdash; Spring 2025</div>
+            <div style="font-size:0.875rem;color:var(--t2);font-weight:300">8 members maximum. Weekly 90-min sessions. A closed, relational group for adults doing individual trauma work.</div>
+          </div>
+          <button class="btn-ghost" style="flex-shrink:0;white-space:nowrap" onclick="showPage('groups')">Join waitlist &rarr;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST FROM BLOG -->
+
+  <section class="sec-moss">
+    <div class="w">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem">
+        <div class="r">
+          <span class="eyebrow">From the blog</span>
+          <h2 class="h2" style="margin-bottom:0">Plain-language writing<br>about <em>trauma &amp; healing.</em></h2>
+        </div>
+        <button class="btn-ghost r d1" onclick="showPage('blog')" style="white-space:nowrap;flex-shrink:0">All articles &rarr;</button>
+      </div>
+      <div class="blog-grid">
+        <div class="blog-card r" onclick="showPage('blog');showArticle('a1')">
+          <div class="blog-img bi-1"><div class="blog-tag-pill">Trauma</div>&#128162;</div>
+          <div class="blog-body">
+            <div class="blog-title">Your Nervous System Is Not Broken. It Did Exactly What It Was Built to Do.</div>
+            <div class="blog-snip">When we understand PTSD as an adaptation rather than a malfunction, something shifts. Your nervous system didn&rsquo;t fail you. It protected you.</div>
+            <div class="blog-foot"><span class="blog-read">Read &rarr;</span><span class="blog-meta">8 min</span></div>
+          </div>
+        </div>
+        <div class="blog-card r d1" onclick="showPage('blog');showArticle('a2')">
+          <div class="blog-img bi-2"><div class="blog-tag-pill">C-PTSD</div>&#127752;</div>
+          <div class="blog-body">
+            <div class="blog-title">The Difference Between PTSD and C-PTSD &mdash; And Why It Matters for Your Healing</div>
+            <div class="blog-snip">Two people can both have trauma histories and need completely different paths to heal. Getting this distinction right is critical.</div>
+            <div class="blog-foot"><span class="blog-read">Read &rarr;</span><span class="blog-meta">10 min</span></div>
+          </div>
+        </div>
+        <div class="blog-card r d2" onclick="showPage('blog');showArticle('a3')">
+          <div class="blog-img bi-3"><div class="blog-tag-pill">EMDR</div>&#10024;</div>
+          <div class="blog-body">
+            <div class="blog-title">What EMDR Actually Feels Like (From Someone Who Has Done It Themselves)</div>
+            <div class="blog-snip">Most explanations of EMDR describe the mechanism. Few describe the experience. As both a clinician and a client, I can tell you what it&rsquo;s actually like.</div>
+            <div class="blog-foot"><span class="blog-read">Read &rarr;</span><span class="blog-meta">9 min</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+
+  <section class="sec-dark">
+    <div class="w">
+      <div class="r" style="text-align:center;margin-bottom:3rem">
+        <span class="eyebrow">From clients</span>
+        <h2 class="h2">What healing actually<br>sounds <em>like.</em></h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card r">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testi-q">I&rsquo;d been in therapy for years and always felt like we were circling the thing but never touching it. Elena was the first therapist who understood that it lives in my body. The EMDR changed something I couldn&rsquo;t reach with words.</div>
+          <div class="testi-name">Cassandra M.</div><div class="testi-role">Trauma &amp; PTSD &middot; 2 years</div>
+        </div>
+        <div class="testi-card r d1">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testi-q">I came in completely dissociated &mdash; I didn&rsquo;t even know that&rsquo;s what it was. She never pushed me faster than I could go. After eight months I feel like I&rsquo;m actually inhabiting my life for the first time.</div>
+          <div class="testi-name">Daniel R.</div><div class="testi-role">C-PTSD &middot; 18 months</div>
+        </div>
+        <div class="testi-card r d2">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testi-q">What I appreciated most was that she never made me feel like my childhood wasn&rsquo;t bad enough to justify how I felt. She just believed me. That alone was something I didn&rsquo;t know I needed.</div>
+          <div class="testi-name">Yuki T.</div><div class="testi-role">Childhood trauma &middot; 14 months</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+
+  <section class="booking-section" id="book">
+    <div class="w">
+      <div class="booking-grid">
+        <div class="r">
+          <span class="eyebrow">Let&rsquo;s talk</span>
+          <h2 class="h2">Book a free<br><em>15-minute call.</em></h2>
+          <p class="lead" style="max-width:36ch;margin-bottom:2rem">No commitment. No pressure. A real conversation to see if this feels like a safe fit for you.</p>
+          <div class="booking-promise">
+            <div class="bp-item"><div class="bp-icon">&#128172;</div><div><div class="bp-title">You&rsquo;ll talk to me &mdash; not an intake coordinator</div><div class="bp-desc">I do all my own consultations. You get a real sense of how I work before any commitment.</div></div></div>
+            <div class="bp-item"><div class="bp-icon">&#127807;</div><div><div class="bp-title">We go at your pace from the very first call</div><div class="bp-desc">You never have to share more than you&rsquo;re ready to. That starts here.</div></div></div>
+            <div class="bp-item"><div class="bp-icon">&#128274;</div><div><div class="bp-title">Completely confidential</div><div class="bp-desc">Everything stays between us. I&rsquo;ll explain confidentiality and its limits at our first session.</div></div></div>
+            <div class="bp-item"><div class="bp-icon">&#128176;</div><div><div class="bp-title">Sliding scale available</div><div class="bp-desc">Trauma care should not be a luxury. If fee is a barrier, please say so &mdash; I hold spots.</div></div></div>
+          </div>
+        </div>
+        <div class="booking-card r d1">
+          <div class="bc-top"><div class="bc-title">Request a consultation</div><div class="bc-sub">I respond within one business day. You don&rsquo;t need to explain your trauma here.</div></div>
+          <div class="bc-body">
+            <div class="bc-field"><label class="bc-label">Your name</label><input type="text" class="bc-input" placeholder="First name is fine"></div>
+            <div class="bc-field"><label class="bc-label">Email address</label><input type="email" class="bc-input" placeholder="you@email.com"></div>
+            <div class="bc-field">
+              <label class="bc-label">What feels most relevant?</label>
+              <select class="bc-input">
+                <option value="" disabled selected>Select what resonates</option>
+                <option>PTSD or trauma from a specific event</option>
+                <option>Complex or childhood trauma</option>
+                <option>I&rsquo;m not sure if what I&rsquo;ve been through "counts"</option>
+                <option>Body symptoms or dissociation</option>
+                <option>Relationship patterns from early life</option>
+                <option>I&rsquo;ve tried therapy before and it didn&rsquo;t reach it</option>
+              </select>
+            </div>
+            <div class="bc-field">
+              <label class="bc-label">Anything else? <span style="font-weight:300;color:var(--t3)">(optional &mdash; only share what feels okay)</span></label>
+              <textarea class="bc-input" placeholder="Or leave this blank. You don't owe me your story to ask for help."></textarea>
+              <div class="bc-note">This form is not a crisis service. If you are in danger, please call 988 or 911.</div>
+            </div>
+          </div>
+          <div class="bc-footer">
+            <button class="btn-sage btn-full">Send my request &rarr;</button>
+            <div class="bc-disclaimer">Your information is never shared. By submitting you consent to me contacting you at the email above.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+
+  <section class="sec">
+    <div class="w">
+      <div class="r" style="text-align:center;margin-bottom:3rem">
+        <span class="eyebrow">Questions</span>
+        <h2 class="h2">Things people want to know<br><em>before they reach out.</em></h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item r"><button class="faq-btn" onclick="toggleFaq(this)">Does what I&rsquo;ve been through count as trauma?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes &mdash; almost certainly. Trauma is defined not by the event itself but by the impact it had on your nervous system. You don&rsquo;t need to have survived a war or a major disaster. <strong>Chronic emotional neglect, growing up in an unstable household, a relationship that left you feeling worthless, losing someone important</strong> &mdash; all of these can create the same neurological changes as more &ldquo;obvious&rdquo; trauma. If you&rsquo;re unsure, that&rsquo;s exactly what the consultation call is for.</div></div></div>
+        <div class="faq-item r"><button class="faq-btn" onclick="toggleFaq(this)">Will I have to relive everything?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">No. This is one of the most common fears &mdash; and one of the most important things I want to address. <strong>Modern trauma therapy is not about narrating your trauma in detail.</strong> EMDR and somatic approaches do not require you to re-tell your story repeatedly. Re-traumatization from over-narrating is a real risk in poorly-conducted trauma therapy. We build safety first. We only go toward difficult material when you have the resources to handle it. And you always have the right to stop.</div></div></div>
+        <div class="faq-item r"><button class="faq-btn" onclick="toggleFaq(this)">What is EMDR and does it actually work?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">EMDR (Eye Movement Desensitization and Reprocessing) is one of the most extensively researched trauma treatments in existence &mdash; recognized by the WHO, the VA, and the APA as a front-line treatment for PTSD. It uses bilateral stimulation (typically eye movements or tapping) while you briefly focus on a traumatic memory. This activates the brain&rsquo;s natural processing system and allows stuck memories to be metabolized. Most clients are surprised by how different it feels from talk therapy, and by how effective it is for material that talking never quite reached.</div></div></div>
+        <div class="faq-item r"><button class="faq-btn" onclick="toggleFaq(this)">I&rsquo;ve tried therapy before and it didn&rsquo;t help. Why would this be different?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Trauma requires specialized training that not all therapists have. Standard talk therapy can be genuinely helpful for many things, but it often doesn&rsquo;t reach trauma stored in the body. If you&rsquo;ve built insight about your patterns, understand why you do what you do &mdash; and still feel like something hasn&rsquo;t shifted &mdash; that&rsquo;s often a sign the work needs to go somewhere different. Not deeper into the story. Into the nervous system.</div></div></div>
+        <div class="faq-item r"><button class="faq-btn" onclick="toggleFaq(this)">Do you take insurance?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">I&rsquo;m out-of-network. I provide monthly superbills for insurance reimbursement &mdash; many PPO plans cover 50&ndash;80% of fees. I also hold sliding scale spots because I believe trauma care should be accessible. Please mention this in your consultation request.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══════════ SPECIALTIES PAGE ═══════════ -->
+
+<div id="page-specialties" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb r"><a onclick="showPage('home')">Home</a><span>/</span>Specialties</div>
+      <span class="eyebrow r">Areas of focus</span>
+      <h1 class="h2 r" style="font-size:clamp(2rem,5vw,3.5rem)">Specialized care for<br>the full spectrum of <em>trauma.</em></h1>
+      <p class="lead r" style="max-width:50ch;margin-top:0.5rem">Each type of trauma has its own texture and timelines. Select what feels most relevant to your experience.</p>
+      <div class="spec-tabs r">
+        <button class="spec-tab active" onclick="showSpec('trauma')">Trauma &amp; PTSD</button>
+        <button class="spec-tab" onclick="showSpec('cptsd')">Complex Trauma (C-PTSD)</button>
+        <button class="spec-tab" onclick="showSpec('somatic')">Somatic Approaches</button>
+        <button class="spec-tab" onclick="showSpec('childhood')">Childhood Trauma</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="w">
+    <!-- TRAUMA -->
+    <div id="spec-trauma" class="spec-content active">
+      <div class="spec-detail-grid">
+        <div class="r">
+          <div class="spec-what-h">Trauma &amp; PTSD</div>
+          <p class="spec-what-p">Post-Traumatic Stress Disorder is the nervous system&rsquo;s response to experiencing or witnessing something overwhelming. It is not a character flaw, weakness, or sign that you&rsquo;re broken. It is a natural response to an unnatural situation.</p>
+          <p class="spec-what-p">PTSD can follow a single traumatic event &mdash; an accident, an assault, a medical emergency, a sudden loss &mdash; or a period of sustained stress or danger. The event doesn&rsquo;t have to have been life-threatening to your body. If it overwhelmed your nervous system&rsquo;s ability to integrate what happened, PTSD can result.</p>
+          <p class="spec-what-p">The core difficulty in PTSD is that <strong>the memory is not filed as past</strong>. Your brain hasn&rsquo;t been able to fully process and store it with a timestamp. So it arrives in the present &mdash; as flashbacks, nightmares, intrusive images &mdash; as if it&rsquo;s happening again.</p>
+          <div class="spec-approach-block r">
+            <div class="sab-label">How I approach PTSD</div>
+            <ul class="sab-list">
+              <li>Phase one is always stabilization &mdash; building your window of tolerance before approaching trauma material</li>
+              <li>EMDR is typically the primary processing modality for single-incident trauma</li>
+              <li>Somatic techniques to work with physical hyperarousal and body-held trauma</li>
+              <li>Psychoeducation about the nervous system &mdash; understanding what&rsquo;s happening often reduces shame significantly</li>
+              <li>Gradual, titrated exposure to traumatic material &mdash; never flooding</li>
+            </ul>
+          </div>
+        </div>
+        <div class="r d1">
+          <div class="spec-side-card">
+            <div class="ssc-quote">&ldquo;PTSD is not a disorder of the past. It is a disorder of the present &mdash; a nervous system that cannot locate the traumatic event safely in time. The goal is to give the memory a timestamp.&rdquo;</div>
+            <div class="ssc-syms-label">Common presentations I work with</div>
+            <div class="ssc-syms">
+              <span class="ssc-sym">Flashbacks</span><span class="ssc-sym">Nightmares</span><span class="ssc-sym">Hypervigilance</span><span class="ssc-sym">Avoidance</span><span class="ssc-sym">Emotional reactivity</span><span class="ssc-sym">Intrusive thoughts</span><span class="ssc-sym">Startle response</span><span class="ssc-sym">Dissociation</span><span class="ssc-sym">Shame</span><span class="ssc-sym">Survivor guilt</span>
+            </div>
+            <div class="ssc-cta-label">Ready to take the first step?</div>
+            <button class="btn-sage btn-full" onclick="showPage('home');scrollToSection('book')">Book a free consultation &rarr;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+```
+<!-- C-PTSD -->
+<div id="spec-cptsd" class="spec-content">
+  <div class="spec-detail-grid">
+    <div class="r">
+      <div class="spec-what-h">Complex Trauma &amp; C-PTSD</div>
+      <p class="spec-what-p">Complex PTSD arises not from a single event but from prolonged, repeated trauma &mdash; often in a context where escape felt impossible. This most commonly includes childhood abuse or neglect, domestic violence, prolonged medical trauma, or captivity.</p>
+      <p class="spec-what-p">C-PTSD includes the core features of PTSD plus additional layers: <strong>profound difficulties with emotional regulation, deep disturbances in self-perception, and persistent problems with relationships</strong>. People with C-PTSD often describe feeling fundamentally defective, or believing they are to blame for what happened to them.</p>
+      <p class="spec-what-p">The wounds of complex trauma typically require a longer, more relational treatment. The therapeutic relationship itself becomes part of the healing &mdash; experiencing safety with another person, often for the first time.</p>
+      <div class="spec-approach-block r">
+        <div class="sab-label">How I approach C-PTSD</div>
+        <ul class="sab-list">
+          <li>Extended stabilization phase &mdash; often much longer than single-incident PTSD</li>
+          <li>Internal Family Systems (IFS) to work with the protective and exiled parts of self</li>
+          <li>Attachment-focused work to address relational trauma and build the capacity for safety with others</li>
+          <li>EMDR adapted for complex presentations &mdash; different protocol than standard PTSD</li>
+          <li>Careful, explicit attention to the therapeutic relationship as a healing agent in itself</li>
+        </ul>
+      </div>
+    </div>
+    <div class="r d1">
+      <div class="spec-side-card">
+        <div class="ssc-quote">&ldquo;Complex trauma often produces a self that was built to survive rather than to live. The work is rebuilding &mdash; carefully, slowly, with great respect for how intelligent those survival strategies were.&rdquo;</div>
+        <div class="ssc-syms-label">Common presentations</div>
+        <div class="ssc-syms">
+          <span class="ssc-sym">Emotional dysregulation</span><span class="ssc-sym">Toxic shame</span><span class="ssc-sym">Self-blame</span><span class="ssc-sym">Difficulty trusting</span><span class="ssc-sym">People pleasing</span><span class="ssc-sym">Chronic emptiness</span><span class="ssc-sym">Dissociation</span><span class="ssc-sym">Identity disturbance</span><span class="ssc-sym">Somatic symptoms</span>
+        </div>
+        <div class="ssc-cta-label">Ready to take the first step?</div>
+        <button class="btn-sage btn-full" onclick="showPage('home');scrollToSection('book')">Book a free consultation &rarr;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOMATIC -->
+<div id="spec-somatic" class="spec-content">
+  <div class="spec-detail-grid">
+    <div class="r">
+      <div class="spec-what-h">Somatic &amp; Body-Based Approaches</div>
+      <p class="spec-what-p">Trauma is not only stored in memory and thought. It is stored in the body: in muscle tension, in breathing patterns, in chronic pain, in the disconnect between your head and your physical experience.</p>
+      <p class="spec-what-p">Many people arrive having done significant cognitive work &mdash; they understand their trauma intellectually, they can trace the patterns, they know why they react the way they do &mdash; and yet <strong>something hasn&rsquo;t shifted</strong>. That is often because the work needs to go into the body.</p>
+      <p class="spec-what-p">Somatic therapy is about learning to notice, tolerate, and work with physical sensations &mdash; and ultimately to discharge the stress energy that has been held in the nervous system, sometimes for decades.</p>
+      <div class="spec-approach-block r">
+        <div class="sab-label">Somatic methods I use</div>
+        <ul class="sab-list">
+          <li>Somatic Experiencing &mdash; working with the felt sense, tracking sensation, titrated discharge</li>
+          <li>Grounding and orienting practices to support nervous system regulation</li>
+          <li>Body-based EMDR protocols that incorporate somatic processing</li>
+          <li>Breathwork and nervous system regulation techniques</li>
+          <li>Working with the Window of Tolerance to gradually expand capacity</li>
+        </ul>
+      </div>
+    </div>
+    <div class="r d1">
+      <div class="spec-side-card">
+        <div class="ssc-quote">&ldquo;The body is not a container for the mind. It is the place where the mind was formed, and where much of the healing has to happen.&rdquo;</div>
+        <div class="ssc-syms-label">Who benefits most</div>
+        <div class="ssc-syms">
+          <span class="ssc-sym">Chronic tension or pain</span><span class="ssc-sym">Dissociation</span><span class="ssc-sym">Numbness</span><span class="ssc-sym">Freeze response</span><span class="ssc-sym">Unexplained physical symptoms</span><span class="ssc-sym">Those who&rsquo;ve done talk therapy without breakthrough</span>
+        </div>
+        <div class="ssc-cta-label">Ready to take the first step?</div>
+        <button class="btn-sage btn-full" onclick="showPage('home');scrollToSection('book')">Book a free consultation &rarr;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHILDHOOD -->
+<div id="spec-childhood" class="spec-content">
+  <div class="spec-detail-grid">
+    <div class="r">
+      <div class="spec-what-h">Childhood Trauma &amp; Family Wounds</div>
+      <p class="spec-what-p">Childhood trauma doesn&rsquo;t require dramatic events. Emotional neglect &mdash; not being seen, not having your feelings acknowledged, growing up in a home where love was conditional or unpredictable &mdash; can shape the nervous system just as profoundly as overt abuse.</p>
+      <p class="spec-what-p">Adults who grew up in these environments often arrive having spent years convinced that they are the problem. Too sensitive, too needy, too much, not enough. <strong>One of the most important early pieces of work is simply being believed</strong> &mdash; having someone witness what your childhood was actually like, without minimizing it.</p>
+      <p class="spec-what-p">The long reach of childhood wounding shows up in how you see yourself, how you attach to others, how safe you feel in your own body, and what you believe you deserve. Healing means updating those early conclusions &mdash; carefully, with great compassion for the child who formed them.</p>
+      <div class="spec-approach-block r">
+        <div class="sab-label">How I work with childhood trauma</div>
+        <ul class="sab-list">
+          <li>IFS (Internal Family Systems) to work with child parts and protectors with gentleness</li>
+          <li>Attachment-focused therapy to understand and gradually update relational patterns</li>
+          <li>EMDR for early memories that are held as body-based and pre-verbal</li>
+          <li>Working with the inner critic and shame-based self-beliefs directly</li>
+          <li>Reparative relational experiences within the therapeutic relationship itself</li>
+        </ul>
+      </div>
+    </div>
+    <div class="r d1">
+      <div class="spec-side-card">
+        <div class="ssc-quote">&ldquo;The child who needed to adapt to survive was very intelligent. The work is not to shame those adaptations &mdash; it&rsquo;s to help the adult you are now realize you have more choices than you think.&rdquo;</div>
+        <div class="ssc-syms-label">Common presentations</div>
+        <div class="ssc-syms">
+          <span class="ssc-sym">Deep shame</span><span class="ssc-sym">Self-criticism</span><span class="ssc-sym">Fawning &amp; people-pleasing</span><span class="ssc-sym">Fear of abandonment</span><span class="ssc-sym">Difficulty setting limits</span><span class="ssc-sym">Over-responsibility</span><span class="ssc-sym">Chronic self-doubt</span><span class="ssc-sym">Parentified child patterns</span>
+        </div>
+        <div class="ssc-cta-label">Ready to take the first step?</div>
+        <button class="btn-sage btn-full" onclick="showPage('home');scrollToSection('book')">Book a free consultation &rarr;</button>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+</div>
+
+<!-- ═══════════ BLOG PAGE ═══════════ -->
+
+<div id="page-blog" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb r"><a onclick="showPage('home')">Home</a><span>/</span>Blog</div>
+      <span class="eyebrow r">Writing</span>
+      <h1 class="h2 r" style="font-size:clamp(2rem,5vw,3.5rem)">Understanding trauma.<br><em>Plain language.</em></h1>
+      <p class="lead r" style="max-width:48ch;margin-top:0.5rem">Articles written for people carrying trauma &mdash; not for clinicians. No jargon. No shame.</p>
+    </div>
+  </div>
+
+  <section class="sec">
+    <div class="w">
+      <div id="blog-grid-view">
+        <div class="blog-grid">
+          <div class="blog-card r" onclick="showArticle('a1')">
+            <div class="blog-img bi-1"><div class="blog-tag-pill">Trauma</div>&#128162;</div>
+            <div class="blog-body">
+              <div class="blog-title">Your Nervous System Is Not Broken. It Did Exactly What It Was Built to Do.</div>
+              <div class="blog-snip">When we understand PTSD as an adaptation rather than a malfunction, something shifts. Your nervous system didn&rsquo;t fail you. It protected you &mdash; and now it needs help updating its threat map.</div>
+              <div class="blog-foot"><span class="blog-read">Read more &rarr;</span><span class="blog-meta">8 min read</span></div>
+            </div>
+          </div>
+          <div class="blog-card r d1" onclick="showArticle('a2')">
+            <div class="blog-img bi-2"><div class="blog-tag-pill">C-PTSD</div>&#127752;</div>
+            <div class="blog-body">
+              <div class="blog-title">The Difference Between PTSD and C-PTSD (And Why It Matters for Your Healing)</div>
+              <div class="blog-snip">Two people can both carry trauma and need completely different approaches to heal. Understanding the difference between single-incident PTSD and complex trauma changes what treatment looks like.</div>
+              <div class="blog-foot"><span class="blog-read">Read more &rarr;</span><span class="blog-meta">10 min read</span></div>
+            </div>
+          </div>
+          <div class="blog-card r d2" onclick="showArticle('a3')">
+            <div class="blog-img bi-3"><div class="blog-tag-pill">EMDR</div>&#10024;</div>
+            <div class="blog-body">
+              <div class="blog-title">What EMDR Actually Feels Like (From Someone Who Has Done It Themselves)</div>
+              <div class="blog-snip">Most explanations of EMDR describe the mechanism. Few describe the experience. As both a clinician and someone who has been a client, I can tell you what it&rsquo;s actually like to be in that chair.</div>
+              <div class="blog-foot"><span class="blog-read">Read more &rarr;</span><span class="blog-meta">9 min read</span></div>
+            </div>
+          </div>
+          <div class="blog-card r" onclick="showArticle('a4')">
+            <div class="blog-img bi-4"><div class="blog-tag-pill">Body</div>&#127807;</div>
+            <div class="blog-body">
+              <div class="blog-title">Why Talking About It Isn&rsquo;t Always Enough &mdash; And What to Do Instead</div>
+              <div class="blog-snip">Insight is valuable. But trauma stored in the body doesn&rsquo;t respond to understanding. It responds to something else entirely. Here&rsquo;s what somatic work offers that talk therapy alone cannot.</div>
+              <div class="blog-foot"><span class="blog-read">Read more &rarr;</span><span class="blog-meta">7 min read</span></div>
+            </div>
+          </div>
+          <div class="blog-card r d1" onclick="showArticle('a5')">
+            <div class="blog-img bi-5"><div class="blog-tag-pill">Childhood</div>&#127760;</div>
+            <div class="blog-body">
+              <div class="blog-title">Emotional Neglect Is Invisible. That Doesn&rsquo;t Mean It Didn&rsquo;t Happen.</div>
+              <div class="blog-snip">The hardest trauma to name is the kind that never looked dramatic from the outside. No event, no scene &mdash; just a consistent absence of being truly seen. This is what that does, and how it heals.</div>
+              <div class="blog-foot"><span class="blog-read">Read more &rarr;</span><span class="blog-meta">9 min read</span></div>
+            </div>
+          </div>
+          <div class="blog-card r d2" onclick="showArticle('a6')">
+            <div class="blog-img bi-6"><div class="blog-tag-pill">Recovery</div>&#9200;</div>
+            <div class="blog-body">
+              <div class="blog-title">Trauma Healing Is Not Linear. Here&rsquo;s What to Expect Instead.</div>
+              <div class="blog-snip">Most people expect healing to look like a straight line up. It rarely does. Understanding why trauma recovery spirals, stalls, and sometimes feels like going backward is one of the most important things you can learn.</div>
+              <div class="blog-foot"><span class="blog-read">Read more &rarr;</span><span class="blog-meta">6 min read</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+```
+  <!-- ARTICLE VIEW -->
+  <div id="blog-article-view" style="display:none">
+    <div style="margin-bottom:2rem"><button class="btn-ghost" onclick="showBlogGrid()" style="font-size:0.85rem;padding:0.625rem 1.25rem">&larr; Back to all articles</button></div>
+
+    <div id="article-a1">
+      <div class="article-header"><div class="article-wrap">
+        <div class="article-tag">Trauma</div>
+        <h1 class="article-h1">Your Nervous System Is Not Broken. It Did Exactly What It Was Built to Do.</h1>
+        <div class="article-meta">By Dr. Elena Vasquez, LCSW &nbsp;&middot;&nbsp; 8 min read</div>
+      </div></div>
+      <div class="article-wrap"><div class="article-body">
+        <p>One of the first things I say to almost every new client who comes in with trauma is this: what your nervous system did makes complete sense. It is not a malfunction. It is not evidence that you are weak, broken, or defective. It is evidence that your brain and body did exactly what millions of years of evolution built them to do.</p>
+        <p>The problem is not that the system failed. The problem is that the system is still running a threat response that was written for a situation that no longer exists.</p>
+        <h2>What your nervous system was trying to do</h2>
+        <p>When you experience something overwhelming &mdash; something your brain cannot fully process in real time &mdash; it activates your survival system. Heart rate up. Muscles primed. Attention narrowed to the threat. Time slows down. The brain records everything with extraordinary intensity.</p>
+        <p>This is designed to help you survive. And in the moment, it works.</p>
+        <p>The problem comes later. Under normal circumstances, after a threat has passed, the nervous system is supposed to discharge the activation &mdash; shake it out, so to speak &mdash; and return to baseline. The memory gets filed with a timestamp: <em>this happened, and it is over</em>.</p>
+        <blockquote>Trauma is what happens when this filing process is interrupted. The memory stays active, unprocessed, without a timestamp &mdash; as if it&rsquo;s still happening.</blockquote>
+        <h2>Why your reactions make sense</h2>
+        <p>This is why trauma survivors often feel confused by their own reactions. You know logically that you are safe. You know the event is over. And yet your body doesn&rsquo;t seem to have received the memo. You startle at sounds that don&rsquo;t bother other people. You go numb in situations that others find warm and inviting. You feel a surge of panic in circumstances that bear only a passing resemblance to the original threat.</p>
+        <p>This is not irrationality. This is a nervous system that learned, under genuine threat, to scan for danger at all times &mdash; and then never got the signal that it was safe to stop.</p>
+        <h2>What healing actually involves</h2>
+        <p>Understanding this changes what healing looks like. The goal is not to talk yourself out of your reactions. It is not to override the nervous system with willpower or logic. <strong>It is to help the nervous system complete the processing it couldn&rsquo;t complete at the time</strong> &mdash; to give the memory a timestamp, so it can be stored as past rather than present.</p>
+        <p>This is why approaches like EMDR and somatic therapy work differently from traditional talk therapy. They work with the nervous system directly, not just with the narrative of what happened. They address the place where the trauma actually lives.</p>
+        <p>You are not broken. Your nervous system is doing what it was designed to do. And what it was designed to do, it can also be helped to update.</p>
+        <div class="article-cta">
+          <div class="acta-title">Ready to start?</div>
+          <div class="acta-p">If this resonates, the next step is a free 15-minute consultation. No pressure &mdash; just a real conversation.</div>
+          <button class="btn-sage" onclick="showPage('home');scrollToSection('book')">Book a free consultation &rarr;</button>
+        </div>
+      </div></div>
+    </div>
+
+    <div id="article-a2" style="display:none">
+      <div class="article-header"><div class="article-wrap">
+        <div class="article-tag">C-PTSD</div>
+        <h1 class="article-h1">The Difference Between PTSD and C-PTSD &mdash; And Why It Matters for Your Healing</h1>
+        <div class="article-meta">By Dr. Elena Vasquez, LCSW &nbsp;&middot;&nbsp; 10 min read</div>
+      </div></div>
+      <div class="article-wrap"><div class="article-body">
+        <p>Two people can both have trauma histories and need completely different paths to heal. One of the most important distinctions in trauma work &mdash; and one that is still widely misunderstood outside of specialized practice &mdash; is the difference between PTSD and Complex PTSD.</p>
+        <p>Getting this distinction right matters. Because treating complex trauma with a PTSD model is one of the reasons people spend years in therapy without feeling like the thing has shifted.</p>
+        <h2>What standard PTSD looks like</h2>
+        <p>Classic PTSD typically follows a discrete traumatic event. A car accident. An assault. A medical emergency. A disaster. The traumatic experience has a beginning and an end &mdash; even if processing it doesn&rsquo;t. The nervous system gets stuck with an unprocessed memory of something specific.</p>
+        <p>The symptoms tend to cluster around that event: flashbacks to it, nightmares about it, avoidance of things that remind you of it, hypervigilance that looks like bracing for a repeat of it.</p>
+        <h2>What makes complex trauma different</h2>
+        <p>Complex PTSD (C-PTSD) arises from prolonged, repeated trauma &mdash; usually in a context where escape wasn&rsquo;t possible. This most commonly means childhood abuse or neglect, domestic violence, captivity, or sustained emotional maltreatment over years.</p>
+        <p>The key difference is not just the type of event, but the developmental impact. <strong>When trauma occurs repeatedly during childhood &mdash; especially relational trauma by caregivers &mdash; it doesn&rsquo;t just leave memories. It shapes the architecture of the self.</strong></p>
+        <p>C-PTSD includes the core PTSD symptoms, but adds three additional clusters that standard PTSD doesn&rsquo;t capture:</p>
+        <ul>
+          <li><strong>Emotional dysregulation:</strong> Intense reactions that feel disproportionate, or the opposite &mdash; emotional numbness and shutdown</li>
+          <li><strong>Negative self-concept:</strong> Deep, pervasive shame; feeling fundamentally defective; believing on some level that you caused or deserved what happened</li>
+          <li><strong>Relational difficulties:</strong> Chronic distrust, difficulty with intimacy, patterns of either avoiding connection or attaching desperately &mdash; then bracing for abandonment</li>
+        </ul>
+        <h2>Why treatment has to be different</h2>
+        <p>Standard trauma treatment &mdash; including EMDR in its basic form &mdash; targets specific traumatic memories. That works well for single-incident PTSD. But with complex trauma, there often isn&rsquo;t one memory to process. There are hundreds. Or the trauma is pre-verbal, or so pervasive that it didn&rsquo;t produce discrete memories &mdash; it produced a worldview.</p>
+        <p>Complex trauma treatment requires a much longer stabilization phase, careful attention to the therapeutic relationship itself as a healing mechanism, and approaches that work with identity and attachment &mdash; not just memory processing.</p>
+        <p>If you&rsquo;ve tried EMDR or other trauma work and felt like it didn&rsquo;t reach the thing, or made you feel worse without resolution, it&rsquo;s possible the approach wasn&rsquo;t matched to the complexity of what you were carrying.</p>
+        <div class="article-cta">
+          <div class="acta-title">Not sure which category fits you?</div>
+          <div class="acta-p">That&rsquo;s exactly what the consultation call is for. We talk, and figure it out together.</div>
+          <button class="btn-sage" onclick="showPage('home');scrollToSection('book')">Book a free consultation &rarr;</button>
+        </div>
+      </div></div>
+    </div>
+
+    <div id="article-a3" style="display:none">
+      <div class="article-header"><div class="article-wrap">
+        <div class="article-tag">EMDR</div>
+        <h1 class="article-h1">What EMDR Actually Feels Like (From Someone Who Has Done It Themselves)</h1>
+        <div class="article-meta">By Dr. Elena Vasquez, LCSW &nbsp;&middot;&nbsp; 9 min read</div>
+      </div></div>
+      <div class="article-wrap"><div class="article-body">
+        <p>I have been in EMDR. I know what it&rsquo;s like to be the client, not just the clinician. And the descriptions I read before I experienced it &mdash; mechanisms, bilateral stimulation, adaptive information processing &mdash; were accurate and also completely failed to prepare me for what it actually felt like.</p>
+        <p>So here is a more honest account.</p>
+        <h2>Before you start: the preparation phase</h2>
+        <p>Good EMDR doesn&rsquo;t begin with processing. It begins with preparation &mdash; sometimes many sessions of it. Before we touch any traumatic material, we spend time building what is called your &ldquo;window of tolerance&rdquo;: your nervous system&rsquo;s capacity to experience activation without tipping into overwhelm or shutdown.</p>
+        <p>This phase involves developing what are called &ldquo;resources&rdquo; &mdash; internal states of safety, calm, or strength that you can access when things get difficult. This isn&rsquo;t filler. It is genuinely foundational. The preparation work is what makes the processing safe.</p>
+        <h2>What a processing session actually feels like</h2>
+        <p>During EMDR processing, you hold a specific memory lightly in mind &mdash; the image, the body sensation, the belief about yourself it activates. You don&rsquo;t need to narrate it in detail. You just hold it. And then you follow the bilateral stimulation: usually eye movements tracking a therapist&rsquo;s fingers, or tapping, or audio tones that alternate between ears.</p>
+        <p><strong>What happened for me was not what I expected.</strong> I expected it to feel like reliving. It didn&rsquo;t. It felt more like watching something from a distance, while it shifted. Associations came up spontaneously &mdash; other memories, physical sensations, realizations. I didn&rsquo;t control any of it. The therapist periodically checked in, and we continued.</p>
+        <blockquote>The phrase that comes closest to describing it: it felt like something that had been stuck was finally moving. Not violently. Just&hellip; releasing its grip.</blockquote>
+        <h2>After a session</h2>
+        <p>EMDR processing continues after the session ends. In the days following, you might notice new memories surfacing, dreams that feel related, or emotional releases that seem to come from nowhere. This is normal. The brain is continuing to process. I ask all of my EMDR clients to keep a brief journal between sessions for exactly this reason.</p>
+        <p>Not every session produces dramatic shifts. Sometimes it&rsquo;s subtle &mdash; a memory that used to feel charged that now feels quieter. Sometimes it&rsquo;s more significant. Progress is not always visible in the moment.</p>
+        <p>What I can tell you is this: after EMDR, something I had been carrying for years weighed less. Not gone &mdash; but lighter, and filed somewhere I could actually access without being overwhelmed by it. That is what effective trauma treatment can do.</p>
+        <div class="article-cta">
+          <div class="acta-title">Curious about whether EMDR might help you?</div>
+          <div class="acta-p">The consultation call is a good place to explore that. No commitment required.</div>
+          <button class="btn-sage" onclick="showPage('home');scrollToSection('book')">Book a free consultation &rarr;</button>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- Articles 4-6: brief stubs -->
+    <div id="article-a4" style="display:none">
+      <div class="article-header"><div class="article-wrap">
+        <div class="article-tag">Body</div>
+        <h1 class="article-h1">Why Talking About It Isn&rsquo;t Always Enough &mdash; And What to Do Instead</h1>
+        <div class="article-meta">By Dr. Elena Vasquez, LCSW &nbsp;&middot;&nbsp; 7 min read</div>
+      </div></div>
+      <div class="article-wrap"><div class="article-body">
+        <p>If you&rsquo;ve spent time in therapy talking about your trauma &mdash; understanding your patterns, building insight, knowing why you do what you do &mdash; and you still feel like something hasn&rsquo;t shifted, you are not alone. And you are not imagining it.</p>
+        <p>Understanding something cognitively is not the same as the body no longer responding to it. Trauma stored in the nervous system and muscles doesn&rsquo;t update in response to insight. It updates in response to a different kind of process.</p>
+        <h2>What talk therapy does well</h2>
+        <p>Talk therapy is genuinely valuable. Building a trusting relationship with a therapist, developing language for your experience, gaining perspective, reducing shame, understanding your history &mdash; these are real and important. I am not dismissing them.</p>
+        <p>But the cortex &mdash; the thinking brain &mdash; is not where trauma primarily lives. Trauma lives in the subcortical brain, in the limbic system, in the body itself. And those areas don&rsquo;t respond well to explanation.</p>
+        <h2>What somatic work adds</h2>
+        <p>Somatic approaches work with the body directly. Not through exercise or movement, but through learning to track and tolerate the physical sensations that are part of how trauma is held. Noticing where tension lives in the body. Learning to stay present with activation without tipping into overwhelm. Gradually discharging the stress energy that has been stored there, sometimes for decades.</p>
+        <p><strong>The goal of somatic work is not catharsis &mdash; it is titration.</strong> Small, manageable doses of activation, followed by return to regulation. Over time, this expands the window of what the nervous system can tolerate &mdash; which is the foundation everything else rests on.</p>
+        <div class="article-cta">
+          <div class="acta-title">Ready to try something different?</div>
+          <div class="acta-p">A free consultation is a low-pressure way to explore whether somatic or body-based therapy might be the right next step for you.</div>
+          <button class="btn-sage" onclick="showPage('home');scrollToSection('book')">Book a free consultation &rarr;</button>
+        </div>
+      </div></div>
+    </div>
+
+    <div id="article-a5" style="display:none">
+      <div class="article-header"><div class="article-wrap">
+        <div class="article-tag">Childhood</div>
+        <h1 class="article-h1">Emotional Neglect Is Invisible. That Doesn&rsquo;t Mean It Didn&rsquo;t Happen.</h1>
+        <div class="article-meta">By Dr. Elena Vasquez, LCSW &nbsp;&middot;&nbsp; 9 min read</div>
+      </div></div>
+      <div class="article-wrap"><div class="article-body">
+        <p>The hardest trauma to name is the kind that never looked dramatic from the outside. No specific event. No clear scene. Just a consistent, quiet absence &mdash; of attunement, of being truly seen, of having your inner world acknowledged as real and important.</p>
+        <p>Emotional neglect is defined not by what happened, but by what didn&rsquo;t. And that makes it one of the most difficult wounds to identify &mdash; and one of the most common.</p>
+        <h2>Why it&rsquo;s hard to name</h2>
+        <p>People who grew up with emotional neglect often struggle to claim it as trauma because nothing happened. Their parents weren&rsquo;t abusive. They were fed, housed, taken to school. From the outside, things looked fine.</p>
+        <p>But from the inside: their feelings weren&rsquo;t asked about. Their distress wasn&rsquo;t soothed. Their joy wasn&rsquo;t shared. They learned very early that their inner life was not particularly interesting or important to the people who mattered most. And so they stopped bringing it forward &mdash; and eventually stopped noticing it themselves.</p>
+        <blockquote>The legacy of emotional neglect is often not pain. It is emptiness. A vague sense that something is missing without being able to name what.</blockquote>
+        <h2>What this produces in adult life</h2>
+        <p>Adults who grew up with emotional neglect often present with a confusing mix of apparently contradictory experiences. They may be highly competent and high-achieving, while simultaneously feeling hollow. They know what they think but not what they feel. They can describe their life but not inhabit it.</p>
+        <p><strong>They often struggle to identify their own needs</strong> &mdash; not because they don&rsquo;t have any, but because they learned so thoroughly to suppress them that access has been lost. They may feel numb, or chronic low-grade depression, or a persistent sense that something is wrong without being able to point to what.</p>
+        <h2>How it heals</h2>
+        <p>Healing from emotional neglect often begins with the therapeutic relationship itself &mdash; with the experience of being genuinely seen and curious-about by another person, perhaps for the first time. This is not abstract. It is a lived, corrective experience that gradually updates what the nervous system believes is possible.</p>
+        <p>From there, the work involves developing access to the emotional and sensory experience that was suppressed &mdash; learning, slowly and with great care, to notice what you feel, to bring it forward, and to find it worthy of attention.</p>
+        <div class="article-cta">
+          <div class="acta-title">Does this sound familiar?</div>
+          <div class="acta-p">If you&rsquo;ve never had a space where your inner life felt like it mattered, therapy can be that space. Let&rsquo;s talk.</div>
+          <button class="btn-sage" onclick="showPage('home');scrollToSection('book')">Book a free consultation &rarr;</button>
+        </div>
+      </div></div>
+    </div>
+
+    <div id="article-a6" style="display:none">
+      <div class="article-header"><div class="article-wrap">
+        <div class="article-tag">Recovery</div>
+        <h1 class="article-h1">Trauma Healing Is Not Linear. Here&rsquo;s What to Expect Instead.</h1>
+        <div class="article-meta">By Dr. Elena Vasquez, LCSW &nbsp;&middot;&nbsp; 6 min read</div>
+      </div></div>
+      <div class="article-wrap"><div class="article-body">
+        <p>One of the most destabilizing things about trauma recovery is the expectation that it should feel like progress all the time. That if you&rsquo;re doing the work, things should keep getting better in a steady, measurable way.</p>
+        <p>They don&rsquo;t. And understanding why is one of the most important things you can learn before you begin.</p>
+        <h2>Why healing spirals</h2>
+        <p>Trauma recovery is not a straight line. It&rsquo;s a spiral. You revisit similar themes, similar triggers, similar pain points &mdash; but each time, ideally, from a slightly different vantage point. What felt overwhelming the first time through might be manageable the third time. That&rsquo;s growth, even though from inside it can feel like going in circles.</p>
+        <p>There will also be periods that feel like regression &mdash; where things get harder before they get better. This is especially common after a productive processing session. The nervous system has been activated. Integration takes time and energy. <strong>Feeling worse after a breakthrough is not a sign that the work isn&rsquo;t working.</strong> It is often a sign that something is moving.</p>
+        <h2>What to watch for instead</h2>
+        <p>Rather than asking &ldquo;am I better today than yesterday?&rdquo; &mdash; a question that will often discourage you &mdash; I encourage clients to ask longer questions. Not day to day, but month to month, season to season:</p>
+        <ul>
+          <li>Is the recovery time after a difficult moment shorter than it used to be?</li>
+          <li>Are there situations that used to trigger me that now feel manageable?</li>
+          <li>Do I have more language for what I&rsquo;m experiencing than I used to?</li>
+          <li>Is there more space between the trigger and my reaction, even occasionally?</li>
+        </ul>
+        <p>These are the real measures of progress in trauma work. Not the absence of hard days, but the slow expansion of capacity and choice.</p>
+        <div class="article-cta">
+          <div class="acta-title">Ready to begin?</div>
+          <div class="acta-p">The first step is a conversation. Let&rsquo;s talk about where you are and what healing might look like for you.</div>
+          <button class="btn-sage" onclick="showPage('home');scrollToSection('book')">Book a free consultation &rarr;</button>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</div>
+```
+
+  </section>
+</div>
+
+<!-- ═══════════ RESOURCES PAGE ═══════════ -->
+
+<div id="page-resources" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb r"><a onclick="showPage('home')">Home</a><span>/</span>Resources</div>
+      <span class="eyebrow r">Resources</span>
+      <h1 class="h2 r" style="font-size:clamp(2rem,5vw,3.5rem)">Tools for the space<br><em>between sessions.</em></h1>
+      <p class="lead r" style="max-width:48ch;margin-top:0.5rem">Grounding exercises, psychoeducation, and guides for understanding what your nervous system is doing &mdash; and why.</p>
+    </div>
+  </div>
+  <section class="sec">
+    <div class="w">
+      <div class="r" style="margin-bottom:2.5rem">
+        <span class="eyebrow">Free resources</span>
+        <h2 class="h2">Start here.</h2>
+      </div>
+      <div class="resources-grid">
+        <div class="resource-card r">
+          <div class="rt rt-free"><span>Free guide</span><span class="rb-free">PDF</span></div>
+          <div class="resource-title">Understanding Your Window of Tolerance</div>
+          <div class="resource-desc">A plain-language guide to one of the most important concepts in trauma recovery &mdash; what the window of tolerance is, how trauma narrows it, and what it means to expand it.</div>
+          <div class="resource-cta">Download free &rarr;</div>
+        </div>
+        <div class="resource-card r d1">
+          <div class="rt rt-free"><span>Free guide</span><span class="rb-free">PDF</span></div>
+          <div class="resource-title">5 Grounding Techniques That Actually Work</div>
+          <div class="resource-desc">Not all grounding exercises are equally effective for trauma. This guide explains five evidence-based approaches, when to use each, and why they work from a nervous system perspective.</div>
+          <div class="resource-cta">Download free &rarr;</div>
+        </div>
+        <div class="resource-card r d2">
+          <div class="rt rt-guide"><span>Reading guide</span></div>
+          <div class="resource-title">Books I Recommend to Clients</div>
+          <div class="resource-desc">A curated list of books on trauma, the nervous system, EMDR, somatic work, and complex trauma &mdash; annotated with notes on who each is best suited for.</div>
+          <div class="resource-cta">View the list &rarr;</div>
+        </div>
+        <div class="resource-card r">
+          <div class="rt rt-tool"><span>Self-assessment</span></div>
+          <div class="resource-title">Do I Have PTSD? A Self-Reflection Guide</div>
+          <div class="resource-desc">Not a diagnostic tool &mdash; but a thoughtful set of questions to help you think through your experience before reaching out. Helps you find language for what you&rsquo;re carrying.</div>
+          <div class="resource-cta">Explore the guide &rarr;</div>
+        </div>
+        <div class="resource-card r d1">
+          <div class="rt rt-free"><span>Free guide</span><span class="rb-free">PDF</span></div>
+          <div class="resource-title">What to Expect in Trauma Therapy</div>
+          <div class="resource-desc">A guide for people who are new to trauma therapy, or who have had difficult experiences with it before. Covers what good trauma care looks like, what to look for in a therapist, and red flags.</div>
+          <div class="resource-cta">Download free &rarr;</div>
+        </div>
+        <div class="resource-card r d2">
+          <div class="rt rt-free"><span>Free guide</span><span class="rb-free">PDF</span></div>
+          <div class="resource-title">Explaining Trauma to Someone You Love</div>
+          <div class="resource-desc">For clients who want to help people in their lives understand what they&rsquo;re going through. A plain-language guide to sharing your experience in a way that builds understanding.</div>
+          <div class="resource-cta">Download free &rarr;</div>
+        </div>
+      </div>
+
+```
+  <div class="r" style="margin:4rem 0 2rem">
+    <span class="eyebrow">Crisis resources</span>
+    <h2 class="h2">If you need support <em>right now.</em></h2>
+  </div>
+  <div style="background:var(--gc);border:1px solid var(--bd2);border-radius:1.25rem;padding:2rem;max-width:44rem">
+    <p style="font-size:0.9375rem;color:var(--t2);line-height:1.85;margin-bottom:1rem;font-weight:300">I am not a crisis service. If you are in immediate danger or experiencing a psychiatric emergency, please use these resources:</p>
+    <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem">
+      <li style="font-size:0.9rem;color:var(--t2);font-weight:300"><strong style="color:var(--t1);font-weight:500">988 Suicide &amp; Crisis Lifeline:</strong> Call or text 988</li>
+      <li style="font-size:0.9rem;color:var(--t2);font-weight:300"><strong style="color:var(--t1);font-weight:500">Crisis Text Line:</strong> Text HOME to 741741</li>
+      <li style="font-size:0.9rem;color:var(--t2);font-weight:300"><strong style="color:var(--t1);font-weight:500">Emergency services:</strong> Call 911 or go to your nearest emergency room</li>
+      <li style="font-size:0.9rem;color:var(--t2);font-weight:300"><strong style="color:var(--t1);font-weight:500">RAINN Sexual Assault Hotline:</strong> 1-800-656-4673</li>
+    </ul>
+  </div>
+</div>
+```
+
+  </section>
+</div>
+
+<!-- ═══════════ GROUPS & WORKSHOPS PAGE ═══════════ -->
+
+<div id="page-groups" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb r"><a onclick="showPage('home')">Home</a><span>/</span>Groups &amp; Workshops</div>
+      <span class="eyebrow r">Group offerings</span>
+      <h1 class="h2 r" style="font-size:clamp(2rem,5vw,3.5rem)">Healing in community.<br><em>You are not alone in this.</em></h1>
+      <p class="lead r" style="max-width:50ch;margin-top:0.5rem">Sometimes the most powerful part of healing is realizing that other people carry what you carry. Group therapy and workshops offer something individual work cannot.</p>
+    </div>
+  </div>
+
+  <!-- GROUP THERAPY -->
+
+  <section class="sec">
+    <div class="w">
+      <div class="approach-grid">
+        <div class="r">
+          <span class="eyebrow">Ongoing group</span>
+          <h2 class="h2">Trauma Recovery<br><em>Process Group</em></h2>
+          <p class="lead" style="max-width:40ch;margin-bottom:2rem">A small, closed group for adults working through the aftermath of trauma. 8 members maximum. We meet weekly, and we build safety together over time.</p>
+          <div style="display:flex;flex-direction:column;gap:0">
+            <div class="pillar"><div class="pillar-dot"></div><div>
+              <div class="pillar-title">What we work on</div>
+              <div class="pillar-desc">Emotional regulation, nervous system awareness, shame reduction, and the experience of being witnessed by others who genuinely understand. Not a support group &mdash; a structured therapeutic process.</div>
+            </div></div>
+            <div class="pillar"><div class="pillar-dot"></div><div>
+              <div class="pillar-title">Who it&rsquo;s for</div>
+              <div class="pillar-desc">Adults who have done some individual trauma work and are ready to expand into the relational dimension of healing. Not appropriate as a first point of entry into trauma treatment.</div>
+            </div></div>
+            <div class="pillar"><div class="pillar-dot"></div><div>
+              <div class="pillar-title">Format &amp; commitment</div>
+              <div class="pillar-desc">90-minute weekly sessions via telehealth. Closed group &mdash; same members throughout. Minimum 12-week commitment. Currently forming: next cohort begins spring 2025.</div>
+            </div></div>
+            <div class="pillar"><div class="pillar-dot"></div><div>
+              <div class="pillar-title">Individual therapy required</div>
+              <div class="pillar-desc">All group members must be concurrently engaged in individual trauma therapy &mdash; with me or with another qualified trauma therapist. Group work amplifies individual work; it doesn&rsquo;t replace it.</div>
+            </div></div>
+          </div>
+          <div style="margin-top:2.5rem;display:flex;gap:0.875rem;flex-wrap:wrap">
+            <button class="btn-sage" onclick="showPage('home');scrollToSection('book')">Inquire about the group &rarr;</button>
+          </div>
+        </div>
+        <div class="r d1">
+          <div class="approach-aside">
+            <div class="eyebrow" style="margin-bottom:0.875rem">Group details</div>
+            <div class="aa-quote">&ldquo;There is something that happens when you say the unspeakable thing out loud &mdash; and the room stays. That is what group therapy offers that nothing else can.&rdquo;</div>
+            <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.5rem">
+              <div style="display:flex;justify-content:space-between;padding:0.75rem 0;border-bottom:1px solid var(--bd)">
+                <span style="font-size:0.8rem;color:var(--t3);font-weight:500">Format</span>
+                <span style="font-size:0.8rem;color:var(--t2)">Weekly telehealth, 90 min</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;padding:0.75rem 0;border-bottom:1px solid var(--bd)">
+                <span style="font-size:0.8rem;color:var(--t3);font-weight:500">Group size</span>
+                <span style="font-size:0.8rem;color:var(--t2)">8 members maximum</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;padding:0.75rem 0;border-bottom:1px solid var(--bd)">
+                <span style="font-size:0.8rem;color:var(--t3);font-weight:500">Commitment</span>
+                <span style="font-size:0.8rem;color:var(--t2)">12 weeks minimum</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;padding:0.75rem 0;border-bottom:1px solid var(--bd)">
+                <span style="font-size:0.8rem;color:var(--t3);font-weight:500">Fee</span>
+                <span style="font-size:0.8rem;color:var(--t2)">$80/session (sliding scale available)</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;padding:0.75rem 0">
+                <span style="font-size:0.8rem;color:var(--t3);font-weight:500">Next cohort</span>
+                <span style="font-size:0.8rem;color:var(--sage-l);font-weight:600">Forming now &mdash; Spring 2025</span>
+              </div>
+            </div>
+            <div style="background:var(--sage-s);border:1px solid var(--sage-b);border-radius:0.75rem;padding:1rem">
+              <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-l);margin-bottom:0.375rem">Waitlist open</div>
+              <div style="font-size:0.8125rem;color:var(--t2);line-height:1.55;font-weight:300">Spots fill quickly. Add your name to the waitlist and I&rsquo;ll reach out when we&rsquo;re close to forming.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEPARATOR -->
+
+  <div style="border-top:1px solid var(--bd)"></div>
+
+  <!-- WORKSHOPS -->
+
+  <section class="sec-f2">
+    <div class="w">
+      <div class="r" style="max-width:44rem;margin-bottom:3rem">
+        <span class="eyebrow">Workshops</span>
+        <h2 class="h2">Single-session intensives for<br><em>specific skills.</em></h2>
+        <p class="lead">Not group therapy &mdash; these are structured psychoeducational workshops. Open to anyone. No therapy history required. A lower-stakes entry point into trauma-informed work.</p>
+      </div>
+      <div class="spec-grid">
+        <div class="spec-card r">
+          <div style="font-size:1.75rem;margin-bottom:0.875rem">&#9889;</div>
+          <div class="spec-title">Understanding Your Nervous System</div>
+          <div class="spec-desc">A 2-hour workshop on the polyvagal theory and how trauma affects the nervous system. Plain language, no jargon. You&rsquo;ll leave with a clear map of what&rsquo;s been happening in your body &mdash; and why.</div>
+          <div style="margin-top:auto;padding-top:1rem;display:flex;flex-direction:column;gap:0.375rem">
+            <div style="font-size:0.72rem;color:var(--t3)">&#128197; Next date: February 15 &nbsp;&middot;&nbsp; &#128205; Telehealth &nbsp;&middot;&nbsp; &#128176; $65</div>
+            <div class="spec-link" style="margin-top:0.25rem">Register &rarr;</div>
+          </div>
+        </div>
+        <div class="spec-card r d1">
+          <div style="font-size:1.75rem;margin-bottom:0.875rem">&#127807;</div>
+          <div class="spec-title">Grounding When Everything Feels Like Too Much</div>
+          <div class="spec-desc">A practical 2-hour workshop on somatic grounding techniques. We go beyond breathing exercises into body-based approaches that actually work when you&rsquo;re activated. You practice each one during the session.</div>
+          <div style="margin-top:auto;padding-top:1rem;display:flex;flex-direction:column;gap:0.375rem">
+            <div style="font-size:0.72rem;color:var(--t3)">&#128197; Next date: March 8 &nbsp;&middot;&nbsp; &#128205; Telehealth &nbsp;&middot;&nbsp; &#128176; $65</div>
+            <div class="spec-link" style="margin-top:0.25rem">Register &rarr;</div>
+          </div>
+        </div>
+        <div class="spec-card r d2">
+          <div style="font-size:1.75rem;margin-bottom:0.875rem">&#128274;</div>
+          <div class="spec-title">Shame &amp; Self-Compassion for Trauma Survivors</div>
+          <div class="spec-desc">Shame is often the most debilitating part of trauma &mdash; and the least talked about. This 3-hour workshop addresses the neuroscience of shame, its relationship to trauma, and concrete practices for self-compassion.</div>
+          <div style="margin-top:auto;padding-top:1rem;display:flex;flex-direction:column;gap:0.375rem">
+            <div style="font-size:0.72rem;color:var(--t3)">&#128197; Next date: March 22 &nbsp;&middot;&nbsp; &#128205; Telehealth &nbsp;&middot;&nbsp; &#128176; $85</div>
+            <div class="spec-link" style="margin-top:0.25rem">Register &rarr;</div>
+          </div>
+        </div>
+        <div class="spec-card r d3">
+          <div style="font-size:1.75rem;margin-bottom:0.875rem">&#129309;</div>
+          <div class="spec-title">Talking to Someone You Love About Your Trauma</div>
+          <div class="spec-desc">For trauma survivors who want support from a partner, family member, or close friend &mdash; but don&rsquo;t know how to bridge that conversation. Pairs welcome. Language tools and frameworks provided.</div>
+          <div style="margin-top:auto;padding-top:1rem;display:flex;flex-direction:column;gap:0.375rem">
+            <div style="font-size:0.72rem;color:var(--t3)">&#128197; Next date: April 5 &nbsp;&middot;&nbsp; &#128205; Telehealth &nbsp;&middot;&nbsp; &#128176; $65 (or $100/pair)</div>
+            <div class="spec-link" style="margin-top:0.25rem">Register &rarr;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS / WHAT PEOPLE SAY -->
+
+  <section class="sec-dark">
+    <div class="w">
+      <div class="r" style="text-align:center;margin-bottom:3rem">
+        <span class="eyebrow">From group members</span>
+        <h2 class="h2">What people say about<br><em>healing together.</em></h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card r">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testi-q">I was terrified to join a group. The idea of other people hearing my story felt impossible. Within three sessions I realized everyone in the room was carrying something I recognized. That recognition was itself healing.</div>
+          <div class="testi-name">M.R.</div><div class="testi-role">Trauma Process Group, 2024</div>
+        </div>
+        <div class="testi-card r d1">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testi-q">The Nervous System workshop gave me language I&rsquo;d been looking for for years. I finally understood why I couldn&rsquo;t just &ldquo;calm down&rdquo; and what was actually happening. Worth every penny and then some.</div>
+          <div class="testi-name">T.W.</div><div class="testi-role">Understanding Your Nervous System Workshop</div>
+        </div>
+        <div class="testi-card r d2">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testi-q">Group therapy with Elena is unlike anything I expected. She holds the space in a way that makes everyone feel equally seen. I look forward to it every week in a way I never expected to look forward to therapy.</div>
+          <div class="testi-name">J.K.</div><div class="testi-role">Trauma Process Group, ongoing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ FOR GROUPS -->
+
+  <section class="sec">
+    <div class="w">
+      <div class="r" style="text-align:center;margin-bottom:3rem">
+        <span class="eyebrow">Questions about groups</span>
+        <h2 class="h2">Common questions before<br><em>joining.</em></h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item r"><button class="faq-btn" onclick="toggleFaq(this)">Is group therapy right for me if I&rsquo;m still in individual therapy?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes &mdash; in fact, that&rsquo;s the ideal situation. <strong>Group therapy works best as an addition to individual therapy</strong>, not a replacement. The individual work gives you a private space to process what comes up in group; the group gives you something individual therapy cannot replicate: the experience of being witnessed and held by peers who genuinely understand.</div></div></div>
+        <div class="faq-item r"><button class="faq-btn" onclick="toggleFaq(this)">Will I have to share my trauma story with the group?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">No. This is one of the most important things I want to be clear about. This is <strong>not a group where people go around sharing their stories</strong>. We work in the present &mdash; on what&rsquo;s happening in the room, in your body, in your relationships right now. The content of your past trauma is yours to share as much or as little as you choose.</div></div></div>
+        <div class="faq-item r"><button class="faq-btn" onclick="toggleFaq(this)">What&rsquo;s the difference between the group and the workshops?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">The process group is ongoing, closed, and deeply relational &mdash; the same people, week after week, building safety and doing therapeutic work together. It requires an intake and a commitment. The workshops are single-session, open to anyone, and primarily educational &mdash; you&rsquo;ll learn something useful without being asked to do deep personal work. Workshops are a good introduction; the group is the deeper work.</div></div></div>
+        <div class="faq-item r"><button class="faq-btn" onclick="toggleFaq(this)">How do I join the group?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">The process starts with a standard individual consultation call, just like starting individual therapy. I screen for fit &mdash; not to judge who &ldquo;qualifies,&rdquo; but to make sure the group is the right environment for where you are right now. From there, if it&rsquo;s a good match, you&rsquo;ll be added to the forming cohort or waitlist depending on timing.</div></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER (shared) -->
+
+<footer id="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-name">Dr. Elena Vasquez, LCSW</div>
+        <div class="footer-cred">Licensed Clinical Social Worker &middot; EMDR Certified &middot; New York</div>
+        <div class="footer-blurb">Specialized trauma therapy for adults in New York. EMDR, somatic, and attachment-based care.</div>
+      </div>
+      <div>
+        <div class="footer-col-h">Navigate</div>
+        <ul class="footer-links">
+          <li><a onclick="showPage('home')">Home</a></li>
+          <li><a onclick="showPage('specialties')">Specialties</a></li>
+          <li><a onclick="showPage('groups')">Groups &amp; Workshops</a></li>
+          <li><a onclick="showPage('blog')">Blog</a></li>
+          <li><a onclick="showPage('resources')">Resources</a></li>
+          <li><a onclick="showPage('home');scrollToSection('book')">Book a call</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-h">Important</div>
+        <ul class="footer-links">
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Good Faith Estimate</a></li>
+          <li><a href="#">HIPAA Notice</a></li>
+          <li><a href="https://988lifeline.org" target="_blank">Crisis: Call or text 988</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 Dr. Elena Vasquez, LCSW &nbsp;&bull;&nbsp; New York State License #067890 &nbsp;&bull;&nbsp; This site is not a crisis service.</div>
+      <div class="footer-powered">Website by <a href="https://wellovie.com/therapist-websites" target="_blank">Wellovie</a></div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wellovie.com/therapist-websites" target="_blank" class="wellovie-badge">
+  <span class="wbadge-dot"></span>Built by Wellovie
+</a>
+
+<script>
+function toggleDrawer() {
+  const drawer = document.getElementById('mobile-drawer');
+  const burger = document.getElementById('nav-burger');
+  const isOpen = drawer.classList.contains('open');
+  if (isOpen) { closeDrawer(); } else {
+    drawer.classList.add('open');
+    burger.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeDrawer() {
+  document.getElementById('mobile-drawer').classList.remove('open');
+  document.getElementById('nav-burger').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, { threshold: 0.06, rootMargin: '0px 0px -24px 0px' });
+document.querySelectorAll('.r').forEach(el => obs.observe(el));
+
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = document.getElementById('page-' + id);
+  if (page) {
+    page.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // re-run reveal for new page
+    setTimeout(() => {
+      page.querySelectorAll('.r:not(.in)').forEach(el => obs.observe(el));
+    }, 50);
+  }
+  if (id === 'blog') showBlogGrid();
+}
+
+function scrollToSection(id) {
+  setTimeout(() => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 80);
+}
+
+function showSpec(id) {
+  document.querySelectorAll('.spec-content').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.spec-tab').forEach(t => t.classList.remove('active'));
+  const content = document.getElementById('spec-' + id);
+  if (content) {
+    content.classList.add('active');
+    content.querySelectorAll('.r:not(.in)').forEach(el => obs.observe(el));
+  }
+  // highlight tab
+  const tabs = document.querySelectorAll('.spec-tab');
+  const map = { trauma: 0, cptsd: 1, somatic: 2, childhood: 3 };
+  if (tabs[map[id]] !== undefined) tabs[map[id]].classList.add('active');
+}
+
+function showArticle(id) {
+  document.getElementById('blog-grid-view').style.display = 'none';
+  document.getElementById('blog-article-view').style.display = 'block';
+  document.querySelectorAll('[id^="article-"]').forEach(a => a.style.display = 'none');
+  const art = document.getElementById('article-' + id);
+  if (art) { art.style.display = 'block'; window.scrollTo({ top: 0, behavior: 'smooth' }); }
+}
+
+function showBlogGrid() {
+  document.getElementById('blog-grid-view').style.display = 'block';
+  document.getElementById('blog-article-view').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+
+</body>
+</html>
