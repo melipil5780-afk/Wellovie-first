@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The Window Check — Wellovie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ac:#3a6088;
+  --ac-bg:rgba(58,96,136,0.09);
+  --ac-bd:rgba(58,96,136,0.22);
+  --ac-tx:#3a6088;
+  --ac-dk:#1e3858;
+  --body:#1a0e08;--mid:#5a3a28;--muted:#7a6050;--faint:#a08060;--pale:#c4a882;--line:#e0cdb8;--sheet:#fdfaf6;
+  --label-size:0.64rem;
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --fb:'Outfit',-apple-system,sans-serif;
+}
+body.bw{--ac:#111;--ac-bg:#f0f0f0;--ac-bd:#888;--ac-tx:#111;--ac-dk:#111;--body:#000;--mid:#222;--muted:#444;--faint:#666;--pale:#888;--line:#bbb;--sheet:#f7f7f7}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#fff;font-family:var(--fb);color:var(--body);-webkit-font-smoothing:antialiased;line-height:1.55}
+textarea,input{font-family:var(--fb);color:var(--body)}
+
+.ws-controls{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e8ddd0;padding:0.625rem 2rem;display:flex;align-items:center;gap:0.625rem;flex-wrap:wrap}
+.wsc-label{font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#a08060;margin-right:0.25rem}
+.wsc-btn{padding:0.4rem 0.875rem;border-radius:999px;border:1.5px solid #d4c4b0;background:#fff;color:#7a6050;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:var(--fb);transition:all 0.15s;display:inline-flex;align-items:center;gap:0.375rem}
+.wsc-btn:hover{border-color:#c4a882;color:#5a3a28}
+.wsc-btn.active{background:var(--ac);border-color:var(--ac);color:#fff}
+body.bw .wsc-btn.active{background:#111;border-color:#111;color:#fff}
+.wsc-sep{width:1px;height:1.25rem;background:#e8ddd0;flex-shrink:0}
+.wsc-save{padding:0.4rem 1rem;border-radius:999px;background:transparent;border:1.5px solid var(--ac-bd);color:var(--ac-tx);font-size:0.8rem;font-weight:700;cursor:pointer;font-family:var(--fb);transition:all 0.2s;display:inline-flex;align-items:center;gap:0.375rem}
+.wsc-save:hover{background:var(--ac-bg)}
+.wsc-print{padding:0.4rem 1.125rem;border-radius:999px;background:var(--ac);border:1.5px solid var(--ac);color:#fff;font-size:0.8rem;font-weight:700;cursor:pointer;font-family:var(--fb);transition:all 0.2s;display:inline-flex;align-items:center;gap:0.375rem;margin-left:auto}
+body.bw .wsc-print{background:#111;border-color:#111}
+.wsc-print:hover{opacity:0.88}
+.wsc-tip{font-size:0.68rem;color:#b0a090;white-space:nowrap}
+.save-toast{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--ac);color:#fff;padding:0.5rem 1.25rem;border-radius:999px;font-size:0.82rem;font-weight:600;font-family:var(--fb);opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:999}
+@media(max-width:600px){.wsc-tip{display:none}}
+
+.page{max-width:54rem;margin:0 auto;padding:1.75rem 2rem 3.5rem}
+.ws-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;border-bottom:3px solid var(--ac);padding-bottom:1.25rem;margin-bottom:1.625rem}
+.ws-brand{font-family:var(--fd);font-size:1rem;font-weight:600;color:var(--ac);letter-spacing:0.01em;margin-bottom:0.375rem}
+.ws-brand em{font-style:italic}
+.ws-title{font-family:var(--fd);font-size:2.25rem;font-weight:600;line-height:1.05;letter-spacing:-0.01em;color:var(--body);margin-bottom:0.375rem}
+.ws-subtitle{font-size:0.85rem;color:var(--muted);line-height:1.65;max-width:54ch}
+.ws-meta{flex-shrink:0;text-align:right;display:flex;flex-direction:column;gap:0.5rem}
+.ws-meta-field{display:flex;flex-direction:column;gap:0.2rem;align-items:flex-end}
+.ws-meta-lbl{font-size:var(--label-size);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--pale)}
+.ws-meta-line{border-bottom:1.5px solid var(--line);width:9rem;height:1.375rem}
+
+.callout{background:var(--ac-bg);border:1px solid var(--ac-bd);border-left:4px solid var(--ac);border-radius:0.5rem;padding:0.875rem 1.125rem;margin-bottom:1.5rem}
+.callout-title{font-size:var(--label-size);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ac-tx);margin-bottom:0.4rem}
+.callout p{font-size:0.85rem;color:var(--mid);line-height:1.7}
+.callout-neutral{background:#f7f4f0;border-color:#d4c4b0;border-left-color:#7a6050}
+.callout-neutral .callout-title{color:#5a3a28}
+body.bw .callout,.bw .callout-neutral{background:#f0f0f0;border-color:#888;border-left-color:#111}
+body.bw .callout-title{color:#000}
+
+.section{margin-bottom:1.75rem}
+.section-head{display:flex;align-items:baseline;gap:0.5rem;margin-bottom:0.3rem}
+.section-num{display:inline-flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--ac);color:#fff;font-size:0.68rem;font-weight:700;flex-shrink:0}
+body.bw .section-num{background:#111}
+.section-title{font-family:var(--fd);font-size:1.25rem;font-weight:600;color:var(--body);line-height:1.2}
+.section-hint{font-size:0.82rem;color:var(--muted);line-height:1.65;margin-bottom:0.75rem;margin-top:0.25rem}
+
+.write-box{width:100%;border:1px solid var(--line);border-radius:0.4rem;padding:0.75rem 0.875rem;font-size:0.9rem;line-height:2.05;resize:none;min-height:6rem;color:var(--body);background-color:var(--sheet);background-image:repeating-linear-gradient(to bottom,transparent,transparent calc(2.05em - 1px),var(--line) calc(2.05em - 1px),var(--line) 2.05em);background-position:0 0.875rem}
+body.bw .write-box{background-color:#f7f7f7;background-image:repeating-linear-gradient(to bottom,transparent,transparent calc(2.05em - 1px),#ccc calc(2.05em - 1px),#ccc 2.05em);border-color:#999}
+.write-box::placeholder{color:var(--pale);font-style:italic}
+.write-box{overflow:hidden}
+.write-box:focus{outline:2px solid var(--ac);outline-offset:1px}
+body.bw .write-box:focus{outline:2px solid #333}
+
+.wl{min-height:3.75rem;padding-bottom:0.375rem;padding-top:0.375rem;border-bottom:1.5px solid var(--line);position:relative}
+.wl::after{content:'';position:absolute;left:0;right:0;bottom:50%;border-bottom:1px solid var(--line);opacity:0.35;pointer-events:none}
+body.bw .wl{border-color:#999}
+.write-input{border:none;border-bottom:1.5px solid var(--line);background:transparent;font-size:0.9rem;color:var(--body);padding:0.2rem 0.375rem;outline:none;font-family:var(--fb);width:100%}
+body.bw .write-input{border-color:#999}
+.write-input:focus{border-bottom-color:var(--ac)}
+
+.split-box{border:1px solid var(--line);border-radius:0.5rem;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+body.bw .split-box{border-color:#999}
+.split-col{padding:0.875rem 1rem}
+.split-col+.split-col{border-left:1px solid var(--line)}
+body.bw .split-col+.split-col{border-left-color:#999}
+.split-col-a{background:var(--ac-bg)}
+body.bw .split-col-a{background:#f0f0f0}
+.split-head{font-size:var(--label-size);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.625rem;padding-bottom:0.375rem;border-bottom:1.5px solid var(--ac-bd)}
+.split-col-a .split-head{color:var(--ac-tx)}
+.split-col-b .split-head{color:var(--muted)}
+body.bw .split-head{color:#111;border-bottom-color:#888}
+.split-lines{display:flex;flex-direction:column;gap:0.5rem}
+.split-line{border-bottom:1px solid var(--line);min-height:3.25rem;padding-bottom:0.25rem;position:relative}
+.split-line::after{content:'';position:absolute;left:0;right:0;bottom:50%;border-bottom:1px solid var(--line);opacity:0.3;pointer-events:none}
+body.bw .split-line{border-color:#bbb}
+
+/* Window of tolerance visual */
+.window-bar{border:1px solid var(--line);border-radius:0.75rem;overflow:hidden;margin:0.75rem 0}
+.window-zone{padding:0.875rem 1.25rem;position:relative}
+.window-zone+.window-zone{border-top:1px solid var(--line)}
+.window-zone-lbl{font-size:var(--label-size);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.25rem}
+.window-zone-desc{font-size:0.78rem;color:var(--muted);line-height:1.55}
+.zone-hyper{background:rgba(217,95,53,0.07)}
+.zone-hyper .window-zone-lbl{color:#c05030}
+.zone-window{background:var(--ac-bg)}
+.zone-window .window-zone-lbl{color:var(--ac-tx)}
+.zone-hypo{background:rgba(90,58,40,0.06)}
+.zone-hypo .window-zone-lbl{color:#7a5040}
+.zone-marker{display:inline-block;width:0.625rem;height:0.625rem;border-radius:50%;margin-right:0.375rem;vertical-align:middle}
+body.bw .window-zone{background:#f5f5f5 !important}
+body.bw .window-zone-lbl{color:#111 !important}
+
+.reflection{background:var(--ac-bg);border:1px solid var(--ac-bd);border-left:4px solid var(--ac);border-radius:0.5rem;padding:1rem 1.125rem}
+.reflection-title{font-size:var(--label-size);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ac-tx);margin-bottom:0.5rem}
+.reflection-hint{font-size:0.82rem;color:var(--mid);margin-bottom:0.75rem;line-height:1.65;font-style:italic}
+body.bw .reflection{background:#f0f0f0;border-color:#888;border-left-color:#111}
+body.bw .reflection-title{color:#000}
+
+.ws-footer{border-top:1px solid var(--line);margin-top:2rem;padding-top:0.875rem;display:flex;justify-content:space-between;align-items:center;font-size:0.7rem;color:var(--pale);gap:1rem;flex-wrap:wrap}
+.disclaimer{font-size:0.65rem;color:var(--pale);text-align:center;margin-top:0.375rem;line-height:1.55}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.125rem}
+@media(max-width:560px){.two-col,.split-box,.window-bar{grid-template-columns:1fr}}
+.spacer{height:0.75rem}
+.tag{font-size:var(--label-size);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ac-tx);display:block;margin-bottom:0.3rem}
+body.bw .tag{color:#111}
+
+@media print{
+  @page{size:letter portrait;margin:0.5in 0.6in}
+  html,body{background:#fff !important;font-size:10pt}
+  .ws-controls,.save-toast{display:none !important}
+  .page{max-width:100%;padding:0;margin:0}
+  body:not(.bw) *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body.bw{color:#000}
+  body.bw .callout,.bw .reflection,.bw .split-col-a,.bw .write-box{-webkit-print-color-adjust:economy;print-color-adjust:economy;background:#f2f2f2 !important}
+  .section{page-break-inside:avoid;break-inside:avoid}
+  .split-box,.two-col,.window-bar{page-break-inside:avoid;break-inside:avoid}
+  .ws-header{page-break-after:avoid;break-after:avoid}
+  textarea[rows="2"]{min-height:4.5rem !important}
+  textarea[rows="3"]{min-height:7rem !important}
+  textarea[rows="4"]{min-height:9rem !important}
+  textarea.write-box{height:auto !important;min-height:4.5rem !important}
+  .ws-logo-back{display:none !important}
+}
+</style>
+</head>
+<body>
+<div class="ws-controls" id="wsc">
+  <span class="ws-logo-back" style="display:inline-flex;align-items:center">
+    <a href="../articles/regulation.html" style="display:inline-flex;align-items:center;gap:0.375rem;text-decoration:none;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.1rem;font-weight:600;color:#1a0e08;margin-right:auto;flex-shrink:0">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d95f35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Wello<em style="font-style:italic;color:#d95f35">vie</em>
+    </a>
+  </span>
+  <div class="wsc-sep"></div>
+  <span class="wsc-label">Mode:</span>
+  <button class="wsc-btn active" id="btn-color" onclick="setMode('color')">🎨 Color</button>
+  <button class="wsc-btn" id="btn-bw" onclick="setMode('bw')">⬛ B&W</button>
+  <div class="wsc-sep"></div>
+  <button class="wsc-save" onclick="copyAnswers()">📋 Copy answers</button>
+  <button class="wsc-save" onclick="downloadAnswers()">⬇ Save as file</button>
+  <button class="wsc-print" onclick="window.print()">🖨️ Print / PDF</button>
+  <span class="wsc-tip">Your answers auto-save to this browser</span>
+</div>
+<div class="save-toast" id="toast"></div>
+
+<div class="page">
+<div class="ws-header">
+  <div>
+    <div class="ws-brand">Wello<em>vie</em></div>
+    <h1 class="ws-title">The Window Check</h1>
+    <p class="ws-subtitle">Regulation isn't about staying calm — it's about staying you. This worksheet helps you understand your own window of tolerance, recognize when you've left it, and build a personal map of what brings you back.</p>
+  </div>
+  <div class="ws-meta">
+    <div class="ws-meta-field"><div class="ws-meta-lbl">Date</div><div class="ws-meta-line"></div></div>
+    <div class="ws-meta-field"><div class="ws-meta-lbl">Session / Solo</div><div class="ws-meta-line"></div></div>
+  </div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">Before you begin</div>
+  <p>This worksheet works best after a moment of dysregulation has passed — not in the middle of one. If you're currently overwhelmed, set this aside and return when you have some ground under you. Your answers auto-save to this browser.</p>
+</div>
+
+<!-- PART 1 -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">1</span>
+    <span class="section-title">Your window of tolerance</span>
+  </div>
+  <p class="section-hint">The window of tolerance is the zone where you can feel emotions without being overwhelmed by them — where you can think, respond, and stay present. Below are the three zones. Read each one and add what your personal version looks like.</p>
+
+  <div class="window-bar">
+    <div class="window-zone zone-hyper">
+      <div class="window-zone-lbl"><span class="zone-marker" style="background:#d95f35"></span>Hyperarousal — too much activation</div>
+      <div class="window-zone-desc">Anxiety, panic, rage, racing thoughts, can't slow down. The nervous system is flooded. Hard to think clearly or feel safe.</div>
+      <div class="spacer"></div>
+      <span class="tag">For me this looks like</span>
+      <textarea class="write-box" rows="2" placeholder="My hyperarousal signs: racing heart, can't stop talking, anger that comes from nowhere..." data-save="wc-hyper" data-label="My hyperarousal signs"></textarea>
+    </div>
+    <div class="window-zone zone-window">
+      <div class="window-zone-lbl"><span class="zone-marker" style="background:#3a6088"></span>Window of tolerance — regulated</div>
+      <div class="window-zone-desc">Emotions are present but not overwhelming. You can think and feel at the same time. You can stay in the room with hard things.</div>
+      <div class="spacer"></div>
+      <span class="tag">For me this feels like</span>
+      <textarea class="write-box" rows="2" placeholder="When I'm in my window I feel..." data-save="wc-window" data-label="What my window feels like"></textarea>
+    </div>
+    <div class="window-zone zone-hypo">
+      <div class="window-zone-lbl"><span class="zone-marker" style="background:#7a5040"></span>Hypoarousal — too little activation</div>
+      <div class="window-zone-desc">Numbness, shutdown, disconnection, flatness. The system has gone quiet. Hard to feel anything or take action.</div>
+      <div class="spacer"></div>
+      <span class="tag">For me this looks like</span>
+      <textarea class="write-box" rows="2" placeholder="My hypoarousal signs: going blank, not caring, feeling far away..." data-save="wc-hypo" data-label="My hypoarousal signs"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- PART 2 -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">2</span>
+    <span class="section-title">What pushes you out</span>
+  </div>
+  <p class="section-hint">Certain situations, people, or internal states reliably narrow your window or knock you out of it. Identifying your triggers isn't about avoiding them — it's about meeting them with more awareness.</p>
+  <div class="split-box">
+    <div class="split-col split-col-a">
+      <div class="split-head">What tends to push me into hyperarousal</div>
+      <div class="split-lines">
+        <div class="split-line"><input class="write-input" type="text" placeholder="e.g. conflict, being interrupted, deadlines..." data-save="wc-trigger-hyper-1" data-label="Hyperarousal trigger 1"></div>
+        <div class="split-line"><input class="write-input" type="text" placeholder="" data-save="wc-trigger-hyper-2" data-label="Hyperarousal trigger 2"></div>
+        <div class="split-line"><input class="write-input" type="text" placeholder="" data-save="wc-trigger-hyper-3" data-label="Hyperarousal trigger 3"></div>
+      </div>
+    </div>
+    <div class="split-col split-col-b">
+      <div class="split-head">What tends to push me into hypoarousal</div>
+      <div class="split-lines">
+        <div class="split-line"><input class="write-input" type="text" placeholder="e.g. being criticized, overwhelm, emotional distance..." data-save="wc-trigger-hypo-1" data-label="Hypoarousal trigger 1"></div>
+        <div class="split-line"><input class="write-input" type="text" placeholder="" data-save="wc-trigger-hypo-2" data-label="Hypoarousal trigger 2"></div>
+        <div class="split-line"><input class="write-input" type="text" placeholder="" data-save="wc-trigger-hypo-3" data-label="Hypoarousal trigger 3"></div>
+      </div>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <p class="section-hint">Is there a pattern — a theme or type of situation that recurs most often?</p>
+  <textarea class="write-box" rows="2" placeholder="The pattern I notice..." data-save="wc-pattern" data-label="Trigger pattern"></textarea>
+</div>
+
+<!-- PART 3 -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">3</span>
+    <span class="section-title">The early warning signals</span>
+  </div>
+  <p class="section-hint">Dysregulation rarely arrives without warning — there are usually subtle signs that you're starting to drift. The earlier you can catch them, the more options you have. What are yours?</p>
+  <div class="two-col">
+    <div>
+      <span class="tag">Early signs I'm going up (toward hyperarousal)</span>
+      <textarea class="write-box" rows="3" placeholder="e.g. my jaw tightens, I get quiet then suddenly very loud, I start catastrophizing..." data-save="wc-early-up" data-label="Early signs going into hyperarousal"></textarea>
+    </div>
+    <div>
+      <span class="tag">Early signs I'm going down (toward hypoarousal)</span>
+      <textarea class="write-box" rows="3" placeholder="e.g. I stop caring about the conversation, everything feels muted, I start going through the motions..." data-save="wc-early-down" data-label="Early signs going into hypoarousal"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- PART 4 -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">4</span>
+    <span class="section-title">What brings you back</span>
+  </div>
+  <p class="section-hint">Regulation is not about willpower — it's about having a toolkit. What actually works for you to return to your window? Think about past moments when you came back from dysregulation, even slowly. What helped?</p>
+  <div class="split-box">
+    <div class="split-col split-col-a">
+      <div class="split-head">When I'm flooded — what helps me come down</div>
+      <div class="split-lines">
+        <div class="split-line"><input class="write-input" type="text" placeholder="e.g. slow breathing, cold water, leaving the room..." data-save="wc-return-hyper-1" data-label="Return from hyperarousal 1"></div>
+        <div class="split-line"><input class="write-input" type="text" placeholder="" data-save="wc-return-hyper-2" data-label="Return from hyperarousal 2"></div>
+        <div class="split-line"><input class="write-input" type="text" placeholder="" data-save="wc-return-hyper-3" data-label="Return from hyperarousal 3"></div>
+      </div>
+    </div>
+    <div class="split-col split-col-b">
+      <div class="split-head">When I'm shut down — what helps me come up</div>
+      <div class="split-lines">
+        <div class="split-line"><input class="write-input" type="text" placeholder="e.g. movement, being with someone calm, music..." data-save="wc-return-hypo-1" data-label="Return from hypoarousal 1"></div>
+        <div class="split-line"><input class="write-input" type="text" placeholder="" data-save="wc-return-hypo-2" data-label="Return from hypoarousal 2"></div>
+        <div class="split-line"><input class="write-input" type="text" placeholder="" data-save="wc-return-hypo-3" data-label="Return from hypoarousal 3"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PART 5 -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">5</span>
+    <span class="section-title">A recent moment</span>
+  </div>
+  <p class="section-hint">Think of a recent time you lost your window — flooded or shut down. Describe what happened, what zone you went into, and how (or whether) you came back. This isn't a review — it's mapping your own terrain.</p>
+  <span class="tag">What happened</span>
+  <textarea class="write-box" rows="2" placeholder="The situation was..." data-save="wc-recent-event" data-label="Recent event"></textarea>
+  <div class="spacer"></div>
+  <div class="two-col">
+    <div>
+      <span class="tag">Which zone I went into</span>
+      <textarea class="write-box" rows="2" placeholder="I went into hyperarousal / hypoarousal because..." data-save="wc-recent-zone" data-label="Zone I went into"></textarea>
+    </div>
+    <div>
+      <span class="tag">How I came back (or didn't yet)</span>
+      <textarea class="write-box" rows="2" placeholder="What eventually helped, or what I'm still carrying..." data-save="wc-recent-return" data-label="How I came back"></textarea>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <p class="section-hint">What would you do differently if this same situation happened again, knowing what you know now?</p>
+  <textarea class="write-box" rows="2" placeholder="Next time I would..." data-save="wc-next-time" data-label="What I'd do differently next time"></textarea>
+</div>
+
+<div class="reflection">
+  <div class="reflection-title">Closing note</div>
+  <div class="reflection-hint">Regulation isn't a destination — it's a practice of returning. You will leave your window. The work is learning to notice earlier, and to come back with less judgment of yourself for having left in the first place. Presence, not performance.</div>
+  <textarea class="write-box" rows="3" placeholder="One thing I want to remember about how I regulate..." data-save="wc-closing" data-label="One thing to remember about regulation"></textarea>
+</div>
+
+<div class="ws-footer">
+  <span>Wello<em style="font-style:italic;font-family:'Cormorant Garamond',Georgia,serif">vie</em> · The Window Check</span>
+  <span>wellovie.com</span>
+</div>
+<div class="disclaimer">Wellovie worksheets are self-guided educational tools, not therapy or clinical services. Use alongside therapy, or independently. In crisis, call or text 988. © 2025 Wellovie.</div>
+</div>
+
+<script>
+const WS_KEY = 'wellovie-ws-window-check';
+
+function setMode(m){
+  document.body.classList.toggle('bw', m==='bw');
+  document.getElementById('btn-color').classList.toggle('active', m==='color');
+  document.getElementById('btn-bw').classList.toggle('active', m==='bw');
+  localStorage.setItem('ws-mode', m);
+}
+(function(){ const s=localStorage.getItem('ws-mode'); if(s) setMode(s); else setMode('color'); })();
+
+function saveAll(){
+  const data = {};
+  document.querySelectorAll('[data-save]').forEach(el => {
+    data[el.dataset.save] = el.value || el.innerText || '';
+  });
+  localStorage.setItem(WS_KEY, JSON.stringify(data));
+}
+function loadAll(){
+  const raw = localStorage.getItem(WS_KEY);
+  if(!raw) return;
+  try {
+    const data = JSON.parse(raw);
+    document.querySelectorAll('[data-save]').forEach(el => {
+      if(data[el.dataset.save] !== undefined){
+        if(el.tagName==='TEXTAREA'||el.tagName==='INPUT') el.value = data[el.dataset.save];
+        else el.innerText = data[el.dataset.save];
+      }
+    });
+  } catch(e){}
+}
+document.querySelectorAll('[data-save]').forEach(el => {
+  el.addEventListener('input', saveAll);
+});
+loadAll();
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.opacity = '1';
+  setTimeout(()=>{ t.style.opacity='0'; }, 2000);
+}
+
+function copyAnswers(){
+  const lines = [];
+  document.querySelectorAll('[data-save]').forEach(el => {
+    const label = el.dataset.label || el.dataset.save;
+    const val = (el.value || el.innerText || '').trim();
+    if(val) lines.push(label + ':\n' + val);
+  });
+  if(!lines.length){ showToast('Nothing to copy yet'); return; }
+  navigator.clipboard.writeText(lines.join('\n\n')).then(()=>showToast('Copied to clipboard ✓'));
+}
+
+function downloadAnswers(){
+  const title = document.querySelector('.ws-title')?.textContent || 'Wellovie Worksheet';
+  const date = new Date().toLocaleDateString();
+  const lines = [title, date, '\n'];
+  document.querySelectorAll('[data-save]').forEach(el => {
+    const label = el.dataset.label || el.dataset.save;
+    const val = (el.value || el.innerText || '').trim();
+    lines.push(label + ':\n' + (val || '(blank)') + '\n');
+  });
+  const blob = new Blob([lines.join('\n')], {type:'text/plain'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = title.replace(/[^a-z0-9]/gi,'-').toLowerCase() + '.txt';
+  a.click();
+  showToast('Downloaded ✓');
+}
+
+function autoExpand(el){
+  el.style.height = 'auto';
+  el.style.height = (el.scrollHeight) + 'px';
+}
+document.querySelectorAll('textarea').forEach(ta => {
+  ta.addEventListener('input', function(){ autoExpand(this); saveAll(); });
+  if(ta.value) autoExpand(ta);
+});
+window.addEventListener('load', () => {
+  document.querySelectorAll('textarea').forEach(ta => autoExpand(ta));
+});
+</script>
+</body></html>
