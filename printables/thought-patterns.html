@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Thought Patterns Record — Wellovie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── THEME VARIABLES ─────────────────────────────────────────── */
+:root{
+  --ac:#c95030;
+  --ac-bg:#fff8f4;
+  --ac-bd:rgba(201,80,48,0.25);
+  --ac-tx:#c95030;
+  --ac-dk:#8a2010;
+  --body:#1a0e08;
+  --mid:#5a3a28;
+  --muted:#7a6050;
+  --faint:#a08060;
+  --pale:#c4a882;
+  --line:#e0cdb8;
+  --sheet:#fdfaf6;
+  --paper:#fff;
+  --label-size:0.64rem;
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --fb:'Outfit',-apple-system,sans-serif;
+}
+body.bw{
+  --ac:#111;
+  --ac-bg:#f0f0f0;
+  --ac-bd:#888;
+  --ac-tx:#111;
+  --ac-dk:#111;
+  --body:#000;
+  --mid:#222;
+  --muted:#444;
+  --faint:#666;
+  --pale:#888;
+  --line:#bbb;
+  --sheet:#f7f7f7;
+}
+
+/* ── RESET & BASE ────────────────────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#fff;font-family:var(--fb);color:var(--body);-webkit-font-smoothing:antialiased;line-height:1.55}
+textarea,input{font-family:var(--fb);color:var(--body)}
+
+/* ── PRINT CONTROLS BAR ──────────────────────────────────────── */
+.ws-controls{
+  position:sticky;top:0;z-index:100;
+  background:#fff;border-bottom:1px solid #e8ddd0;
+  padding:0.625rem 2rem;
+  display:flex;align-items:center;gap:0.625rem;
+  flex-wrap:wrap;
+}
+.wsc-label{font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#a08060;margin-right:0.25rem}
+.wsc-btn{
+  padding:0.4rem 0.875rem;border-radius:999px;border:1.5px solid #d4c4b0;
+  background:#fff;color:#7a6050;font-size:0.8rem;font-weight:600;
+  cursor:pointer;font-family:var(--fb);transition:all 0.15s;display:inline-flex;align-items:center;gap:0.375rem;
+}
+.wsc-btn:hover{border-color:#c4a882;color:#5a3a28}
+.wsc-btn.active{background:var(--ac);border-color:var(--ac);color:#fff}
+body.bw .wsc-btn.active{background:#111;border-color:#111;color:#fff;font-weight:700}
+.wsc-sep{width:1px;height:1.25rem;background:#e8ddd0;flex-shrink:0}
+.wsc-print{
+  padding:0.4rem 1.125rem;border-radius:999px;
+  background:var(--ac);border:1.5px solid var(--ac);color:#fff;
+  font-size:0.8rem;font-weight:700;cursor:pointer;font-family:var(--fb);
+  transition:all 0.2s;display:inline-flex;align-items:center;gap:0.375rem;
+  margin-left:auto;
+}
+body.bw .wsc-print{background:#111;border-color:#111}
+.wsc-print:hover{opacity:0.88}
+.wsc-tip{font-size:0.68rem;color:#b0a090;margin-left:auto;white-space:nowrap}
+@media(max-width:600px){.wsc-tip{display:none}}
+
+/* ── PAGE LAYOUT ─────────────────────────────────────────────── */
+.page{max-width:54rem;margin:0 auto;padding:1.75rem 2rem 3.5rem}
+
+/* ── WORKSHEET HEADER ────────────────────────────────────────── */
+.ws-header{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;
+  border-bottom:3px solid var(--ac);padding-bottom:1.25rem;margin-bottom:1.625rem;
+}
+.ws-brand{font-family:var(--fd);font-size:1rem;font-weight:600;color:var(--ac);letter-spacing:0.01em;margin-bottom:0.375rem}
+.ws-brand em{font-style:italic}
+.ws-title{font-family:var(--fd);font-size:2.25rem;font-weight:600;line-height:1.05;letter-spacing:-0.01em;color:var(--body);margin-bottom:0.375rem}
+.ws-subtitle{font-size:0.85rem;color:var(--muted);line-height:1.65;max-width:54ch}
+.ws-meta{flex-shrink:0;text-align:right;display:flex;flex-direction:column;gap:0.5rem}
+.ws-meta-field{display:flex;flex-direction:column;gap:0.2rem;align-items:flex-end}
+.ws-meta-lbl{font-size:var(--label-size);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--pale)}
+.ws-meta-line{border-bottom:1.5px solid var(--line);width:9rem;height:1.375rem}
+
+/* ── CALL-OUT BOX ────────────────────────────────────────────── */
+.callout{
+  background:var(--ac-bg);border:1px solid var(--ac-bd);
+  border-left:4px solid var(--ac);border-radius:0.5rem;
+  padding:0.875rem 1.125rem;margin-bottom:1.5rem;
+}
+.callout-title{font-size:var(--label-size);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ac-tx);margin-bottom:0.4rem}
+.callout p,.callout-body{font-size:0.85rem;color:var(--mid);line-height:1.7}
+.callout-green{background:#f0f7f2;border-color:#b8d4be;border-left-color:#3d6b47}
+.callout-green .callout-title{color:#3d6b47}
+.callout-neutral{background:#f7f4f0;border-color:#d4c4b0;border-left-color:#7a6050}
+.callout-neutral .callout-title{color:#5a3a28}
+body.bw .callout,body.bw .callout-green,body.bw .callout-neutral{background:#f0f0f0;border-color:#888;border-left-color:#111}
+body.bw .callout-title,body.bw .callout-green .callout-title,body.bw .callout-neutral .callout-title{color:#000}
+
+/* ── SECTION ─────────────────────────────────────────────────── */
+.section{margin-bottom:1.625rem}
+.section-head{display:flex;align-items:baseline;gap:0.5rem;margin-bottom:0.3rem}
+.section-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:1.5rem;height:1.5rem;border-radius:50%;
+  background:var(--ac);color:#fff;
+  font-size:0.68rem;font-weight:700;flex-shrink:0;
+  font-family:var(--fb);
+}
+body.bw .section-num{background:#111}
+.section-title{font-family:var(--fd);font-size:1.25rem;font-weight:600;color:var(--body);line-height:1.2}
+.section-hint{font-size:0.82rem;color:var(--muted);line-height:1.65;margin-bottom:0.75rem;margin-top:0.25rem}
+
+/* ── WRITE ELEMENTS ──────────────────────────────────────────── */
+.write-box{
+  width:100%;
+  border:1px solid var(--line);
+  border-radius:0.4rem;
+  padding:0.75rem 0.875rem;
+  font-size:0.9rem;
+  line-height:2.05;
+  resize:vertical;
+  min-height:5rem;
+  color:var(--body);
+  /* subtle ruled lines matching line-height so printed text stays on lines */
+  background-color:var(--sheet);
+  background-image:repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent calc(2.05em - 1px),
+    var(--line) calc(2.05em - 1px),
+    var(--line) 2.05em
+  );
+  background-position:0 0.875rem;
+}
+body.bw .write-box{
+  background-color:#f7f7f7;
+  background-image:repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent calc(2.05em - 1px),
+    #ccc calc(2.05em - 1px),
+    #ccc 2.05em
+  );
+}
+body.bw .write-box{background:#f7f7f7;border-color:#999}
+.write-box::placeholder{color:var(--pale);font-style:italic;line-height:2.05}
+.write-box:focus{outline:2px solid var(--ac);outline-offset:1px;background-image:repeating-linear-gradient(to bottom,transparent,transparent calc(2.05em - 1px),color-mix(in srgb,var(--ac) 20%,transparent) calc(2.05em - 1px),color-mix(in srgb,var(--ac) 20%,transparent) 2.05em);background-position:0 0.875rem}
+body.bw .write-box:focus{outline:2px solid #333;background-image:repeating-linear-gradient(to bottom,transparent,transparent calc(2.05em - 1px),#aaa calc(2.05em - 1px),#aaa 2.05em);background-position:0 0.875rem}
+.write-box:focus{outline:2px solid var(--ac);outline-offset:1px}
+body.bw .write-box:focus{outline:2px solid #333}
+/* Write lines — for single-line inputs */
+.write-lines{display:flex;flex-direction:column;gap:0}
+.wl{
+  min-height:3.75rem;
+  padding-bottom:0.375rem;padding-top:0.375rem;
+  border-bottom:1.5px solid var(--line);
+  position:relative;
+}
+/* subtle mid-guide line — helps people write straight */
+.wl::after{
+  content:'';position:absolute;
+  left:0;right:0;bottom:50%;
+  border-bottom:1px solid var(--line);
+  opacity:0.35;pointer-events:none;
+}
+body.bw .wl{border-color:#999}
+/* Input fields inline */
+.write-input{
+  border:none;border-bottom:1.5px solid var(--line);background:transparent;
+  font-size:0.9rem;color:var(--body);padding:0.2rem 0.375rem;outline:none;
+  font-family:var(--fb);width:100%;
+}
+body.bw .write-input{border-color:#999}
+.write-input:focus{border-bottom-color:var(--ac)}
+
+/* ── CHECKBOX SYSTEM ─────────────────────────────────────────── */
+.check-list{display:flex;flex-direction:column;gap:0.5rem;margin-top:0.5rem}
+.check-item{display:flex;align-items:flex-start;gap:0.625rem;padding:0.5rem 0.625rem;border:1px solid var(--line);border-radius:0.375rem;cursor:pointer;transition:background 0.15s}
+.check-item:hover{background:var(--ac-bg)}
+body.bw .check-item:hover{background:#f0f0f0}
+.check-item input[type=checkbox]{
+  width:1rem;height:1rem;border:1.5px solid var(--pale);border-radius:0.2rem;
+  accent-color:var(--ac);cursor:pointer;flex-shrink:0;margin-top:0.2rem;
+}
+body.bw .check-item input[type=checkbox]{accent-color:#111}
+.check-item-name{font-size:0.82rem;font-weight:600;color:var(--body);display:block;line-height:1.3}
+.check-item-desc{font-size:0.74rem;color:var(--muted);line-height:1.45;margin-top:0.1rem}
+/* Grid checkboxes */
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-top:0.5rem}
+.check-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.5rem;margin-top:0.5rem}
+@media(max-width:500px){.check-grid,.check-grid-3{grid-template-columns:1fr}}
+
+/* ── RATING STRIP ────────────────────────────────────────────── */
+.rating-row{display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin:0.5rem 0}
+.rating-lbl{font-size:0.78rem;color:var(--muted)}
+.rating-boxes{display:flex;gap:0.25rem}
+.rb{
+  width:2.25rem;height:2.25rem;border:1.5px solid var(--line);border-radius:0.3rem;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.72rem;color:var(--pale);cursor:pointer;
+  font-family:var(--fb);font-weight:600;transition:all 0.15s;flex-shrink:0;
+}
+.rb:hover,.rb.sel{background:var(--ac);border-color:var(--ac);color:#fff}
+body.bw .rb:hover,body.bw .rb.sel{background:#111;border-color:#111;color:#fff}
+.rating-write{border:none;border-bottom:1.5px solid var(--line);background:transparent;width:3.5rem;font-size:0.875rem;font-family:var(--fb);text-align:center;padding:0.1rem;outline:none;color:var(--body)}
+body.bw .rating-write{border-color:#999}
+
+/* ── TWO / THREE COLUMN ──────────────────────────────────────── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.125rem}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+@media(max-width:560px){.two-col,.three-col{grid-template-columns:1fr}}
+
+/* ── SPLIT BOX (evidence, compare, etc.) ────────────────────── */
+.split-box{border:1px solid var(--line);border-radius:0.5rem;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+body.bw .split-box{border-color:#999}
+.split-col{padding:0.875rem 1rem}
+.split-col+.split-col{border-left:1px solid var(--line)}
+body.bw .split-col+.split-col{border-left-color:#999}
+.split-col-a{background:var(--ac-bg)}
+body.bw .split-col-a{background:#f0f0f0}
+.split-head{font-size:var(--label-size);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.625rem;padding-bottom:0.375rem;border-bottom:1.5px solid var(--ac-bd)}
+.split-col-a .split-head{color:var(--ac-tx)}
+.split-col-b .split-head{color:var(--muted)}
+body.bw .split-head{color:#111;border-bottom-color:#888}
+.split-lines{display:flex;flex-direction:column;gap:0.5rem}
+.split-line{border-bottom:1px solid var(--line);min-height:3.25rem;padding-bottom:0.25rem;position:relative}.split-line::after{content:'';position:absolute;left:0;right:0;bottom:50%;border-bottom:1px solid var(--line);opacity:0.3;pointer-events:none}
+body.bw .split-line{border-color:#bbb}
+
+/* ── ZONE CARD ───────────────────────────────────────────────── */
+.zone-card{border:1px solid var(--line);border-radius:0.5rem;padding:1rem 1.125rem;margin-bottom:0.75rem}
+.zone-badge{display:inline-flex;align-items:center;gap:0.375rem;font-size:var(--label-size);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.2rem 0.625rem;border-radius:999px;margin-bottom:0.5rem}
+body.bw .zone-badge{background:#ddd !important;color:#000 !important}
+.zone-title{font-family:var(--fd);font-size:1.05rem;font-weight:600;color:var(--body);margin-bottom:0.375rem}
+.zone-hint{font-size:0.8rem;color:var(--muted);margin-bottom:0.75rem;line-height:1.6}
+
+/* ── SENSE CARD ──────────────────────────────────────────────── */
+.sense-card{border-radius:0.625rem;padding:1rem 1.125rem;border:1px solid;margin-bottom:0.75rem}
+body.bw .sense-card{border-color:#999 !important;background:#f7f7f7 !important}
+.sense-num-badge{display:inline-flex;align-items:center;justify-content:center;width:1.25rem;height:1.25rem;border-radius:50%;font-size:0.65rem;font-weight:700;color:#fff;margin-right:0.3rem;vertical-align:middle}
+body.bw .sense-num-badge{background:#111 !important}
+.sense-title{font-family:var(--fd);font-size:1.05rem;font-weight:600;color:var(--body);margin-bottom:0.3rem}
+.sense-prompt{font-size:0.8rem;color:var(--muted);margin-bottom:0.625rem;line-height:1.6}
+.sense-lines{display:flex;flex-direction:column;gap:0.5rem}
+.sense-line{border-bottom:1px solid;min-height:3.5rem;padding-bottom:0.25rem;position:relative}.sense-line::after{content:'';position:absolute;left:0;right:0;bottom:50%;border-bottom:1px solid currentColor;opacity:0.25;pointer-events:none}
+body.bw .sense-line{border-color:#bbb !important}
+
+/* ── TABLE ───────────────────────────────────────────────────── */
+.ws-table{width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:0.5rem;overflow:hidden;margin-top:0.75rem}
+body.bw .ws-table{border-color:#999}
+.ws-table th{background:var(--ac-bg);color:var(--ac-tx);font-size:var(--label-size);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.625rem 0.875rem;text-align:left;border-bottom:1.5px solid var(--ac-bd)}
+body.bw .ws-table th{background:#e8e8e8;color:#000;border-bottom-color:#888}
+.ws-table td{padding:0.5rem 0.875rem;border-bottom:1px solid var(--line);font-size:0.85rem;color:var(--mid);vertical-align:top}
+body.bw .ws-table td{border-color:#ccc}
+.ws-table tr:last-child td{border-bottom:none}
+.ws-table tr:nth-child(even) td{background:#faf7f3}
+body.bw .ws-table tr:nth-child(even) td{background:#f5f5f5}
+.td-input{border:none;background:transparent;font-size:0.85rem;font-family:var(--fb);color:var(--body);width:100%;outline:none;border-bottom:1px solid var(--line);padding:0.1rem 0.2rem}
+body.bw .td-input{border-color:#bbb}
+
+/* ── REFLECTION BOX ──────────────────────────────────────────── */
+.reflection{background:var(--ac-bg);border:1px solid var(--ac-bd);border-left:4px solid var(--ac);border-radius:0.5rem;padding:1rem 1.125rem}
+.reflection-title{font-size:var(--label-size);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ac-tx);margin-bottom:0.5rem}
+.reflection-hint{font-size:0.82rem;color:var(--mid);margin-bottom:0.75rem;line-height:1.65;font-style:italic}
+body.bw .reflection{background:#f0f0f0;border-color:#888;border-left-color:#111}
+body.bw .reflection-title{color:#000}
+
+/* ── FOOTER ──────────────────────────────────────────────────── */
+.ws-footer{border-top:1px solid var(--line);margin-top:2rem;padding-top:0.875rem;display:flex;justify-content:space-between;align-items:center;font-size:0.7rem;color:var(--pale);gap:1rem;flex-wrap:wrap}
+.disclaimer{font-size:0.65rem;color:var(--pale);text-align:center;margin-top:0.375rem;line-height:1.55}
+@media print{.disclaimer,.ws-footer{color:#666}}
+
+/* ── UTILITIES ───────────────────────────────────────────────── */
+.tag{font-size:var(--label-size);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ac-tx);display:block;margin-bottom:0.3rem}
+body.bw .tag{color:#111}
+.row{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap}
+.spacer{height:0.75rem}
+.strong{font-weight:700;color:var(--body)}
+
+/* ── PRINT STYLES ────────────────────────────────────────────── */
+@media print{
+  @page{size:letter portrait;margin:0.5in 0.6in}
+  html,body{background:#fff !important;font-size:10pt}
+  .ws-controls{display:none !important}
+  .page{max-width:100%;padding:0;margin:0}
+
+  /* Color mode — keep all backgrounds */
+  body:not(.bw) *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+  /* B&W mode — strip colors, use grays */
+  body.bw{color:#000}
+  body.bw .callout,body.bw .callout-green,body.bw .callout-neutral,
+  body.bw .reflection,body.bw .split-col-a,body.bw .zone-card,
+  body.bw .sense-card,body.bw .ws-table th,
+  body.bw .write-box{
+    -webkit-print-color-adjust:economy;
+    print-color-adjust:economy;
+    background:#f2f2f2 !important;
+  }
+  body.bw .ws-table tr:nth-child(even) td{background:#f8f8f8 !important}
+  /* Override ANY inline background/border-color in BW mode */
+  body.bw [style*="background"]{background:#f2f2f2 !important}
+  body.bw [style*="border-color"]{border-color:#999 !important}
+  body.bw [style*="border:1px solid #"]{border-color:#999 !important}
+  body.bw [style*="color:#"]{color:#111 !important}
+
+  /* Page break rules */
+  .section{page-break-inside:avoid;break-inside:avoid}
+  .split-box,.ws-table,.two-col,.three-col{page-break-inside:avoid;break-inside:avoid}
+  .ws-header{page-break-after:avoid;break-after:avoid}
+
+  /* Ensure wl guide lines print */
+  .wl,.wl::after,.split-line,.split-line::after{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+  /* Ensure write-box ruled lines print */
+  .write-box{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body.bw .write-box{-webkit-print-color-adjust:economy;print-color-adjust:economy}
+
+  /* Ensure form elements visible in print */
+  input[type=checkbox],input[type=radio]{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+  /* Write boxes expand to show content */
+  .write-box{resize:none;overflow:visible;height:auto}
+  
+  /* Print heights — proper handwriting space per row count */
+  textarea[rows="1"]{min-height:3rem !important}
+  textarea[rows="2"]{min-height:5.5rem !important}
+  textarea[rows="4"]{min-height:10rem !important}
+  textarea[rows="7"]{min-height:15rem !important}
+  textarea.write-box{height:auto !important}
+  /* wl and split-line — one line of writing each */
+  .wl{min-height:3.25rem !important}
+  .split-line{min-height:3.25rem !important}
+
+}
+@media print{.ws-logo-back{display:none!important}}
+</style>
+</head>
+<body>
+
+<!-- PRINT CONTROLS -->
+<div class="ws-controls" id="wsc"><span class="ws-logo-back" style="display:inline-flex;align-items:center;"><a href="../index.html" style="display:inline-flex;align-items:center;gap:0.375rem;text-decoration:none;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.1rem;font-weight:600;color:#1a0e08;margin-right:auto;flex-shrink:0">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d95f35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Wello<em style="font-style:italic;color:#d95f35">vie</em>
+  </a></span>
+  <span class="wsc-label">Mode:</span>
+  <button class="wsc-btn active" id="btn-color" onclick="setMode('color')">🎨 Color</button>
+  <button class="wsc-btn" id="btn-bw" onclick="setMode('bw')">⬛ Black &amp; White</button>
+  <div class="wsc-sep"></div>
+  <button class="wsc-print" onclick="window.print()">🖨️ Print / Save PDF</button>
+  <span class="wsc-tip">Color mode → enable "Background graphics" in print dialog &nbsp;|&nbsp; B&amp;W → prints cleanly on any printer, no settings needed</span>
+</div>
+
+<div class="page">
+
+<div class="ws-header">
+  <div>
+    <div class="ws-brand">Wello<em>vie</em></div>
+    <h1 class="ws-title">Thought Patterns Record</h1>
+    <p class="ws-subtitle">Most anxiety is powered by a thought that feels completely true — but hasn't been examined. This worksheet walks one thought through its full circuit: what it's saying, what evidence actually supports it, and what a clearer version might be.</p>
+  </div>
+  <div class="ws-meta"><div class="ws-meta-field"><div class="ws-meta-lbl">Date</div><div class="ws-meta-line"></div></div><div class="ws-meta-field"><div class="ws-meta-lbl">Situation / context</div><div class="ws-meta-line"></div></div></div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">How to use this worksheet</div>
+  <p class="callout-body">Choose one specific moment — not a general worry, but something that actually happened. Work through each step in order. The goal is not to think positively. It is to think <em>accurately</em>. A thought that's been fairly examined has less grip than one you've never questioned.</p>
+</div>
+
+
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">1</span>
+    <h2 class="section-title">The situation</h2>
+  </div>
+  <p class="section-hint">Describe what happened. Just the facts — not your interpretation yet. When, where, who was involved.</p>
+  <textarea class="write-box" rows="4" placeholder="What happened..."></textarea>
+</div>
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">2</span>
+    <h2 class="section-title">The first thought</h2>
+  </div>
+  <p class="section-hint">What was the immediate thought or conclusion? Write it exactly as it sounded — even if it sounds harsh or extreme.</p>
+  <textarea class="write-box" rows="4" placeholder="The thought that came was..."></textarea><div class="spacer"></div><div class="rating-row"><span class="rating-lbl">How much did you believe it? (circle)</span><div class="rating-boxes"><div class="rb">1</div><div class="rb">2</div><div class="rb">3</div><div class="rb">4</div><div class="rb">5</div><div class="rb">6</div><div class="rb">7</div><div class="rb">8</div><div class="rb">9</div><div class="rb">10</div></div><input class="rating-write" placeholder="/10"></div>
+</div>
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">3</span>
+    <h2 class="section-title">The emotion(s) it carried</h2>
+  </div>
+  <p class="section-hint">Name each feeling and rate its intensity.</p>
+  
+<div class="ws-table" style="border-radius:0.5rem;overflow:hidden">
+  <table style="width:100%;border-collapse:collapse">
+    <thead><tr>
+      <th style="width:40%">Feeling</th>
+      <th style="width:30%">Intensity (0–10)</th>
+      <th>Where in your body?</th>
+    </tr></thead>
+    <tbody>
+      <tr><td><input class="td-input" placeholder="e.g. Dread"></td><td><input class="td-input" placeholder="/10" style="width:4rem"></td><td><input class="td-input" placeholder="e.g. Chest tightness"></td></tr><tr><td><input class="td-input" placeholder="e.g. Dread"></td><td><input class="td-input" placeholder="/10" style="width:4rem"></td><td><input class="td-input" placeholder="e.g. Chest tightness"></td></tr><tr><td><input class="td-input" placeholder="e.g. Dread"></td><td><input class="td-input" placeholder="/10" style="width:4rem"></td><td><input class="td-input" placeholder="e.g. Chest tightness"></td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">4</span>
+    <h2 class="section-title">Which thought pattern is this?</h2>
+  </div>
+  <p class="section-hint">Check any that feel familiar.</p>
+  
+<div class="check-grid">
+  
+  <label class="check-item">
+    <input type="checkbox">
+    <div><span class="check-item-name">Mind-Reading</span><span class="check-item-desc">Assuming you know what someone else is thinking without actual evidence</span></div>
+  </label>
+  <label class="check-item">
+    <input type="checkbox">
+    <div><span class="check-item-name">Fortune Telling</span><span class="check-item-desc">Predicting a bad outcome as though it's already decided</span></div>
+  </label>
+  <label class="check-item">
+    <input type="checkbox">
+    <div><span class="check-item-name">Catastrophizing</span><span class="check-item-desc">Treating the worst-case scenario as the most likely one</span></div>
+  </label>
+  <label class="check-item">
+    <input type="checkbox">
+    <div><span class="check-item-name">All-or-Nothing</span><span class="check-item-desc">No middle ground — things are completely good or completely bad</span></div>
+  </label>
+  <label class="check-item">
+    <input type="checkbox">
+    <div><span class="check-item-name">Mental Filter</span><span class="check-item-desc">Focusing only on the negative and discounting what went well</span></div>
+  </label>
+  <label class="check-item">
+    <input type="checkbox">
+    <div><span class="check-item-name">Personalization</span><span class="check-item-desc">Taking excessive responsibility for things outside your control</span></div>
+  </label>
+  <label class="check-item">
+    <input type="checkbox">
+    <div><span class="check-item-name">"Should" Statements</span><span class="check-item-desc">Rigid rules about how you or others must behave</span></div>
+  </label>
+  <label class="check-item">
+    <input type="checkbox">
+    <div><span class="check-item-name">Overgeneralizing</span><span class="check-item-desc">Drawing a broad conclusion from a single event</span></div>
+  </label>
+</div>
+</div>
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">5</span>
+    <h2 class="section-title">The evidence</h2>
+  </div>
+  <p class="section-hint">Be a fair witness. List concrete facts — not feelings or fears, but things you could actually point to.</p>
+  
+<div class="split-box">
+  <div class="split-col split-col-a">
+    <div class="split-head">Evidence FOR the thought</div>
+    <div class="split-lines"><div class="split-line"></div><div class="split-line"></div><div class="split-line"></div><div class="split-line"></div></div>
+  </div>
+  <div class="split-col split-col-b">
+    <div class="split-head">Evidence AGAINST the thought</div>
+    <div class="split-lines"><div class="split-line"></div><div class="split-line"></div><div class="split-line"></div><div class="split-line"></div></div>
+  </div>
+</div>
+<div class="spacer"></div>
+<p class="section-hint" style="margin-bottom:0.5rem">Is there any alternative explanation for what happened?</p>
+<div class="write-lines"><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div><div class="wl"></div></div>
+</div>
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">6</span>
+    <h2 class="section-title">A steadier thought</h2>
+  </div>
+  <p class="section-hint">Not a positive spin — an accurate one. What would a fair, reasonable person say after seeing all the evidence?</p>
+  <textarea class="write-box" rows="7" placeholder="A more accurate way to see this is..."></textarea><div class="spacer"></div><div class="two-col" style="gap:1.5rem"><div class="rating-row"><span class="rating-lbl">How much do you believe the steadier thought?</span><div class="rating-boxes"><div class="rb">1</div><div class="rb">2</div><div class="rb">3</div><div class="rb">4</div><div class="rb">5</div><div class="rb">6</div><div class="rb">7</div><div class="rb">8</div><div class="rb">9</div><div class="rb">10</div></div><input class="rating-write" placeholder="/10"></div><div class="rating-row"><span class="rating-lbl">Emotion intensity now (0–10)?</span><div class="rating-boxes"><div class="rb">1</div><div class="rb">2</div><div class="rb">3</div><div class="rb">4</div><div class="rb">5</div><div class="rb">6</div><div class="rb">7</div><div class="rb">8</div><div class="rb">9</div><div class="rb">10</div></div><input class="rating-write" placeholder="/10"></div></div>
+</div><div class="reflection">
+  <div class="reflection-title">Closing reflection</div>
+  <p class="reflection-hint">Did anything shift — even a little? What do you want to remember from this?</p>
+  <textarea class="write-box" rows="7" placeholder="What I noticed..."></textarea>
+</div>
+<div class="ws-footer">
+  <span>Thought Patterns Record</span>
+  <span>wellovie.com</span>
+</div>
+<div class="disclaimer">Wellovie worksheets are self-guided educational tools, not therapy or clinical services. Use alongside therapy, or independently. If you are in crisis, call or text 988. &nbsp;©&nbsp;2025 Wellovie. Original creative work — reproduction without permission is prohibited.</div>
+</div>
+
+<script>
+function setMode(m){
+  document.body.classList.toggle('bw', m==='bw');
+  document.getElementById('btn-color').classList.toggle('active', m==='color');
+  document.getElementById('btn-bw').classList.toggle('active', m==='bw');
+  localStorage.setItem('ws-mode', m);
+}
+// Restore last choice
+(function(){ const s=localStorage.getItem('ws-mode'); if(s) setMode(s); })();
+
+// Rating boxes
+document.querySelectorAll('.rb').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const g=b.closest('.rating-boxes');
+    g.querySelectorAll('.rb').forEach(x=>x.classList.remove('sel'));
+    b.classList.add('sel');
+  });
+});
+
+// Auto-resize textareas
+document.querySelectorAll('textarea.write-box').forEach(ta=>{
+  ta.addEventListener('input',()=>{ta.style.height='auto';ta.style.height=ta.scrollHeight+'px'});
+});
+</script>
+</body>
+</html>

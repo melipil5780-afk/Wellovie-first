@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --ac:#1a1a1a;
+  --ac-bg:#f7f4f0;
+  --ac-bd:rgba(60,40,20,0.18);
+  --ac-tx:#3a2818;
+  --body:#1a0e08;
+  --mid:#5a3a28;
+  --muted:#7a6050;
+  --faint:#a08060;
+  --pale:#c4a882;
+  --line:#e0cdb8;
+  --sheet:#fdfaf6;
+  --paper:#fff;
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --fb:'Outfit',-apple-system,sans-serif;
+}
+body.bw{
+  --ac:#111;--ac-bg:#f0f0f0;--ac-bd:#888;--ac-tx:#000;
+  --body:#000;--mid:#222;--muted:#444;--faint:#666;--pale:#888;
+  --line:#bbb;--sheet:#f5f5f5;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#fff;font-family:var(--fb);color:var(--body);-webkit-font-smoothing:antialiased;line-height:1.55}
+textarea,input{font-family:var(--fb);color:var(--body)}
+
+/* CONTROLS BAR */
+.ws-controls{
+  position:sticky;top:0;z-index:100;background:#fff;
+  border-bottom:1px solid #e8ddd0;padding:0.625rem 2rem;
+  display:flex;align-items:center;gap:0.625rem;flex-wrap:wrap;
+}
+.wsc-label{font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#a08060;margin-right:0.25rem}
+.wsc-btn{padding:0.4rem 0.875rem;border-radius:999px;border:1.5px solid #d4c4b0;background:#fff;color:#7a6050;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:var(--fb);transition:all 0.15s}
+.wsc-btn:hover{border-color:#c4a882;color:#5a3a28}
+.wsc-btn.active{background:var(--ac);border-color:var(--ac);color:#fff}
+body.bw .wsc-btn.active{background:#111;border-color:#111;color:#fff}
+.wsc-sep{width:1px;height:1.25rem;background:#e8ddd0;flex-shrink:0}
+.wsc-print{padding:0.4rem 1.125rem;border-radius:999px;background:var(--ac);border:1.5px solid var(--ac);color:#fff;font-size:0.8rem;font-weight:700;cursor:pointer;font-family:var(--fb);transition:all 0.2s;margin-left:auto}
+body.bw .wsc-print{background:#111;border-color:#111}
+.wsc-tip{font-size:0.68rem;color:#b0a090;white-space:nowrap}
+@media(max-width:600px){.wsc-tip{display:none}}
+
+/* PAGE */
+.page{max-width:54rem;margin:0 auto;padding:1.75rem 2rem 3.5rem}
+
+/* HEADER */
+.ws-header{padding-bottom:1.25rem;margin-bottom:1.5rem;position:relative}
+.ws-header-inner{display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem}
+.ws-brand{font-family:var(--fd);font-size:1rem;font-weight:600;letter-spacing:0.01em;margin-bottom:0.375rem}
+.ws-brand em{font-style:italic}
+.ws-title{font-family:var(--fd);font-size:2.5rem;font-weight:600;line-height:1.02;letter-spacing:-0.015em;color:var(--body);margin-bottom:0.375rem}
+.ws-series{font-size:0.64rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;display:block}
+.ws-subtitle{font-size:0.875rem;color:var(--muted);line-height:1.7;max-width:54ch}
+.ws-meta{flex-shrink:0;text-align:right;display:flex;flex-direction:column;gap:0.5rem}
+.ws-meta-field{display:flex;flex-direction:column;gap:0.2rem;align-items:flex-end}
+.ws-meta-lbl{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--pale)}
+.ws-meta-line{border-bottom:1.5px solid var(--line);width:9.5rem;height:1.5rem}
+.ws-header-rule{height:3px;background:var(--ac);border-radius:2px;margin-top:1.125rem}
+body.bw .ws-header-rule{background:#111}
+
+/* CALLOUT */
+.callout{background:var(--ac-bg);border:1px solid var(--ac-bd);border-left:4px solid var(--ac);border-radius:0.5rem;padding:0.875rem 1.125rem;margin-bottom:1.625rem}
+.callout-title{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ac-tx);margin-bottom:0.375rem}
+.callout p{font-size:0.855rem;color:var(--mid);line-height:1.72}
+body.bw .callout{background:#f0f0f0;border-color:#888;border-left-color:#111}
+body.bw .callout-title{color:#000}
+
+/* SECTION */
+.section{margin-bottom:1.75rem}
+.section-head{display:flex;align-items:baseline;gap:0.5rem;margin-bottom:0.3rem}
+.section-num{display:inline-flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--ac);color:#fff;font-size:0.68rem;font-weight:700;flex-shrink:0;font-family:var(--fb)}
+body.bw .section-num{background:#111}
+.section-title{font-family:var(--fd);font-size:1.25rem;font-weight:600;color:var(--body);line-height:1.2}
+.section-hint{font-size:0.82rem;color:var(--muted);line-height:1.68;margin-bottom:0.75rem;margin-top:0.25rem}
+
+/* WRITE BOX — ruled lines */
+.write-box{
+  width:100%;border:1px solid var(--line);border-radius:0.4rem;
+  padding:0.75rem 0.875rem;font-size:0.9rem;line-height:2.1;
+  resize:vertical;min-height:5rem;color:var(--body);
+  background-color:var(--sheet);
+  background-image:repeating-linear-gradient(
+    to bottom,transparent,transparent calc(2.1em - 1px),
+    var(--line) calc(2.1em - 1px),var(--line) 2.1em
+  );
+  background-position:0 0.875rem;
+}
+body.bw .write-box{
+  background-color:#f5f5f5;
+  background-image:repeating-linear-gradient(
+    to bottom,transparent,transparent calc(2.1em - 1px),
+    #ccc calc(2.1em - 1px),#ccc 2.1em
+  );
+}
+.write-box::placeholder{color:var(--pale);font-style:italic}
+.write-box:focus{outline:2px solid var(--ac);outline-offset:1px}
+body.bw .write-box:focus{outline:2px solid #333}
+
+/* WRITE LINE */
+.wl{
+  min-height:3.75rem;padding:0.375rem 0;
+  border-bottom:1.5px solid var(--line);position:relative;
+}
+.wl::after{
+  content:'';position:absolute;left:0;right:0;bottom:calc(50% + 0.75px);
+  border-bottom:1px solid var(--line);opacity:0.32;pointer-events:none;
+}
+body.bw .wl{border-color:#999}
+.write-lines{display:flex;flex-direction:column;gap:0}
+
+/* SPLIT BOX */
+.split-box{border:1px solid var(--line);border-radius:0.5rem;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+body.bw .split-box{border-color:#999}
+.split-col{padding:0.875rem 1rem}
+.split-col+.split-col{border-left:1px solid var(--line)}
+body.bw .split-col+.split-col{border-left-color:#999}
+.split-col-a{background:var(--ac-bg)}
+body.bw .split-col-a{background:#ebebeb}
+.split-head{font-size:0.62rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.625rem;padding-bottom:0.375rem;border-bottom:1.5px solid var(--ac-bd);color:var(--ac-tx)}
+body.bw .split-head{color:#000;border-bottom-color:#888}
+.split-col-b .split-head{color:var(--muted)}
+.split-line{border-bottom:1px solid var(--line);min-height:3.25rem;padding-bottom:0.25rem;position:relative}
+.split-line::after{content:'';position:absolute;left:0;right:0;bottom:calc(50% + 0.5px);border-bottom:1px solid var(--line);opacity:0.28;pointer-events:none}
+body.bw .split-line{border-color:#bbb}
+
+/* DOMAIN CARD */
+.domain-card{border:1px solid var(--line);border-radius:0.625rem;padding:1rem 1.125rem;margin-bottom:0}
+body.bw .domain-card{border-color:#999}
+.domain-label{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ac-tx);margin-bottom:0.25rem;display:block}
+body.bw .domain-label{color:#111}
+.domain-title{font-family:var(--fd);font-size:1.1rem;font-weight:600;color:var(--body);margin-bottom:0.4rem}
+.domain-hint{font-size:0.78rem;color:var(--muted);margin-bottom:0.625rem;line-height:1.6}
+
+/* RATING */
+.rating-row{display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin:0.5rem 0}
+.rating-lbl{font-size:0.78rem;color:var(--muted);flex-shrink:0}
+.rb{width:2.25rem;height:2.25rem;border:1.5px solid var(--line);border-radius:0.3rem;display:flex;align-items:center;justify-content:center;font-size:0.72rem;color:var(--pale);cursor:pointer;font-family:var(--fb);font-weight:600;transition:all 0.15s;flex-shrink:0}
+.rb:hover,.rb.sel{background:var(--ac);border-color:var(--ac);color:#fff}
+body.bw .rb:hover,body.bw .rb.sel{background:#111;border-color:#111;color:#fff}
+
+/* CHECK */
+.check-item{display:flex;align-items:flex-start;gap:0.625rem;padding:0.5rem 0.625rem;border:1px solid var(--line);border-radius:0.375rem;cursor:pointer;margin-bottom:0.4rem}
+.check-item:hover{background:var(--ac-bg)}
+body.bw .check-item:hover{background:#ebebeb}
+.check-item input[type=checkbox]{width:1rem;height:1rem;accent-color:var(--ac);cursor:pointer;flex-shrink:0;margin-top:0.2rem}
+body.bw .check-item input[type=checkbox]{accent-color:#111}
+.check-name{font-size:0.82rem;font-weight:600;color:var(--body);display:block;line-height:1.3}
+.check-desc{font-size:0.74rem;color:var(--muted);line-height:1.45;margin-top:0.1rem}
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;margin-top:0.5rem}
+@media(max-width:500px){.check-grid{grid-template-columns:1fr}}
+
+/* TWO / THREE COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.125rem}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+@media(max-width:560px){.two-col,.three-col{grid-template-columns:1fr}}
+
+/* INLINE INPUT */
+.inline-fill{
+  border:none;border-bottom:1.5px solid var(--line);background:transparent;
+  font-size:0.9rem;color:var(--body);padding:0.2rem 0.375rem;outline:none;
+  font-family:var(--fb);min-width:10rem;
+}
+body.bw .inline-fill{border-color:#999}
+.inline-fill:focus{border-bottom-color:var(--ac)}
+
+/* SCALE LABEL ROW */
+.scale-ends{display:flex;justify-content:space-between;font-size:0.65rem;color:var(--pale);margin-top:0.2rem}
+
+/* REFLECTION */
+.reflection{background:var(--ac-bg);border:1px solid var(--ac-bd);border-left:4px solid var(--ac);border-radius:0.5rem;padding:1.125rem}
+body.bw .reflection{background:#ebebeb;border-color:#888;border-left-color:#111}
+.reflection-title{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ac-tx);margin-bottom:0.375rem}
+body.bw .reflection-title{color:#000}
+.reflection-hint{font-size:0.82rem;color:var(--mid);margin-bottom:0.75rem;line-height:1.65;font-style:italic}
+
+/* FOOTER */
+.ws-footer{border-top:1px solid var(--line);margin-top:2rem;padding-top:0.875rem;display:flex;justify-content:space-between;align-items:center;font-size:0.7rem;color:var(--pale);gap:1rem;flex-wrap:wrap}
+.disclaimer{font-size:0.65rem;color:var(--pale);text-align:center;margin-top:0.375rem;line-height:1.55}
+@media print{.disclaimer,.ws-footer{color:#777}}
+
+/* PRINT */
+@media print{
+  @page{size:letter portrait;margin:0.5in 0.6in}
+  html,body{background:#fff !important;font-size:10pt}
+  .ws-controls{display:none !important}
+  .page{max-width:100%;padding:0;margin:0}
+  body:not(.bw) *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body.bw{color:#000}
+  body.bw .callout,body.bw .split-col-a,body.bw .domain-card,
+  body.bw .reflection,body.bw .write-box{
+    -webkit-print-color-adjust:economy;print-color-adjust:economy;
+    background:#f0f0f0 !important;
+  }
+  body.bw [style*="background"]{background:#f0f0f0 !important}
+  body.bw [style*="border-color"]{border-color:#999 !important}
+  body.bw [style*="color:#"]{color:#111 !important}
+  input[type=checkbox],input[type=radio]{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .wl,.wl::after,.split-line,.split-line::after{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .write-box{-webkit-print-color-adjust:exact;print-color-adjust:exact;resize:none;overflow:visible;height:auto}
+  textarea.write-box{min-height:2.5rem}
+  .section{page-break-inside:avoid;break-inside:avoid}
+  .split-box,.two-col,.three-col,.domain-card{page-break-inside:avoid;break-inside:avoid}
+  .ws-header{page-break-after:avoid;break-after:avoid}
+}
+
+:root{--ac:#5a2050;--ac-bg:#f8f0f6;--ac-bd:rgba(90,32,80,0.18);--ac-tx:#5a2050}
+@media print{.ws-logo-back{display:none!important}}
+</style>
+</head>
+<body>
+<div class="ws-controls">
+  <span class="wsc-label">Print mode:</span>
+  <button class="wsc-btn active" id="btn-color" onclick="setMode('color')">🎨 Color</button>
+  <button class="wsc-btn" id="btn-bw" onclick="setMode('bw')">⬛ Black &amp; White</button>
+  <div class="wsc-sep"></div>
+  <button class="wsc-print" onclick="window.print()">🖨️ Print / Save PDF</button>
+  <span class="wsc-tip">Color → enable "Background graphics" in print dialog &nbsp;|&nbsp; B&amp;W → prints on any printer</span>
+</div>
+<div class="page">
+<div class="ws-header">
+  <div class="ws-header-inner">
+    <div>
+      <div class="ws-brand">Wello<em>vie</em></div>
+      <span class="ws-series" style="color:var(--ac-tx)">Before Your First Session · Part 3 of 3</span>
+      <h1 class="ws-title">What I Want You to Know</h1>
+      <p class="ws-subtitle">This worksheet is about the therapeutic relationship itself — how you work, what's helped before, what you're hoping for, and what you're nervous about. Good therapy is built on this kind of honesty. The more your therapist understands about how you show up, the faster you can do real work together.</p>
+    </div>
+    <div class="ws-meta"><div class="ws-meta-field"><div class="ws-meta-lbl">Date</div><div class="ws-meta-line"></div></div><div class="ws-meta-field"><div class="ws-meta-lbl">Therapist</div><div class="ws-meta-line"></div></div></div>
+  </div>
+  <div class="ws-header-rule"></div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">Why this worksheet matters</div>
+  <p>Most of what makes therapy work happens in the relationship between you and your therapist. This section helps your therapist understand how to work <em>with you specifically</em> — not just with the problem you're bringing.</p>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">1</span>
+    <h2 class="section-title">Previous experience with therapy or support</h2>
+  </div>
+  <p class="section-hint">Have you been in therapy before, worked with a counselor, or sought formal support? Tell us about it honestly — especially what helped, what didn't, and why you're here again or for the first time.</p>
+  <div class="check-grid" style="margin-bottom:0.875rem;grid-template-columns:1fr 1fr 1fr">
+    <label class="check-item"><input type="checkbox"><span class="check-name">This is my first time</span></label><label class="check-item"><input type="checkbox"><span class="check-name">I've tried therapy before</span></label><label class="check-item"><input type="checkbox"><span class="check-name">I've been in therapy for years</span></label><label class="check-item"><input type="checkbox"><span class="check-name">I stopped and I'm returning</span></label><label class="check-item"><input type="checkbox"><span class="check-name">I've had mixed experiences</span></label><label class="check-item"><input type="checkbox"><span class="check-name">I'm unsure what to expect</span></label>
+  </div>
+  <p class="section-hint">If you've had therapy before — what worked? What didn't? Why did you stop?</p>
+  <textarea class="write-box" rows="6" placeholder="My previous experience with therapy..."></textarea>
+</div><div class="section">
+  <div class="section-head">
+    <span class="section-num">2</span>
+    <h2 class="section-title">What has and hasn't helped in the past</h2>
+  </div>
+  
+  <div class="split-box">
+    <div class="split-col split-col-a">
+      <div class="split-head">Things that have helped me</div>
+      <p style="font-size:0.75rem;color:var(--muted);margin-bottom:0.625rem;line-height:1.5">In therapy, relationships, or on your own</p>
+      <div><div class="split-line"></div><div class="split-line"></div><div class="split-line"></div><div class="split-line"></div><div class="split-line"></div></div>
+    </div>
+    <div class="split-col">
+      <div class="split-head">Things that haven't helped or made it worse</div>
+      <p style="font-size:0.75rem;color:var(--muted);margin-bottom:0.625rem;line-height:1.5">Including approaches, responses, or dynamics</p>
+      <div><div class="split-line"></div><div class="split-line"></div><div class="split-line"></div><div class="split-line"></div><div class="split-line"></div></div>
+    </div>
+  </div>
+</div><div class="section">
+  <div class="section-head">
+    <span class="section-num">3</span>
+    <h2 class="section-title">How you show up when things get hard</h2>
+  </div>
+  <p class="section-hint">In difficult conversations or when you feel vulnerable, how do you tend to respond? Check anything that feels true — even if you're not proud of it. This helps your therapist meet you where you actually are.</p>
+  <div class="check-grid">
+    <label class="check-item"><input type="checkbox"><div><span class="check-name">Go quiet / shut down</span><span class="check-desc">I get still and stop talking</span></div></label><label class="check-item"><input type="checkbox"><div><span class="check-name">Deflect with humor</span><span class="check-desc">I make it lighter or change the subject</span></div></label><label class="check-item"><input type="checkbox"><div><span class="check-name">Get busy / stay in my head</span><span class="check-desc">I analyze rather than feel</span></div></label><label class="check-item"><input type="checkbox"><div><span class="check-name">Minimize or dismiss it</span><span class="check-desc">It's fine, I'm fine, it's not a big deal</span></div></label><label class="check-item"><input type="checkbox"><div><span class="check-name">Push people away</span><span class="check-desc">I create distance when I need closeness most</span></div></label><label class="check-item"><input type="checkbox"><div><span class="check-name">Seek reassurance</span><span class="check-desc">I need to hear it's okay more than once</span></div></label><label class="check-item"><input type="checkbox"><div><span class="check-name">Agree to avoid conflict</span><span class="check-desc">I say what I think someone wants to hear</span></div></label><label class="check-item"><input type="checkbox"><div><span class="check-name">Get overwhelmed quickly</span><span class="check-desc">Feelings can flood fast and feel out of control</span></div></label>
+  </div>
+  <div style="margin-top:0.875rem">
+    <p class="section-hint" style="margin-bottom:0.5rem">Anything else about how you tend to respond when things get difficult?</p>
+    <textarea class="write-box" rows="4" placeholder="Something else I notice about myself is..."></textarea>
+  </div>
+</div><div class="section">
+  <div class="section-head">
+    <span class="section-num">4</span>
+    <h2 class="section-title">What you're nervous about</h2>
+  </div>
+  <p class="section-hint">Starting therapy takes courage — and most people bring some fear with them. What are you nervous about, worried about, or hoping won't happen?</p>
+  <div class="check-grid" style="margin-bottom:0.875rem">
+    <label class="check-item"><input type="checkbox"><span class="check-name">Being judged for what I share</span></label><label class="check-item"><input type="checkbox"><span class="check-name">Not knowing what to say or how to start</span></label><label class="check-item"><input type="checkbox"><span class="check-name">Getting worse before I get better</span></label><label class="check-item"><input type="checkbox"><span class="check-name">Feeling too much in session</span></label><label class="check-item"><input type="checkbox"><span class="check-name">My therapist not really understanding me</span></label><label class="check-item"><input type="checkbox"><span class="check-name">Not making progress fast enough</span></label><label class="check-item"><input type="checkbox"><span class="check-name">Having to talk about things I'm not ready for</span></label><label class="check-item"><input type="checkbox"><span class="check-name">Not knowing if therapy is working</span></label>
+  </div>
+  <p class="section-hint" style="margin-bottom:0.5rem">Any fears not listed, or anything you want to say more about?</p>
+  <textarea class="write-box" rows="4" placeholder="What I'm most nervous about is..."></textarea>
+</div><div class="section">
+  <div class="section-head">
+    <span class="section-num">5</span>
+    <h2 class="section-title">How you prefer to be supported</h2>
+  </div>
+  <p class="section-hint">People need different things from a therapist. There's no right answer — this is about what actually works for you.</p>
+  <div style="display:flex;flex-direction:column;gap:0.75rem">
+    
+    <div style="border:1px solid var(--line);border-radius:0.5rem;padding:0.875rem 1rem">
+      <p style="font-size:0.85rem;font-weight:500;color:var(--body);margin-bottom:0.625rem;line-height:1.6">I tend to respond better to a therapist who is more...</p>
+      <div style="display:flex;flex-direction:column;gap:0.35rem">
+        <label style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--mid);cursor:pointer"><input type="radio" name="Itendto" style="accent-color:var(--ac);flex-shrink:0"> Warm and nurturing</label><label style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--mid);cursor:pointer"><input type="radio" name="Itendto" style="accent-color:var(--ac);flex-shrink:0"> Direct and challenging</label><label style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--mid);cursor:pointer"><input type="radio" name="Itendto" style="accent-color:var(--ac);flex-shrink:0"> Both, depending on where I am</label>
+      </div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:0.5rem;padding:0.875rem 1rem">
+      <p style="font-size:0.85rem;font-weight:500;color:var(--body);margin-bottom:0.625rem;line-height:1.6">When I'm struggling, I prefer...</p>
+      <div style="display:flex;flex-direction:column;gap:0.35rem">
+        <label style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--mid);cursor:pointer"><input type="radio" name="WhenI'ms" style="accent-color:var(--ac);flex-shrink:0"> To be asked questions that help me find my own answers</label><label style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--mid);cursor:pointer"><input type="radio" name="WhenI'ms" style="accent-color:var(--ac);flex-shrink:0"> To be given tools, frameworks, or direct guidance</label><label style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--mid);cursor:pointer"><input type="radio" name="WhenI'ms" style="accent-color:var(--ac);flex-shrink:0"> To just be heard without much direction</label>
+      </div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:0.5rem;padding:0.875rem 1rem">
+      <p style="font-size:0.85rem;font-weight:500;color:var(--body);margin-bottom:0.625rem;line-height:1.6">My preferred pace...</p>
+      <div style="display:flex;flex-direction:column;gap:0.35rem">
+        <label style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--mid);cursor:pointer"><input type="radio" name="Mypreferr" style="accent-color:var(--ac);flex-shrink:0"> Slow and gentle — I need to build trust before going deep</label><label style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--mid);cursor:pointer"><input type="radio" name="Mypreferr" style="accent-color:var(--ac);flex-shrink:0"> I want to move into the hard stuff fairly quickly</label><label style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--mid);cursor:pointer"><input type="radio" name="Mypreferr" style="accent-color:var(--ac);flex-shrink:0"> I'm not sure yet — I'll know when I'm in it</label>
+      </div>
+    </div>
+  </div>
+</div><div class="section">
+  <div class="section-head">
+    <span class="section-num">6</span>
+    <h2 class="section-title">Your goals for therapy</h2>
+  </div>
+  <p class="section-hint">What would tell you that therapy was worthwhile? What do you want to be different — in how you feel, how you function, or who you are — when this work has done something?</p>
+  <textarea class="write-box" rows="7" placeholder="When therapy has worked, I will be able to..."></textarea>
+</div><div class="section">
+  <div class="section-head">
+    <span class="section-num">7</span>
+    <h2 class="section-title">What you're not ready for</h2>
+  </div>
+  <p class="section-hint">This is important. Is there anything you're not ready to go near yet? Naming it now means your therapist can respect it.</p>
+  <textarea class="write-box" rows="5" placeholder="I'm not ready to..."></textarea>
+</div><div class="reflection" style="background:#fdf4ff;border-left-color:#5a2050;border-color:rgba(90,32,80,0.2)">
+  <div class="reflection-title">One last thing</div>
+  <div class="reflection-hint">Is there anything you want your therapist to know about you — something that didn't fit anywhere else — before you walk in?</div>
+  <textarea class="write-box" rows="6" placeholder="Something I want you to know about me is..."></textarea>
+</div><div class="ws-footer"><span>What I Want You to Know — Pre-Session Worksheet 3 of 3</span><span>wellovie.com</span></div>
+<div class="disclaimer">Complete this before your first session and bring it with you or share it with your therapist ahead of time. This is for your own reflection — share only what you're comfortable sharing. &nbsp;©&nbsp;2025 Wellovie. Original creative work.</div>
+</div>
+
+<script>
+function setMode(m){
+  document.body.classList.toggle('bw',m==='bw');
+  document.getElementById('btn-color').classList.toggle('active',m==='color');
+  document.getElementById('btn-bw').classList.toggle('active',m==='bw');
+  localStorage.setItem('ws-mode',m);
+}
+(function(){const s=localStorage.getItem('ws-mode');if(s)setMode(s);})();
+document.querySelectorAll('.rb').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const g=b.closest('.rating-boxes');
+    g.querySelectorAll('.rb').forEach(x=>x.classList.remove('sel'));
+    b.classList.add('sel');
+  });
+});
+document.querySelectorAll('textarea.write-box').forEach(ta=>{
+  ta.addEventListener('input',()=>{ta.style.height='auto';ta.style.height=ta.scrollHeight+'px'});
+});
+</script>
+</body>
+</html>

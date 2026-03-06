@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0d0906">
+  <title>Wellovie Worksheets — Free Printable Tools for Emotional Wellbeing</title>
+  <meta name="description" content="Free printable worksheets for anxiety, shame, grief, and self-understanding. Made by a licensed therapist. Download and use them on your own or alongside therapy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --bg:#0d0906; --bg2:#110b07; --bg3:#0a0604;
+  --ember:#d95f35; --ember-s:rgba(217,95,53,0.1); --ember-b:rgba(217,95,53,0.22);
+  --gold:#e8a030; --gold-s:rgba(232,160,48,0.1); --gold-b:rgba(232,160,48,0.22);
+  --sage:#7aaa88; --sage-s:rgba(122,170,136,0.1); --sage-b:rgba(122,170,136,0.22);
+  --rose:#c4607a; --rose-s:rgba(196,96,122,0.1); --rose-b:rgba(196,96,122,0.22);
+  --t1:#fdf0e6; --t2:#c4a882; --t3:#7a6050; --t4:#3a2818;
+  --te:#f4a07a; --tg:#f5c865;
+  --bd:rgba(255,190,120,0.08); --bd2:rgba(255,190,120,0.15);
+  --gm:linear-gradient(135deg,#d95f35,#e8a030);
+  --gt:linear-gradient(135deg,#f4a07a,#f5c865);
+  --gc:linear-gradient(160deg,#1c1008,#110c06);
+  --sh:0 12px 32px rgba(217,95,53,0.25);
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --fb:'Outfit',-apple-system,sans-serif;
+  --sp:cubic-bezier(0.34,1.56,0.64,1);
+  --sm:cubic-bezier(0.4,0,0.2,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{background:#0d0906;-webkit-font-smoothing:antialiased;scroll-behavior:smooth;overscroll-behavior-y:none}
+body{font-family:var(--fb);background:#0d0906;color:var(--t1);overflow-x:hidden;line-height:1.6;min-height:100vh}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(13,9,6,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--bd);transition:box-shadow 0.3s}
+nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,0.4)}
+.nav-inner{max-width:72rem;margin:0 auto;padding:0 1.5rem;height:3.75rem;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--fd);font-size:1.375rem;font-weight:600;color:var(--t1);text-decoration:none;display:flex;align-items:center;gap:0.625rem}
+.logo em{font-style:italic;color:var(--te)}
+.logo-icon{width:1.75rem;height:1.75rem;background:var(--gm);border-radius:0.375rem;display:flex;align-items:center;justify-content:center;font-size:0.875rem;flex-shrink:0}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.nav-back{font-size:0.8375rem;color:var(--t3);text-decoration:none;transition:color 0.2s}
+.nav-back:hover{color:var(--t2)}
+.nav-cta{background:var(--ember-s);color:var(--te);border:1px solid var(--ember-b);padding:0.5rem 1.125rem;border-radius:999px;font-size:0.8375rem;font-weight:600;text-decoration:none;transition:all 0.2s;white-space:nowrap}
+.nav-cta:hover{background:var(--ember-b)}
+
+/* LAYOUT */
+.w{max-width:72rem;margin:0 auto;padding:0 1.5rem}
+.w-narrow{max-width:52rem;margin:0 auto;padding:0 1.5rem}
+
+/* REVEAL */
+.r{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s var(--sm);will-change:opacity,transform}
+.r.in{opacity:1;transform:none;will-change:auto}
+.d1{transition-delay:0.1s}.d2{transition-delay:0.2s}.d3{transition-delay:0.3s}
+
+/* HERO */
+.hero{min-height:90svh;display:flex;align-items:center;padding:7rem 0 5rem;background:var(--bg);position:relative;overflow:hidden;z-index:1}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 30%,rgba(232,160,48,0.07),transparent 60%),radial-gradient(ellipse 50% 40% at 20% 80%,rgba(217,95,53,0.06),transparent 60%);pointer-events:none}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+@media(max-width:760px){.hero-inner{grid-template-columns:1fr}}
+.hero-kicker{display:inline-flex;align-items:center;gap:0.5rem;background:var(--sage-s);border:1px solid var(--sage-b);color:var(--sage);font-size:0.72rem;font-weight:700;padding:0.375rem 0.875rem;border-radius:999px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.25rem}
+.hero-h1{font-family:var(--fd);font-size:clamp(3rem,7vw,5.5rem);font-weight:600;line-height:1.02;letter-spacing:-0.02em;color:var(--t1);margin-bottom:1.25rem}
+.hero-h1 em{font-style:italic;color:var(--te)}
+.hero-sub{font-size:1.0625rem;color:var(--t2);line-height:1.75;max-width:38ch;margin-bottom:2rem}
+.hero-actions{display:flex;gap:0.875rem;flex-wrap:wrap}
+.btn{background:var(--gm);color:var(--t1);padding:0.9375rem 1.875rem;border-radius:999px;font-size:1rem;font-weight:700;border:none;cursor:pointer;font-family:var(--fb);box-shadow:var(--sh);transition:all 0.3s var(--sp);display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;justify-content:center}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(217,95,53,0.35)}
+.btn-outline{background:transparent;color:var(--t2);border:1px solid var(--bd2);box-shadow:none}
+.btn-outline:hover{background:var(--ember-s);color:var(--te);border-color:var(--ember-b);box-shadow:none}
+.hero-trust{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1.5rem}
+.ht{display:flex;align-items:center;gap:0.375rem;font-size:0.78rem;color:var(--t3)}
+.ht svg{width:0.75rem;height:0.75rem;color:var(--sage)}
+
+/* HERO VISUAL */
+.hero-visual{display:flex;flex-direction:column;gap:0.875rem}
+@media(max-width:760px){.hero-visual{display:none}}
+.ws-preview{background:var(--gc);border:1px solid var(--bd2);border-radius:1.125rem;padding:1.25rem 1.5rem;transition:transform 0.3s var(--sp)}
+.ws-preview:hover{transform:translateY(-3px)}
+.ws-preview-tag{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem}
+.ws-preview-name{font-family:var(--fd);font-size:1.125rem;font-weight:600;color:var(--t1);margin-bottom:0.25rem}
+.ws-preview-desc{font-size:0.8rem;color:var(--t3);line-height:1.55}
+.tag-ember{color:var(--te)} .tag-gold{color:var(--tg)} .tag-sage{color:var(--sage)} .tag-rose{color:var(--rose)}
+.ws-preview.ember{border-color:var(--ember-b);background:linear-gradient(135deg,rgba(217,95,53,0.08),transparent)}
+.ws-preview.gold{border-color:var(--gold-b);background:linear-gradient(135deg,rgba(232,160,48,0.07),transparent)}
+.ws-preview.sage{border-color:var(--sage-b);background:linear-gradient(135deg,rgba(122,170,136,0.07),transparent)}
+
+/* SECTION */
+.sec{padding:5rem 0;position:relative;z-index:1}
+.sec-alt{background:var(--bg2);position:relative;z-index:1;padding:5rem 0}
+.label{font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage)}
+.h2{font-family:var(--fd);font-size:clamp(2rem,5vw,3.25rem);font-weight:600;line-height:1.1;letter-spacing:-0.02em;color:var(--t1);margin-top:0.625rem;margin-bottom:1rem}
+.h2 em{font-style:italic;color:var(--te)}
+.section-sub{font-size:1rem;color:var(--t2);line-height:1.75;max-width:48ch;margin-bottom:3rem}
+
+/* CATEGORY FILTER */
+.filter-row{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.filter-btn{font-size:0.8rem;font-weight:600;padding:0.4375rem 1rem;border-radius:999px;border:1px solid var(--bd2);background:transparent;color:var(--t3);cursor:pointer;transition:all 0.2s;font-family:var(--fb)}
+.filter-btn:hover{border-color:var(--ember-b);color:var(--te);background:var(--ember-s)}
+.filter-btn.active{background:var(--ember-s);color:var(--te);border-color:var(--ember-b)}
+
+/* WORKSHEET GRID */
+.ws-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(20rem,1fr));gap:1.25rem}
+.ws-card{background:var(--gc);border:1px solid var(--bd2);border-radius:1.375rem;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.3s var(--sp),box-shadow 0.3s}
+.ws-card:hover{transform:translateY(-4px)}
+.ws-card.ember:hover{border-color:var(--ember-b);box-shadow:0 20px 48px rgba(217,95,53,0.12)}
+.ws-card.gold:hover{border-color:var(--gold-b);box-shadow:0 20px 48px rgba(232,160,48,0.12)}
+.ws-card.sage:hover{border-color:var(--sage-b);box-shadow:0 20px 48px rgba(122,170,136,0.12)}
+.ws-card.rose:hover{border-color:var(--rose-b);box-shadow:0 20px 48px rgba(196,96,122,0.12)}
+.ws-card-top{padding:1.5rem 1.5rem 1rem;border-bottom:1px solid var(--bd);flex:1}
+.ws-card.ember .ws-card-top{background:linear-gradient(135deg,rgba(217,95,53,0.07),transparent)}
+.ws-card.gold .ws-card-top{background:linear-gradient(135deg,rgba(232,160,48,0.06),transparent)}
+.ws-card.sage .ws-card-top{background:linear-gradient(135deg,rgba(122,170,136,0.06),transparent)}
+.ws-card.rose .ws-card-top{background:linear-gradient(135deg,rgba(196,96,122,0.06),transparent)}
+.ws-icon{font-size:1.75rem;margin-bottom:0.75rem;line-height:1}
+.ws-series{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.375rem}
+.ws-name{font-family:var(--fd);font-size:1.375rem;font-weight:600;color:var(--t1);line-height:1.2;margin-bottom:0.5rem}
+.ws-desc{font-size:0.875rem;color:var(--t3);line-height:1.6;margin-bottom:0.75rem}
+.ws-tags{display:flex;gap:0.375rem;flex-wrap:wrap}
+.ws-tag{font-size:0.68rem;padding:0.2rem 0.6rem;border-radius:999px;font-weight:600}
+.ws-tag.ember{background:var(--ember-s);color:var(--te);border:1px solid var(--ember-b)}
+.ws-tag.gold{background:var(--gold-s);color:var(--tg);border:1px solid var(--gold-b)}
+.ws-tag.sage{background:var(--sage-s);color:var(--sage);border:1px solid var(--sage-b)}
+.ws-tag.rose{background:var(--rose-s);color:var(--rose);border:1px solid var(--rose-b)}
+.ws-card-foot{padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem}
+.ws-free{font-size:0.72rem;font-weight:700;color:var(--sage);display:flex;align-items:center;gap:0.3rem}
+.ws-dl{display:inline-flex;align-items:center;gap:0.375rem;font-size:0.8375rem;font-weight:700;padding:0.5rem 1.125rem;border-radius:999px;border:none;cursor:pointer;font-family:var(--fb);transition:all 0.2s;text-decoration:none}
+.ws-dl.ember{background:var(--ember-s);color:var(--te);border:1px solid var(--ember-b)}
+.ws-dl.ember:hover{background:var(--ember-b)}
+.ws-dl.gold{background:var(--gold-s);color:var(--tg);border:1px solid var(--gold-b)}
+.ws-dl.gold:hover{background:var(--gold-b)}
+.ws-dl.sage{background:var(--sage-s);color:var(--sage);border:1px solid var(--sage-b)}
+.ws-dl.sage:hover{background:var(--sage-b)}
+.ws-dl.rose{background:var(--rose-s);color:var(--rose);border:1px solid var(--rose-b)}
+.ws-dl.rose:hover{background:var(--rose-b)}
+
+/* HOW IT WORKS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2.5rem}
+@media(max-width:640px){.steps{grid-template-columns:1fr}}
+.step{text-align:center}
+.step-num{width:2.5rem;height:2.5rem;background:var(--gm);border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1.125rem;font-weight:600;color:var(--t1);margin:0 auto 1rem}
+.step-title{font-family:var(--fd);font-size:1.25rem;font-weight:600;color:var(--t1);margin-bottom:0.5rem}
+.step-desc{font-size:0.875rem;color:var(--t3);line-height:1.65}
+
+/* ABOUT STRIP */
+.about-strip{background:var(--gc);border:1px solid var(--bd2);border-radius:1.5rem;padding:2.5rem;display:flex;gap:2rem;align-items:flex-start}
+@media(max-width:640px){.about-strip{flex-direction:column;gap:1.5rem}}
+.about-av{width:4rem;height:4rem;border-radius:0.875rem;background:var(--gm);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1.875rem;font-weight:600;color:var(--t1);flex-shrink:0;box-shadow:var(--sh)}
+.about-name{font-family:var(--fd);font-size:1.25rem;font-weight:600;color:var(--t1);margin-bottom:0.25rem}
+.about-cred{font-size:0.75rem;color:var(--sage);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.875rem}
+.about-text{font-size:0.9375rem;color:var(--t2);line-height:1.72}
+
+/* COMING SOON */
+.coming-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(18rem,1fr));gap:1rem;margin-top:2rem}
+.coming-card{background:rgba(255,190,120,0.03);border:1px dashed var(--bd2);border-radius:1.125rem;padding:1.25rem 1.5rem;opacity:0.65}
+.coming-tag{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);margin-bottom:0.375rem}
+.coming-name{font-family:var(--fd);font-size:1.125rem;color:var(--t3)}
+.coming-pill{display:inline-block;font-size:0.65rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:999px;background:rgba(255,190,120,0.06);color:var(--t4);border:1px solid var(--bd);margin-top:0.5rem;letter-spacing:0.06em;text-transform:uppercase}
+
+/* FOOTER */
+footer{background:#0d0906;border-top:1px solid var(--bd);padding:2.5rem 0;position:relative;z-index:2;margin-bottom:0}
+.footer-inner{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:flex-start}
+.footer-logo{font-family:var(--fd);font-size:1.25rem;font-weight:600;color:var(--t1)}
+.footer-logo em{font-style:italic;color:var(--te)}
+.footer-tag{font-size:0.8rem;color:var(--t4);margin-top:0.375rem;max-width:30ch;line-height:1.55}
+.footer-links{display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center}
+.footer-links a{font-size:0.8125rem;color:var(--t3);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--te)}
+.footer-legal{width:100%;padding-top:1.5rem;border-top:1px solid var(--bd);font-size:0.72rem;color:var(--t4);line-height:1.65}
+
+@media(max-width:480px){.hero-actions{flex-direction:column}.hero-actions a{text-align:center}}
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="https://wellovie.com" class="logo">
+      <div class="logo-icon">🌿</div>
+      Wello<em>vie</em>
+    </a>
+    <div class="nav-right">
+      <a href="https://wellovie.com" class="nav-back">← Back to Wellovie</a>
+      <a href="#worksheets" class="nav-cta">View worksheets</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="w">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-kicker r">Free · Made by a licensed therapist</div>
+        <h1 class="hero-h1 r d1">Worksheets that go<br>as <em>deep as you need.</em></h1>
+        <p class="hero-sub r d2">Printable tools for anxiety, shame, grief, self-understanding, and the space between sessions. No app. No login. Just download and use them.</p>
+        <div class="hero-actions r d3">
+          <a href="#worksheets" class="btn">Download free worksheets ↓</a>
+          <a href="https://wellovie.com" class="btn btn-outline">Explore Wellovie</a>
+        </div>
+        <div class="hero-trust r d3">
+          <div class="ht"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Always free</div>
+          <div class="ht"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>No account needed</div>
+          <div class="ht"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Print or fill on screen</div>
+        </div>
+      </div>
+      <div class="hero-visual r d2">
+        <div class="ws-preview ember">
+          <div class="ws-preview-tag tag-ember">Anxiety · Wellovie Feel</div>
+          <div class="ws-preview-name">Thought Patterns Record</div>
+          <div class="ws-preview-desc">Examine a thought that's been running the show. What's it saying — and is it actually true?</div>
+        </div>
+        <div class="ws-preview gold">
+          <div class="ws-preview-tag tag-gold">Self-Understanding · Wellovie Find</div>
+          <div class="ws-preview-name">What Actually Matters</div>
+          <div class="ws-preview-desc">Surface the values beneath your choices. Figure out what you're really orienting toward.</div>
+        </div>
+        <div class="ws-preview sage">
+          <div class="ws-preview-tag tag-sage">Grounding · Core Tools</div>
+          <div class="ws-preview-name">Coming Back</div>
+          <div class="ws-preview-desc">A sensory grounding sequence for when you've drifted too far into your head.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec-alt">
+  <div class="w-narrow">
+    <div class="r" style="text-align:center;margin-bottom:0.5rem"><span class="label">How it works</span></div>
+    <h2 class="h2 r" style="text-align:center;margin-bottom:0.5rem">Simple by design.</h2>
+    <p style="text-align:center;font-size:0.9375rem;color:var(--t3);margin-bottom:0.5rem" class="r d1">No platform to learn. No account to create.</p>
+    <div class="steps">
+      <div class="step r d1">
+        <div class="step-num">1</div>
+        <div class="step-title">Choose a worksheet</div>
+        <div class="step-desc">Browse by emotion or theme. Each card tells you exactly what the worksheet helps with.</div>
+      </div>
+      <div class="step r d2">
+        <div class="step-num">2</div>
+        <div class="step-title">Download the PDF</div>
+        <div class="step-desc">Opens directly in your browser. Print it out, or fill it in on your phone or tablet.</div>
+      </div>
+      <div class="step r d3">
+        <div class="step-num">3</div>
+        <div class="step-title">Do the work</div>
+        <div class="step-desc">Use it on your own, between sessions, or bring it to therapy as a starting point.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKSHEETS -->
+<section class="sec" id="worksheets">
+  <div class="w">
+    <div class="r" style="margin-bottom:2.5rem">
+      <span class="label" style="display:block;margin-bottom:0.5rem">The library</span>
+      <h2 class="h2">Every worksheet.<br><em>Free to download.</em></h2>
+      <p class="section-sub">Each one is built around a real clinical concept, written in plain human language. These are tools that work — whether you're in therapy or not.</p>
+    </div>
+
+    <div class="filter-row r">
+      <button class="filter-btn active" data-filter="all">All worksheets</button>
+      <button class="filter-btn" data-filter="anxiety">Anxiety</button>
+      <button class="filter-btn" data-filter="shame">Shame</button>
+      <button class="filter-btn" data-filter="grounding">Grounding</button>
+      <button class="filter-btn" data-filter="self">Self-understanding</button>
+      <button class="filter-btn" data-filter="weekly">Weekly tools</button>
+    </div>
+
+    <div class="ws-grid" id="ws-grid">
+
+      <!-- THOUGHT PATTERNS RECORD -->
+      <div class="ws-card ember r" data-cats="anxiety">
+        <div class="ws-card-top">
+          <div class="ws-icon">🧠</div>
+          <div class="ws-series tag-ember">Anxiety · Thought Work</div>
+          <div class="ws-name">Thought Patterns Record</div>
+          <div class="ws-desc">Most anxiety is driven by a thought that feels true but hasn't been examined. This worksheet walks you through one thought — what it's saying, what evidence actually exists, and what a steadier version might be.</div>
+          <div class="ws-tags">
+            <span class="ws-tag ember">Anxiety</span>
+            <span class="ws-tag ember">Thought work</span>
+            <span class="ws-tag ember">CBT-based</span>
+          </div>
+        </div>
+        <div class="ws-card-foot">
+          <span class="ws-free">✓ Free download</span>
+          <a href="thought-patterns.html" target="_blank" class="ws-dl ember">Download PDF ↗</a>
+        </div>
+      </div>
+
+      <!-- NAMING THE FEELING -->
+      <div class="ws-card gold r d1" data-cats="anxiety shame">
+        <div class="ws-card-top">
+          <div class="ws-icon">🌡️</div>
+          <div class="ws-series tag-gold">Emotions · Core Tools</div>
+          <div class="ws-name">Naming the Feeling</div>
+          <div class="ws-desc">Most people know "I feel bad." This worksheet helps you get specific — because the more precisely you name an emotion, the less power it has to run you from the background. Includes a full feelings vocabulary map.</div>
+          <div class="ws-tags">
+            <span class="ws-tag gold">All emotions</span>
+            <span class="ws-tag gold">Vocabulary</span>
+            <span class="ws-tag gold">Awareness</span>
+          </div>
+        </div>
+        <div class="ws-card-foot">
+          <span class="ws-free">✓ Free download</span>
+          <a href="naming-the-feeling.html" target="_blank" class="ws-dl gold">Download PDF ↗</a>
+        </div>
+      </div>
+
+      <!-- THE LOOP -->
+      <div class="ws-card ember r d2" data-cats="anxiety">
+        <div class="ws-card-top">
+          <div class="ws-icon">🔄</div>
+          <div class="ws-series tag-ember">Anxiety · The Loop</div>
+          <div class="ws-name">Breaking the Loop</div>
+          <div class="ws-desc">When the same thought keeps cycling, it's not a thinking problem — it's a loop. This worksheet helps you see exactly how your loop works so you can interrupt it before it runs the full circuit.</div>
+          <div class="ws-tags">
+            <span class="ws-tag ember">Rumination</span>
+            <span class="ws-tag ember">Anxiety</span>
+            <span class="ws-tag ember">Patterns</span>
+          </div>
+        </div>
+        <div class="ws-card-foot">
+          <span class="ws-free">✓ Free download</span>
+          <a href="breaking-the-loop.html" target="_blank" class="ws-dl ember">Download PDF ↗</a>
+        </div>
+      </div>
+
+      <!-- COMING BACK -->
+      <div class="ws-card sage r" data-cats="grounding anxiety">
+        <div class="ws-card-top">
+          <div class="ws-icon">⚓</div>
+          <div class="ws-series tag-sage">Grounding · Core Tools</div>
+          <div class="ws-name">Coming Back</div>
+          <div class="ws-desc">A sensory grounding sequence for when you've gone too far into your head or a feeling has taken over your body. Uses your five senses to bring you back to now. Works in 3 minutes.</div>
+          <div class="ws-tags">
+            <span class="ws-tag sage">Grounding</span>
+            <span class="ws-tag sage">Body-based</span>
+            <span class="ws-tag sage">Acute anxiety</span>
+          </div>
+        </div>
+        <div class="ws-card-foot">
+          <span class="ws-free">✓ Free download</span>
+          <a href="coming-back.html" target="_blank" class="ws-dl sage">Download PDF ↗</a>
+        </div>
+      </div>
+
+      <!-- SEEING SHAME CLEARLY -->
+      <div class="ws-card rose r d1" data-cats="shame">
+        <div class="ws-card-top">
+          <div class="ws-icon">🔦</div>
+          <div class="ws-series tag-rose">Shame · Deep Work</div>
+          <div class="ws-name">Seeing Shame Clearly</div>
+          <div class="ws-desc">Shame says you are the problem. This worksheet separates what happened from what you concluded about yourself — and asks whether that conclusion was ever actually true, or just something you agreed to believe.</div>
+          <div class="ws-tags">
+            <span class="ws-tag rose">Shame</span>
+            <span class="ws-tag rose">Core beliefs</span>
+            <span class="ws-tag rose">Deep work</span>
+          </div>
+        </div>
+        <div class="ws-card-foot">
+          <span class="ws-free">✓ Free download</span>
+          <a href="seeing-shame.html" target="_blank" class="ws-dl rose">Download PDF ↗</a>
+        </div>
+      </div>
+
+      <!-- WHAT ACTUALLY MATTERS -->
+      <div class="ws-card gold r d2" data-cats="self">
+        <div class="ws-card-top">
+          <div class="ws-icon">🧭</div>
+          <div class="ws-series tag-gold">Values · Wellovie Find</div>
+          <div class="ws-name">What Actually Matters</div>
+          <div class="ws-desc">Most people are living toward something — but couldn't name it under pressure. This worksheet surfaces the values underneath your choices so you can see whether the life you're building is the one you actually want.</div>
+          <div class="ws-tags">
+            <span class="ws-tag gold">Values</span>
+            <span class="ws-tag gold">Identity</span>
+            <span class="ws-tag gold">Direction</span>
+          </div>
+        </div>
+        <div class="ws-card-foot">
+          <span class="ws-free">✓ Free download</span>
+          <a href="what-matters.html" target="_blank" class="ws-dl gold">Download PDF ↗</a>
+        </div>
+      </div>
+
+      <!-- WEEKLY CHECK-IN -->
+      <div class="ws-card sage r d1" data-cats="weekly">
+        <div class="ws-card-top">
+          <div class="ws-icon">📋</div>
+          <div class="ws-series tag-sage">Weekly · Core Tools</div>
+          <div class="ws-name">Weekly Check-In</div>
+          <div class="ws-desc">A 10-minute weekly review of how you actually felt, what used your energy, what helped, and what you want to carry into next week. Simple enough to do every Sunday. Deep enough to matter.</div>
+          <div class="ws-tags">
+            <span class="ws-tag sage">Weekly habit</span>
+            <span class="ws-tag sage">Self-awareness</span>
+            <span class="ws-tag sage">Review</span>
+          </div>
+        </div>
+        <div class="ws-card-foot">
+          <span class="ws-free">✓ Free download</span>
+          <a href="weekly-check-in.html" target="_blank" class="ws-dl sage">Download PDF ↗</a>
+        </div>
+      </div>
+
+      <!-- YOUR STEADY RANGE -->
+      <div class="ws-card ember r d2" data-cats="anxiety grounding">
+        <div class="ws-card-top">
+          <div class="ws-icon">📊</div>
+          <div class="ws-series tag-ember">Regulation · Core Tools</div>
+          <div class="ws-name">Your Steady Range</div>
+          <div class="ws-desc">There's a zone where you function — where you can think, feel, and respond. This worksheet helps you map your personal range, recognize when you've left it, and find your way back.</div>
+          <div class="ws-tags">
+            <span class="ws-tag ember">Regulation</span>
+            <span class="ws-tag ember">Body awareness</span>
+            <span class="ws-tag ember">Nervous system</span>
+          </div>
+        </div>
+        <div class="ws-card-foot">
+          <span class="ws-free">✓ Free download</span>
+          <a href="steady-range.html" target="_blank" class="ws-dl ember">Download PDF ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMING SOON -->
+<section class="sec-alt">
+  <div class="w">
+    <div class="r" style="margin-bottom:1rem">
+      <span class="label" style="display:block;margin-bottom:0.5rem">Coming soon</span>
+      <h2 class="h2" style="margin-bottom:0.5rem">More worksheets<br><em>in progress.</em></h2>
+      <p style="font-size:0.9375rem;color:var(--t3);line-height:1.7;max-width:44ch">New worksheets added every month. These are next.</p>
+    </div>
+    <div class="coming-grid r">
+      <div class="coming-card"><div class="coming-tag tag-ember">Grief</div><div class="coming-name">How Grief Moves</div><span class="coming-pill">Coming soon</span></div>
+      <div class="coming-card"><div class="coming-tag tag-rose">Shame</div><div class="coming-name">The Story You Carry</div><span class="coming-pill">Coming soon</span></div>
+      <div class="coming-card"><div class="coming-tag tag-gold">Relationships</div><div class="coming-name">Your Closeness Pattern</div><span class="coming-pill">Coming soon</span></div>
+      <div class="coming-card"><div class="coming-tag tag-sage">Anger</div><div class="coming-name">What Anger Is Protecting</div><span class="coming-pill">Coming soon</span></div>
+      <div class="coming-card"><div class="coming-tag tag-ember">Anxiety</div><div class="coming-name">High Alert Mode</div><span class="coming-pill">Coming soon</span></div>
+      <div class="coming-card"><div class="coming-tag tag-gold">Identity</div><div class="coming-name">The Different Parts of You</div><span class="coming-pill">Coming soon</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec">
+  <div class="w-narrow">
+    <div class="r" style="margin-bottom:2rem">
+      <span class="label" style="display:block;margin-bottom:0.5rem">About these worksheets</span>
+      <h2 class="h2">Made by a<br><em>licensed therapist.</em></h2>
+    </div>
+    <div class="about-strip r d1">
+      <div class="about-av">W</div>
+      <div>
+        <div class="about-name">Wellovie</div>
+        <div class="about-cred">Licensed Mental Health Counselor, LMHC</div>
+        <div class="about-text">These worksheets are built on real clinical frameworks — the same ones used in therapy rooms — but written in plain language for people who want to do this work on their own. Every prompt exists because it leads somewhere. Nothing is filler.<br><br>Wellovie is a self-guided educational tool. It is not therapy and does not replace it. If you are working with a therapist, these worksheets are designed to be used between sessions or brought in as a starting point for conversation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#0d0906">
+  <div class="w">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">Wello<em>vie</em></div>
+        <div class="footer-tag">Self-guided tools for emotional wellbeing — created by a licensed licensed therapist.</div>
+      </div>
+      <div class="footer-links">
+        <a href="https://wellovie.com">Wellovie Home</a>
+        <a href="https://wellovie.com#tools">Feel · Find · Know</a>
+        <a href="https://wellovie.com#therapists">For Therapists</a>
+        <a href="https://wellovie.com#blog">Articles</a>
+      </div>
+    </div>
+    <div class="footer-legal">Wellovie worksheets are self-guided educational tools — not therapy, not clinical services. They are designed to be used on your own or alongside therapy. If you are in crisis, please call or text <strong>988</strong>. &nbsp;·&nbsp; © 2025 Wellovie. All worksheets are original creative works. Reproduction without permission is prohibited.</div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>8),{passive:true});
+
+// Reveal
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+
+// Filter
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.ws-card');
+filterBtns.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    filterBtns.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    cards.forEach(card=>{
+      const cats = card.dataset.cats || '';
+      card.style.display = (filter==='all' || cats.includes(filter)) ? '' : 'none';
+    });
+  });
+});
+</script>
+</body>
+</html>
