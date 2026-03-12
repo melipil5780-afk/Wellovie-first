@@ -6,11 +6,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Wellovie — Clinical Worksheets for Every Emotion</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ── TOKENS ─────────────────────────────────────────────────── */
 :root {
-  --bg:    #0c0905;
+  --bg:    #0d0906;
   --bg1:   #110c07;
   --bg2:   #17100a;
   --bg3:   #1e150d;
@@ -43,7 +43,7 @@
 –sh: 0 16px 48px rgba(217,95,53,.22);
 
 –fd: ‘Cormorant Garamond’, Georgia, serif;
-–fb: ‘DM Sans’, system-ui, sans-serif;
+–fb: ‘Outfit’, system-ui, sans-serif;
 
 –ease: cubic-bezier(.4,0,.2,1);
 –spring: cubic-bezier(.34,1.56,.64,1);
@@ -56,8 +56,8 @@
 
 /* ── RESET ───────────────────────────────────────────────────── */
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
-html { background:#0c0905; scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
-body { font-family:‘DM Sans’,system-ui,sans-serif; background:#0c0905; color:#fdf0e6; overflow-x:hidden; }
+html { background:#0d0906; scroll-behavior:smooth; -webkit-font-smoothing:antialiased; min-height:100%; overscroll-behavior-y:none; }
+body { font-family:‘Outfit’,system-ui,sans-serif; background:#0d0906; color:#fdf0e6; overflow-x:hidden; min-height:100vh; overscroll-behavior-y:none; }
 a { color:inherit; text-decoration:none; }
 ul { list-style:none; }
 
@@ -214,7 +214,7 @@ BUTTONS
 ═══════════════════════════════════════════════════════════════ */
 .btn {
 display:inline-flex; align-items:center; gap:.5rem; justify-content:center;
-background:linear-gradient(135deg,#d95f35,#e8a030); color:#fdf0e6; font-family:‘DM Sans’,system-ui,sans-serif;
+background:linear-gradient(135deg,#d95f35,#e8a030); color:#fdf0e6; font-family:‘Outfit’,system-ui,sans-serif;
 font-size:.9rem; font-weight:600; padding:.875rem 1.75rem;
 border-radius:999px; border:none; cursor:pointer;
 box-shadow:0 16px 48px rgba(217,95,53,.22); transition:all .3s cubic-bezier(.34,1.56,.64,1);
@@ -349,7 +349,7 @@ padding:1.25rem; text-align:center; border-right:1px solid rgba(255,185,110,.14)
 /* Filters */
 .filters { display:flex; gap:.35rem; flex-wrap:wrap; margin-bottom:1.75rem; }
 .fb {
-font-size:.74rem; font-weight:500; font-family:‘DM Sans’,system-ui,sans-serif;
+font-size:.74rem; font-weight:500; font-family:‘Outfit’,system-ui,sans-serif;
 padding:.32rem .8rem; border-radius:999px; cursor:pointer;
 border:1px solid rgba(255,185,110,.14); background:transparent; color:#7a6248;
 transition:all .2s;
@@ -411,7 +411,7 @@ gap:.75rem; margin-top:1.75rem;
 }
 .show-more-btn {
 display:inline-flex; align-items:center; gap:.5rem;
-font-size:.84rem; font-weight:600; font-family:‘DM Sans’,system-ui,sans-serif;
+font-size:.84rem; font-weight:600; font-family:‘Outfit’,system-ui,sans-serif;
 color:#c8aa86; background:transparent;
 border:1px solid rgba(255,185,110,.14); border-radius:999px;
 padding:.65rem 1.5rem; cursor:pointer;
@@ -472,7 +472,7 @@ font-size:.6rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase
 padding:.18rem .55rem; border-radius:999px; background:rgba(122,170,136,.10); color:#7aaa88; border:1px solid rgba(122,170,136,.28);
 }
 .wsc-dl {
-font-size:.76rem; font-weight:600; font-family:‘DM Sans’,system-ui,sans-serif;
+font-size:.76rem; font-weight:600; font-family:‘Outfit’,system-ui,sans-serif;
 padding:.4rem .9rem; border-radius:999px; cursor:pointer; transition:all .2s;
 }
 .wsc-dl.e { background:rgba(217,95,53,.12); color:#f4a07a; border:1px solid rgba(217,95,53,.28); }
@@ -642,16 +642,16 @@ display:flex; align-items:center; justify-content:space-between; gap:.875rem;
 .pc-price { font-family:‘Cormorant Garamond’,Georgia,serif; font-size:1.9rem; font-weight:600; color:#fdf0e6; line-height:1; }
 .pc-price-note { font-size:.67rem; color:#7a6248; margin-top:.12rem; }
 .pc-buy {
-font-size:.8rem; font-weight:600; font-family:‘DM Sans’,system-ui,sans-serif;
+font-size:.8rem; font-weight:600; font-family:‘Outfit’,system-ui,sans-serif;
 padding:.55rem 1.125rem; border-radius:999px; cursor:pointer;
 transition:all .25s cubic-bezier(.34,1.56,.64,1); white-space:nowrap;
 }
 .pc-buy.e { background:rgba(217,95,53,.12); color:#f4a07a; border:1px solid rgba(217,95,53,.28); }
 .pc-buy.e:hover { background:linear-gradient(135deg,#d95f35,#e8a030); color:#fdf0e6; border-color:transparent; box-shadow:0 16px 48px rgba(217,95,53,.22); }
 .pc-buy.g { background:rgba(232,160,48,.10); color:#f5c865; border:1px solid rgba(232,160,48,.28); }
-.pc-buy.g:hover { background:linear-gradient(135deg,#e8a030,#f5c865); color:#0c0905; border-color:transparent; }
+.pc-buy.g:hover { background:linear-gradient(135deg,#e8a030,#f5c865); color:#0d0906; border-color:transparent; }
 .pc-buy.s { background:rgba(122,170,136,.10); color:#7aaa88; border:1px solid rgba(122,170,136,.28); }
-.pc-buy.s:hover { background:#7aaa88; color:#0c0905; border-color:transparent; }
+.pc-buy.s:hover { background:#7aaa88; color:#0d0906; border-color:transparent; }
 .pc-buy.r { background:rgba(196,96,122,.10); color:#c4607a; border:1px solid rgba(196,96,122,.28); }
 .pc-buy.r:hover { background:#c4607a; color:#fdf0e6; border-color:transparent; }
 
@@ -679,7 +679,7 @@ padding:2.75rem; position:relative; z-index:1;
 .bundle-price { font-family:‘Cormorant Garamond’,Georgia,serif; font-size:4.75rem; font-weight:600; color:#f4a07a; line-height:1; margin-bottom:.35rem; }
 .bundle-save-tag {
 display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.04em;
-background:#7aaa88; color:#0c0905; padding:.26rem .875rem; border-radius:999px;
+background:#7aaa88; color:#0d0906; padding:.26rem .875rem; border-radius:999px;
 margin-bottom:1.5rem;
 }
 .bundle-fine { font-size:.71rem; color:#3d2e1c; line-height:1.6; margin-top:.8rem; }
@@ -790,14 +790,14 @@ color:#fdf0e6; line-height:1.15; margin-bottom:.4rem;
 .modal-input {
 width:100%; background:rgba(255,185,110,.04); border:1px solid rgba(255,185,110,.14);
 border-radius:.75rem; padding:.75rem 1rem;
-font-family:‘DM Sans’,system-ui,sans-serif; font-size:.875rem; color:#fdf0e6;
+font-family:‘Outfit’,system-ui,sans-serif; font-size:.875rem; color:#fdf0e6;
 outline:none; transition:border-color .2s;
 }
 .modal-input::placeholder { color:#3d2e1c; }
 .modal-input:focus { border-color:rgba(217,95,53,.28); }
 .modal-submit {
 width:100%; background:linear-gradient(135deg,#d95f35,#e8a030); color:#fdf0e6;
-font-family:‘DM Sans’,system-ui,sans-serif; font-size:.9rem; font-weight:600;
+font-family:‘Outfit’,system-ui,sans-serif; font-size:.9rem; font-weight:600;
 padding:.85rem 1.5rem; border-radius:999px; border:none;
 cursor:pointer; box-shadow:0 16px 48px rgba(217,95,53,.22);
 transition:all .25s cubic-bezier(.34,1.56,.64,1);
@@ -851,7 +851,7 @@ display:flex; align-items:center; gap:.45rem;
 </style>
 
 </head>
-<body style="background:#0c0905;color:#fdf0e6">
+<body style="background:#0d0906;color:#fdf0e6">
 
 <!-- ═══ NAV ═══════════════════════════════════════════════════════ -->
 
