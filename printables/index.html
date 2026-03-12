@@ -971,13 +971,13 @@ ul { list-style:none; }
 
     <div class="ws-grid" id="wsgrid">
 
-      <div class="wsc e rv" data-c="anxiety"><div class="wsc-top"><div class="wsc-emoji">🧠</div><div class="wsc-series ce">Anxiety · Thought Work</div><div class="wsc-name">Thought Patterns Record</div><div class="wsc-desc">Walk through one thought — what it's saying, what evidence exists, and what a steadier version might be.</div><div class="wsc-tags"><span class="tag e">Anxiety</span><span class="tag e">CBT</span></div></div><div class="wsc-foot"><span class="wsc-badge-free">✓ Free</span><a href="#" class="wsc-dl e">Download ↗</a></div></div>
+      <div class="wsc default-visible e rv" data-c="anxiety"><div class="wsc-top"><div class="wsc-emoji">🧠</div><div class="wsc-series ce">Anxiety · Thought Work</div><div class="wsc-name">Thought Patterns Record</div><div class="wsc-desc">Walk through one thought — what it's saying, what evidence exists, and what a steadier version might be.</div><div class="wsc-tags"><span class="tag e">Anxiety</span><span class="tag e">CBT</span></div></div><div class="wsc-foot"><span class="wsc-badge-free">✓ Free</span><a href="#" class="wsc-dl e">Download ↗</a></div></div>
 
-      <div class="wsc g rv d1" data-c="anxiety shame"><div class="wsc-top"><div class="wsc-emoji">🌡️</div><div class="wsc-series cg">Emotions · Core</div><div class="wsc-name">Naming the Feeling</div><div class="wsc-desc">The more precisely you name an emotion, the less power it has. Full feelings vocabulary map included.</div><div class="wsc-tags"><span class="tag g">All emotions</span><span class="tag g">Vocabulary</span></div></div><div class="wsc-foot"><span class="wsc-badge-free">✓ Free</span><a href="#" class="wsc-dl g">Download ↗</a></div></div>
+      <div class="wsc default-visible g rv d1" data-c="anxiety shame"><div class="wsc-top"><div class="wsc-emoji">🌡️</div><div class="wsc-series cg">Emotions · Core</div><div class="wsc-name">Naming the Feeling</div><div class="wsc-desc">The more precisely you name an emotion, the less power it has. Full feelings vocabulary map included.</div><div class="wsc-tags"><span class="tag g">All emotions</span><span class="tag g">Vocabulary</span></div></div><div class="wsc-foot"><span class="wsc-badge-free">✓ Free</span><a href="#" class="wsc-dl g">Download ↗</a></div></div>
 
-      <div class="wsc e rv d2" data-c="anxiety"><div class="wsc-top"><div class="wsc-emoji">🔄</div><div class="wsc-series ce">Anxiety · Rumination</div><div class="wsc-name">Breaking the Loop</div><div class="wsc-desc">See exactly how your rumination loop works so you can interrupt it before it runs the full circuit.</div><div class="wsc-tags"><span class="tag e">Rumination</span><span class="tag e">Patterns</span></div></div><div class="wsc-foot"><span class="wsc-badge-free">✓ Free</span><a href="#" class="wsc-dl e">Download ↗</a></div></div>
+      <div class="wsc default-visible e rv d2" data-c="anxiety"><div class="wsc-top"><div class="wsc-emoji">🔄</div><div class="wsc-series ce">Anxiety · Rumination</div><div class="wsc-name">Breaking the Loop</div><div class="wsc-desc">See exactly how your rumination loop works so you can interrupt it before it runs the full circuit.</div><div class="wsc-tags"><span class="tag e">Rumination</span><span class="tag e">Patterns</span></div></div><div class="wsc-foot"><span class="wsc-badge-free">✓ Free</span><a href="#" class="wsc-dl e">Download ↗</a></div></div>
 
-      <div class="wsc s rv" data-c="grounding anxiety"><div class="wsc-top"><div class="wsc-emoji">⚓</div><div class="wsc-series cs">Grounding · Core</div><div class="wsc-name">Coming Back</div><div class="wsc-desc">A sensory grounding sequence for when you've gone too far into your head. Works in 3 minutes.</div><div class="wsc-tags"><span class="tag s">Grounding</span><span class="tag s">Body-based</span></div></div><div class="wsc-foot"><span class="wsc-badge-free">✓ Free</span><a href="#" class="wsc-dl s">Download ↗</a></div></div>
+      <div class="wsc default-visible s rv" data-c="grounding anxiety"><div class="wsc-top"><div class="wsc-emoji">⚓</div><div class="wsc-series cs">Grounding · Core</div><div class="wsc-name">Coming Back</div><div class="wsc-desc">A sensory grounding sequence for when you've gone too far into your head. Works in 3 minutes.</div><div class="wsc-tags"><span class="tag s">Grounding</span><span class="tag s">Body-based</span></div></div><div class="wsc-foot"><span class="wsc-badge-free">✓ Free</span><a href="#" class="wsc-dl s">Download ↗</a></div></div>
 
       <div class="wsc r rv d1 hidden" data-c="shame"><div class="wsc-top"><div class="wsc-emoji">🔦</div><div class="wsc-series cr">Shame · Deep Work</div><div class="wsc-name">Seeing Shame Clearly</div><div class="wsc-desc">Separates what happened from what you concluded about yourself — and asks whether that conclusion was ever true.</div><div class="wsc-tags"><span class="tag r">Shame</span><span class="tag r">Core beliefs</span></div></div><div class="wsc-foot"><span class="wsc-badge-free">✓ Free</span><a href="#" class="wsc-dl r">Download ↗</a></div></div>
 
@@ -1319,15 +1319,14 @@ function updateShowMore() {
   }
   showMoreBtn.closest('.show-more-wrap').style.display = 'flex';
   if (expanded) {
-    allCards.forEach(c => c.style.display = '');
+    allCards.forEach(c => c.classList.remove('hidden'));
     showMoreBtn.textContent = '';
     showMoreBtn.innerHTML = 'Show fewer <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 9l5-5 5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     showMoreBtn.classList.add('expanded');
     showMoreBtn.closest('.show-more-wrap').querySelector('.show-more-count').style.display = 'none';
   } else {
-    allCards.forEach((c, i) => {
-      if (c.classList.contains('hidden')) c.style.display = 'none';
-      else c.style.display = '';
+    allCards.forEach(c => {
+      if (!c.classList.contains('default-visible')) c.classList.add('hidden');
     });
     showMoreBtn.innerHTML = 'Show all 16 worksheets <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     showMoreBtn.classList.remove('expanded');
