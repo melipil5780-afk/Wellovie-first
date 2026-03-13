@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Anxiety Worksheet Library — Wellovie</title>
+<meta name="description" content="A flexible, stage-based library of 54 anxiety worksheets. For use with a therapist or independently. Drawn from CBT, ACT, EFT, somatic, CFT, DBT, narrative, and logotherapy approaches.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0906;--bg2:#110b07;
+  --ember:#d95f35;--ember-s:rgba(217,95,53,0.1);--ember-b:rgba(217,95,53,0.22);
+  --gold:#e8a030;--gold-s:rgba(232,160,48,0.1);--gold-b:rgba(232,160,48,0.22);
+  --sage:#7aaa88;--sage-s:rgba(122,170,136,0.1);--sage-b:rgba(122,170,136,0.22);
+  --t1:#fdf0e6;--t2:#c4a882;--t3:#7a6050;--t4:#3a2818;
+  --te:#f4a07a;--tg:#f5c865;
+  --bd:rgba(255,190,120,0.08);--bd2:rgba(255,190,120,0.15);
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --fb:'Outfit',-apple-system,sans-serif;
+  --sm:cubic-bezier(0.4,0,0.2,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--bg);-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--t1);overflow-x:hidden;line-height:1.6}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(13,9,6,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--bd)}
+.nav-inner{max-width:72rem;margin:0 auto;padding:0 1.5rem;height:3.75rem;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--fd);font-size:1.3rem;font-weight:600;color:var(--t1);text-decoration:none;display:flex;align-items:center;gap:0.5rem}
+.logo em{font-style:italic;color:var(--te)}
+.nav-right{display:flex;align-items:center;gap:0.875rem}
+.nav-link{font-size:0.82rem;color:var(--t3);text-decoration:none;transition:color 0.2s}
+.nav-link:hover{color:var(--t2)}
+.nav-cta{background:var(--ember-s);color:var(--te);border:1px solid var(--ember-b);padding:0.4rem 1rem;border-radius:999px;font-size:0.82rem;font-weight:600;text-decoration:none;transition:all 0.2s}
+.nav-cta:hover{background:var(--ember-b)}
+
+/* LAYOUT */
+.w{max-width:72rem;margin:0 auto;padding:0 1.5rem}
+
+/* HERO */
+.hero{padding:7rem 0 3.5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(122,170,136,0.07),transparent 60%);pointer-events:none}
+.hero-inner{max-width:56rem}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:var(--sage-s);border:1px solid var(--sage-b);border-radius:999px;padding:0.3rem 0.875rem;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);margin-bottom:1.25rem}
+.hero-eyebrow-dot{width:0.4rem;height:0.4rem;border-radius:50%;background:var(--sage)}
+.hero-title{font-family:var(--fd);font-size:clamp(2.5rem,6vw,4rem);font-weight:600;line-height:1.05;letter-spacing:-0.02em;color:var(--t1);margin-bottom:1.125rem}
+.hero-title em{font-style:italic;color:var(--te)}
+.hero-sub{font-size:1rem;color:var(--t2);line-height:1.75;max-width:52ch;margin-bottom:2rem}
+.hero-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:0.5rem;background:linear-gradient(135deg,#7aaa88,#4a8a5a);color:#fff;padding:0.75rem 1.625rem;border-radius:999px;font-size:0.9rem;font-weight:600;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 16px rgba(122,170,136,0.3)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(122,170,136,0.4)}
+.btn-secondary{display:inline-flex;align-items:center;gap:0.5rem;background:transparent;color:var(--t2);border:1px solid var(--bd2);padding:0.75rem 1.5rem;border-radius:999px;font-size:0.9rem;font-weight:500;text-decoration:none;transition:all 0.2s}
+.btn-secondary:hover{border-color:var(--t3);color:var(--t1)}
+
+/* STAT STRIP */
+.stat-strip{border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:1.5rem 0;margin:3rem 0}
+.stat-row{display:flex;gap:3rem;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:0.2rem}
+.stat-num{font-family:var(--fd);font-size:2.25rem;font-weight:600;color:var(--te);line-height:1}
+.stat-label{font-size:0.78rem;color:var(--t3);text-transform:uppercase;letter-spacing:0.08em}
+
+/* APPROACH PILLS */
+.approach-row{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:3rem}
+.approach-pill{font-size:0.72rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:999px;border:1px solid var(--bd2);color:var(--t3)}
+
+/* STAGE SECTION */
+.stage-section{margin-bottom:3.5rem}
+.stage-header{display:flex;align-items:flex-start;gap:1.25rem;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--bd)}
+.stage-dot{width:2.5rem;height:2.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#fff;flex-shrink:0;margin-top:0.2rem}
+.stage-meta{flex:1}
+.stage-label{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.25rem}
+.stage-title{font-family:var(--fd);font-size:1.625rem;font-weight:600;color:var(--t1);line-height:1.1;margin-bottom:0.375rem}
+.stage-desc{font-size:0.85rem;color:var(--t3);line-height:1.7;max-width:62ch}
+.stage-count{flex-shrink:0;font-size:0.75rem;color:var(--t3);padding:0.375rem 0.875rem;border:1px solid var(--bd);border-radius:999px;white-space:nowrap;margin-top:0.25rem}
+
+/* WORKSHEET GRID */
+.ws-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(19rem,1fr));gap:0.875rem}
+@media(max-width:600px){.ws-grid{grid-template-columns:1fr}}
+
+/* WORKSHEET CARD */
+.ws-card{display:flex;flex-direction:column;background:rgba(255,190,120,0.03);border:1px solid var(--bd);border-radius:0.75rem;overflow:hidden;transition:all 0.2s var(--sm);text-decoration:none}
+.ws-card:hover{border-color:var(--bd2);background:rgba(255,190,120,0.06);transform:translateY(-2px)}
+.ws-card-accent{height:3px;flex-shrink:0}
+.ws-card-body{padding:1rem 1.125rem;flex:1;display:flex;flex-direction:column;gap:0.5rem}
+.ws-card-approach{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase}
+.ws-card-title{font-family:var(--fd);font-size:1.1rem;font-weight:600;color:var(--t1);line-height:1.2}
+.ws-card-desc{font-size:0.8rem;color:var(--t3);line-height:1.65;flex:1}
+.ws-card-footer{display:flex;align-items:center;justify-content:space-between;padding:0.625rem 1.125rem;border-top:1px solid var(--bd);font-size:0.72rem;color:var(--t3)}
+.ws-card-open{display:inline-flex;align-items:center;gap:0.25rem;font-weight:600;transition:color 0.15s}
+.ws-card:hover .ws-card-open{color:var(--t1)}
+
+/* THERAPIST CALLOUT */
+.therapist-box{background:rgba(122,170,136,0.05);border:1px solid var(--sage-b);border-radius:1rem;padding:2rem 2.25rem;margin:4rem 0;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center}
+@media(max-width:600px){.therapist-box{grid-template-columns:1fr}}
+.therapist-box-title{font-family:var(--fd);font-size:1.5rem;font-weight:600;color:var(--t1);margin-bottom:0.625rem}
+.therapist-box-desc{font-size:0.875rem;color:var(--t2);line-height:1.75;max-width:52ch}
+.therapist-actions{display:flex;flex-direction:column;gap:0.75rem;flex-shrink:0}
+
+/* FOOTER */
+footer{border-top:1px solid var(--bd);padding:2.5rem 0;margin-top:5rem}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-brand{font-family:var(--fd);font-size:1.1rem;font-weight:600;color:var(--t2)}
+.footer-brand em{font-style:italic;color:var(--te)}
+.footer-note{font-size:0.75rem;color:var(--t4);line-height:1.6;max-width:48ch}
+
+/* REVEAL */
+.r{opacity:0;transform:translateY(16px);transition:opacity 0.55s ease,transform 0.55s var(--sm)}
+.r.in{opacity:1;transform:none}
+
+/* STICKY STAGE NAV */
+.stage-nav{position:sticky;top:3.75rem;z-index:100;background:rgba(13,9,6,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd);padding:0.5rem 0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.stage-nav::-webkit-scrollbar{display:none}
+.stage-nav-inner{display:flex;gap:0.375rem;padding:0 1.5rem;min-width:max-content}
+.snav-btn{font-size:0.72rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:0.35rem 0.75rem;border-radius:999px;border:1px solid transparent;cursor:pointer;background:transparent;color:var(--t3);font-family:var(--fb);transition:all 0.18s;text-decoration:none;white-space:nowrap;-webkit-appearance:none}
+.snav-btn:hover{color:var(--t1);border-color:var(--bd2)}
+.snav-btn.active{color:#fff;border-color:transparent}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">Wellovie</a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">All Worksheets</a>
+      <a href="brave-therapist-guide.pdf" class="nav-cta" target="_blank">Therapist Guide PDF</a>
+    </div>
+  </div>
+</nav>
+
+<!-- STAGE NAV -->
+<div class="stage-nav">
+  <div class="stage-nav-inner">
+    <a href="#before" class="snav-btn" style="--sc:#a08060" data-stage="before">Before</a>
+    <a href="#stage1" class="snav-btn" style="--sc:#3d7a50" data-stage="s1">Stage 1</a>
+    <a href="#stage2" class="snav-btn" style="--sc:#7a4a80" data-stage="s2">Stage 2</a>
+    <a href="#stage3" class="snav-btn" style="--sc:#2a6a8a" data-stage="s3">Stage 3</a>
+    <a href="#stage4" class="snav-btn" style="--sc:#c95030" data-stage="s4">Stage 4</a>
+    <a href="#stage5" class="snav-btn" style="--sc:#c88020" data-stage="s5">Stage 5</a>
+    <a href="#stage6" class="snav-btn" style="--sc:#8a5020" data-stage="s6">Stage 6</a>
+    <a href="#stage7" class="snav-btn" style="--sc:#b05070" data-stage="s7">Stage 7</a>
+    <a href="#closing" class="snav-btn" style="--sc:#2a7a7a" data-stage="close">Closing</a>
+  </div>
+</div>
+
+<div class="w">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner r">
+      <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Anxiety Worksheet Library</div>
+      <h1 class="hero-title">54 worksheets.<br><em>One library.</em><br>Use what fits.</h1>
+      <p class="hero-sub">A flexible, stage-based collection built on converging evidence from eight therapeutic approaches. Choose the worksheets that fit your client, in the order that makes clinical sense — none are compulsory.</p>
+      <div class="hero-actions">
+        <a href="brave-therapist-guide.pdf" class="btn-primary" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Therapist Guide PDF
+        </a>
+        <a href="brave-intro.pdf" class="btn-secondary" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          How To Use Guide
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stat-strip r">
+    <div class="stat-row">
+      <div class="stat"><span class="stat-num">54</span><span class="stat-label">Total worksheets</span></div>
+      <div class="stat"><span class="stat-num">8</span><span class="stat-label">Stages</span></div>
+      <div class="stat"><span class="stat-num">8</span><span class="stat-label">Therapeutic approaches</span></div>
+      <div class="stat"><span class="stat-num">0</span><span class="stat-label">Required worksheets</span></div>
+    </div>
+  </div>
+
+  <!-- APPROACHES -->
+  <div class="approach-row r">
+    <span class="approach-pill" style="color:#4a8a5a;border-color:rgba(74,138,90,0.3)">CBT</span>
+    <span class="approach-pill" style="color:#5a70a0;border-color:rgba(90,112,160,0.3)">ACT</span>
+    <span class="approach-pill" style="color:#7a4a80;border-color:rgba(122,74,128,0.3)">Emotion-Focused</span>
+    <span class="approach-pill" style="color:#2a6a8a;border-color:rgba(42,106,138,0.3)">Somatic</span>
+    <span class="approach-pill" style="color:#7a4a80;border-color:rgba(122,74,128,0.3)">Compassion-Focused</span>
+    <span class="approach-pill" style="color:#8a5020;border-color:rgba(138,80,32,0.3)">DBT-informed</span>
+    <span class="approach-pill" style="color:#6a3870;border-color:rgba(106,56,112,0.3)">Narrative</span>
+    <span class="approach-pill" style="color:#903050;border-color:rgba(144,48,80,0.3)">Logotherapy</span>
+  </div>
+
+  <!-- BEFORE WE BEGIN -->
+  <section class="stage-section r" id="before">
+    <div class="stage-header">
+      <div class="stage-dot" style="background:#a08060">B</div>
+      <div class="stage-meta">
+        <div class="stage-label" style="color:#a08060">Before We Begin</div>
+        <div class="stage-title">Orientation &amp; First Steps</div>
+        <div class="stage-desc">These worksheets run before or at the very start of the work. They surface motivation, establish a shared map, and calibrate expectations honestly before anything clinical begins.</div>
+      </div>
+      <div class="stage-count">3 worksheets</div>
+    </div>
+    <div class="ws-grid">
+      <a class="ws-card" href="ws-before-01.html">
+        <div class="ws-card-accent" style="background:#a08060"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#a08060">Motivational</div>
+          <div class="ws-card-title">What Anxiety Costs Me</div>
+          <div class="ws-card-desc">An honest domain-by-domain accounting of what avoidance has specifically taken — and a reason to do this work. The time account question is often the most significant.</div>
+        </div>
+        <div class="ws-card-footer"><span>Before · 1</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-before-02.html">
+        <div class="ws-card-accent" style="background:#a08060"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#a08060">Narrative / Assessment</div>
+          <div class="ws-card-title">My Anxiety Story So Far</div>
+          <div class="ws-card-desc">A timeline of when anxiety arrived, what was happening, how it has changed, and what has been tried. Gives therapist and client a shared narrative map before the work begins.</div>
+        </div>
+        <div class="ws-card-footer"><span>Before · 2</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-before-03.html">
+        <div class="ws-card-accent" style="background:#a08060"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#a08060">Expectation-setting</div>
+          <div class="ws-card-title">What I'm Hoping For</div>
+          <div class="ws-card-desc">Not goals — hopes. The texture of a different life. What good enough realistically looks like, honest concerns, and what the work is being done for.</div>
+        </div>
+        <div class="ws-card-footer"><span>Before · 3</span><span class="ws-card-open">Open →</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- STAGE 1 -->
+  <section class="stage-section r" id="stage1">
+    <div class="stage-header">
+      <div class="stage-dot" style="background:#3d7a50">1</div>
+      <div class="stage-meta">
+        <div class="stage-label" style="color:#3d7a50">Stage 1</div>
+        <div class="stage-title">Understanding the Pattern</div>
+        <div class="stage-desc">The observational foundation. A client who can't locate anxiety in their body can't use somatic tools. A client who can't see their maintenance cycle can't interrupt it. This stage builds the map everything else references.</div>
+      </div>
+      <div class="stage-count">6 worksheets</div>
+    </div>
+    <div class="ws-grid">
+      <a class="ws-card" href="ws-s1-01.html">
+        <div class="ws-card-accent" style="background:#3d7a50"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#3d7a50">Somatic / CBT</div>
+          <div class="ws-card-title">Your Anxiety Signature</div>
+          <div class="ws-card-desc">Body map and time-of-day grid — where and when anxiety lives. The most specific entries here become reference points throughout the entire work.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 1 · 1</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s1-02.html">
+        <div class="ws-card-accent" style="background:#3d7a50"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#3d7a50">CBT</div>
+          <div class="ws-card-title">The Maintenance Cycle</div>
+          <div class="ws-card-desc">Trigger → thought → body → behaviour → consequence loop. Making visible the cycle that keeps anxiety going — the foundation for all subsequent interruption work.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 1 · 2</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s1-03.html">
+        <div class="ws-card-accent" style="background:#3d7a50"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#3d7a50">CBT / EFT</div>
+          <div class="ws-card-title">The Feeling Beneath</div>
+          <div class="ws-card-desc">Surface emotion versus what's underneath it. Tracing the quieter, older feeling that anxiety tends to cover. Entry point to emotion-focused work.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 1 · 3</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s1-04.html">
+        <div class="ws-card-accent" style="background:#3d7a50"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#3d7a50">Narrative / Existential</div>
+          <div class="ws-card-title">Anxiety as Messenger</div>
+          <div class="ws-card-desc">Instead of fighting anxiety, getting curious about what it might be signalling. What chapter of life it is connected to. What it has been trying to protect.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 1 · 4</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s1-05.html">
+        <div class="ws-card-accent" style="background:#3d7a50"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#3d7a50">Psychoeducation</div>
+          <div class="ws-card-title">My Anxiety Profile</div>
+          <div class="ws-card-desc">Broader self-assessment across anxiety types — social, health, generalised, panic, existential — without pathologising. Helps client and therapist understand the terrain.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 1 · 5</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s1-06.html">
+        <div class="ws-card-accent" style="background:#3d7a50"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#3d7a50">Somatic — deeper</div>
+          <div class="ws-card-title">The Body Speaks First</div>
+          <div class="ws-card-desc">Deep somatic body mapping — quality, movement, temperature, gesture. What posture anxiety pulls you into. What the body knows before the mind does. Best for interoceptively aware clients.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 1 · 6</span><span class="ws-card-open">Open →</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- STAGE 2 -->
+  <section class="stage-section r" id="stage2">
+    <div class="stage-header">
+      <div class="stage-dot" style="background:#7a4a80">2</div>
+      <div class="stage-meta">
+        <div class="stage-label" style="color:#7a4a80">Stage 2</div>
+        <div class="stage-title">Meeting What's Underneath</div>
+        <div class="stage-desc">Emotion-focused and somatic work before cognitive work — EFT research is clear on this. This stage slows the work down deliberately. Listening rather than managing. Feeling before changing.</div>
+      </div>
+      <div class="stage-count">8 worksheets</div>
+    </div>
+    <div class="ws-grid">
+      <a class="ws-card" href="ws-s2-01.html">
+        <div class="ws-card-accent" style="background:#7a4a80"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#7a4a80">Emotion-Focused</div>
+          <div class="ws-card-title">What This Feeling Needs</div>
+          <div class="ws-card-desc">The core EFT move — meeting the emotion underneath anxiety with curiosity rather than management. What the feeling is signalling and what it actually needs to feel heard.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 2 · 1</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s2-02.html">
+        <div class="ws-card-accent" style="background:#7a4a80"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#7a4a80">Somatic / Focusing</div>
+          <div class="ws-card-title">The Felt Sense</div>
+          <div class="ws-card-desc">Gendlin-influenced. Clearing a space, finding the body-felt quality of a situation, giving it a handle word, staying with it until it shifts. Slow, deep, wordless-first.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 2 · 2</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s2-03.html">
+        <div class="ws-card-accent" style="background:#7a4a80"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#7a4a80">Compassion-Focused</div>
+          <div class="ws-card-title">The Three Circles</div>
+          <div class="ws-card-desc">Paul Gilbert's three-system model — threat, drive, soothing. Understanding why anxiety isn't a character flaw, and how to begin activating the soothing system.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 2 · 3</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s2-04.html">
+        <div class="ws-card-accent" style="background:#7a4a80"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#7a4a80">Compassion-Focused</div>
+          <div class="ws-card-title">The Compassionate Self</div>
+          <div class="ws-card-desc">Building an internal compassionate presence — wisdom, strength, warmth, non-judgment. A letter from the compassionate self to the anxious self. Not reassurance — genuine presence.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 2 · 4</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s2-05.html">
+        <div class="ws-card-accent" style="background:#7a4a80"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#7a4a80">Emotion Regulation</div>
+          <div class="ws-card-title">Emotions as Information</div>
+          <div class="ws-card-desc">What each emotion is for — its function, signal, and action urge. Fear, sadness, shame, anger, grief each examined. Moves from managing emotions to understanding them.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 2 · 5</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s2-06.html">
+        <div class="ws-card-accent" style="background:#7a4a80"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#7a4a80">EFT / Existential — selective</div>
+          <div class="ws-card-title">The Shame Underneath</div>
+          <div class="ws-card-desc">For clients where shame is the primary engine beneath the anxiety. The difference between guilt and shame. Speaking directly to the shame. Use selectively — not routinely.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 2 · 6</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s2-07.html">
+        <div class="ws-card-accent" style="background:#7a4a80"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#7a4a80">Existential — selective</div>
+          <div class="ws-card-title">Grief and Anxiety</div>
+          <div class="ws-card-desc">For clients who are grieving lost time, unlived life, or the person before anxiety. Honours the grief directly rather than treating it as a symptom to manage.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 2 · 7</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s2-08.html">
+        <div class="ws-card-accent" style="background:#7a4a80"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#7a4a80">Relational / Existential — selective</div>
+          <div class="ws-card-title">When Anxiety Feels Like Love</div>
+          <div class="ws-card-desc">For clients whose anxiety is entangled with attachment — anxious parenting, anxious relationships, anxiety as a form of caring. Untangling protection from love.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 2 · 8</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s2-09.html">
+        <div class="ws-card-accent" style="background:#7a4a80"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#7a4a80">Somatic / Trauma-informed — selective</div>
+          <div class="ws-card-title">The Body Memory</div>
+          <div class="ws-card-desc">Somatic memory and the body's record of difficult experiences. For clients whose anxiety has a physical-historical dimension — responses that belong to then, not now.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 2 · 9</span><span class="ws-card-open">Open →</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- STAGE 3 -->
+  <section class="stage-section r" id="stage3">
+    <div class="stage-header">
+      <div class="stage-dot" style="background:#2a6a8a">3</div>
+      <div class="stage-meta">
+        <div class="stage-label" style="color:#2a6a8a">Stage 3</div>
+        <div class="stage-title">Building Your Regulation Toolkit</div>
+        <div class="stage-desc">Regulation capacity needs to be in place before exposure work. A client without reliable tools at high activation will use safety behaviours extensively in Stage 5. This stage builds the toolkit from real experience — not theory.</div>
+      </div>
+      <div class="stage-count">6 worksheets</div>
+    </div>
+    <div class="ws-grid">
+      <a class="ws-card" href="ws-s3-01.html">
+        <div class="ws-card-accent" style="background:#2a6a8a"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#2a6a8a">Somatic / Psychoeducation</div>
+          <div class="ws-card-title">Your Nervous System Map</div>
+          <div class="ws-card-desc">Three activation states — high, mid, low — what each feels like in this specific body, and what becomes available at each level. The map that all regulation work references.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 3 · 1</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s3-02.html">
+        <div class="ws-card-accent" style="background:#2a6a8a"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#2a6a8a">Somatic</div>
+          <div class="ws-card-title">Building Your Regulation Menu</div>
+          <div class="ws-card-desc">Testing tools in real conditions across all three activation levels — data-driven, not aspirational. What actually works for this person, not what should work in theory.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 3 · 2</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s3-03.html">
+        <div class="ws-card-accent" style="background:#2a6a8a"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#2a6a8a">Somatic / Breathwork</div>
+          <div class="ws-card-title">The Breath as Anchor</div>
+          <div class="ws-card-desc">The physiological sigh and breath-based tools in plain language — the mechanism explained, not just the technique. What each tool is doing and when to use it.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 3 · 3</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s3-04.html">
+        <div class="ws-card-accent" style="background:#2a6a8a"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#2a6a8a">Somatic / Trauma-informed</div>
+          <div class="ws-card-title">Grounding When You're Overwhelmed</div>
+          <div class="ws-card-desc">Sensory and body-based anchoring for high activation states. 5-4-3-2-1 and beyond — cold water, movement, orienting. Testing which ones actually work and when.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 3 · 4</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s3-05.html">
+        <div class="ws-card-accent" style="background:#2a6a8a"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#2a6a8a">Somatic</div>
+          <div class="ws-card-title">Movement and Anxiety</div>
+          <div class="ws-card-desc">The relationship between physical movement and anxiety regulation — not as exercise prescription but as discharge. What kinds of movement work for this person specifically.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 3 · 5</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s3-06.html">
+        <div class="ws-card-accent" style="background:#2a6a8a"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#2a6a8a">Somatic / Existential</div>
+          <div class="ws-card-title">Rest as Radical Act</div>
+          <div class="ws-card-desc">For the client whose nervous system never fully comes down. The difference between rest and collapse, rest and avoidance. What genuine restoration feels like and costs.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 3 · 6</span><span class="ws-card-open">Open →</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- STAGE 4 -->
+  <section class="stage-section r" id="stage4">
+    <div class="stage-header">
+      <div class="stage-dot" style="background:#c95030">4</div>
+      <div class="stage-meta">
+        <div class="stage-label" style="color:#c95030">Stage 4</div>
+        <div class="stage-title">Working With Thoughts</div>
+        <div class="stage-desc">With emotional and somatic grounding now in place, cognitive work becomes accessible rather than purely intellectual. The thought log here builds the cognitive fingerprint referenced in every subsequent session.</div>
+      </div>
+      <div class="stage-count">5 worksheets</div>
+    </div>
+    <div class="ws-grid">
+      <a class="ws-card" href="ws-s4-01.html">
+        <div class="ws-card-accent" style="background:#c95030"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#c95030">CBT</div>
+          <div class="ws-card-title">Thought Patterns Log</div>
+          <div class="ws-card-desc">Building the cognitive fingerprint — identifying distortion types in real time, fusion scores, what the thought predicts and what actually happens. Referenced throughout the work.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 4 · 1</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s4-02.html">
+        <div class="ws-card-accent" style="background:#c95030"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#c95030">ACT / Defusion</div>
+          <div class="ws-card-title">Thoughts Are Weather</div>
+          <div class="ws-card-desc">Stepping back from thoughts rather than being inside them. Labelling, leaves on a stream, sing-song. The goal is not to change thoughts but to change your relationship with them.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 4 · 2</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s4-03.html">
+        <div class="ws-card-accent" style="background:#c95030"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#c95030">Narrative</div>
+          <div class="ws-card-title">The Story My Mind Tells</div>
+          <div class="ws-card-desc">Narrative externalisation — naming the anxious story, giving it a character, separating the person from the problem. Particularly useful for clients highly identified with their anxiety.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 4 · 3</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s4-04.html">
+        <div class="ws-card-accent" style="background:#c95030"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#c95030">ACT — pragmatic</div>
+          <div class="ws-card-title">Is This Thought Useful?</div>
+          <div class="ws-card-desc">Not "is this true" but "is this helping me move toward what matters." Better for clients who have already done CBT and found thought-challenging unsatisfying or unconvincing.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 4 · 4</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s4-05.html">
+        <div class="ws-card-accent" style="background:#c95030"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#c95030">CBT / ACT</div>
+          <div class="ws-card-title">The Critic and the Witness</div>
+          <div class="ws-card-desc">Dual transcript — the anxious mind voice versus the observing self without reassurance. Witnessing without fixing. Works best after some defusion capacity is in place.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 4 · 5</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s4-06.html">
+        <div class="ws-card-accent" style="background:#c95030"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#c95030">CBT / ACT — when defusion isn't enough</div>
+          <div class="ws-card-title">Writing Back to the Thought</div>
+          <div class="ws-card-desc">A structured written dialogue with the most persistent anxious thought. Acknowledges what it gets right, challenges what it gets wrong, and clarifies what you choose anyway.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 4 · 6</span><span class="ws-card-open">Open →</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- STAGE 5 -->
+  <section class="stage-section r" id="stage5">
+    <div class="stage-header">
+      <div class="stage-dot" style="background:#c88020">5</div>
+      <div class="stage-meta">
+        <div class="stage-label" style="color:#c88020">Stage 5</div>
+        <div class="stage-title">Facing What You've Been Avoiding</div>
+        <div class="stage-desc">With regulation capacity and defusion skills in place, exposure work generates cleaner data. The Cost Audit is motivational preparation — do not skip it. Right-sizing the first experiment is the most important clinical decision in this stage.</div>
+      </div>
+      <div class="stage-count">6 worksheets</div>
+    </div>
+    <div class="ws-grid">
+      <a class="ws-card" href="ws-s5-01.html">
+        <div class="ws-card-accent" style="background:#c88020"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#c88020">Motivational</div>
+          <div class="ws-card-title">The Cost Audit</div>
+          <div class="ws-card-desc">Specific costs across domains — what avoidance has taken from relationships, work, health, daily freedom. Motivational preparation before exposure work begins. Do not skip.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 5 · 1</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s5-02.html">
+        <div class="ws-card-accent" style="background:#c88020"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#c88020">Exposure / ACT</div>
+          <div class="ws-card-title">Opening the Door</div>
+          <div class="ws-card-desc">Designing the first willingness experiment — right-sized, safety behaviours explicitly excluded, prediction recorded before. The most important design decision in Stage 5.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 5 · 2</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s5-03.html">
+        <div class="ws-card-accent" style="background:#c88020"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#c88020">Exposure</div>
+          <div class="ws-card-title">What Actually Happened</div>
+          <div class="ws-card-desc">Recording experiment outcomes before the mind edits them. The gap between prediction and reality. Recorded immediately after the experiment — not later.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 5 · 3</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s5-04.html">
+        <div class="ws-card-accent" style="background:#c88020"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#c88020">ACT / Exposure</div>
+          <div class="ws-card-title">Living Without Guarantees</div>
+          <div class="ws-card-desc">Uncertainty profile and graduated exposure hierarchy. Often needs several weeks. The question is not "can I handle certainty" but "can I act while uncertain."</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 5 · 4</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s5-05.html">
+        <div class="ws-card-accent" style="background:#c88020"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#c88020">CBT</div>
+          <div class="ws-card-title">The Depths of What-If</div>
+          <div class="ws-card-desc">Following the worry chain all the way to the core fear — not stopping at the first answer. Used for situational anxiety where the core fear is concrete rather than existential.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 5 · 5</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s5-06.html">
+        <div class="ws-card-accent" style="background:#c88020"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#c88020">Existential</div>
+          <div class="ws-card-title">What I'm Really Afraid Of</div>
+          <div class="ws-card-desc">Existential core fear categories — death, meaninglessness, isolation, freedom and responsibility. Alternative to the worry chain for clients whose anxiety is ontological rather than situational.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 5 · 6</span><span class="ws-card-open">Open →</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- STAGE 6 -->
+  <section class="stage-section r" id="stage6">
+    <div class="stage-header">
+      <div class="stage-dot" style="background:#8a5020">6</div>
+      <div class="stage-meta">
+        <div class="stage-label" style="color:#8a5020">Stage 6</div>
+        <div class="stage-title">Emotion Regulation Skills</div>
+        <div class="stage-desc">Concrete skills for staying present with difficult emotions. The Worry Window is the most structurally impactful single worksheet in this library for generalised anxiety. When Nothing Helps is clinically important not to skip for clients who idealise the toolkit.</div>
+      </div>
+      <div class="stage-count">6 worksheets</div>
+    </div>
+    <div class="ws-grid">
+      <a class="ws-card" href="ws-s6-01.html">
+        <div class="ws-card-accent" style="background:#8a5020"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#8a5020">DBT-informed</div>
+          <div class="ws-card-title">Riding the Wave</div>
+          <div class="ws-card-desc">Distress tolerance and urge surfing. Emotions as waves that peak and pass. The skill of staying present with intensity without acting on it. For high-reactivity presentations.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 6 · 1</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s6-02.html">
+        <div class="ws-card-accent" style="background:#8a5020"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#8a5020">DBT-informed</div>
+          <div class="ws-card-title">Opposite Action</div>
+          <div class="ws-card-desc">When the emotion's action urge is making things worse. What opposite action looks like for anxiety, shame, sadness, anger — practical and specific to this client's patterns.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 6 · 2</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s6-03.html">
+        <div class="ws-card-accent" style="background:#8a5020"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#8a5020">CBT / Containment</div>
+          <div class="ws-card-title">The Worry Window</div>
+          <div class="ws-card-desc">Postponement log and nightly offload. The most structurally impactful worksheet in the library for generalised anxiety. Creates a containment structure that makes space in the rest of the day.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 6 · 3</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s6-04.html">
+        <div class="ws-card-accent" style="background:#8a5020"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#8a5020">CBT / Mindfulness</div>
+          <div class="ws-card-title">Working With Rumination</div>
+          <div class="ws-card-desc">The difference between problem-solving and rumination. Recognising the loop. Redirecting without suppressing. For clients whose anxiety lives primarily in their head.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 6 · 4</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s6-05.html">
+        <div class="ws-card-accent" style="background:#8a5020"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#8a5020">Compassion-Focused</div>
+          <div class="ws-card-title">Self-Compassion in Hard Moments</div>
+          <div class="ws-card-desc">The three CFT components — mindfulness of suffering, common humanity, self-kindness — made practical. A concrete exercise for when things feel genuinely unbearable.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 6 · 5</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s6-06.html">
+        <div class="ws-card-accent" style="background:#8a5020"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#8a5020">Acceptance-based</div>
+          <div class="ws-card-title">When Nothing Helps</div>
+          <div class="ws-card-desc">For the session after the tools fail. Radical acceptance. The difference between pain and suffering. Clinically important not to skip — clients who idealise the toolkit need this.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 6 · 6</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s6-07.html">
+        <div class="ws-card-accent" style="background:#8a5020"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#8a5020">Relapse Prevention / DBT-informed</div>
+          <div class="ws-card-title">Planning for Hard Days</div>
+          <div class="ws-card-desc">A concrete plan for the days when everything is harder — identifying early signs, what helps most, what to reduce, and what to remember. Built when calm, used when not.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 6 · 7</span><span class="ws-card-open">Open →</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- STAGE 7 -->
+  <section class="stage-section r" id="stage7">
+    <div class="stage-header">
+      <div class="stage-dot" style="background:#b05070">7</div>
+      <div class="stage-meta">
+        <div class="stage-label" style="color:#b05070">Stage 7</div>
+        <div class="stage-title">Who You Are and What Matters</div>
+        <div class="stage-desc">The deepest stage — and the one most often skipped in anxiety treatment. Clients cannot do real values work while in survival mode. A Letter to the Anxiety and the logotherapy work are the most integrative documents in the library.</div>
+      </div>
+      <div class="stage-count">7 worksheets</div>
+    </div>
+    <div class="ws-grid">
+      <a class="ws-card" href="ws-s7-01.html">
+        <div class="ws-card-accent" style="background:#b05070"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#b05070">Logotherapy</div>
+          <div class="ws-card-title">What Makes Life Feel Meaningful</div>
+          <div class="ws-card-desc">Frankl's three sources — contribution, experience, attitude toward suffering. Where meaning currently lives and where it's absent. What the client wants their life to have meant.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 7 · 1</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s7-02.html">
+        <div class="ws-card-accent" style="background:#b05070"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#b05070">ACT / Values</div>
+          <div class="ws-card-title">Your Values Compass</div>
+          <div class="ws-card-desc">Mapping values across domains. The intersection insight: where anxiety is loudest is where values are most alive. Three core values and where anxiety has been making decisions instead.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 7 · 2</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s7-03.html">
+        <div class="ws-card-accent" style="background:#b05070"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#b05070">CFT / Self-compassion</div>
+          <div class="ws-card-title">The Critical Inner Voice</div>
+          <div class="ws-card-desc">Dual column, origin of the critic, what it actually needs underneath the harshness. A letter to the critic — not dismissing it, but speaking to it honestly. Read aloud in session.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 7 · 3</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s7-04.html">
+        <div class="ws-card-accent" style="background:#b05070"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#b05070">Narrative / Identity</div>
+          <div class="ws-card-title">Who Am I Beyond Anxiety?</div>
+          <div class="ws-card-desc">Who were you before anxiety became central. What it has taken credit for that is genuinely yours. The person you are becoming and one act of reclamation this week.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 7 · 4</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s7-05.html">
+        <div class="ws-card-accent" style="background:#b05070"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#b05070">ACT / Forward-facing</div>
+          <div class="ws-card-title">The Life I Want to Build</div>
+          <div class="ws-card-desc">What Monday looks like when anxiety isn't making the decisions. Six-month concrete picture. What the client must be willing to tolerate to have that life. The next specific step.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 7 · 5</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s7-06.html">
+        <div class="ws-card-accent" style="background:#b05070"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#b05070">CFT / Existential</div>
+          <div class="ws-card-title">Forgiveness and Letting Go</div>
+          <div class="ws-card-desc">What the client is still carrying — anger at others, anger at self, grief about lost years. What holding on does for them. What becomes available if they put some of it down.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 7 · 6</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s7-07.html">
+        <div class="ws-card-accent" style="background:#b05070"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#b05070">Narrative — integrative</div>
+          <div class="ws-card-title">A Letter to the Anxiety</div>
+          <div class="ws-card-desc">Writing directly to anxiety as an entity. What it has taken, what you understand now, what the relationship will be going forward. The most integrative document in the library. Read aloud in session.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 7 · 7</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-s7-08.html">
+        <div class="ws-card-accent" style="background:#b05070"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#b05070">Compassion-Focused Therapy</div>
+          <div class="ws-card-title">A Compassionate Letter to Yourself</div>
+          <div class="ws-card-desc">Writing the letter a genuinely compassionate friend would write — seeing the struggle clearly and responding with warmth. Designed to be read aloud in session.</div>
+        </div>
+        <div class="ws-card-footer"><span>Stage 7 · 8</span><span class="ws-card-open">Open →</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="stage-section r" id="closing">
+    <div class="stage-header">
+      <div class="stage-dot" style="background:#2a7a7a">C</div>
+      <div class="stage-meta">
+        <div class="stage-label" style="color:#2a7a7a">Closing</div>
+        <div class="stage-title">Carrying Forward</div>
+        <div class="stage-desc">These are not review documents — they are genuine reckonings. What Has Changed should be specific and evidenced. The letter to Week 1 self is the most emotionally significant document in the library. Read it aloud.</div>
+      </div>
+      <div class="stage-count">3 worksheets</div>
+    </div>
+    <div class="ws-grid">
+      <a class="ws-card" href="ws-close-01.html">
+        <div class="ws-card-accent" style="background:#2a7a7a"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#2a7a7a">Integration</div>
+          <div class="ws-card-title">What Has Changed</div>
+          <div class="ws-card-desc">Honest before-and-after across six domains. Not whether anxiety is gone but who the client is now in relation to it. What the work cost and what it gave. Specific, evidenced, not aspirational.</div>
+        </div>
+        <div class="ws-card-footer"><span>Closing · 1</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-close-02.html">
+        <div class="ws-card-accent" style="background:#2a7a7a"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#2a7a7a">Integration — reference</div>
+          <div class="ws-card-title">My Toolkit</div>
+          <div class="ws-card-desc">Personal reference card built from actual experience — regulation tools by activation level, early warning signals, core values, people and places that help. Something to carry and update.</div>
+        </div>
+        <div class="ws-card-footer"><span>Closing · 2</span><span class="ws-card-open">Open →</span></div>
+      </a>
+      <a class="ws-card" href="ws-close-03.html">
+        <div class="ws-card-accent" style="background:#2a7a7a"></div>
+        <div class="ws-card-body">
+          <div class="ws-card-approach" style="color:#2a7a7a">Narrative — integrative</div>
+          <div class="ws-card-title">A Letter to My Week 1 Self</div>
+          <div class="ws-card-desc">The most emotionally significant document in the library. Written to the version of yourself that arrived at this work, carrying everything they were carrying. Read aloud in session.</div>
+        </div>
+        <div class="ws-card-footer"><span>Closing · 3</span><span class="ws-card-open">Open →</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- THERAPIST CALLOUT -->
+  <div class="therapist-box r">
+    <div>
+      <div class="therapist-box-title">Therapist resources</div>
+      <p class="therapist-box-desc">The Therapist Guide PDF covers clinical rationale for the stage order, how to select worksheets by client presentation, pacing guidance, readiness signals, and clinical notes for every stage. The How To Use Guide is for clients.</p>
+    </div>
+    <div class="therapist-actions">
+      <a href="brave-therapist-guide.pdf" class="btn-primary" target="_blank">Therapist Guide PDF</a>
+      <a href="brave-intro.pdf" class="btn-secondary" target="_blank">How To Use Guide</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="w">
+    <div class="footer-inner">
+      <div class="footer-brand">Wellovie</div>
+      <p class="footer-note">These worksheets are self-guided educational tools. They support therapeutic work and are not a substitute for professional care. If you are in crisis, call or text 988.</p>
+      <p style="font-size:0.72rem;color:var(--t4)">© 2025 Wellovie. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Reveal on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }});
+}, {threshold:0.08});
+document.querySelectorAll('.r').forEach(el => observer.observe(el));
+
+// Stage nav scroll spy + active state
+const snavBtns = document.querySelectorAll('.snav-btn');
+snavBtns.forEach(btn => {
+  const color = btn.style.getPropertyValue('--sc');
+  btn.addEventListener('mouseenter', () => { btn.style.background = color + '22'; btn.style.color = color; });
+  btn.addEventListener('mouseleave', () => {
+    if(!btn.classList.contains('active')){ btn.style.background = ''; btn.style.color = ''; }
+  });
+});
+
+const sections = document.querySelectorAll('.stage-section');
+const snavObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      const id = e.target.id;
+      const map = {before:'before',stage1:'s1',stage2:'s2',stage3:'s3',stage4:'s4',stage5:'s5',stage6:'s6',stage7:'s7',closing:'close'};
+      snavBtns.forEach(b => {
+        const active = b.dataset.stage === map[id];
+        b.classList.toggle('active', active);
+        const c = b.style.getPropertyValue('--sc');
+        b.style.background = active ? c + '22' : '';
+        b.style.color = active ? c : '';
+        if(active) b.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+      });
+    }
+  });
+}, {threshold:0.3});
+sections.forEach(s => snavObs.observe(s));
+
+// Nav scroll shadow
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.boxShadow = window.scrollY > 20 ? '0 4px 24px rgba(0,0,0,0.4)' : '';
+}, {passive:true});
+</script>
+</body>
+</html>
