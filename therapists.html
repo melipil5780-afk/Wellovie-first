@@ -1,1280 +1,1222 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" href="/favicon.svg">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0d0906">
-  <meta name="description" content="Therapy websites built by a licensed therapist. Designed for the moment a potential client is deciding whether to reach out.">
-  <title>Therapist Websites — Wellovie</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Wellovie Clinical — tools, websites, and resources for mental health practitioners. Built by Meli Pil, LMHC."/>
+<title>Wellovie Clinical — For Practitioners</title>
+<style>html,body{background:#0E0C09;color:#EDE3D0}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+
+<style>
+/* ══════════════════════════════════════
+   CLINICAL PALETTE
+   Shares DNA with Wellovie consumer but
+   sits slightly warmer and more grounded.
+   Amber leads here — trust, authority.
+   Sage plays a supporting role — safety.
+   The room of a good supervisor's office.
+══════════════════════════════════════ */
 :root {
-  --bg:#0d0906; --bg2:#110b07; --bg3:#0a0604; --bg4:#160f08;
-  --ember:#d95f35; --ember-s:rgba(217,95,53,0.1); --ember-b:rgba(217,95,53,0.22);
-  --gold:#e8a030;  --gold-s:rgba(232,160,48,0.1);  --gold-b:rgba(232,160,48,0.22);
-  --sage:#7aaa88;  --sage-s:rgba(122,170,136,0.1);  --sage-b:rgba(122,170,136,0.22);
-  --t1:#fdf0e6; --t2:#c4a882; --t3:#7a6050; --t4:#3a2818;
-  --te:#f4a07a; --tg:#f5c865;
-  --bd:rgba(255,190,120,0.08); --bd2:rgba(255,190,120,0.15); --bd3:rgba(255,190,120,0.25);
-  --gm:linear-gradient(135deg,#d95f35,#e8a030);
-  --gt:linear-gradient(135deg,#f4a07a,#f5c865);
-  --gc:linear-gradient(160deg,#1c1008,#110c06);
-  --sh:0 12px 32px rgba(217,95,53,0.25);
-  --fd:'Cormorant Garamond',Georgia,serif;
-  --fb:'Outfit',-apple-system,sans-serif;
-  --sp:cubic-bezier(0.34,1.56,0.64,1);
-  --sm:cubic-bezier(0.4,0,0.2,1);
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{background:var(--bg);-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
-body{font-family:var(--fb);background:var(--bg);color:var(--t1);overflow-x:hidden;line-height:1.6}
-a{color:var(--te);text-decoration:none}
-svg{display:block;flex-shrink:0}
+  --bg:        #0E0C09;
+  --bg-1:      #110E0A;
+  --bg-card:   #171209;
+  --bg-warm:   #1A140A;
 
-/* ─── NAV ─── */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(13,9,6,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--bd);transition:box-shadow 0.3s}
-.nav-inner{max-width:72rem;margin:0 auto;padding:0 1.5rem;height:3.75rem;display:flex;align-items:center;gap:1rem}
-.logo{display:flex;align-items:center;gap:0.5625rem;font-family:var(--fd);font-size:1.4375rem;font-weight:500;flex-shrink:0;margin-right:auto;letter-spacing:-0.02em;text-decoration:none;background:linear-gradient(to bottom,#FFF4D1 0%,#FFCC70 30%,#D96A25 60%,#8E350C 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 15px rgba(217,106,37,0.2))}
-.logo em{font-style:italic;color:var(--te)}
-.nav-back{font-size:0.8125rem;color:var(--t3);display:flex;align-items:center;gap:0.375rem;transition:color 0.2s}
-.nav-back:hover{color:var(--te)}
-.nav-cta{background:var(--gm);color:var(--t1);padding:0.5rem 1.25rem;border-radius:999px;font-size:0.8125rem;font-weight:700;border:none;cursor:pointer;font-family:var(--fb);box-shadow:0 3px 14px rgba(217,95,53,0.3);transition:all 0.25s var(--sp);white-space:nowrap;-webkit-appearance:none;appearance:none}
-.nav-cta:hover{transform:translateY(-1px);filter:brightness(1.1);color:var(--t1)}
+  --ink:       #EDE3D0;
+  --ink-2: #B0A894;
+  --ink-3: #6E6658;
+  --ink-4:     #2E2820;
 
-/* ─── LAYOUT ─── */
-.w{max-width:72rem;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1}
-.w-mid{max-width:56rem;margin:0 auto;padding:0 1.5rem}
-.w-narrow{max-width:44rem;margin:0 auto;padding:0 1.5rem}
+  --amber:     #B8922A;
+  --amber-hi:  #D4AD52;
+  --amber-lo:  #342709;
+  --amber-gl:  rgba(184,146,42,.09);
+  --amber-gl2: rgba(184,146,42,.05);
 
-/* ─── HERO ─── */
-.hero{
-  min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
-  padding:5.5rem 0 0;background:var(--bg);position:relative;overflow:hidden;
-}
-/* layered atmospheric bg */
-.hero-atmo{position:absolute;inset:0;pointer-events:none}
-.hero-atmo::before{
-  content:'';position:absolute;width:70%;padding-bottom:70%;
-  top:-20%;left:-10%;
-  background:radial-gradient(ellipse,rgba(217,95,53,0.09),transparent 65%);
-  border-radius:50%;
-}
-.hero-atmo::after{
-  content:'';position:absolute;width:50%;padding-bottom:50%;
-  bottom:0;right:-5%;
-  background:radial-gradient(ellipse,rgba(232,160,48,0.06),transparent 65%);
-  border-radius:50%;
+  --sage:      #4A7A62;
+  --sage-hi:   #6BAD84;
+  --sage-lo:   #162C1F;
+
+  --blush:     #A67C6D;
+
+  --b:         rgba(237,227,208,.052);
+  --b-hi:      rgba(237,227,208,.096);
+
+  --ff-d: 'Cormorant Garamond', Georgia, serif;
+  --ff-b: 'DM Sans', system-ui, sans-serif;
+
+  --spring: cubic-bezier(.34,1.56,.64,1);
+  --smooth: cubic-bezier(.25,.46,.45,.94);
+  --ease:   cubic-bezier(.0,.0,.2,1);
+  --nav: 60px;
 }
 
-.hero-content{
-  position:relative;z-index:1;
-  padding:4rem 1.5rem 0;
-  max-width:72rem;margin:0 auto;width:100%;
-  display:grid;gap:3rem;align-items:end;
-}
-@media(min-width:800px){.hero-content{grid-template-columns:1fr 1fr;padding:5rem 1.5rem 0}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:var(--ff-b);overflow-x:hidden;line-height:1;}
+a{color:inherit;text-decoration:none;}button{font:inherit;border:none;background:none;color:inherit;cursor:pointer;}ul{list-style:none;}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
 
-.hero-left{}
-.hero-kicker{
-  display:inline-flex;align-items:center;gap:0.5rem;
-  background:var(--sage-s);border:1px solid var(--sage-b);
-  color:var(--sage);font-size:0.72rem;font-weight:700;
-  padding:0.375rem 0.875rem;border-radius:999px;
-  letter-spacing:0.1em;text-transform:uppercase;
-  margin-bottom:1.75rem;
-}
-.hero-h1{
-  font-family:var(--fd);
-  font-size:clamp(2.75rem,7vw,5.5rem);
-  font-weight:600;line-height:0.98;letter-spacing:-0.03em;
-  color:var(--t1);margin-bottom:1.5rem;
-}
-.hero-h1 em{
-  font-style:italic;
-  color:var(--te);
-}
-.hero-h1 .ruled{
-  display:block;position:relative;
-  padding-left:1.5rem;
-  border-left:3px solid var(--ember-b);
-  font-size:0.72em;font-weight:500;font-style:italic;
-  color:var(--t3);letter-spacing:0;margin-bottom:0.5rem;
-}
-.hero-p{font-size:1.0625rem;color:var(--t2);line-height:1.82;max-width:44ch;margin-bottom:2rem}
-.hero-actions{display:flex;gap:0.875rem;flex-wrap:wrap;align-items:center;margin-bottom:2.5rem}
-.hero-trust{font-size:0.78rem;color:var(--t4);line-height:1.6}
-.hero-trust strong{color:var(--t3)}
+/* Grain — same warmth */
+body::after{content:'';position:fixed;inset:0;z-index:990;pointer-events:none;opacity:.012;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.74' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");background-size:220px;}
 
-/* Browser mockup - the hero right side */
-.hero-right{position:relative;z-index:1}
-.browser-wrap{
-  position:relative;
-  border-radius:1rem 1rem 0 0;
-  overflow:hidden;
-  box-shadow:0 -20px 60px rgba(0,0,0,0.5),0 0 0 1px rgba(255,190,120,0.12);
+/* ══════════════════════════════════════
+   PAGE TRANSITION — warm amber doorway
+   Veil starts hidden (opacity:0, display:none).
+   JS adds .entering on arrival, .leaving on departure.
+   No conflict with the preloader on fresh load.
+══════════════════════════════════════ */
+.page-veil {
+  position: fixed; inset: 0; z-index: 3000;
+  background: var(--bg);
+  pointer-events: none;
+  opacity: 0;
+  display: none;
 }
-.browser-bar{
-  background:#1a0f08;
-  padding:0.75rem 1rem;
-  display:flex;align-items:center;gap:0.625rem;
-  border-bottom:1px solid var(--bd);
+.page-veil.entering {
+  display: block;
+  animation: veilLift 1.1s .05s cubic-bezier(.0,.0,.2,1) forwards;
 }
-.browser-dots{display:flex;gap:0.375rem}
-.browser-dot{width:0.6875rem;height:0.6875rem;border-radius:50%}
-.browser-dot:nth-child(1){background:#ff5f57}
-.browser-dot:nth-child(2){background:#ffbd2e}
-.browser-dot:nth-child(3){background:#28c840}
-.browser-url{
-  flex:1;background:rgba(255,200,140,0.05);border:1px solid var(--bd);
-  border-radius:0.375rem;padding:0.25rem 0.75rem;
-  font-size:0.72rem;color:var(--t4);font-family:monospace;
-  display:flex;align-items:center;gap:0.375rem;
+@keyframes veilLift {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
 }
-.browser-url::before{content:'🔒';font-size:0.65rem}
-.browser-screen{background:var(--mock-bg, #faf8f5);padding:0}
-
-/* Mock website inside browser */
-.mock{--mock-bg:#faf8f5;background:var(--mock-bg)}
-.mock-nav{
-  background:white;padding:0.875rem 1.25rem;
-  display:flex;align-items:center;justify-content:space-between;
-  border-bottom:1px solid #eee;
+.page-veil.leaving {
+  display: block;
+  pointer-events: all;
+  animation: veilDraw .7s cubic-bezier(.0,.0,.2,1) forwards;
 }
-.mock-logo-text{font-family:var(--fd);font-size:0.9375rem;font-weight:600;color:#2a1a10;letter-spacing:-0.02em}
-.mock-nav-cta{background:#d95f35;color:white;font-size:0.625rem;font-weight:700;padding:0.3rem 0.75rem;border-radius:999px;font-family:var(--fb)}
-.mock-hero{
-  padding:2rem 1.25rem;
-  background:linear-gradient(160deg,#1c0e06,#0f0804);
-  position:relative;overflow:hidden;
-}
-.mock-hero::before{
-  content:'';position:absolute;width:60%;padding-bottom:60%;
-  top:-20%;left:-10%;
-  background:radial-gradient(ellipse,rgba(217,95,53,0.15),transparent 65%);
-  border-radius:50%;
-}
-.mock-h1{font-family:var(--fd);font-size:1.25rem;font-weight:600;color:#fdf0e6;line-height:1.2;margin-bottom:0.5rem;position:relative}
-.mock-h1 em{font-style:italic;color:#f4a07a}
-.mock-sub{font-size:0.625rem;color:#c4a882;line-height:1.5;margin-bottom:1rem;max-width:20ch;position:relative}
-.mock-cred{
-  display:inline-flex;align-items:center;gap:0.3rem;
-  background:rgba(244,160,122,0.15);border:1px solid rgba(244,160,122,0.3);
-  color:#f4a07a;font-size:0.55rem;font-weight:700;
-  padding:0.2rem 0.5rem;border-radius:999px;margin-bottom:1rem;position:relative
-}
-.mock-btn{
-  background:linear-gradient(135deg,#d95f35,#e8a030);
-  color:white;font-size:0.6rem;font-weight:700;
-  padding:0.375rem 0.875rem;border-radius:999px;
-  display:inline-block;position:relative;
-}
-.mock-sections{padding:1rem 1.25rem;display:flex;flex-direction:column;gap:0.875rem}
-.mock-about-row{display:flex;gap:0.75rem;align-items:flex-start}
-.mock-av{width:2.25rem;height:2.25rem;border-radius:0.5rem;background:linear-gradient(135deg,#d95f35,#e8a030);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:0.875rem;color:white;font-weight:600}
-.mock-about-text{}
-.mock-name{font-family:var(--fd);font-size:0.75rem;font-weight:600;color:#2a1a10;margin-bottom:0.1rem}
-.mock-title{font-size:0.55rem;color:#d95f35;font-weight:700;letter-spacing:0.05em;margin-bottom:0.25rem}
-.mock-p{font-size:0.575rem;color:#7a6050;line-height:1.55}
-.mock-specialties{display:flex;flex-wrap:wrap;gap:0.25rem;margin-top:0.5rem}
-.mock-spec{font-size:0.525rem;color:#7a6050;background:#f4ede6;border-radius:999px;padding:0.15rem 0.5rem}
-.mock-cta-block{
-  background:linear-gradient(135deg,rgba(217,95,53,0.08),rgba(232,160,48,0.05));
-  border:1px solid rgba(217,95,53,0.2);border-radius:0.5rem;
-  padding:0.75rem;text-align:center;margin-top:0.25rem;
-}
-.mock-cta-title{font-family:var(--fd);font-size:0.725rem;font-weight:600;color:#2a1a10;margin-bottom:0.3rem}
-.mock-cta-p{font-size:0.55rem;color:#7a6050;margin-bottom:0.5rem;line-height:1.4}
-.mock-cta-btn{background:linear-gradient(135deg,#d95f35,#e8a030);color:white;font-size:0.575rem;font-weight:700;padding:0.3rem 0.75rem;border-radius:999px;display:inline-block}
-
-/* scroll indicator at bottom of hero screen */
-.mock-fade{
-  height:3rem;
-  background:linear-gradient(transparent,var(--mock-bg));
-  margin-top:-1rem;
+@keyframes veilDraw {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-/* ─── INSIGHT BAND ─── */
-.insight-band{
-  background:var(--bg3);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);
-  padding:3rem 0;
+/* ══════════════════════════════════════
+   PRELOADER — briefer than consumer
+   Practitioners arrive with purpose.
+   The greeting is warm but efficient.
+══════════════════════════════════════ */
+#pre {
+  position: fixed; inset: 0; z-index: 2000;
+  background: var(--bg);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  overflow: hidden;
 }
-.insight-inner{
-  display:grid;gap:1rem;
-  text-align:center;
+#pre.out {
+  animation: preOut .85s cubic-bezier(.0,.0,.2,1) forwards;
+  pointer-events: none;
 }
-@media(min-width:640px){.insight-inner{grid-template-columns:repeat(3,1fr)}}
-.insight-item{padding:0 1.5rem}
-.insight-num{
-  font-family:var(--fd);font-size:3.5rem;font-weight:300;
-  line-height:1;margin-bottom:0.25rem;
-  color:var(--te);
+@keyframes preOut { to { opacity: 0; transform: scale(1.02); } }
+
+
+.pre-glow {
+  position: absolute;
+  width: 2px; height: 2px; border-radius: 50%;
+  /* Amber glow for clinical — authority, warmth */
+  background: radial-gradient(circle, rgba(184,146,42,.65), rgba(140,100,20,.22) 38%, transparent 68%);
+  animation: glowOpen 1.6s .05s cubic-bezier(.25,.46,.45,.94) forwards;
+  pointer-events: none;
 }
-.insight-label{font-size:0.875rem;color:var(--t2);line-height:1.55}
-.insight-label strong{color:var(--t1);display:block;font-size:0.9375rem;margin-bottom:0.2rem}
-.insight-divider{display:none}
-@media(min-width:640px){
-  .insight-divider{display:block;width:1px;background:var(--bd2);height:4rem;margin:auto}
+@keyframes glowOpen {
+  0%  { width: 2px; height: 2px; opacity: 0; }
+  15% { opacity: 1; }
+  100%{ width: clamp(220px,38vw,480px); height: clamp(220px,38vw,480px); opacity: 1; }
 }
-
-/* ─── SECTION ─── */
-.sec{padding:5.5rem 0;background:var(--bg)}
-.sec-alt{padding:5.5rem 0;background:var(--bg2)}
-.sec-dark{padding:5.5rem 0;background:var(--bg3)}
-
-/* ─── TYPE ─── */
-.eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--te);display:block;margin-bottom:0.75rem}
-.eyebrow-sage{color:var(--sage)}
-.h2{font-family:var(--fd);font-size:clamp(2rem,4.5vw,3.375rem);font-weight:600;line-height:1.08;letter-spacing:-0.025em;color:var(--t1);margin-bottom:1rem}
-.h2 em{font-style:italic;color:var(--te)}
-.lead{font-size:1rem;color:var(--t2);line-height:1.82}
-
-/* ─── BUTTONS ─── */
-.btn{background:var(--gm);color:var(--t1);padding:1rem 2rem;border-radius:999px;font-size:1rem;font-weight:700;border:none;cursor:pointer;font-family:var(--fb);box-shadow:var(--sh);transition:all 0.3s var(--sp);display:inline-flex;align-items:center;gap:0.5rem;justify-content:center;-webkit-appearance:none;appearance:none}
-.btn:hover{transform:translateY(-3px);filter:brightness(1.1);color:var(--t1);box-shadow:0 20px 44px rgba(217,95,53,0.38)}
-.btn-sage{background:linear-gradient(135deg,#5a9a6a,#7aaa88);box-shadow:0 10px 28px rgba(122,170,136,0.28)}
-.btn-sage:hover{box-shadow:0 20px 40px rgba(122,170,136,0.38)}
-.btn-ghost{background:transparent;color:var(--t2);padding:0.9375rem 1.875rem;border-radius:999px;font-size:0.9375rem;font-weight:600;border:1px solid var(--bd2);cursor:pointer;font-family:var(--fb);transition:all 0.25s;display:inline-flex;align-items:center;gap:0.5rem;-webkit-appearance:none;appearance:none}
-.btn-ghost:hover{border-color:var(--ember-b);color:var(--te)}
-.btn-full{width:100%}
-
-/* ─── THE CLIENT MOMENT ─── */
-.moment-section{padding:6rem 0;background:var(--bg2)}
-.moment-grid{display:grid;gap:3rem;align-items:center}
-@media(min-width:760px){.moment-grid{grid-template-columns:1fr 1fr}}
-
-.moment-left{}
-.moment-quote{
-  font-family:var(--fd);font-size:clamp(1.25rem,3vw,1.75rem);
-  font-style:italic;font-weight:500;
-  color:var(--t2);line-height:1.55;
-  margin-bottom:2rem;
-  position:relative;padding-left:1.5rem;
+.pre-wm {
+  font-family: var(--ff-d);
+  font-size: clamp(28px,5.5vw,64px);
+  font-weight: 300; letter-spacing: .15em;
+  color: var(--ink);
+  position: relative; z-index: 1;
+  opacity: 0;
+  animation: wmIn .9s .9s cubic-bezier(.0,.0,.2,1) forwards;
 }
-.moment-quote::before{
-  content:'';position:absolute;top:0.25rem;left:0;
-  width:3px;height:calc(100% - 0.5rem);
-  background:var(--gm);border-radius:2px;
+@keyframes wmIn {
+  from { opacity: 0; letter-spacing: .26em; filter: blur(4px); }
+  to   { opacity: 1; letter-spacing: .15em; filter: blur(0); }
 }
-.moment-text p{font-size:0.9375rem;color:var(--t2);line-height:1.82;margin-bottom:0.875rem}
-.moment-text p:last-child{margin-bottom:0}
-.moment-text strong{color:var(--t1)}
-
-/* Journey cards (right side of moment) */
-.journey{display:flex;flex-direction:column;gap:0.75rem}
-.journey-card{
-  background:var(--gc);border:1px solid var(--bd);border-radius:1rem;
-  padding:1.25rem;display:flex;gap:1rem;align-items:flex-start;
-  transition:border-color 0.3s,transform 0.3s var(--sp);
+.pre-sub-wrap {
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 12px;
+  position: relative; z-index: 1;
+  opacity: 0;
+  animation: fadeUp .7s 1.5s cubic-bezier(.0,.0,.2,1) forwards;
 }
-.journey-card:hover{border-color:var(--ember-b);transform:translateX(4px)}
-.journey-step{
-  width:2rem;height:2rem;border-radius:0.5rem;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  font-size:0.75rem;font-weight:700;
+.pre-rule { width: 20px; height: 1px; background: var(--amber); }
+.pre-sub {
+  font-family: var(--ff-d);
+  font-size: clamp(10px,1.2vw,13px);
+  font-weight: 300; font-style: italic;
+  color: var(--ink-3); letter-spacing: .06em;
 }
-.js-1{background:rgba(255,90,50,0.12);border:1px solid rgba(255,90,50,0.2);color:#ff9077}
-.js-2{background:rgba(255,180,50,0.12);border:1px solid rgba(255,180,50,0.2);color:#ffc85a}
-.js-3{background:rgba(122,170,136,0.12);border:1px solid rgba(122,170,136,0.2);color:var(--sage)}
-.journey-title{font-size:0.875rem;font-weight:700;color:var(--t1);margin-bottom:0.25rem}
-.journey-desc{font-size:0.8125rem;color:var(--t3);line-height:1.55}
-.journey-emotion{font-size:0.72rem;font-style:italic;font-family:var(--fd);color:var(--t4);margin-top:0.25rem}
+@keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
 
-/* ─── WHAT WE BUILD ─── */
-.build-section{padding:6rem 0;background:var(--bg)}
-.build-header{text-align:center;max-width:44rem;margin:0 auto 3.5rem}
+/* ══════════════════════════════════════
+   CURSOR — desktop only
+══════════════════════════════════════ */
+@media(pointer:fine){body{cursor:none;}a,button{cursor:none;}}
+@media(pointer:coarse){#cD,#cR{display:none!important;}}
+#cD{display:none;position:fixed;z-index:9999;pointer-events:none;width:5px;height:5px;border-radius:50%;background:var(--amber-hi);transform:translate(-50%,-50%);transition:background .5s,transform .1s var(--spring);will-change:left,top;}
+#cR{display:none;position:fixed;z-index:9998;pointer-events:none;width:28px;height:28px;border-radius:50%;border:1px solid rgba(212,173,82,.3);transform:translate(-50%,-50%);transition:width .5s var(--spring),height .5s var(--spring),border-color .5s,background .5s;will-change:left,top;}
+@media(pointer:fine){#cD,#cR{display:block;}}
+body.cb #cR{width:50px;height:50px;border-color:rgba(166,124,109,.5);background:rgba(166,124,109,.04);}
+body.cb #cD{transform:translate(-50%,-50%) scale(0);}
 
-.comparison{
-  display:grid;gap:1rem;margin-bottom:4rem;
+#spb{position:fixed;top:0;left:0;z-index:999;height:2px;width:0%;pointer-events:none;background:linear-gradient(90deg,var(--amber),var(--amber-hi));transition:width .1s linear;}
+
+/* ══════════════════════════════════════
+   NAV
+══════════════════════════════════════ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  height: var(--nav); display: flex; align-items: center;
+  padding: 0 clamp(20px,5vw,60px);
+  border-bottom: 1px solid transparent;
+  transition: background .55s var(--smooth), border-color .55s var(--smooth);
 }
-@media(min-width:720px){.comparison{grid-template-columns:1fr 1fr}}
-
-.comp-card{border-radius:1.25rem;overflow:hidden;border:1px solid}
-.comp-bad{border-color:rgba(255,70,50,0.15);background:rgba(255,70,50,0.04)}
-.comp-good{border-color:var(--ember-b);background:var(--ember-s)}
-
-.comp-label{
-  padding:0.75rem 1.25rem;
-  font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
-  border-bottom:1px solid;display:flex;align-items:center;gap:0.5rem;
+.nav.s {
+  background: rgba(14,12,9,.93);
+  backdrop-filter: blur(48px) saturate(180%);
+  -webkit-backdrop-filter: blur(48px) saturate(180%);
+  border-color: var(--b);
 }
-.comp-bad .comp-label{color:rgba(255,120,100,0.8);border-color:rgba(255,70,50,0.12)}
-.comp-good .comp-label{color:var(--te);border-color:var(--ember-b)}
-.comp-body{padding:1.25rem}
-.comp-items{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
-.comp-items li{font-size:0.875rem;color:var(--t2);display:flex;gap:0.625rem;align-items:flex-start;line-height:1.5}
-.comp-bad .comp-items li::before{content:'✗';color:rgba(255,100,80,0.7);flex-shrink:0;font-weight:700}
-.comp-good .comp-items li::before{content:'✓';color:var(--te);flex-shrink:0;font-weight:700}
+.nav-i { width: 100%; max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.nav-brand { display: flex; flex-direction: column; gap: 2px; }
+.logo { font-family: var(--ff-d); font-size: 19px; font-weight: 400; letter-spacing: .055em; transition: opacity .2s; line-height: 1; }
+.logo:hover { opacity: .35; }
+.logo-sub { font-size: 8.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--amber-hi); line-height: 1; }
+.nav-r { display: flex; align-items: center; gap: 24px; }
+.nav-links { display: flex; gap: 22px; }
+.nav-links a { font-size: 10.5px; font-weight: 400; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); transition: color .2s; }
+.nav-links a:hover { color: var(--ink); }
+.nav-cta { font-size: 10.5px; font-weight: 400; letter-spacing: .07em; color: var(--amber-hi); padding: 8px 20px; border: 1px solid var(--amber-lo); border-radius: 100px; transition: all .28s var(--smooth); }
+.nav-cta:hover { background: rgba(184,146,42,.1); border-color: var(--amber); color: var(--ink); }
+.nav-back { display: flex; align-items: center; gap: 7px; font-size: 10.5px; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); transition: color .2s, gap .22s var(--smooth); }
+.nav-back:hover { color: var(--ink); gap: 11px; }
+.nav-back svg { transition: transform .22s var(--smooth); }
+.nav-back:hover svg { transform: translateX(-3px); }
+.burger { display: none; flex-direction: column; gap: 5px; width: 44px; height: 44px; align-items: center; justify-content: center; }
+.burger span { display: block; width: 22px; height: 1.5px; background: var(--ink-2); border-radius: 2px; transition: all .3s var(--smooth); }
+@media(max-width:800px){ .nav-links,.nav-cta{display:none} .burger{display:flex} }
 
-/* What's in every site */
-.includes-grid{display:grid;gap:0.875rem}
-@media(min-width:540px){.includes-grid{grid-template-columns:1fr 1fr}}
-@media(min-width:900px){.includes-grid{grid-template-columns:repeat(4,1fr)}}
+/* DRAWER */
+.drawer{position:fixed;inset:0;z-index:480;background:rgba(14,12,9,.97);backdrop-filter:blur(48px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(28px,5vh,44px);opacity:0;pointer-events:none;transition:opacity .32s var(--smooth);}
+.drawer.open{opacity:1;pointer-events:auto;}
+.drawer a{font-family:var(--ff-d);font-size:clamp(38px,9vw,58px);font-weight:300;color:var(--ink-2);transition:color .2s;-webkit-tap-highlight-color:transparent;}
+.drawer a:hover,.drawer a:active{color:var(--ink);}
+.dr-row{display:flex;gap:24px;}
+.dr-row a{font-family:var(--ff-b)!important;font-size:11px!important;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)!important;}
 
-.inc-card{
-  background:var(--gc);border:1px solid var(--bd);border-radius:1.125rem;
-  padding:1.5rem;transition:all 0.3s var(--sp);
+/* ══════════════════════════════════════
+   UTILITIES
+══════════════════════════════════════ */
+.wrap { max-width: 1300px; margin: 0 auto; padding: 0 clamp(20px,5vw,60px); }
+.cap-a { font-size: 9.5px; font-weight: 400; letter-spacing: .22em; text-transform: uppercase; color: var(--amber-hi); display: block; }
+.cap-s { font-size: 9.5px; font-weight: 400; letter-spacing: .22em; text-transform: uppercase; color: var(--sage-hi); display: block; }
+
+[data-r] { opacity: 0; transform: translateY(22px); transition: opacity .95s var(--ease) var(--d,0s), transform .95s var(--ease) var(--d,0s); }
+[data-r].on { opacity: 1; transform: none; }
+[data-r="f"] { transform: none; }
+
+/* ══════════════════════════════════════
+   BUTTONS
+══════════════════════════════════════ */
+.btn-a {
+  font-size: 13px; font-weight: 400; letter-spacing: .04em;
+  background: var(--amber); color: #0A0806;
+  padding: 0 32px; border-radius: 100px;
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 52px; transition: all .28s var(--smooth);
+  -webkit-tap-highlight-color: transparent;
 }
-.inc-card:hover{border-color:var(--ember-b);transform:translateY(-4px);box-shadow:0 16px 40px rgba(217,95,53,0.15)}
-.inc-icon{font-size:1.75rem;margin-bottom:0.875rem}
-.inc-title{font-size:0.9rem;font-weight:700;color:var(--t1);margin-bottom:0.375rem}
-.inc-desc{font-size:0.8125rem;color:var(--t3);line-height:1.65}
+.btn-a:hover { background: var(--amber-hi); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(184,146,42,.3); }
+.btn-a:active { transform: scale(.96)!important; }
 
-/* ─── PROCESS ─── */
-.process-section{padding:6rem 0;background:var(--bg2)}
-.process-grid{display:grid;gap:0;position:relative}
-@media(min-width:720px){.process-grid{grid-template-columns:repeat(4,1fr)}}
+.btn-g {
+  font-size: 13px; font-weight: 300; color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 8px; min-height: 52px;
+  transition: color .22s, gap .25s var(--smooth);
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-g::after { content: '→'; }
+.btn-g:hover { color: var(--ink); gap: 14px; }
 
-.process-line{
-  display:none;
-  position:absolute;top:2rem;left:12%;right:12%;
-  height:1px;background:var(--bd2);z-index:0;
+.btn-outline {
+  font-size: 12px; font-weight: 400; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--amber-hi);
+  padding: 0 24px; border-radius: 100px; border: 1px solid var(--amber-lo);
+  display: inline-flex; align-items: center; gap: 9px; min-height: 48px;
+  transition: all .28s var(--smooth);
+  -webkit-tap-highlight-color: transparent;
 }
-@media(min-width:720px){.process-line{display:block}}
+.btn-outline:hover { background: rgba(184,146,42,.08); border-color: var(--amber); color: var(--ink); gap: 13px; }
+.btn-outline svg { transition: transform .25s var(--smooth); }
+.btn-outline:hover svg { transform: translateX(4px); }
+.btn-outline:active { transform: scale(.96)!important; }
 
-.process-step{
-  text-align:center;padding:1.5rem 1.25rem;position:relative;z-index:1;
+/* ══════════════════════════════════════
+   HERO — practitioner arriving with purpose
+   No cinematic reveal. Just warmth and clarity.
+   The headline states exactly what this is.
+══════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end;
+  padding: var(--nav) clamp(20px,6vw,80px) clamp(60px,9vh,100px);
+  background: var(--bg);
+  overflow: hidden;
 }
-.process-num{
-  width:4rem;height:4rem;border-radius:50%;margin:0 auto 1.25rem;
-  display:flex;align-items:center;justify-content:center;
-  background:var(--gc);border:1px solid var(--ember-b);
-  font-family:var(--fd);font-size:1.5rem;font-weight:600;
-  background:var(--gm);color:var(--t1);
-  box-shadow:var(--sh);
-  position:relative;
+/* Hero aurora canvas — sits behind everything */
+#heroCanvas {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  opacity: 0; transition: opacity 2.8s .2s ease;
 }
-.process-num::after{
-  content:'';position:absolute;inset:-4px;border-radius:50%;
-  border:1px solid var(--ember-b);
+#heroCanvas.on { opacity: 1; }
+.hero-vl {
+  position: absolute; top: 0; bottom: 0; left: clamp(20px,6vw,80px); z-index: 1;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent 4%, var(--b) 18%, var(--b) 82%, transparent 96%);
+  pointer-events: none;
 }
-.process-title{font-size:0.9375rem;font-weight:700;color:var(--t1);margin-bottom:0.375rem}
-.process-desc{font-size:0.8125rem;color:var(--t3);line-height:1.65}
-.process-time{font-size:0.72rem;color:var(--t4);margin-top:0.5rem;font-style:italic;font-family:var(--fd)}
+.hero-badge {
+  position: absolute; top: calc(var(--nav) + 20px); left: calc(clamp(20px,6vw,80px) + 18px);
+  display: flex; align-items: center; gap: 8px;
+  font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-4);
+  opacity: 0; transition: opacity .8s 2.2s var(--ease);
+}
+.hero-badge.go { opacity: 1; }
+.hero-badge-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--amber); opacity: .6; animation: dotPulse 3s ease-in-out infinite; }
+@keyframes dotPulse { 0%,100%{opacity:.4;transform:scale(1)} 50%{opacity:.8;transform:scale(1.2)} }
 
-/* ─── DEMO SHOWCASE ─── */
-.demo-section{padding:6rem 0;background:var(--bg-alt)}
-.demo-header{text-align:center;margin-bottom:3.5rem}
-.demo-cards{display:grid;gap:2rem}
-@media(min-width:760px){.demo-cards{grid-template-columns:1fr 1fr}}
-.demo-card{background:var(--bg);border:1px solid var(--bd);border-radius:1.5rem;overflow:hidden;display:flex;flex-direction:column;transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1)}
-.demo-card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(0,0,0,0.15)}
-.demo-card-featured{border-color:var(--ember-b);box-shadow:0 4px 32px rgba(217,95,53,0.12)}
-.demo-badge-tier{font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--te);background:var(--ember-s);border-bottom:1px solid var(--bd);padding:0.625rem 1.5rem}
-.demo-badge-featured{color:white;background:linear-gradient(90deg,var(--ember),var(--ember-l));border-bottom:none}
-.demo-browser{border-bottom:1px solid var(--bd)}
-.demo-browser-bar{background:var(--bg-alt);padding:0.625rem 1rem;display:flex;align-items:center;gap:0.75rem;border-bottom:1px solid var(--bd)}
-.demo-dots{display:flex;gap:0.3rem}
-.demo-dots span{width:0.5rem;height:0.5rem;border-radius:50%;background:var(--bd3)}
-.demo-dots span:nth-child(1){background:#ff6b6b40}
-.demo-dots span:nth-child(2){background:#ffd93d40}
-.demo-dots span:nth-child(3){background:#6bcb7740}
-.demo-url{font-size:0.72rem;color:var(--t4);background:var(--bg);border:1px solid var(--bd);border-radius:999px;padding:0.2rem 0.75rem;flex:1;text-align:center}
-.demo-screen{height:220px;overflow:hidden;position:relative}
-/* Profile demo - warm parchment palette */
-.demo-screen-profile{background:#faf6ef}
-.ds-nav{display:flex;align-items:center;padding:0.625rem 1rem;gap:0.5rem;border-bottom:1px solid rgba(90,48,20,0.08)}
-.ds-logo{font-family:var(--fd);font-size:0.62rem;font-weight:600;color:#2a1a0e;flex:1}
-.ds-nav-cta{font-size:0.55rem;font-weight:700;background:linear-gradient(135deg,#c4633a,#c4902a);color:white;padding:0.2rem 0.625rem;border-radius:999px}
-.ds-hero{padding:1.25rem 1rem 0.75rem}
-.ds-hero-warm{background:linear-gradient(160deg,#faf6ef,#f4ede0)}
-.ds-avail{font-size:0.5rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8a6445;background:rgba(138,100,69,0.08);border:1px solid rgba(138,100,69,0.18);border-radius:999px;padding:0.15rem 0.5rem;display:inline-block;margin-bottom:0.5rem}
-.ds-h1{font-family:var(--fd);font-size:1.125rem;font-weight:600;color:#2a1a0e;line-height:1.2;margin-bottom:0.35rem}
-.ds-h1 em{font-style:italic;color:#c4633a}
-.ds-p{font-size:0.55rem;color:#7a6050;margin-bottom:0.5rem}
-.ds-btns{display:flex;gap:0.375rem;margin-bottom:0.875rem}
-.ds-btn-p{font-size:0.52rem;font-weight:700;background:linear-gradient(135deg,#c4633a,#c4902a);color:white;padding:0.25rem 0.625rem;border-radius:999px}
-.ds-btn-g{font-size:0.52rem;font-weight:600;color:#8a6445;border:1px solid rgba(138,100,69,0.3);padding:0.25rem 0.625rem;border-radius:999px}
-.ds-concerns{display:grid;grid-template-columns:repeat(4,1fr);gap:0.375rem;padding:0 1rem}
-.ds-concern{background:white;border:1px solid rgba(90,48,20,0.08);border-radius:0.5rem;padding:0.375rem 0.25rem;text-align:center}
-.ds-ci{font-size:0.75rem;margin-bottom:0.15rem}
-.ds-ct{font-size:0.45rem;font-weight:600;color:#5c4428}
-.ds-fade{position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(transparent,#f4ede0)}
-/* Custom demo - dark forest palette */
-.demo-screen-custom{background:#0f1f16}
-.ds-nav-dark{background:rgba(15,31,22,0.97);border-bottom:1px solid rgba(106,144,112,0.15)}
-.ds-logo-dark{color:#faf8f3}
-.ds-nav-links-mini{display:flex;gap:0.5rem}
-.ds-nav-links-mini span{font-size:0.45rem;color:rgba(122,112,96,0.9)}
-.ds-nav-cta-sage{background:linear-gradient(135deg,#2d4f3a,#6a9070)}
-.ds-hero-forest{background:linear-gradient(160deg,#0f1f16,#152318);padding:1.25rem 1rem 0.75rem}
-.ds-avail-sage{color:#8aaa90;background:rgba(106,144,112,0.1);border:1px solid rgba(106,144,112,0.25)}
-.ds-h1-light{color:#faf8f3}
-.ds-h1-light em{color:#8aaa90}
-.ds-p-light{color:#c8bfa8}
-.ds-btn-sage{font-size:0.52rem;font-weight:700;background:linear-gradient(135deg,#2d4f3a,#6a9070);color:#faf8f3;padding:0.25rem 0.625rem;border-radius:999px}
-.ds-btn-ghost{font-size:0.52rem;font-weight:600;color:#8aaa90;border:1px solid rgba(106,144,112,0.3);padding:0.25rem 0.625rem;border-radius:999px}
-.ds-mini-nav{display:flex;gap:0.375rem;padding:0.625rem 1rem;overflow:hidden}
-.ds-mn{font-size:0.5rem;font-weight:600;color:rgba(122,112,96,0.8);padding:0.2rem 0.5rem;border-radius:999px;border:1px solid rgba(106,144,112,0.15);white-space:nowrap}
-.ds-mn.active{background:rgba(106,144,112,0.12);border-color:rgba(106,144,112,0.3);color:#8aaa90}
-.ds-fade-dark{background:linear-gradient(transparent,#0f1f16)}
-.demo-info{padding:1.75rem;flex:1;display:flex;flex-direction:column;gap:0.625rem}
-.demo-info-title{font-family:var(--fd);font-size:1rem;font-weight:600;color:var(--t1);line-height:1.3}
-.demo-info-desc{font-size:0.875rem;color:var(--t3);line-height:1.65;font-weight:300}
-.demo-features{display:flex;flex-wrap:wrap;gap:0.375rem;margin-top:0.25rem}
-.demo-feat{font-size:0.72rem;color:var(--t4);background:var(--ember-s);border:1px solid var(--bd);padding:0.2rem 0.625rem;border-radius:999px}
-.demo-cta-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:auto;padding-top:1.25rem;font-size:0.9375rem;font-weight:700;color:var(--ember);text-decoration:none;transition:gap 0.2s;gap:0.25rem}
-.demo-cta-btn:hover{gap:0.5rem}
-.demo-cta-sage{color:#6a9070}
-.demo-footnote{text-align:center;font-size:0.8125rem;color:var(--t4);margin-top:2rem;font-style:italic}
-/* ─── PRICING ─── */
-.pricing-section{padding:6rem 0;background:var(--bg)}
-.pricing-header{text-align:center;max-width:44rem;margin:0 auto 3.5rem}
-.pricing-grid{display:grid;gap:1.25rem;max-width:56rem;margin:0 auto}
-@media(min-width:680px){.pricing-grid{grid-template-columns:1fr 1fr}}
+#heroC { position: relative; z-index: 2; }
 
-.pricing-card{
-  border-radius:1.375rem;overflow:hidden;
-  border:1px solid var(--bd2);background:var(--gc);
-  display:flex;flex-direction:column;
-  transition:transform 0.35s var(--sp),box-shadow 0.35s,border-color 0.25s;
+.hero-kicker {
+  font-size: 9.5px; font-weight: 400; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--amber-hi);
+  margin-bottom: clamp(14px,2vw,22px);
+  opacity: 0; transform: translateY(8px);
+  transition: opacity .8s .4s var(--ease), transform .8s .4s var(--ease);
 }
-.pricing-card:hover{transform:translateY(-6px);border-color:var(--ember-b);box-shadow:0 24px 56px rgba(217,95,53,0.2)}
-.pricing-card-featured{border-color:var(--ember-b);position:relative}
-.pricing-card-featured::before{
-  content:'Most Popular';
-  position:absolute;top:0;right:1.5rem;
-  background:var(--gm);color:var(--t1);
-  font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
-  padding:0.3rem 0.75rem;border-radius:0 0 0.625rem 0.625rem;
+.hero-kicker.go { opacity: 1; transform: none; }
+
+.hero-h1 {
+  font-family: var(--ff-d);
+  font-size: clamp(56px,10vw,148px);
+  font-weight: 300; line-height: .9; letter-spacing: -.026em;
+  max-width: 980px;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 1s .6s var(--ease), transform 1s .6s var(--ease);
+}
+.hero-h1.go { opacity: 1; transform: none; }
+.hero-h1 em { font-style: italic; color: var(--ink-2); }
+
+.hero-foot {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 24px; margin-top: clamp(28px,4vh,44px); flex-wrap: wrap;
+}
+.hero-desc {
+  font-size: clamp(14px,1.5vw,16px); font-weight: 300; color: var(--ink-2);
+  max-width: 320px; line-height: 2;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity .9s 1.1s var(--ease), transform .9s 1.1s var(--ease);
+}
+.hero-desc.go { opacity: 1; transform: none; }
+.hero-acts {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity .9s 1.4s var(--ease), transform .9s 1.4s var(--ease);
+}
+.hero-acts.go { opacity: 1; transform: none; }
+@media(max-width:600px){
+  .hero-foot { flex-direction: column; align-items: flex-start; }
+  .hero-desc { max-width: 100%; }
+  .hero-acts { width: 100%; }
+  .btn-a,.btn-outline { width: 100%; justify-content: center; }
 }
 
-.pricing-top{padding:2rem 2rem 1.5rem;border-bottom:1px solid var(--bd)}
-.pricing-name{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--te);margin-bottom:0.625rem}
-.pricing-title{font-family:var(--fd);font-size:1.625rem;font-weight:600;color:var(--t1);margin-bottom:0.5rem}
-.pricing-hook{font-size:0.875rem;color:var(--t3);line-height:1.6}
-.pricing-price{margin-top:1.25rem}
-.pricing-amount{font-family:var(--fd);font-size:2.25rem;font-weight:600;color:var(--tg)}
-.pricing-period{font-family:var(--fb);font-size:0.875rem;color:var(--t4);font-weight:400}
-
-.pricing-body{padding:1.5rem 2rem;flex:1}
-.pricing-feats{list-style:none;display:flex;flex-direction:column;gap:0.625rem;margin-bottom:1.5rem}
-.pricing-feats li{font-size:0.875rem;color:var(--t2);display:flex;gap:0.625rem;align-items:flex-start;line-height:1.5}
-.pricing-feats li::before{content:'✓';color:var(--sage);font-weight:700;flex-shrink:0;font-size:0.8rem;margin-top:0.125rem}
-.pricing-gift{
-  background:linear-gradient(135deg,rgba(232,160,48,0.1),rgba(217,95,53,0.07));
-  border:1px solid var(--gold-b);border-radius:0.875rem;padding:1rem;
+/* Credential strip */
+.cred-strip {
+  margin-top: clamp(40px,6vh,64px);
+  padding-top: clamp(24px,3vh,36px);
+  border-top: 1px solid var(--b);
+  display: flex; align-items: center; gap: clamp(20px,4vw,44px); flex-wrap: wrap;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity .9s 1.7s var(--ease), transform .9s 1.7s var(--ease);
 }
-.pricing-gift-label{font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--tg);margin-bottom:0.375rem}
-.pricing-gift-text{font-size:0.8125rem;color:var(--t2);line-height:1.55}
-
-.pricing-foot{padding:1.5rem 2rem;border-top:1px solid var(--bd);background:rgba(0,0,0,0.12)}
-
-/* ─── TRUST ─── */
-.trust-section{padding:6rem 0;background:var(--bg2)}
-.trust-grid{display:grid;gap:1.125rem}
-@media(min-width:640px){.trust-grid{grid-template-columns:1fr 1fr}}
-@media(min-width:900px){.trust-grid{grid-template-columns:repeat(3,1fr)}}
-
-.trust-card{
-  background:var(--gc);border:1px solid var(--bd);border-radius:1.25rem;
-  padding:1.75rem;
+.cred-strip.go { opacity: 1; transform: none; }
+.cred-item {
+  display: flex; align-items: center; gap: 9px;
+  font-size: 10.5px; font-weight: 300; color: var(--ink-2);
+  letter-spacing: .04em;
 }
-.trust-stars{font-size:0.8rem;color:var(--gold);letter-spacing:0.05em;margin-bottom:0.875rem}
-.trust-q{
-  font-family:var(--fd);font-style:italic;font-size:1.0625rem;
-  color:var(--t2);line-height:1.72;margin-bottom:1rem;
-}
-.trust-q::before{content:'\201C';font-size:2.5rem;color:var(--ember-b);line-height:0;vertical-align:-0.75rem;margin-right:0.1rem}
-.trust-name{font-size:0.8125rem;font-weight:700;color:var(--t1)}
-.trust-role{font-size:0.75rem;color:var(--t4);margin-top:0.1rem}
+.cred-item::before { content: ''; width: 14px; height: 1px; background: var(--amber); flex-shrink: 0; }
 
-/* About clinician bar */
-.clinician-bar{
-  background:var(--bg3);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);
-  padding:2.5rem 0;
+/* ══════════════════════════════════════
+   SERVICES — clear, direct, no drama
+══════════════════════════════════════ */
+.services {
+  background: var(--bg-1);
+  border-top: 1px solid var(--b);
+  padding: clamp(80px,12vh,140px) 0 clamp(100px,14vh,160px);
 }
-.clinician-inner{
-  display:flex;align-items:center;gap:2rem;flex-wrap:wrap;
-  justify-content:center;
+.srv-hdr {
+  margin-bottom: clamp(56px,8vh,96px);
 }
-.clinician-av{
-  width:4.5rem;height:4.5rem;border-radius:1rem;
-  background:var(--gm);flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--fd);font-size:2rem;font-weight:600;color:var(--t1);
-  box-shadow:var(--sh);
+.srv-intro {
+  font-family: var(--ff-d);
+  font-size: clamp(36px,6vw,68px);
+  font-weight: 300; line-height: .98; letter-spacing: -.022em;
+  max-width: 760px;
 }
-.clinician-text{}
-.clinician-name{font-family:var(--fd);font-size:1.25rem;font-weight:600;color:var(--t1);margin-bottom:0.1rem}
-.clinician-cred{font-size:0.8125rem;color:var(--te);font-weight:600;margin-bottom:0.5rem}
-.clinician-desc{font-size:0.875rem;color:var(--t3);line-height:1.65;max-width:46ch}
+.srv-intro em { font-style: italic; color: var(--ink-2); }
+.srv-note {
+  font-size: clamp(13px,1.35vw,15px); font-weight: 300; color: var(--ink-2);
+  max-width: 400px; line-height: 1.92; margin-top: clamp(20px,3vw,32px);
+}
 
-/* ─── FAQ ─── */
-.faq-section{padding:6rem 0;background:var(--bg)}
-.faq-grid{max-width:52rem;margin:0 auto;display:flex;flex-direction:column;gap:0}
-
-.faq-item{border-bottom:1px solid var(--bd)}
-.faq-item:first-child{border-top:1px solid var(--bd)}
-.faq-q{
-  width:100%;background:none;border:none;cursor:pointer;
-  font-family:var(--fb);font-size:0.9375rem;font-weight:600;color:var(--t1);
-  padding:1.375rem 0;text-align:left;
-  display:flex;justify-content:space-between;align-items:center;gap:1rem;
-  transition:color 0.2s;
-;-webkit-appearance:none;appearance:none}
-.faq-q:hover{color:var(--te)}
-.faq-icon{
-  width:1.5rem;height:1.5rem;border-radius:50%;
-  background:var(--ember-s);border:1px solid var(--ember-b);
-  flex-shrink:0;display:flex;align-items:center;justify-content:center;
-  font-size:0.875rem;color:var(--te);font-weight:700;
-  transition:transform 0.3s var(--sp),background 0.2s;
+/* Service cards */
+.srv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
 }
-.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--ember-b)}
-.faq-a{
-  max-height:0;overflow:hidden;
-  transition:max-height 0.4s var(--sm);
-}
-.faq-item.open .faq-a{max-height:20rem}
-.faq-a-inner{padding:0 0 1.375rem;font-size:0.9rem;color:var(--t2);line-height:1.78}
-.faq-a-inner strong{color:var(--t1)}
-.faq-a-inner a{color:var(--te);text-decoration:underline}
+@media(max-width:780px){ .srv-grid { grid-template-columns: 1fr; } }
 
-/* ─── FINAL CTA ─── */
-.final{
-  padding:7rem 0;background:var(--bg3);text-align:center;
-  position:relative;overflow:hidden;
+.srv-card {
+  background: var(--bg-card);
+  border: 1px solid var(--b);
+  border-radius: 22px;
+  padding: clamp(28px,4vw,48px);
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+  transition: background .35s var(--smooth), border-color .35s var(--smooth), box-shadow .35s var(--smooth);
+  -webkit-tap-highlight-color: transparent;
 }
-.final-glow{
-  position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 70% 80% at 50% 50%,rgba(217,95,53,0.08),transparent);
+.srv-card::before {
+  content: ''; position: absolute; inset: 0; border-radius: 22px; pointer-events: none;
+  opacity: 0; transition: opacity .4s var(--smooth);
 }
-.final-h2{font-family:var(--fd);font-size:clamp(2.5rem,6vw,4.75rem);font-weight:600;line-height:1;letter-spacing:-0.03em;color:var(--t1);margin-bottom:1.125rem}
-.final-h2 em{font-style:italic;color:var(--te)}
-.final-p{font-size:1rem;color:var(--t2);line-height:1.78;max-width:38ch;margin:0 auto 2.25rem}
-.final-actions{display:flex;gap:0.875rem;justify-content:center;flex-wrap:wrap}
-.final-note{margin-top:1.5rem;font-size:0.8rem;color:var(--t4);line-height:1.65}
+/* Website card — amber sheen */
+.srv-card.c-web::before { background: radial-gradient(ellipse 55% 45% at 92% 8%, rgba(184,146,42,.07), transparent 55%); }
+/* Worksheet card — sage sheen */
+.srv-card.c-sheets::before { background: radial-gradient(ellipse 55% 45% at 8% 8%, rgba(74,122,98,.055), transparent 55%); }
 
-/* ─── FOOTER ─── */
-footer{background:var(--bg3);border-top:1px solid var(--bd);padding:2.5rem 0}
-.footer-inner{max-width:72rem;margin:0 auto;padding:0 1.5rem;display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-start}
-.footer-logo{font-family:var(--fd);font-size:1.375rem;font-weight:500;margin-bottom:0.375rem;background:linear-gradient(to bottom,#FFF4D1 0%,#FFCC70 30%,#D96A25 60%,#8E350C 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 12px rgba(217,106,37,0.18));display:inline-block}
-.footer-logo em{font-style:italic;font-weight:500}
-.footer-tag{font-size:0.8rem;color:var(--t3);line-height:1.65}
-.footer-links{list-style:none;display:flex;flex-wrap:wrap;gap:0.5rem 1.5rem}
-.footer-links a{font-size:0.8125rem;color:var(--t3);transition:color 0.2s}
-.footer-links a:hover{color:var(--te)}
-.footer-bottom{margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--bd);max-width:72rem;margin:2rem auto 0;padding:1.25rem 1.5rem 0;display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:space-between}
-.footer-copy{font-size:0.75rem;color:var(--t4)}
-.footer-legal{font-size:0.72rem;color:var(--t4);max-width:50ch;line-height:1.6}
-
-/* ─── REVEAL ─── */
-.r{opacity:0;transform:translateY(24px);transition:opacity 0.65s ease,transform 0.65s var(--sm)}
-.r.in{opacity:1;transform:none}
-.r.d1{transition-delay:0.1s}.r.d2{transition-delay:0.2s}.r.d3{transition-delay:0.3s}.r.d4{transition-delay:0.4s}
-
-/* ─── RESPONSIVE ─── */
-@media(max-width:640px){
-  .hero-content{padding:2.5rem 1.5rem 0}
-  .process-grid{grid-template-columns:1fr 1fr}
-  .final-actions{flex-direction:column;align-items:center}
+.srv-card:hover { background: var(--bg-warm); border-color: var(--b-hi); box-shadow: 0 20px 56px rgba(0,0,0,.38); }
+.srv-card:hover::before { opacity: 1; }
+/* Mouse sheen via JS */
+.srv-card::after {
+  content: ''; position: absolute; inset: 0; border-radius: 22px; pointer-events: none;
+  background: radial-gradient(circle 220px at calc(var(--mx,50%)) calc(var(--my,50%)), rgba(237,227,208,.045), transparent 60%);
+  opacity: 0; transition: opacity .4s var(--smooth);
 }
-  </style>
+.srv-card:hover::after { opacity: 1; }
+
+.srv-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; margin-bottom: 22px;
+  flex-shrink: 0;
+}
+.srv-icon.amber { background: var(--amber-gl); border: 1px solid var(--amber-lo); }
+.srv-icon.sage  { background: rgba(74,122,98,.09); border: 1px solid var(--sage-lo); }
+
+.srv-name {
+  font-family: var(--ff-d);
+  font-size: clamp(26px,3.5vw,44px);
+  font-weight: 300; letter-spacing: -.016em; line-height: 1.05;
+  margin-bottom: clamp(12px,1.5vw,18px);
+}
+.srv-desc {
+  font-size: clamp(13px,1.3vw,14.5px); font-weight: 300; color: var(--ink-2);
+  line-height: 1.92; margin-bottom: clamp(20px,3vw,32px); max-width: 380px;
+}
+.srv-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: clamp(24px,3.5vw,38px); }
+.srv-item { display: flex; align-items: flex-start; gap: 11px; font-size: clamp(13.5px,1.3vw,14.5px); font-weight: 300; color: var(--ink-2); line-height: 1.6; }
+.srv-dot { width: 4px; height: 4px; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+.srv-dot.amber { background: var(--amber); }
+.srv-dot.sage  { background: var(--sage-hi); }
+.srv-foot {
+  margin-top: auto;
+  padding-top: clamp(20px,3vw,30px);
+  border-top: 1px solid var(--b);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.srv-price { font-family: var(--ff-d); font-size: clamp(36px,4.5vw,52px); font-weight: 300; line-height: 1; }
+.srv-pnote { font-size: 9px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--amber-hi); margin-top: 4px; }
+.srv-lk {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 400; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--amber-hi); transition: gap .22s var(--smooth), color .2s;
+}
+.srv-card:hover .srv-lk { gap: 13px; color: var(--ink); }
+
+/* Worksheet rows */
+.ws-rows { display: flex; flex-direction: column; gap: 8px; margin-bottom: clamp(20px,3vw,32px); }
+.ws-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; background: rgba(237,227,208,.03);
+  border: 1px solid rgba(237,227,208,.07); border-radius: 10px;
+  transition: all .2s; min-height: 48px;
+}
+.srv-card:hover .ws-row { background: rgba(237,227,208,.055); border-color: var(--b-hi); }
+.ws-nm { font-size: clamp(13px,1.2vw,14px); font-weight: 300; color: var(--ink-2); }
+.ws-pr { font-family: var(--ff-d); font-size: 15px; font-weight: 300; color: var(--ink); }
+
+/* ══════════════════════════════════════
+   PROFILE BUILDER — website service demo
+   Therapists can type their info and see
+   their site taking shape live.
+   This is the best feature on the page.
+══════════════════════════════════════ */
+.builder {
+  background: var(--bg);
+  border-top: 1px solid var(--b);
+  padding: clamp(80px,12vh,140px) 0;
+}
+.bldr-inner {
+  display: grid; grid-template-columns: 1fr 1.3fr;
+  gap: clamp(40px,7vw,88px); align-items: center;
+}
+@media(max-width:860px){ .bldr-inner { grid-template-columns: 1fr; } }
+
+.bldr-copy h2 {
+  font-family: var(--ff-d);
+  font-size: clamp(34px,5.5vw,64px);
+  font-weight: 300; line-height: .96; letter-spacing: -.022em;
+  margin-bottom: clamp(16px,2.5vw,26px);
+}
+.bldr-copy h2 em { font-style: italic; color: var(--ink-2); }
+.bldr-copy p {
+  font-size: clamp(13px,1.35vw,15px); font-weight: 300; color: var(--ink-2);
+  line-height: 1.92; max-width: 380px; margin-bottom: clamp(24px,3.5vw,38px);
+}
+.bldr-fields { display: flex; flex-direction: column; gap: 10px; }
+.bldr-field {
+  display: flex; flex-direction: column; gap: 5px;
+}
+.bldr-label { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); }
+.bldr-in {
+  background: rgba(237,227,208,.04); border: 1px solid var(--b);
+  border-radius: 10px; padding: 0 14px; font: inherit;
+  font-size: 13px; color: var(--ink-2); outline: none;
+  transition: border-color .22s, background .22s; min-height: 48px;
+}
+.bldr-in:focus { border-color: var(--amber); background: rgba(184,146,42,.04); }
+.bldr-in::placeholder { color: var(--ink-3); }
+.bldr-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+
+/* Browser preview */
+#pB {
+  background: #090908;
+  border: 1px solid rgba(237,227,208,.10);
+  border-radius: 14px; overflow: hidden;
+  box-shadow: 0 20px 64px rgba(0,0,0,.62), 0 4px 12px rgba(0,0,0,.3);
+  transition: transform .5s var(--smooth), box-shadow .5s var(--smooth);
+}
+.builder:hover #pB { transform: scale(1.01) translateY(-4px); box-shadow: 0 30px 88px rgba(0,0,0,.7); }
+.bc { height: 36px; background: #060607; border-bottom: 1px solid rgba(255,255,255,.05); display: flex; align-items: center; padding: 0 14px; gap: 14px; }
+.bcd { display: flex; gap: 5px; }
+.bcd span { display: block; width: 9px; height: 9px; border-radius: 50%; }
+.bcd span:nth-child(1){background:rgba(255,80,70,.5)}.bcd span:nth-child(2){background:rgba(255,185,35,.4)}.bcd span:nth-child(3){background:rgba(50,200,80,.4)}
+.bub { flex: 1; display: flex; justify-content: center; }
+.bu { font-size: 10px; color: rgba(237,227,208,.22); background: rgba(255,255,255,.04); padding: 3px 14px; border-radius: 4px; transition: all .35s; }
+.bb { padding: 16px 18px 14px; display: flex; flex-direction: column; gap: 11px; }
+.pn { display: flex; align-items: center; justify-content: space-between; padding-bottom: 11px; border-bottom: 1px solid rgba(255,255,255,.04); }
+.pl { font-family: var(--ff-d); font-size: 12px; color: rgba(237,227,208,.6); letter-spacing: .04em; transition: all .35s; }
+.plk { display: flex; gap: 12px; }
+.plk span { font-size: 7.5px; letter-spacing: .08em; text-transform: uppercase; color: rgba(237,227,208,.24); }
+.ph { display: flex; align-items: center; gap: 12px; }
+.pp { width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg,rgba(74,122,98,.24),rgba(8,12,7,.8)); border: 1px solid rgba(74,122,98,.28); display: flex; align-items: center; justify-content: center; font-family: var(--ff-d); font-size: 19px; color: var(--sage-hi); transition: all .35s; }
+.pi { flex: 1; }
+.pname { font-family: var(--ff-d); font-size: 12.5px; color: rgba(237,227,208,.8); transition: all .35s; }
+.pcred { font-size: 7px; letter-spacing: .1em; text-transform: uppercase; color: rgba(107,173,132,.7); margin-top: 2px; transition: all .35s; }
+.pbtn { font-size: 7.5px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: rgba(8,9,6,.9); background: rgba(107,173,132,.64); padding: 5px 11px; border-radius: 100px; white-space: nowrap; }
+.pchips { display: flex; gap: 5px; flex-wrap: wrap; }
+.pchip { font-size: 6.5px; letter-spacing: .06em; padding: 3px 10px; border-radius: 100px; background: rgba(237,227,208,.05); border: 1px solid rgba(237,227,208,.09); color: rgba(237,227,208,.34); }
+.pbio { display: flex; flex-direction: column; gap: 5px; }
+.pbl { height: 4px; border-radius: 2px; background: rgba(237,227,208,.07); }
+.pbl:nth-child(1){width:88%}.pbl:nth-child(2){width:78%}.pbl:nth-child(3){width:52%}
+.pst { display: flex; gap: 9px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,.04); }
+.ps { flex: 1; }
+.psl { font-size: 5.5px; letter-spacing: .12em; text-transform: uppercase; color: rgba(237,227,208,.22); }
+.psv { font-size: 7.5px; color: rgba(237,227,208,.46); margin-top: 2px; transition: all .35s; }
+
+/* ══════════════════════════════════════
+   ABOUT MELI — clinician-facing version
+   Warm but professional. Her credentials
+   matter here in a way they don't on
+   the consumer page.
+══════════════════════════════════════ */
+.about {
+  background: var(--bg-1);
+  border-top: 1px solid var(--b);
+  padding: clamp(80px,12vh,140px) 0;
+}
+.about-g { display: grid; grid-template-columns: auto 1fr; gap: clamp(40px,8vw,96px); align-items: start; }
+@media(max-width:540px){ .about-g { grid-template-columns: 1fr; gap: 28px; } }
+.avatar { width: clamp(80px,10vw,108px); height: clamp(80px,10vw,108px); border-radius: 50%; background: var(--bg-card); border: 1px solid var(--b-hi); display: flex; align-items: center; justify-content: center; font-family: var(--ff-d); font-size: clamp(30px,4vw,44px); color: var(--ink-3); flex-shrink: 0; transition: border-color .35s, box-shadow .35s; }
+.avatar:hover { border-color: var(--amber); box-shadow: 0 0 0 5px rgba(184,146,42,.07); }
+.about-pre { font-size: 9.5px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color: var(--amber-hi); margin-bottom: 14px; }
+.about-q { font-family: var(--ff-d); font-size: clamp(22px,3.2vw,40px); font-weight: 300; font-style: italic; line-height: 1.24; max-width: 560px; margin-bottom: 20px; }
+.about-p { font-size: clamp(15px,1.5vw,16px); font-weight: 300; color: var(--ink-2); line-height: 1.96; max-width: 510px; }
+.about-creds { display: flex; flex-direction: column; gap: 8px; margin-top: 24px; }
+.about-cred { display: flex; align-items: center; gap: 9px; font-size: 11px; font-weight: 300; color: var(--ink-2); }
+.about-cred::before { content: ''; width: 14px; height: 1px; background: var(--amber); flex-shrink: 0; }
+
+/* ══════════════════════════════════════
+   CTA
+══════════════════════════════════════ */
+.cta {
+  background: var(--bg);
+  border-top: 1px solid var(--b);
+  padding: clamp(100px,15vh,180px) clamp(20px,5.5vw,64px);
+  text-align: center; position: relative; overflow: hidden;
+}
+.cta-glow { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 50% 55% at 50% 50%, rgba(184,146,42,.046), transparent); }
+.cta-h { font-family: var(--ff-d); font-size: clamp(42px,9vw,120px); font-weight: 300; letter-spacing: -.026em; line-height: .9; max-width: 820px; margin: 0 auto 22px; position: relative; z-index: 1; }
+.cta-h em { font-style: italic; color: var(--ink-2); }
+.cta-sub { font-size: clamp(14px,1.5vw,16px); color: var(--ink-2); font-weight: 300; margin-bottom: 44px; line-height: 1.84; position: relative; z-index: 1; max-width: 320px; margin-left: auto; margin-right: auto; }
+.cta-row { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; position: relative; z-index: 1; }
+@media(max-width:480px){ .cta-row { flex-direction: column; width: 100%; } .cta-row .btn-a,.cta-row .btn-g { width: 100%; justify-content: center; } }
+.cta-note { margin-top: 24px; font-size: 10.5px; font-weight: 300; color: var(--ink-4); position: relative; z-index: 1; letter-spacing: .05em; }
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer { border-top: 1px solid var(--b); background: var(--bg-1); padding: clamp(44px,6vh,72px) clamp(20px,5vw,60px) clamp(36px,5vh,54px); }
+.fi { max-width: 1300px; margin: 0 auto; display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+.fbrand .fwm { font-family: var(--ff-d); font-size: 19px; font-weight: 300; letter-spacing: .04em; }
+.fbrand .fwm span { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--amber-hi); margin-left: 8px; vertical-align: middle; }
+.fbrand .ftag { font-size: 10.5px; color: var(--ink-3); font-weight: 300; line-height: 1.62; margin-top: 6px; }
+.fcols { display: flex; gap: clamp(28px,5vw,60px); flex-wrap: wrap; }
+.fcol { display: flex; flex-direction: column; gap: 10px; }
+.fch { font-size: 9px; font-weight: 400; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 2px; }
+.fcol a { font-size: 12px; color: var(--ink-2); font-weight: 300; transition: color .2s; min-height: 36px; display: flex; align-items: center; }
+.fcol a:hover { color: var(--ink-2); }
+.fbase { max-width: 1300px; margin: clamp(32px,4vh,48px) auto 0; padding-top: clamp(22px,3vh,34px); border-top: 1px solid var(--b); display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.fbase p,.fbase a { font-size: 10.5px; color: var(--ink-3); font-weight: 300; }
+.fbase a { text-decoration: underline; text-underline-offset: 3px; transition: color .2s; }
+.fbase a:hover { color: var(--ink-2); }
+.flegal { display: flex; gap: 16px; }
+
+:focus-visible { outline: 2px solid var(--amber-hi); outline-offset: 3px; border-radius: 4px; }
+@media(hover:none){ .btn-a:hover,.btn-g:hover,.btn-outline:hover{transform:none;box-shadow:none;} .srv-card:hover{transform:none;} }
+
+/* ══════════════════════════════════════
+   SCROLL WARMTH
+   A gentle amber ember glows from the bottom
+   of the page and brightens as you scroll.
+   Feels like a lamp warming the room.
+══════════════════════════════════════ */
+.scroll-ember {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  height: 280px; z-index: -1; pointer-events: none;
+  background: radial-gradient(ellipse 80% 100% at 50% 100%,
+    rgba(184,146,42,.0) 0%, transparent 70%);
+  transition: background 1.2s ease;
+  will-change: background;
+}
+
+/* Service card warm border glow on hover — more physical */
+.srv-card {
+  transition: background .35s var(--smooth),
+              border-color .35s var(--smooth),
+              box-shadow .35s var(--smooth);
+}
+.srv-card:hover {
+  box-shadow:
+    0 20px 56px rgba(0,0,0,.38),
+    0 0 0 1px rgba(184,146,42,.12),
+    inset 0 1px 0 rgba(237,227,208,.06);
+}
+
+/* Builder section — subtle warm pulse on the preview */
+#pB {
+  transition: transform .5s var(--smooth), box-shadow .5s var(--smooth);
+}
+/* When any field is focused, the preview lifts slightly */
+.bldr-in:focus ~ * #pB,
+.bldr-fields:focus-within ~ div #pB {
+  transform: scale(1.015) translateY(-4px);
+  box-shadow: 0 28px 72px rgba(0,0,0,.65), 0 0 0 1px rgba(184,146,42,.1);
+}
+
+/* Touch spring feedback */
+.btn-a.pressing { transform: scale(.93)!important; transition-duration: .08s!important; }
+.btn-outline.pressing { transform: scale(.93)!important; transition-duration: .08s!important; }
+
+</style>
+
 </head>
 <body>
 
+<!-- Page transition veil — lifts on load -->
+
+<div class="page-veil" id="veil" aria-hidden="true"></div>
+<!-- Scroll warmth ember — fixed amber glow that deepens on scroll -->
+<div class="scroll-ember" id="scrollEmber" aria-hidden="true"></div>
+
+<div id="cR" aria-hidden="true"></div>
+<div id="cD" aria-hidden="true"></div>
+<div id="spb" aria-hidden="true"></div>
+
+<!-- PRELOADER — amber, brief, professional -->
+
+<div id="pre" role="status" aria-label="Loading Wellovie Clinical">
+  <div class="pre-glow" aria-hidden="true"></div>
+  <div class="pre-wm">Wellovie Clinical</div>
+  <div class="pre-sub-wrap">
+    <div class="pre-rule" aria-hidden="true"></div>
+    <span class="pre-sub">For practitioners, by a practitioner.</span>
+  </div>
+</div>
+
+<!-- DRAWER -->
+
+<div class="drawer" id="drawer" role="dialog" aria-label="Navigation" aria-hidden="true">
+  <a href="#services" onclick="closeDrawer()">Services</a>
+  <a href="#builder" onclick="closeDrawer()">Website Builder</a>
+  <a href="#about" onclick="closeDrawer()">About Meli</a>
+  <a href="#contact" onclick="closeDrawer()">Contact</a>
+  <div class="dr-row">
+    <a href="/" onclick="closeDrawer()">← Wellovie</a>
+  </div>
+</div>
+
 <!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a href="/" class="logo">
-      <svg width="28" height="28" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
-        <defs>
-          <linearGradient id="wv-b-th" x1="100" y1="17" x2="100" y2="177" gradientUnits="userSpaceOnUse">
-            <stop offset="0%"   stop-color="#FFFBF0"/><stop offset="16%"  stop-color="#FFF3D1"/>
-            <stop offset="36%"  stop-color="#FFCC70"/><stop offset="60%"  stop-color="#D96A25"/>
-            <stop offset="84%"  stop-color="#6A1C06"/><stop offset="100%" stop-color="#1A0802"/>
-          </linearGradient>
-          <linearGradient id="wv-r-th" x1="55" y1="112" x2="100" y2="21" gradientUnits="userSpaceOnUse">
-            <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0"/>
-            <stop offset="35%"  stop-color="#FFFFFF" stop-opacity="0.65"/>
-            <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
-          </linearGradient>
-          <radialGradient id="wv-o-th" cx="100" cy="128" r="28" gradientUnits="userSpaceOnUse">
-            <stop offset="0%"   stop-color="#FFFFFF"/><stop offset="16%"  stop-color="#FFF8E8"/>
-            <stop offset="46%"  stop-color="#FF9500"/><stop offset="100%" stop-color="#8E2A00"/>
-          </radialGradient>
-          <filter id="wv-g-th" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="10"/></filter>
-        </defs>
-        <path d="M100,17 C116,28 149,64 149,112 C149,151 128,173 100,177 C72,173 51,151 51,112 C51,64 84,28 100,17 Z" fill="url(#wv-b-th)"/>
-        <path d="M55,112 C56,76 70,42 100,21" stroke="url(#wv-r-th)" stroke-width="0.7" fill="none"/>
-        <circle cx="100" cy="128" r="34" fill="#AF4B1A" filter="url(#wv-g-th)" opacity="0.3"/>
-        <circle cx="100" cy="128" r="15" fill="url(#wv-o-th)"/>
-        <circle cx="93"  cy="120" r="5.5" fill="#FFFFFF" opacity="0.7"/>
-        <circle cx="94"  cy="119" r="2.2" fill="#FFFFFF" opacity="0.96"/>
-      </svg>
-      Wellovie
-    </a>
-    <a href="/" class="nav-back">
-      <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      Back to Wellovie
-    </a>
-    <a href="#pricing" class="nav-cta">See pricing &rarr;</a>
+
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <div class="nav-i">
+    <div class="nav-brand">
+      <a href="/clinical" class="logo">Wellovie <span style="color:var(--amber-hi);font-size:14px;letter-spacing:.12em;font-family:var(--ff-b);text-transform:uppercase;">Clinical</span></a>
+      <span class="logo-sub">For Practitioners</span>
+    </div>
+    <div class="nav-r">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#builder">Website</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+      <a href="/" class="nav-back" aria-label="Back to Wellovie">
+        <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M11.5 7h-9M6 3.5L2.5 7 6 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Wellovie
+      </a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
 
-<!-- ══ HERO ══ -->
-<section class="hero">
-  <div class="hero-atmo"></div>
-  <div class="hero-content">
+<!-- HERO -->
 
-    <div class="hero-left">
-      <div class="hero-kicker r">&#129657; Built by a licensed therapist &middot; For therapists</div>
-      <h1 class="hero-h1 r">
-        <span class="ruled">Your website should answer the hardest question your clients have &mdash;</span>
-        <em>Is it safe<br>to reach out?</em>
-      </h1>
-      <p class="hero-p r">Most therapy websites are built by designers who have never sat in a therapy room. Ours are built by a licensed therapist who has. That changes everything about what goes on the page &mdash; and what doesn&rsquo;t.</p>
-      <div class="hero-actions r">
-        <a href="#pricing" class="btn">See website packages &darr;</a>
-        <a href="#see-the-demos" class="btn-ghost">See live demos</a>
-      </div>
-      <p class="hero-trust r"><strong>One-time fee.</strong> No retainers. No monthly contracts. <strong>Free hosting included forever</strong> &mdash; saving you $15&ndash;$30/month compared to Squarespace or Wix. You own your site completely.</p>
-    </div>
-
-    <!-- CSS Browser Mockup -->
-    <div class="hero-right r d2">
-      <div class="browser-wrap">
-        <div class="browser-bar">
-          <div class="browser-dots">
-            <div class="browser-dot"></div>
-            <div class="browser-dot"></div>
-            <div class="browser-dot"></div>
-          </div>
-          <div class="browser-url">yourname-therapy.com</div>
-        </div>
-        <div class="browser-screen">
-          <div class="mock">
-            <div class="mock-nav">
-              <div class="mock-logo-text">Dr. Sarah M. &mdash; LMHC</div>
-              <div class="mock-nav-cta">Book a call</div>
-            </div>
-            <div class="mock-hero">
-              <div class="mock-cred">&#128274; Licensed Therapist</div>
-              <div class="mock-h1">You don&rsquo;t have to<br>figure this out <em>alone.</em></div>
-              <div class="mock-sub">A warm, collaborative space for anxiety, identity, and life transitions.</div>
-              <div class="mock-btn">Book a free 15-min call</div>
-            </div>
-            <div class="mock-sections">
-              <div class="mock-about-row">
-                <div class="mock-av">S</div>
-                <div class="mock-about-text">
-                  <div class="mock-name">Dr. Sarah Marchetti, LMHC</div>
-                  <div class="mock-title">Licensed Mental Health Counselor</div>
-                  <div class="mock-p">I work with adults navigating anxiety, identity questions, and major life changes. My approach is warm, collaborative, and grounded in real evidence.</div>
-                  <div class="mock-specialties">
-                    <span class="mock-spec">Anxiety</span>
-                    <span class="mock-spec">Identity</span>
-                    <span class="mock-spec">Life transitions</span>
-                    <span class="mock-spec">Trauma</span>
-                  </div>
-                </div>
-              </div>
-              <div class="mock-cta-block">
-                <div class="mock-cta-title">Ready to take the first step?</div>
-                <div class="mock-cta-p">A free 15-minute call. No commitment. Just a conversation to see if we&rsquo;re a good fit.</div>
-                <div class="mock-cta-btn">Schedule your free call</div>
-              </div>
-            </div>
-            <div class="mock-fade"></div>
-          </div>
-        </div>
+<section class="hero" id="hero">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-vl" aria-hidden="true"></div>
+  <div class="hero-badge" id="heroBadge" aria-hidden="true">
+    <div class="hero-badge-dot"></div>
+    Wellovie Clinical
+  </div>
+  <div id="heroC">
+    <p class="hero-kicker" id="heroKicker">For mental health practitioners</p>
+    <h1 class="hero-h1" id="heroH1">
+      Tools for the people<br>doing <em>this work.</em>
+    </h1>
+    <div class="hero-foot">
+      <p class="hero-desc" id="heroDesc">
+        A website that earns client trust before they call. Worksheets that work in real sessions. Built by someone who still sits in the chair.
+      </p>
+      <div class="hero-acts" id="heroActs">
+        <a href="#services" class="btn-a">See services</a>
+        <a href="#contact" class="btn-g">Talk to Meli</a>
       </div>
     </div>
-
+    <div class="cred-strip" id="credStrip">
+      <div class="cred-item">Licensed Mental Health Counselor</div>
+      <div class="cred-item">DBT · CBT · ACT · Schema</div>
+      <div class="cred-item">Active clinical practice</div>
+      <div class="cred-item">Built by Meli Pil, LMHC</div>
+    </div>
   </div>
 </section>
 
-<!-- ══ INSIGHT BAND ══ -->
-<div class="insight-band">
-  <div class="w">
-    <div class="insight-inner">
-      <div class="insight-item r">
-        <div class="insight-num">7</div>
-        <div class="insight-label"><strong>seconds</strong>A potential client decides whether to stay on your site or leave.</div>
+<!-- SERVICES -->
+
+<section class="services" id="services" aria-label="Clinical services">
+  <div class="wrap">
+    <div class="srv-hdr" data-r>
+      <p class="cap-a" style="margin-bottom:14px">Two services</p>
+      <h2 class="srv-intro">What your practice<br><em>actually needs.</em></h2>
+      <p class="srv-note">One-time fees. You own everything. No retainers, no subscriptions, no ongoing dependency on anyone.</p>
+    </div>
+
+```
+<div class="srv-grid">
+  <!-- Website -->
+  <div class="srv-card c-web" data-r>
+    <div class="srv-icon amber" aria-hidden="true">◻</div>
+    <p class="cap-a" style="margin-bottom:12px">Custom Website</p>
+    <h3 class="srv-name">Your practice,<br>online — properly.</h3>
+    <p class="srv-desc">
+      A credible, clean site that answers the question every prospective client is really asking: <em>can I trust this person?</em>
+    </p>
+    <ul class="srv-list">
+      <li class="srv-item"><div class="srv-dot amber"></div>Custom domain setup and configuration</li>
+      <li class="srv-item"><div class="srv-dot amber"></div>About, approach, services, and contact pages</li>
+      <li class="srv-item"><div class="srv-dot amber"></div>Mobile-first, fast-loading design</li>
+      <li class="srv-item"><div class="srv-dot amber"></div>Booking or contact form integration</li>
+      <li class="srv-item"><div class="srv-dot amber"></div>Delivered in two weeks, flat</li>
+      <li class="srv-item"><div class="srv-dot amber"></div>You own it completely — no platform lock-in</li>
+    </ul>
+    <div class="srv-foot">
+      <div>
+        <div class="srv-price">$499</div>
+        <div class="srv-pnote">One-time · No retainer · Yours forever</div>
       </div>
-      <div class="insight-divider"></div>
-      <div class="insight-item r d1">
-        <div class="insight-num">73%</div>
-        <div class="insight-label"><strong>of people</strong>research a therapist online before ever making contact.</div>
+      <a href="#builder" class="srv-lk">
+        See it live
+        <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Worksheets -->
+  <div class="srv-card c-sheets" data-r style="--d:.12s">
+    <div class="srv-icon sage" aria-hidden="true">≡</div>
+    <p class="cap-s" style="margin-bottom:12px">Printable Bundles</p>
+    <h3 class="srv-name">Session-ready<br>worksheets.</h3>
+    <p class="srv-desc">
+      Clinician-built PDFs grounded in DBT, CBT, and ACT frameworks. Designed to be handed across a desk without explanation.
+    </p>
+    <div class="ws-rows">
+      <div class="ws-row"><span class="ws-nm">Emotion Regulation Toolkit</span><span class="ws-pr">$24</span></div>
+      <div class="ws-row"><span class="ws-nm">Values Clarification Bundle</span><span class="ws-pr">$24</span></div>
+      <div class="ws-row"><span class="ws-nm">Cognitive Patterns Pack</span><span class="ws-pr">$29</span></div>
+      <div class="ws-row"><span class="ws-nm">Attachment & Relationships</span><span class="ws-pr">$24</span></div>
+      <div class="ws-row"><span class="ws-nm">Full Clinical Library</span><span class="ws-pr">$89</span></div>
+    </div>
+    <div class="srv-foot">
+      <div>
+        <div class="srv-price">$24+</div>
+        <div class="srv-pnote">Per bundle · Instant download · Print-ready</div>
       </div>
-      <div class="insight-divider"></div>
-      <div class="insight-item r d2">
-        <div class="insight-num">1</div>
-        <div class="insight-label"><strong>question</strong>your site needs to answer: <em>&ldquo;Will I feel safe with this person?&rdquo;</em></div>
-      </div>
+      <a href="/clinical/worksheets" class="srv-lk">
+        Browse bundles
+        <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
   </div>
 </div>
 
-<!-- ══ THE CLIENT MOMENT ══ -->
-<section class="moment-section">
-  <div class="w">
-    <div class="moment-grid">
-      <div class="moment-left r">
-        <span class="eyebrow">The moment that matters</span>
-        <h2 class="h2">What your client feels<br>before they ever <em>contact you.</em></h2>
-        <div class="moment-quote">
-          &ldquo;They&rsquo;re not reading your bio for your credentials. They&rsquo;re reading it to feel safe. That&rsquo;s a completely different thing to write for.&rdquo;
-        </div>
-        <div class="moment-text">
-          <p>A potential client searching for a therapist is in one of the most vulnerable moments of their life. They&rsquo;ve made the decision to ask for help &mdash; which is enormous. Now they&rsquo;re sitting with a browser tab open, reading your site, trying to answer one question: <strong>will I feel seen by this person?</strong></p>
-          <p>Most therapy websites are designed by people who have never been in that position professionally. They prioritize credentials, certifications, and clinical language. What they miss is the emotional register of that moment entirely.</p>
-          <p>We know that moment from both sides. And every word on your site is written for it.</p>
-        </div>
-      </div>
-      <div class="r d1">
-        <div class="journey">
-          <div class="journey-card">
-            <div class="journey-step js-1">1</div>
-            <div>
-              <div class="journey-title">Something isn&rsquo;t working</div>
-              <div class="journey-desc">They&rsquo;ve been struggling long enough that they finally admit they might need support. This is a significant moment of self-awareness and courage.</div>
-              <div class="journey-emotion">Feeling: scared, hopeful, not sure they deserve this</div>
-            </div>
-          </div>
-          <div class="journey-card">
-            <div class="journey-step js-2">2</div>
-            <div>
-              <div class="journey-title">They find your site</div>
-              <div class="journey-desc">In 7 seconds they decide whether to keep reading. They&rsquo;re scanning for warmth, safety, and the feeling that you understand what they&rsquo;re going through &mdash; not just clinically, but humanly.</div>
-              <div class="journey-emotion">Feeling: scanning for signs of judgment, looking for a mirror</div>
-            </div>
-          </div>
-          <div class="journey-card">
-            <div class="journey-step js-3">3</div>
-            <div>
-              <div class="journey-title">They reach out</div>
-              <div class="journey-desc">If your site made them feel safe enough, they take the final step. This is the moment your website is built for &mdash; everything leads here.</div>
-              <div class="journey-emotion">Feeling: relieved, still nervous, ready to try</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ WHAT WE BUILD ══ -->
-<section id="what-we-build" class="build-section">
-  <div class="w">
-    <div class="build-header r">
-      <span class="eyebrow">What you get</span>
-      <h2 class="h2">Not a template.<br>A site that <em>works.</em></h2>
-      <p class="lead" style="max-width:44ch;margin:0 auto">The difference between a site that converts visitors and one that doesn&rsquo;t is almost never design. It&rsquo;s language &mdash; and the understanding of the person reading it.</p>
-    </div>
-
-    <!-- Comparison -->
-    <div class="comparison r">
-      <div class="comp-card comp-bad">
-        <div class="comp-label">&#10005; &nbsp;Generic agency website</div>
-        <div class="comp-body">
-          <ul class="comp-items">
-            <li>Written to impress, not to connect</li>
-            <li>Heavy on credentials, light on warmth</li>
-            <li>Clinical language that creates distance</li>
-            <li>Designer who has never been to therapy</li>
-            <li>Template that looks like a thousand other sites</li>
-            <li>No understanding of what a vulnerable client needs</li>
-            <li>Copy that describes what you do, not who you are</li>
-          </ul>
-        </div>
-      </div>
-      <div class="comp-card comp-good">
-        <div class="comp-label">&#10003; &nbsp;Wellovie therapist website</div>
-        <div class="comp-body">
-          <ul class="comp-items">
-            <li>Written for the moment a client is deciding whether to reach out</li>
-            <li>Warm and credible &mdash; not clinical or corporate</li>
-            <li>Language that says &ldquo;I see you&rdquo; before &ldquo;I&rsquo;m qualified&rdquo;</li>
-            <li>Built by a licensed therapist who knows your work</li>
-            <li>Distinctive design around your voice and niche</li>
-            <li>Every word chosen for the reader&rsquo;s emotional state</li>
-            <li>Copy that makes a potential client feel already understood</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- What's included -->
-    <div class="r" style="margin-bottom:2rem;text-align:center">
-      <span class="eyebrow">What&rsquo;s in every site</span>
-    </div>
-    <div class="includes-grid">
-      <div class="inc-card r">
-        <div class="inc-icon">&#9997;&#65039;</div>
-        <div class="inc-title">Copy written for you</div>
-        <div class="inc-desc">We write every word &mdash; bio, specialty pages, homepage, CTA. Clinically informed, emotionally resonant, distinctly yours.</div>
-      </div>
-      <div class="inc-card r d1">
-        <div class="inc-icon">&#127775;</div>
-        <div class="inc-title">Distinctive design</div>
-        <div class="inc-desc">Not a template. A design built around your voice, your niche, and what makes your approach different from every other therapist.</div>
-      </div>
-      <div class="inc-card r d2">
-        <div class="inc-icon">&#128241;</div>
-        <div class="inc-title">Fully mobile-optimized</div>
-        <div class="inc-desc">Most clients will find you on their phone. Your site looks and works beautifully at every screen size, every device.</div>
-      </div>
-      <div class="inc-card r d3">
-        <div class="inc-icon">&#128269;</div>
-        <div class="inc-title">SEO foundations</div>
-        <div class="inc-desc">Page titles, meta descriptions, local SEO structure so clients searching in your area can actually find you.</div>
-      </div>
-      <div class="inc-card r">
-        <div class="inc-icon">&#128274;</div>
-        <div class="inc-title">Ethically appropriate</div>
-        <div class="inc-desc">Written by a licensed therapist who understands professional ethics. No overpromising, no sensationalizing, no red flags.</div>
-      </div>
-      <div class="inc-card r d1">
-        <div class="inc-icon">&#128640;</div>
-        <div class="inc-title">Fast performance</div>
-        <div class="inc-desc">Optimized to load instantly. A slow site loses clients before they read a single word. Yours won&rsquo;t.</div>
-      </div>
-      <div class="inc-card r d2">
-        <div class="inc-icon">&#128196;</div>
-        <div class="inc-title">5 printable worksheets</div>
-        <div class="inc-desc">Every website build comes with 5 beautifully designed printable worksheets from our therapy library &mdash; yours to hand to clients.</div>
-      </div>
-      <div class="inc-card r d3">
-        <div class="inc-icon">&#9729;&#65039;</div>
-        <div class="inc-title">Free hosting &mdash; forever</div>
-        <div class="inc-desc">Deployed on Cloudflare Pages at no cost to you, ever. Most therapists pay $15&ndash;$30/month on Squarespace or Wix. Yours is included and always free.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-    <!-- HOSTING CALLOUT -->
-    <div class="r" style="margin-top:2.5rem;background:linear-gradient(135deg,rgba(232,160,48,0.1),rgba(217,95,53,0.07));border:1px solid var(--gold-b);border-radius:1.375rem;padding:2rem 2.25rem;display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;max-width:64rem;margin-left:auto;margin-right:auto">
-      <div style="font-size:2.5rem;flex-shrink:0">&#9729;&#65039;</div>
-      <div style="flex:1;min-width:220px">
-        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--tg);margin-bottom:0.5rem">Hosting included &mdash; no ongoing cost</div>
-        <div style="font-family:var(--fd);font-size:1.375rem;font-weight:600;color:var(--t1);line-height:1.2;margin-bottom:0.5rem">Most therapists pay $15&ndash;$30/month for hosting.<br><em style="color:var(--te)">Yours is free. Forever.</em></div>
-        <div style="font-size:0.875rem;color:var(--t2);line-height:1.7;max-width:54ch">We deploy your site on <strong style="color:var(--t1)">Cloudflare Pages</strong> &mdash; enterprise-grade infrastructure used by millions of sites globally. It&rsquo;s fast, secure, and costs nothing. We stay on as a collaborator via GitHub so you&rsquo;re never locked out of your own site. No Squarespace. No Wix. No monthly bill that quietly climbs. Just your site, online, for free &mdash; for as long as you want it.</div>
-      </div>
-      <div style="flex-shrink:0;text-align:center">
-        <div style="font-family:var(--fd);font-size:2.75rem;font-weight:600;color:var(--tg);line-height:1">$0</div>
-        <div style="font-size:0.75rem;color:var(--t3);font-weight:600;margin-top:0.1rem">per month<br>hosting cost</div>
-        <div style="font-size:0.68rem;color:var(--t4);margin-top:0.5rem;font-style:italic">vs. $180&ndash;$360/year<br>on typical platforms</div>
-      </div>
-    </div>
-
-<!-- ══ PROCESS ══ -->
-<section class="process-section">
-  <div class="w">
-    <div class="r" style="text-align:center;margin-bottom:3.5rem">
-      <span class="eyebrow">How it works</span>
-      <h2 class="h2">From conversation<br>to <em>live in four steps.</em></h2>
-    </div>
-    <div class="process-grid r">
-      <div class="process-line"></div>
-      <div class="process-step">
-        <div class="process-num">1</div>
-        <div class="process-title">We talk</div>
-        <div class="process-desc">A 45-minute conversation about your practice, your ideal clients, your approach, and what makes you different.</div>
-        <div class="process-time">Week 1</div>
-      </div>
-      <div class="process-step">
-        <div class="process-num">2</div>
-        <div class="process-title">We write</div>
-        <div class="process-desc">We draft all the copy for your site &mdash; homepage, bio, specialty pages &mdash; and share it for your feedback.</div>
-        <div class="process-time">Week 1&ndash;2</div>
-      </div>
-      <div class="process-step">
-        <div class="process-num">3</div>
-        <div class="process-title">We build</div>
-        <div class="process-desc">Design and development. You see the site take shape and give feedback at two review checkpoints.</div>
-        <div class="process-time">Week 2&ndash;3</div>
-      </div>
-      <div class="process-step">
-        <div class="process-num">4</div>
-        <div class="process-title">You launch</div>
-        <div class="process-desc">We go live together. Your domain, your site, fully yours. We&rsquo;re available for 30 days post-launch if anything needs adjusting.</div>
-        <div class="process-time">Week 3&ndash;4</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ DEMO SHOWCASE ══ -->
-<section id="see-the-demos" class="demo-section">
-  <div class="w">
-    <div class="demo-header r">
-      <span class="eyebrow">Live demos</span>
-      <h2 class="h2">See exactly what<br>we <em>build.</em></h2>
-      <p class="lead" style="max-width:46ch;margin:0 auto">Don&rsquo;t take our word for it. Open both demos and click around. These are the real thing &mdash; built the way your site would be built.</p>
-    </div>
-    <div class="demo-cards">
-
-      <!-- PROFILE WEBSITE -->
-      <div class="demo-card r">
-        <div class="demo-badge-tier">Profile Website</div>
-        <div class="demo-browser">
-          <div class="demo-browser-bar">
-            <div class="demo-dots"><span></span><span></span><span></span></div>
-            <div class="demo-url">dr-sarah-marchetti.com</div>
-          </div>
-          <div class="demo-screen demo-screen-profile">
-            <div class="ds-nav">
-              <div class="ds-logo">Dr. Sarah Marchetti, LMHC</div>
-              <div class="ds-nav-cta">Book a call</div>
-            </div>
-            <div class="ds-hero ds-hero-warm">
-              <div class="ds-avail">&#9679; Accepting new clients</div>
-              <div class="ds-h1">There is a way<br><em>through this.</em></div>
-              <div class="ds-p">You don&rsquo;t have to keep carrying this alone.</div>
-              <div class="ds-btns"><span class="ds-btn-p">Book free call</span><span class="ds-btn-g">Learn more</span></div>
-            </div>
-            <div class="ds-concerns">
-              <div class="ds-concern"><div class="ds-ci">&#128332;</div><div class="ds-ct">Anxiety</div></div>
-              <div class="ds-concern"><div class="ds-ci">&#127807;</div><div class="ds-ct">Identity</div></div>
-              <div class="ds-concern"><div class="ds-ci">&#127760;</div><div class="ds-ct">Grief</div></div>
-              <div class="ds-concern"><div class="ds-ci">&#129309;</div><div class="ds-ct">Relationships</div></div>
-            </div>
-            <div class="ds-fade"></div>
-          </div>
-        </div>
-        <div class="demo-info">
-          <div class="demo-info-title">Warm, emotional-first copy. Built to convert.</div>
-          <div class="demo-info-desc">Homepage with hero, concerns section, approach, about, testimonials, booking form, and FAQ. Everything a solo practitioner needs.</div>
-          <div class="demo-features">
-            <span class="demo-feat">&#10003; Single-page site</span>
-            <span class="demo-feat">&#10003; Booking form</span>
-            <span class="demo-feat">&#10003; Mobile responsive</span>
-            <span class="demo-feat">&#10003; FAQ section</span>
-          </div>
-          <a href="therapist-profile-demo.html" target="_blank" class="demo-cta-btn">Open live demo &rarr;</a>
-        </div>
-      </div>
-
-      <!-- FULL CUSTOM SITE -->
-      <div class="demo-card demo-card-featured r d1">
-        <div class="demo-badge-tier demo-badge-featured">Full Custom Site</div>
-        <div class="demo-browser">
-          <div class="demo-browser-bar">
-            <div class="demo-dots"><span></span><span></span><span></span></div>
-            <div class="demo-url">dr-elena-vasquez.com</div>
-          </div>
-          <div class="demo-screen demo-screen-custom">
-            <div class="ds-nav ds-nav-dark">
-              <div class="ds-logo ds-logo-dark">Dr. Elena Vasquez, LCSW</div>
-              <div class="ds-nav-links-mini">
-                <span>Specialties</span><span>Blog</span><span>Resources</span>
-              </div>
-              <div class="ds-nav-cta ds-nav-cta-sage">Book a call</div>
-            </div>
-            <div class="ds-hero ds-hero-forest">
-              <div class="ds-avail ds-avail-sage">&#9679; Accepting new clients</div>
-              <div class="ds-h1 ds-h1-light">Healing is not<br>just <em>possible.</em></div>
-              <div class="ds-p ds-p-light">Trauma &amp; PTSD therapy. EMDR certified. Somatic approaches.</div>
-              <div class="ds-btns"><span class="ds-btn-sage">Book free call</span><span class="ds-btn-ghost">Specialties</span></div>
-            </div>
-            <div class="ds-mini-nav">
-              <span class="ds-mn active">Trauma &amp; PTSD</span>
-              <span class="ds-mn">C-PTSD</span>
-              <span class="ds-mn">Somatic</span>
-              <span class="ds-mn">Childhood</span>
-            </div>
-            <div class="ds-fade ds-fade-dark"></div>
-          </div>
-        </div>
-        <div class="demo-info">
-          <div class="demo-info-title">Multi-page. Full blog. Four specialty pages. Resources section.</div>
-          <div class="demo-info-desc">Built for therapists with a complex specialty or established practice who need more than a single page. Includes a full working blog with real articles.</div>
-          <div class="demo-features">
-            <span class="demo-feat">&#10003; Multi-page navigation</span>
-            <span class="demo-feat">&#10003; 4 specialty pages</span>
-            <span class="demo-feat">&#10003; Blog with 6 full articles</span>
-            <span class="demo-feat">&#10003; Resources library</span>
-            <span class="demo-feat">&#10003; Specialty tab switcher</span>
-            <span class="demo-feat">&#10003; Sticky nav + dropdowns</span>
-          </div>
-          <a href="therapist-custom-demo.html" target="_blank" class="demo-cta-btn demo-cta-sage">Open live demo &rarr;</a>
-        </div>
-      </div>
-
-    </div>
-    <div class="demo-footnote r">
-      Both demos are fully interactive &mdash; click every page, every tab, every article. What you see is what we build.
-    </div>
-  </div>
-</section>
-
-<!-- ══ PRICING ══ -->
-<section id="pricing" class="pricing-section">
-  <div class="w">
-    <div class="pricing-header r">
-      <span class="eyebrow">Pricing</span>
-      <h2 class="h2">One-time fee.<br><em>Your site, forever.</em></h2>
-      <p class="lead" style="max-width:44ch;margin:0 auto">No monthly retainers. No annual contracts. No page limits. You own your site outright &mdash; host it wherever you want.</p>
-    </div>
-
-    <div class="pricing-grid">
-
-      <!-- Profile -->
-      <div class="pricing-card r">
-        <div class="pricing-top">
-          <div class="pricing-name">Option 01</div>
-          <div class="pricing-title">Profile Website</div>
-          <div class="pricing-hook">Clean, credible, complete. Everything a prospective client needs to feel safe enough to reach out.</div>
-          <div class="pricing-price">
-            <div class="pricing-amount">Contact us<span class="pricing-period" style="font-size:0.9rem"> for pricing</span></div>
-          </div>
-        </div>
-        <div class="pricing-body">
-          <ul class="pricing-feats">
-            <li>Homepage with warm, client-focused copy</li>
-            <li>About page written around your voice</li>
-            <li>Specialties &amp; approach page</li>
-            <li>Contact page with clear next steps</li>
-            <li>Mobile-optimized design</li>
-            <li>SEO foundations built in</li>
-            <li>30-day post-launch support</li>
-            <li>Free hosting on Cloudflare Pages &mdash; $0/month, forever</li>
-            <li>GitHub collaboration so you always own and control your code</li>
-          </ul>
-          <div class="pricing-gift">
-            <div class="pricing-gift-label">&#127873; Included free</div>
-            <div class="pricing-gift-text">5 beautifully designed printable worksheets from our therapy library to use with your clients right away.</div>
-          </div>
-        </div>
-        <div class="pricing-foot">
-          <a href="therapist-profile-demo.html" target="_blank" class="btn-ghost btn-full" style="margin-bottom:0.625rem;font-size:0.85rem;padding:0.75rem 1.5rem;">See live demo &rarr;</a>
-          <a href="contact.html" class="btn-ghost btn-full">Get in touch &rarr;</a>
-        </div>
-      </div>
-
-      <!-- Custom -->
-      <div class="pricing-card pricing-card-featured r d1">
-        <div class="pricing-top">
-          <div class="pricing-name">Option 02</div>
-          <div class="pricing-title">Full Custom Site</div>
-          <div class="pricing-hook">A fully designed site built around your niche, your voice, and everything your practice needs to grow.</div>
-          <div class="pricing-price">
-            <div class="pricing-amount">Contact us<span class="pricing-period" style="font-size:0.9rem"> for pricing</span></div>
-          </div>
-        </div>
-        <div class="pricing-body">
-          <ul class="pricing-feats">
-            <li>Everything in Profile, plus&hellip;</li>
-            <li>Blog setup with first 3 posts written for you</li>
-            <li>Group therapy or workshop pages</li>
-            <li>Downloadable resources section</li>
-            <li>Extended specialty pages (up to 5)</li>
-            <li>60-day post-launch support</li>
-            <li>One round of full-site revisions at 90 days</li>
-            <li>Free hosting on Cloudflare Pages &mdash; $0/month, forever</li>
-            <li>GitHub collaboration so you always own and control your code</li>
-          </ul>
-          <div class="pricing-gift">
-            <div class="pricing-gift-label">&#127873; Included free</div>
-            <div class="pricing-gift-text">5 beautifully designed printable worksheets <strong>plus</strong> one month of our full printable subscription library &mdash; 30+ worksheets to use immediately.</div>
-          </div>
-        </div>
-        <div class="pricing-foot">
-          <a href="therapist-custom-demo.html" target="_blank" class="btn-ghost btn-full" style="margin-bottom:0.625rem;font-size:0.85rem;padding:0.75rem 1.5rem;">See live demo &rarr;</a>
-          <a href="contact.html" class="btn btn-full">Get in touch &rarr;</a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Printable worksheets upsell -->
-    <div class="r" style="max-width:56rem;margin:1.25rem auto 0;background:var(--gc);border:1px solid var(--gold-b);border-radius:1.25rem;padding:1.75rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap">
-      <div style="font-size:2rem;flex-shrink:0">&#128196;</div>
-      <div style="flex:1;min-width:200px">
-        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--tg);margin-bottom:0.375rem">Also available separately</div>
-        <div style="font-family:var(--fd);font-size:1.125rem;font-weight:600;color:var(--t1);margin-bottom:0.375rem">Printable Worksheets &mdash; Two Ways to Get Them</div>
-        <div style="font-size:0.875rem;color:var(--t3);line-height:1.6">Buy a bundle once and keep it forever (from $38). Or subscribe at $29/month and vote on what gets made next &mdash; 2 to 5 new worksheets monthly built around your requests. First worksheet in every bundle is free.</div>
-      </div>
-      <a href="printables/index.html" class="btn-ghost" style="flex-shrink:0;font-size:0.875rem;padding:0.75rem 1.375rem">See worksheets &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══ TRUST ══ -->
-<section class="trust-section">
-  <div class="w">
-    <div class="r" style="text-align:center;margin-bottom:2.5rem">
-      <span class="eyebrow">From therapists we&rsquo;ve worked with</span>
-      <h2 class="h2">What it feels like<br>when your site <em>finally works.</em></h2>
-    </div>
-    <div class="trust-grid">
-      <div class="trust-card r">
-        <div class="trust-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="trust-q">Within two weeks of launching I had three new inquiries from people who said they felt like I understood them before they even called. That&rsquo;s never happened from a website before.</div>
-        <div class="trust-name">Dr. Maya R., LMFT</div>
-        <div class="trust-role">Trauma &amp; relationship therapist &middot; California</div>
-      </div>
-      <div class="trust-card r d1">
-        <div class="trust-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="trust-q">I had a Psychology Today profile and a generic WordPress site for years. Nothing. One month after launching my new site I&rsquo;m fully booked. The copy is everything.</div>
-        <div class="trust-name">James K., LCSW</div>
-        <div class="trust-role">Anxiety &amp; identity</div>
-      </div>
-      <div class="trust-card r d2">
-        <div class="trust-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="trust-q">The thing that got me was that she actually knew what I meant by &ldquo;attachment-focused.&rdquo; I didn&rsquo;t have to explain anything. The site sounds exactly like me &mdash; but a more eloquent version.</div>
-        <div class="trust-name">Sofia T., LMHC</div>
-        <div class="trust-role">Couples &amp; individual therapy &middot; Florida</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ CLINICIAN BAR ══ -->
-<div class="clinician-bar">
-  <div class="w">
-    <div class="clinician-inner r">
-      <div class="clinician-av">W</div>
-      <div class="clinician-text">
-        <div class="clinician-name">Your Name, LMHC</div>
-        <div class="clinician-cred">Licensed Mental Health Counselor, LMHC</div>
-        <div class="clinician-desc">I know what your clients feel when they land on your site, because I&rsquo;ve sat with them in their most vulnerable moments. I built Wellovie to close the gap between what therapy offers and what the world makes available. Your website is part of that.</div>
-      </div>
-    </div>
-  </div>
+<!-- Contact card — full width, simple -->
+<div class="srv-card" id="contact" data-r style="--d:.22s;text-align:center;padding:clamp(36px,5vw,56px);">
+  <p class="cap-a" style="margin-bottom:14px;text-align:center">Work Together</p>
+  <h3 style="font-family:var(--ff-d);font-size:clamp(26px,4vw,48px);font-weight:300;letter-spacing:-.016em;line-height:1.08;margin-bottom:14px">Not sure where to start?</h3>
+  <p style="font-size:clamp(13px,1.35vw,15px);font-weight:300;color:var(--ink-2);line-height:1.9;max-width:460px;margin:0 auto 28px">Tell me what your practice needs. I'll tell you what makes sense. No pitch, no pressure — just a straight conversation between clinicians.</p>
+  <a href="mailto:meli@wellovie.com" class="btn-a" style="margin:0 auto;display:inline-flex">Start a conversation</a>
+  <p style="margin-top:14px;font-size:10px;color:var(--ink-4);letter-spacing:.08em">meli@wellovie.com · Usually responds within 24 hours</p>
 </div>
+```
 
-<!-- ══ FAQ ══ -->
-<section class="faq-section">
-  <div class="w">
-    <div class="r" style="text-align:center;margin-bottom:3rem">
-      <span class="eyebrow">Questions</span>
-      <h2 class="h2">Everything you&rsquo;re<br>probably <em>wondering.</em></h2>
-    </div>
-    <div class="faq-grid">
-      <div class="faq-item r">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Do I need to provide anything, or do you write everything?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">We write everything &mdash; every word on every page. All we need from you is a 45-minute conversation and a few answers to a short brief. You&rsquo;ll review and approve the copy before anything goes live. Most clients say the copy sounds more like them than anything they could have written themselves.</div>
+  </div>
+</section>
+
+<!-- PROFILE BUILDER -->
+
+<section class="builder" id="builder" aria-labelledby="bldrH">
+  <div class="wrap">
+    <div class="bldr-inner">
+      <div data-r>
+        <p class="cap-a" style="margin-bottom:14px">Website preview</p>
+        <h2 id="bldrH" class="bldr-copy" style="font-family:var(--ff-d);font-size:clamp(32px,5vw,58px);font-weight:300;line-height:.96;letter-spacing:-.022em;margin-bottom:clamp(14px,2vw,22px)">See your site<br><em>take shape.</em></h2>
+        <p style="font-size:clamp(13px,1.35vw,15px);font-weight:300;color:var(--ink-2);line-height:1.92;max-width:360px;margin-bottom:clamp(22px,3vw,34px)">Type your details below. The preview updates live — this is approximately how your site would look.</p>
+        <div class="bldr-fields">
+          <div class="bldr-field">
+            <label class="bldr-label" for="inName">Your name</label>
+            <input class="bldr-in" id="inName" type="text" placeholder="e.g. Sarah Chen, LMFT" maxlength="36" autocomplete="off"/>
+          </div>
+          <div class="bldr-field">
+            <label class="bldr-label" for="inCred">Full credential</label>
+            <input class="bldr-in" id="inCred" type="text" placeholder="e.g. Licensed Marriage & Family Therapist" maxlength="52" autocomplete="off"/>
+          </div>
+          <div class="bldr-field">
+            <label class="bldr-label" for="inSpec">Speciality</label>
+            <input class="bldr-in" id="inSpec" type="text" placeholder="e.g. Anxiety, Trauma, Relationships" maxlength="48" autocomplete="off"/>
+          </div>
+          <div class="bldr-field">
+            <label class="bldr-label" for="inFee">Session fee</label>
+            <input class="bldr-in" id="inFee" type="text" placeholder="e.g. $175 / session" maxlength="22" autocomplete="off"/>
+          </div>
+        </div>
+        <div class="bldr-actions" style="margin-top:20px">
+          <a href="#contact" class="btn-a">Get this site — $499</a>
         </div>
       </div>
-      <div class="faq-item r">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Will it look like a template?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">No. Every site is built specifically for you. We use your color preferences, your tone, your niche. The design is built around who you are and who your clients are &mdash; not a theme someone bought for $49.</div>
-        </div>
-      </div>
-      <div class="faq-item r">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Do I own the site when it&rsquo;s done?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner"><strong>Yes, completely.</strong> You own every file, every word, every image. You can host it wherever you want. There are no ongoing fees to us &mdash; ever. If you want to make changes after launch, that&rsquo;s between you and your hosting provider, or you can come back to us for a refresh.</div>
-        </div>
-      </div>
-      <div class="faq-item r">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          How long does it take?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">For a Profile Website, roughly 3 weeks from our first conversation to launch. For a Full Custom Site, 4 weeks. These timelines depend partly on how quickly you&rsquo;re able to review and approve copy and design, but we build in a realistic buffer for your schedule.</div>
-        </div>
-      </div>
-      <div class="faq-item r">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Is this ethically appropriate for my license?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">We are acutely aware of professional ethics in mental health marketing. Every site is written to be warm and compelling <em>without</em> making clinical promises, overstating outcomes, or using language that could be seen as exploitative of vulnerable people. We have never had a complaint from a licensing board. That said, you should always review the final copy against your own state&rsquo;s ethical guidelines before publishing.</div>
-        </div>
-      </div>
-      <div class="faq-item r">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Do I have to pay for hosting separately?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner"><strong>No &mdash; hosting is included and always free.</strong> We deploy your site on Cloudflare Pages, which is enterprise-grade infrastructure that costs nothing for sites like yours. Most therapists on Squarespace or Wix pay $15&ndash;$30 per month &mdash; $180 to $360 per year &mdash; for hosting they don&rsquo;t need to be paying for. Yours is free, forever. We also stay on as a collaborator on your GitHub repository, which means you always have full access and control over your own code. You&rsquo;re never locked in or locked out.</div>
-        </div>
-      </div>
-      <div class="faq-item r">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          What are the 5 free printable worksheets?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">Every website build comes with 5 hand-selected worksheets from our growing printable library &mdash; tools like pre-session reflections, thought records, values clarification exercises, and more. You can print them and hand them to clients at any time. They&rsquo;re yours to keep and use forever, no subscription required. If you want access to the full growing library (new worksheets every month), that&rsquo;s our separate <a href="printables/index.html">$29/month printable subscription</a>.</div>
+      <div data-r style="--d:.14s">
+        <div id="pB" aria-hidden="true">
+          <div class="bc"><div class="bcd"><span></span><span></span><span></span></div><div class="bub"><span class="bu" id="bUrl">yourname.com</span></div><div style="width:50px"></div></div>
+          <div class="bb">
+            <div class="pn"><span class="pl" id="pLogo">Your Name, LMFT</span><div class="plk"><span>About</span><span>Approach</span><span>Contact</span></div></div>
+            <div class="ph"><div class="pp" id="pInitial">?</div><div class="pi"><div class="pname" id="pName">Your Name, LMFT</div><div class="pcred" id="pCred">Licensed Marriage &amp; Family Therapist</div></div><div class="pbtn">Book a consult</div></div>
+            <div class="pchips" id="pChips"><span class="pchip">Anxiety</span><span class="pchip">Trauma</span><span class="pchip">Relationships</span></div>
+            <div class="pbio"><div class="pbl"></div><div class="pbl"></div><div class="pbl"></div></div>
+            <div class="pst">
+              <div class="ps"><div class="psl">Availability</div><div class="psv">Accepting clients</div></div>
+              <div class="ps"><div class="psl">Format</div><div class="psv">Telehealth · In-person</div></div>
+              <div class="ps"><div class="psl">Session fee</div><div class="psv" id="pFee">$175 / session</div></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ FINAL CTA ══ -->
-<section class="final">
-  <div class="final-glow"></div>
-  <div class="w-narrow" style="position:relative;z-index:1">
-    <span class="eyebrow r" style="display:block;text-align:center;margin-bottom:1rem">Ready?</span>
-    <h2 class="final-h2 r">Your clients are out there<br>looking for <em>you.</em></h2>
-    <p class="final-p r">Make sure that when they find you, they feel it. A simple conversation is all it takes to get started.</p>
-    <div class="final-actions r">
-      <a href="contact.html" class="btn" style="padding:1.125rem 2.25rem;font-size:1.0625rem">Let&rsquo;s talk about your site &rarr;</a>
+<!-- ABOUT MELI — clinician version -->
+
+<section class="about" id="about" aria-labelledby="aboutQ">
+  <div class="wrap">
+    <div class="about-g">
+      <div class="avatar" data-r aria-label="Meli Pil, LMHC">M</div>
+      <div data-r style="--d:.1s">
+        <p class="about-pre">Meli Pil, LMHC</p>
+        <blockquote class="about-q" id="aboutQ">"I built what I needed. Then I made it available to everyone doing this work."</blockquote>
+        <p class="about-p">Meli Pil is a licensed mental health counselor in active practice. The tools here — the websites, the worksheets, the Wellovie apps — were built because nothing adequate existed. Every design decision is grounded in clinical reality: what a client needs to feel before they pick up the phone, what a worksheet needs to do in a 50-minute session, what it means to practice at the intersection of depth and accessibility.</p>
+        <div class="about-creds">
+          <div class="about-cred">Licensed Mental Health Counselor (LMHC)</div>
+          <div class="about-cred">Dialectical Behavior Therapy (DBT)</div>
+          <div class="about-cred">Cognitive Behavioral Therapy (CBT)</div>
+          <div class="about-cred">Acceptance and Commitment Therapy (ACT)</div>
+          <div class="about-cred">Schema-informed practice</div>
+          <div class="about-cred">Active clinical caseload</div>
+        </div>
+      </div>
     </div>
-    <p class="final-note r">One-time fee &nbsp;&bull;&nbsp; Free hosting forever &nbsp;&bull;&nbsp; You own your site &nbsp;&bull;&nbsp; Live in ~3&ndash;4 weeks &nbsp;&bull;&nbsp; No monthly bills</p>
+  </div>
+</section>
+
+<!-- CTA -->
+
+<section class="cta" aria-label="Get started">
+  <div class="cta-glow" aria-hidden="true"></div>
+  <div data-r>
+    <h2 class="cta-h">Your practice<br>deserves <em>better tools.</em></h2>
+    <p class="cta-sub">A straight conversation. No pitch. Just tell me what you need.</p>
+    <div class="cta-row">
+      <a href="mailto:meli@wellovie.com" class="btn-a">Start a conversation</a>
+      <a href="/" class="btn-g">Back to Wellovie</a>
+    </div>
+    <p class="cta-note">meli@wellovie.com · wellovie.com/clinical</p>
   </div>
 </section>
 
 <!-- FOOTER -->
+
 <footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-logo">Wellovie</div>
-      <div class="footer-tag">Three self-guided apps and two therapist services &mdash; created by a licensed therapist.</div>
+  <div class="fi">
+    <div class="fbrand">
+      <div class="fwm">Wellovie <span>Clinical</span></div>
+      <div class="ftag">Built by Meli Pil, LMHC<br>Tools for mental health practitioners.</div>
     </div>
-    <ul class="footer-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="wellovie-feel.html">Wellovie Feel</a></li>
-      <li><a href="wellovie-find.html">Wellovie Find</a></li>
-      <li><a href="wellovie-know.html">Wellovie Know</a></li>
-      <li><a href="printables/index.html">Printable Subscription</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="privacy.html">Privacy</a></li>
-      <li><a href="terms.html">Terms</a></li>
-    </ul>
+    <div class="fcols">
+      <div class="fcol">
+        <span class="fch">Services</span>
+        <a href="#services">Custom websites</a>
+        <a href="#services">Worksheet bundles</a>
+        <a href="#builder">Website preview</a>
+      </div>
+      <div class="fcol">
+        <span class="fch">Wellovie</span>
+        <a href="/">Wellovie (for clients)</a>
+        <a href="/feel">Feel</a>
+        <a href="/find">Find</a>
+        <a href="/know">Know</a>
+      </div>
+      <div class="fcol">
+        <span class="fch">Contact</span>
+        <a href="mailto:meli@wellovie.com">meli@wellovie.com</a>
+        <a href="#about">About Meli</a>
+      </div>
+    </div>
   </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">&copy; 2025 Wellovie</div>
-    <div class="footer-legal">Wellovie is a self-guided educational platform. Not therapy. Not a clinical service. In a crisis, please call or text <strong>988</strong>.</div>
+  <div class="fbase">
+    <p>© 2025 Wellovie Clinical. Built by Meli Pil, LMHC.</p>
+    <div class="flegal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
   </div>
 </footer>
 
 <script>
-// Nav shadow
-const nav = document.querySelector('nav');
-window.addEventListener('scroll',()=>{
-  nav.style.boxShadow = window.scrollY > 8 ? '0 2px 24px rgba(0,0,0,0.55)' : 'none';
-},{passive:true});
+const IS_FINE = matchMedia('(pointer:fine)').matches;
+const REDUCED = matchMedia('(prefers-reduced-motion:reduce)').matches;
 
-// Scroll reveal
-const obs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}
+/* AURORA CANVAS — clinical edition */
+(function(){
+  try {
+    const cv = document.getElementById('heroCanvas');
+    if(!cv || REDUCED) return;
+    const cx = cv.getContext('2d');
+    let W = 0, H = 0, running = false;
+
+    const CORES = navigator.hardwareConcurrency || 4;
+    const COUNT = CORES <= 2 ? 14 : CORES <= 4 ? 24 : 38;
+
+    function resize(){
+      W = cv.width = cv.offsetWidth;
+      H = cv.height = cv.offsetHeight;
+    }
+
+    function mkP(){
+      if(!W || !H) return { life: 999, max: 1000 }; // dummy until sized
+      const r = Math.random();
+      const type = r < .72 ? 'amber' : r < .92 ? 'sage' : 'blush';
+      const cl = Math.random() < .78;
+      return {
+        x: cl ? (.22+Math.random()*.54)*W : Math.random()*W,
+        y: cl ? (.28+Math.random()*.48)*H : Math.random()*H,
+        r: 1.4+Math.random()*4.2,
+        vx: (Math.random()-.5)*.14,
+        vy: (Math.random()-.5)*.10,
+        life: 0,
+        max: 380+Math.random()*560,
+        type,
+        ph: Math.random()*Math.PI*2,
+      };
+    }
+
+    let pts = [];
+
+    function draw(){
+      if(!W || !H){ requestAnimationFrame(draw); return; } // wait for size
+      cx.clearRect(0,0,W,H);
+      const t = (Date.now()-t0)*.001;
+      pts.forEach((p,i)=>{
+        if(++p.life >= p.max){ pts[i]=mkP(); return; }
+        const pc = p.life/p.max;
+        const al = pc<.18 ? pc/.18 : pc>.75 ? (1-pc)/.25 : 1;
+        const br = Math.sin(t*.57+p.ph)*.24+.76;
+        const x = p.x+p.vx*p.life;
+        const y = p.y+p.vy*p.life;
+        const rad = p.r*4.8;
+        const g = cx.createRadialGradient(x,y,0,x,y,rad);
+        if(p.type==='amber'){
+          g.addColorStop(0,`rgba(184,146,42,${al*br*.38})`);
+          g.addColorStop(.5,`rgba(140,100,20,${al*br*.14})`);
+          g.addColorStop(1,'rgba(140,100,20,0)');
+        } else if(p.type==='sage'){
+          g.addColorStop(0,`rgba(107,173,132,${al*br*.28})`);
+          g.addColorStop(.5,`rgba(74,122,98,${al*br*.10})`);
+          g.addColorStop(1,'rgba(74,122,98,0)');
+        } else {
+          g.addColorStop(0,`rgba(166,124,109,${al*br*.18})`);
+          g.addColorStop(.5,`rgba(166,124,109,${al*br*.06})`);
+          g.addColorStop(1,'rgba(166,124,109,0)');
+        }
+        cx.beginPath(); cx.arc(x,y,rad,0,Math.PI*2);
+        cx.fillStyle=g; cx.fill();
+      });
+      requestAnimationFrame(draw);
+    }
+
+    const t0 = Date.now();
+    window.addEventListener('resize', resize);
+    resize();
+    pts = Array.from({length:COUNT}, mkP);
+    pts.forEach(p=>p.life=Math.floor(Math.random()*p.max));
+    draw();
+    setTimeout(()=>cv.classList.add('on'), 2800);
+  } catch(e) {
+    // Canvas failed silently — page still works perfectly
+    console.warn('Aurora canvas skipped:', e.message);
+  }
+})();
+
+
+/* SCROLL WARMTH — ember deepens as you scroll
+   The further down the page, the warmer the glow.
+   This is subtle — felt more than seen. */
+(function(){
+  const ember = document.getElementById('scrollEmber');
+  if(!ember) return;
+  let raf = false;
+  window.addEventListener('scroll', () => {
+    if(!raf){ raf = true; requestAnimationFrame(() => {
+      raf = false;
+      const progress = Math.min(scrollY / (document.body.scrollHeight - innerHeight), 1);
+      // Opacity goes from 0 at top to .055 at bottom — very gentle
+      const opacity = progress * .055;
+      ember.style.background = `radial-gradient(ellipse 80% 100% at 50% 100%,
+        rgba(184,146,42,${opacity}) 0%, transparent 70%)`;
+    });}
+  }, {passive: true});
+})();
+
+/* TOUCH SPRING HAPTICS */
+(function(){
+  ['.btn-a','.btn-outline'].forEach(sel=>{
+    document.querySelectorAll(sel).forEach(el=>{
+      el.addEventListener('touchstart',()=>{
+        el.classList.add('pressing');
+        if(navigator.vibrate) navigator.vibrate(10);
+      },{passive:true});
+      el.addEventListener('touchend',()=>el.classList.remove('pressing'),{passive:true});
+      el.addEventListener('touchcancel',()=>el.classList.remove('pressing'),{passive:true});
+    });
   });
-},{threshold:0.05,rootMargin:'0px 0px -24px 0px'});
-document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+})();
 
-// FAQ accordion
-function toggleFaq(btn){
-  const item = btn.closest('.faq-item');
-  const wasOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-  if(!wasOpen) item.classList.add('open');
+
+if(IS_FINE&&!REDUCED){
+  const dot=document.getElementById('cD'),ring=document.getElementById('cR');
+  dot.style.display='block';ring.style.display='block';
+  let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+  (function t(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;dot.style.left=mx+'px';dot.style.top=my+'px';ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(t);})();
+  document.querySelectorAll('a,button,.srv-card').forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('cb'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('cb'));
+  });
 }
+
+/* PAGE TRANSITION
+   On fresh load: veil starts hidden (display:none).
+   On arrival from another page: add .entering so it lifts.
+   On departure: add .leaving so it draws across, then navigate. */
+(function(){
+  const veil = document.getElementById('veil');
+  if(!veil) return;
+
+  // Only show the lift animation if we arrived via a page transition
+  // (i.e. document.referrer is from same site or sessionStorage flag set)
+  if(sessionStorage.getItem('wellovie-transition')){
+    sessionStorage.removeItem('wellovie-transition');
+    veil.classList.add('entering');
+    // Remove after animation completes so it never blocks interaction
+    setTimeout(()=>{ veil.style.display='none'; veil.classList.remove('entering'); }, 1200);
+  }
+
+  // Clicking internal links draws the veil before navigating
+  document.querySelectorAll('a[href]:not([href^="#"]):not([href^="mailto"])').forEach(link=>{
+    link.addEventListener('click', e=>{
+      const href = link.getAttribute('href');
+      if(!href || href.startsWith('http') || href.startsWith('//')) return;
+      e.preventDefault();
+      sessionStorage.setItem('wellovie-transition','1');
+      veil.style.display = 'block';
+      veil.classList.add('leaving');
+      setTimeout(()=>{ window.location.href = href; }, 720);
+    });
+  });
+})();
+
+/* PRELOADER */
+(function(){
+  const el=document.getElementById('pre');
+  const MIN=1800,t0=Date.now();let done=false;
+  function dismiss(){
+    if(done)return;
+    const w=Math.max(MIN-(Date.now()-t0),0);
+    setTimeout(()=>{
+      done=true;el.classList.add('out');
+      setTimeout(()=>{
+        el.style.display='none';
+        // Hero entrance — staggered, no drama
+        ['heroKicker','heroH1','heroDesc','heroActs','credStrip','heroBadge'].forEach((id,i)=>{
+          setTimeout(()=>{
+            const el=document.getElementById(id);
+            if(el)el.classList.add('go');
+          },i*140);
+        });
+      },860);
+    },w);
+  }
+  document.readyState==='complete'?dismiss():window.addEventListener('load',dismiss);
+  setTimeout(dismiss,5000);
+})();
+
+/* SCROLL */
+const spb=document.getElementById('spb'),nav=document.getElementById('nav');
+let lY=-1,rP=false;
+window.addEventListener('scroll',()=>{if(!rP){rP=true;requestAnimationFrame(()=>{rP=false;const sy=scrollY;if(sy===lY)return;lY=sy;const h=document.body.scrollHeight-innerHeight;spb.style.width=(h>0?sy/h*100:0)+'%';nav.classList.toggle('s',sy>10);});}},{passive:true});
+
+/* REVEAL */
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on');});
+},{threshold:.09,rootMargin:'0px 0px -12px 0px'});
+document.querySelectorAll('[data-r]').forEach(el=>ro.observe(el));
+
+/* MOUSE-TRACKED SHEEN on service cards */
+if(IS_FINE&&!REDUCED){
+  document.querySelectorAll('.srv-card').forEach(el=>{
+    el.addEventListener('mousemove',e=>{
+      const r=el.getBoundingClientRect();
+      el.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+      el.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+    });
+  });
+}
+
+/* PROFILE BUILDER — live preview */
+(function(){
+  const iN=document.getElementById('inName');
+  const iC=document.getElementById('inCred');
+  const iS=document.getElementById('inSpec');
+  const iF=document.getElementById('inFee');
+  if(!iN)return;
+
+  function update(){
+    const name=iN.value.trim()||'Your Name, LMFT';
+    const cred=iC.value.trim()||'Licensed Marriage & Family Therapist';
+    const spec=iS.value.trim()||'Anxiety, Trauma, Relationships';
+    const fee=iF.value.trim()||'$175 / session';
+
+    document.getElementById('pName').textContent=name;
+    document.getElementById('pLogo').textContent=name;
+    document.getElementById('pCred').innerHTML=cred;
+    document.getElementById('pFee').textContent=fee;
+    document.getElementById('pInitial').textContent=name.charAt(0).toUpperCase()||'?';
+
+    // Update chips from specialties
+    const chips=document.getElementById('pChips');
+    if(chips&&spec){
+      const parts=spec.split(/[,·]+/).map(s=>s.trim()).filter(Boolean).slice(0,4);
+      chips.innerHTML=parts.map(p=>`<span class="pchip">${p}</span>`).join('');
+    }
+
+    const slug=name.split(',')[0].toLowerCase().replace(/[^a-z\s]/g,'').trim().replace(/\s+/g,'-');
+    document.getElementById('bUrl').textContent=(slug||'yourname')+'.com';
+  }
+
+  [iN,iC,iS,iF].forEach(i=>{
+    if(!i)return;
+    i.addEventListener('input',update);
+    // Lift preview when typing — makes it feel alive
+    i.addEventListener('focus',()=>{
+      const pb=document.getElementById('pB');
+      if(pb){pb.style.transform='scale(1.018) translateY(-5px)';pb.style.boxShadow='0 28px 72px rgba(0,0,0,.65), 0 0 0 1px rgba(184,146,42,.1)';}
+    });
+    i.addEventListener('blur',()=>{
+      const pb=document.getElementById('pB');
+      if(pb){pb.style.transform='';pb.style.boxShadow='';}
+    });
+  });
+})();
+
+/* BURGER */
+const burg=document.getElementById('burger'),drw=document.getElementById('drawer');let open=false;
+function closeDrawer(){open=false;drw.classList.remove('open');drw.setAttribute('aria-hidden','true');burg.setAttribute('aria-expanded','false');document.body.style.overflow='';const[a,b]=burg.querySelectorAll('span');a.style.transform='';b.style.transform='';}
+burg.addEventListener('click',()=>{if(open){closeDrawer();return;}open=true;drw.classList.add('open');drw.setAttribute('aria-hidden','false');burg.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';const[a,b]=burg.querySelectorAll('span');a.style.transform='translateY(6.5px) rotate(45deg)';b.style.transform='translateY(-6.5px) rotate(-45deg)';});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&open)closeDrawer();});
+
+/* SMOOTH ANCHORS */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.getElementById(a.getAttribute('href').slice(1));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
 </script>
+
 </body>
 </html>
