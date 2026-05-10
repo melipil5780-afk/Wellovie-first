@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wellovie — Coming Soon</title>
+  <meta name="description" content="The platform built for modern therapy practice — directory, website builder, worksheets, and courses. Built by a licensed therapist.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Light mode (default) ── */
+    :root,
+    [data-theme="light"] {
+      --bg:          #F5F2ED;
+      --bg-card:     #FDFCFB;
+      --bg-2:        #EDE9E2;
+      --border:      #DDD8CF;
+      --border-2:    #CCC7BC;
+      --text:        #1A1A1A;
+      --text-2:      #3D3730;
+      --text-3:      #6B6358;
+      --text-4:      #9A9088;
+      --indigo:      #2C3A62;
+      --indigo-deep: #1E2847;
+      --indigo-mid:  #3D4F82;
+      --sage:        #4A7A5A;
+      --sage-mid:    #6BAF7A;
+      --brass:       #8A6818;
+      --brass-mid:   #B8901E;
+      --indigo-tint: rgba(44,58,98,0.08);
+      --sage-tint:   rgba(74,122,90,0.1);
+      --brass-tint:  rgba(138,104,24,0.1);
+      --shadow:      0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+      --toggle-bg:   #E8E4DC;
+      --moon-show:   block;
+      --sun-show:    none;
+    }
+
+    /* ── Dark mode ── */
+    [data-theme="dark"] {
+      --bg:          #141820;
+      --bg-card:     #1C2130;
+      --bg-2:        #242B3D;
+      --border:      #2E3650;
+      --border-2:    #3A4468;
+      --text:        #F0EDE8;
+      --text-2:      #C8C2B8;
+      --text-3:      #8F8880;
+      --text-4:      #5A5650;
+      --indigo:      #7B8EC8;
+      --indigo-deep: #9AAEE0;
+      --indigo-mid:  #6678B0;
+      --sage:        #6BAF7A;
+      --sage-mid:    #4A7A5A;
+      --brass:       #C8A040;
+      --brass-mid:   #8A6818;
+      --indigo-tint: rgba(123,142,200,0.12);
+      --sage-tint:   rgba(107,175,122,0.12);
+      --brass-tint:  rgba(200,160,64,0.12);
+      --shadow:      0 1px 4px rgba(0,0,0,0.4), 0 4px 20px rgba(0,0,0,0.3);
+      --toggle-bg:   #242B3D;
+      --moon-show:   none;
+      --sun-show:    block;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* grain */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px;
+    }
+
+    .blob { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; transition: opacity 0.3s; }
+    .blob-1 { width: 700px; height: 700px; top: -250px; right: -180px; background: radial-gradient(circle, rgba(44,58,98,0.07) 0%, transparent 65%); }
+    .blob-2 { width: 500px; height: 500px; bottom: -150px; left: -100px; background: radial-gradient(circle, rgba(74,122,90,0.07) 0%, transparent 65%); }
+    [data-theme="dark"] .blob-1 { background: radial-gradient(circle, rgba(123,142,200,0.08) 0%, transparent 65%); }
+    [data-theme="dark"] .blob-2 { background: radial-gradient(circle, rgba(107,175,122,0.08) 0%, transparent 65%); }
+
+    .page { position: relative; z-index: 1; min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; }
+
+    /* ── Header ── */
+    header {
+      padding: 1.75rem clamp(1.5rem, 5vw, 4rem);
+      display: flex; align-items: center; justify-content: space-between;
+      opacity: 0; animation: rise 0.7s ease 0.05s forwards;
+    }
+
+    .logo { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; }
+    .logo-text {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.35rem; font-weight: 500;
+      color: var(--indigo); letter-spacing: 0.01em;
+      transition: color 0.3s;
+    }
+
+    .header-right { display: flex; align-items: center; gap: 1rem; }
+
+    .coming-pill {
+      padding: 0.2rem 0.65rem; border-radius: 100px;
+      background: var(--bg-2); border: 1px solid var(--border);
+      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text-4);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Theme toggle */
+    .theme-toggle {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--toggle-bg);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 0.2s, border-color 0.2s;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover { border-color: var(--border-2); }
+    .icon-moon { display: var(--moon-show); }
+    .icon-sun  { display: var(--sun-show); }
+
+    /* ── Main ── */
+    main { padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem); display: flex; flex-direction: column; align-items: center; }
+
+    /* ── Hero ── */
+    .hero {
+      max-width: 780px; text-align: center;
+      margin-bottom: clamp(3rem, 6vw, 5rem);
+      opacity: 0; animation: rise 0.8s ease 0.2s forwards;
+    }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-bottom: 1.5rem; padding: 0.3rem 0.9rem;
+      border-radius: 100px;
+      background: var(--indigo-tint);
+      border: 1px solid rgba(44,58,98,0.12);
+      transition: background 0.3s;
+    }
+    [data-theme="dark"] .eyebrow { border-color: rgba(123,142,200,0.2); }
+
+    .eyebrow-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--sage); }
+    .eyebrow-text {
+      font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--indigo); transition: color 0.3s;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.8rem, 6.5vw, 5rem);
+      font-weight: 400; line-height: 1.08;
+      color: var(--text); letter-spacing: -0.015em;
+      margin-bottom: 1.5rem; transition: color 0.3s;
+    }
+    h1 em { font-style: italic; color: var(--sage); transition: color 0.3s; }
+    h1 span { display: block; }
+
+    .hero-desc {
+      font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+      color: var(--text-2); line-height: 1.85;
+      max-width: 600px; margin: 0 auto 2.5rem;
+      transition: color 0.3s;
+    }
+
+    /* ── Form ── */
+    .form-wrap { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
+    .form-row { display: flex; width: 100%; max-width: 440px; }
+    .form-input {
+      flex: 1; padding: 0.82rem 1.1rem;
+      border: 1.5px solid var(--border); border-right: none;
+      border-radius: 12px 0 0 12px;
+      background: var(--bg-card); color: var(--text);
+      font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem;
+      outline: none; transition: border-color 0.2s, background 0.3s, color 0.3s;
+    }
+    .form-input:focus { border-color: var(--indigo); }
+    .form-input::placeholder { color: var(--text-4); }
+    .form-btn {
+      padding: 0.82rem 1.4rem;
+      background: var(--indigo); color: #fff;
+      border: none; border-radius: 0 12px 12px 0;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 0.84rem; font-weight: 600;
+      cursor: pointer; transition: background 0.2s; white-space: nowrap;
+    }
+    .form-btn:hover { background: var(--indigo-deep); }
+    [data-theme="dark"] .form-btn:hover { background: var(--indigo-mid); }
+    .form-note { font-size: 0.68rem; color: var(--text-4); transition: color 0.3s; }
+    .form-success {
+      display: none; padding: 0.75rem 1.2rem;
+      background: var(--sage-tint);
+      border: 1px solid rgba(74,122,90,0.2); border-radius: 12px;
+      font-size: 0.84rem; color: var(--sage); font-weight: 500;
+      width: 100%; max-width: 440px; text-align: center;
+    }
+
+    /* ── Pillars ── */
+    .pillars {
+      width: 100%; max-width: 1060px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+      opacity: 0; animation: rise 0.9s ease 0.45s forwards;
+    }
+
+    .pillar {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 1.5rem 1.4rem;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; gap: 0.7rem;
+      transition: transform 0.2s, border-color 0.2s, background 0.3s, box-shadow 0.2s;
+      box-shadow: var(--shadow);
+    }
+    .pillar:hover { transform: translateY(-2px); }
+    .pillar.indigo:hover { border-color: var(--indigo); }
+    .pillar.sage:hover   { border-color: var(--sage); }
+    .pillar.brass:hover  { border-color: var(--brass); }
+
+    .pillar::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      border-radius: 20px 20px 0 0;
+    }
+    .pillar.indigo::before { background: linear-gradient(90deg, var(--indigo), var(--indigo-mid)); }
+    .pillar.sage::before   { background: linear-gradient(90deg, var(--sage), var(--sage-mid)); }
+    .pillar.brass::before  { background: linear-gradient(90deg, var(--brass), var(--brass-mid)); }
+    .pillar.muted::before  { background: var(--border); }
+
+    .pillar-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.3s;
+    }
+    .pillar.indigo .pillar-icon { background: var(--indigo-tint); }
+    .pillar.sage .pillar-icon   { background: var(--sage-tint); }
+    .pillar.brass .pillar-icon  { background: var(--brass-tint); }
+    .pillar.muted .pillar-icon  { background: var(--bg-2); }
+
+    .pillar-label {
+      font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-4); transition: color 0.3s;
+    }
+    .pillar-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.15rem; font-weight: 600;
+      color: var(--text); line-height: 1.2; transition: color 0.3s;
+    }
+    .pillar-desc {
+      font-size: 0.76rem; color: var(--text-3);
+      line-height: 1.65; flex: 1; transition: color 0.3s;
+    }
+    .ptags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.2rem; }
+    .ptag {
+      font-size: 0.58rem; padding: 0.15rem 0.5rem;
+      border-radius: 100px; background: var(--bg-2);
+      border: 1px solid var(--border); color: var(--text-3);
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
+    }
+    .soon-row {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.6rem; font-weight: 600; color: var(--text-4);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 100%; max-width: 1060px;
+      height: 1px; background: var(--border);
+      margin: clamp(2.5rem, 5vw, 4rem) 0;
+      opacity: 0; animation: rise 0.8s ease 0.55s forwards;
+      transition: background 0.3s;
+    }
+
+    /* ── Built-by ── */
+    .built-by {
+      width: 100%; max-width: 1060px;
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+      opacity: 0; animation: rise 0.8s ease 0.65s forwards;
+    }
+    .built-by-left { display: flex; align-items: center; gap: 0.9rem; }
+    .avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--indigo) 0%, var(--sage) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; color: #fff; flex-shrink: 0;
+    }
+    .built-by-text { font-size: 0.8rem; color: var(--text-2); line-height: 1.55; transition: color 0.3s; }
+    .built-by-text strong { font-weight: 600; color: var(--text); }
+    .built-by-note {
+      font-size: 0.76rem; color: var(--text-3);
+      max-width: 420px; line-height: 1.6; transition: color 0.3s;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 1.4rem clamp(1.5rem, 5vw, 4rem);
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;
+      opacity: 0; animation: rise 0.7s ease 0.75s forwards;
+      transition: border-color 0.3s;
+    }
+    .footer-copy { font-size: 0.68rem; color: var(--text-4); transition: color 0.3s; }
+    .footer-nav { display: flex; gap: 1.25rem; }
+    .footer-nav a { font-size: 0.68rem; color: var(--text-4); text-decoration: none; transition: color 0.15s; }
+    .footer-nav a:hover { color: var(--text-2); }
+
+    /* ── Animations ── */
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) { .pillars { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) {
+      .pillars { grid-template-columns: 1fr; }
+      .form-row { flex-direction: column; }
+      .form-input { border-right: 1.5px solid var(--border); border-radius: 12px; }
+      .form-btn { border-radius: 12px; }
+      .built-by { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="page">
+
+    <!-- Header -->
+    <header>
+      <a href="#" class="logo">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 27C16 27 7 21.5 7 14.5C7 10.4 10.2 7 14 7C14 7 12.5 10 14.5 13C16.5 9 20 7.5 22 7.5C23.7 7.5 25 9 25 10.5C25 10.5 22.5 10.5 21.5 13C23.2 11.2 26 12.5 26 16C26 20.5 21.5 24.5 16 27Z" stroke="currentColor" stroke-width="1.3" fill="var(--indigo-tint)" stroke-linejoin="round" style="color: var(--indigo)"/>
+          <path d="M16 26C13.5 22.5 13.5 18.5 16 16.5C16 16.5 15.2 19.5 17 21.5C17.2 18 19.5 16 20 13.5C21.5 15.5 21 19.5 18.5 22.5" stroke="var(--sage)" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+        </svg>
+        <span class="logo-text">Wellovie</span>
+      </a>
+      <div class="header-right">
+        <span class="coming-pill">Coming Soon</span>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <!-- Moon (shown in light mode) -->
+          <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>
+          </svg>
+          <!-- Sun (shown in dark mode) -->
+          <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main>
+      <div class="hero">
+        <div class="eyebrow">
+          <div class="eyebrow-dot"></div>
+          <span class="eyebrow-text">Built by a Licensed Mental Health Counselor</span>
+        </div>
+        <h1>
+          <span>The platform</span>
+          <span>for <em>modern</em> therapy</span>
+          <span>practice.</span>
+        </h1>
+        <p class="hero-desc">
+          Wellovie brings together everything a private practice needs — a verified therapist directory, a website builder, an ever-growing library of clinical worksheets, and therapy skills courses — all in one place, built by a clinician who actually does this work.
+        </p>
+        <div class="form-wrap">
+          <div class="form-success" id="success-msg">✓ You're on the list. We'll be in touch before launch.</div>
+          <div class="form-row" id="form-row">
+            <input type="email" class="form-input" id="email-input" placeholder="your@email.com" autocomplete="email">
+            <button class="form-btn" onclick="handleSubmit()">Get early access</button>
+          </div>
+          <p class="form-note" id="form-note">No spam. One email when we launch.</p>
+        </div>
+      </div>
+
+      <div class="pillars">
+
+        <!-- Directory -->
+        <div class="pillar indigo">
+          <div class="pillar-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--indigo)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          </div>
+          <div class="pillar-label">For clients</div>
+          <div class="pillar-title">Therapist Directory</div>
+          <div class="pillar-desc">A verified directory of licensed therapists with rich profiles. Filter by specialty, language, identity, insurance, and more. Find the right fit — not just the nearest name.</div>
+          <div class="ptags">
+            <span class="ptag">License-verified</span>
+            <span class="ptag">Demographic filters</span>
+            <span class="ptag">Specialty search</span>
+          </div>
+        </div>
+
+        <!-- Website builder -->
+        <div class="pillar sage">
+          <div class="pillar-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div class="pillar-label">For therapists</div>
+          <div class="pillar-title">Website Builder</div>
+          <div class="pillar-desc">A guided wizard that writes your bio, generates your site copy, and publishes a professional therapist website — no designers, no developers, no templates that look like everyone else's.</div>
+          <div class="ptags">
+            <span class="ptag">AI-assisted copy</span>
+            <span class="ptag">Custom domain</span>
+            <span class="ptag">Directory-linked</span>
+          </div>
+        </div>
+
+        <!-- Worksheets -->
+        <div class="pillar brass">
+          <div class="pillar-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--brass)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="pillar-label">For clients &amp; therapists</div>
+          <div class="pillar-title">Clinical Worksheets</div>
+          <div class="pillar-desc">An ever-growing library of evidence-based worksheets covering anxiety, emotion regulation, relationships, trauma, OCD, sleep, and more. Color and B&amp;W versions. New topics added regularly.</div>
+          <div class="ptags">
+            <span class="ptag">Growing library</span>
+            <span class="ptag">Multiple topics</span>
+            <span class="ptag">Color &amp; B&amp;W</span>
+          </div>
+        </div>
+
+        <!-- Courses -->
+        <div class="pillar muted">
+          <div class="pillar-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div class="pillar-label">For clients</div>
+          <div class="pillar-title">Therapy Skills Courses</div>
+          <div class="pillar-desc">Short, self-paced courses teaching specific therapy skills — emotion regulation, distress tolerance, mindfulness, and more. Practitioner-designed and accessible to everyone.</div>
+          <div class="ptags">
+            <span class="ptag">Self-paced</span>
+            <span class="ptag">Practitioner-designed</span>
+          </div>
+          <div class="soon-row">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Launching soon
+          </div>
+        </div>
+
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Built by — clean, no jargon -->
+      <div class="built-by">
+        <div class="built-by-left">
+          <div class="avatar">M</div>
+          <div class="built-by-text">
+            <strong>Built by a Licensed Mental Health Counselor</strong><br>
+            Every feature shaped by clinical practice — not a product roadmap.
+          </div>
+        </div>
+        <p class="built-by-note">
+          Wellovie exists because private practice deserves better infrastructure — tools that actually reflect how therapy works and what clients need to find the right help.
+        </p>
+      </div>
+    </main>
+
+    <footer>
+      <span class="footer-copy">© 2026 Wellovie. All rights reserved.</span>
+      <nav class="footer-nav">
+        <a href="mailto:hello@wellovie.com">Contact</a>
+        <a href="#">Privacy</a>
+        <a href="#">For Therapists</a>
+      </nav>
+    </footer>
+
+  </div>
+
+  <script>
+    // ── Theme toggle ──
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('wv-theme', next);
+    }
+
+    // Restore saved theme on load
+    (function() {
+      const saved = localStorage.getItem('wv-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+
+    // ── Email form ──
+    function handleSubmit() {
+      const input = document.getElementById('email-input');
+      const success = document.getElementById('success-msg');
+      const row = document.getElementById('form-row');
+      const note = document.getElementById('form-note');
+      if (!input.value || !input.value.includes('@')) {
+        input.style.borderColor = '#c0392b';
+        input.focus();
+        setTimeout(() => input.style.borderColor = '', 1600);
+        return;
+      }
+      // fetch('/api/waitlist', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ email: input.value }) })
+      success.style.display = 'block';
+      row.style.display = 'none';
+      note.style.display = 'none';
+    }
+
+    document.getElementById('email-input').addEventListener('keydown', e => {
+      if (e.key === 'Enter') handleSubmit();
+    });
+  </script>
+</body>
+</html>
