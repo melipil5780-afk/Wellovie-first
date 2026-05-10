@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wellovie — The Private Practice Platform Built From Inside the Therapy Room</title>
+  <meta name="description" content="A website, a verified directory, a clinical worksheet library, and skill-building courses — one subscription for private practice therapists who want to grow without burning out.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root, [data-theme="light"] {
+      --bg:           #F5F2ED;
+      --bg-card:      #FDFCFB;
+      --bg-2:         #EDE9E2;
+      --border:       #DDD8CF;
+      --border-2:     #CCC7BC;
+      --text:         #1A1A1A;
+      --text-2:       #3D3730;
+      --text-3:       #6B6358;
+      --text-4:       #9A9088;
+      --indigo:       #2C3A62;
+      --indigo-deep:  #1E2847;
+      --indigo-mid:   #3D4F82;
+      --sage:         #4A7A5A;
+      --sage-mid:     #6BAF7A;
+      --brass:        #8A6818;
+      --brass-mid:    #B8901E;
+      --indigo-tint:  rgba(44,58,98,0.08);
+      --sage-tint:    rgba(74,122,90,0.10);
+      --brass-tint:   rgba(138,104,24,0.10);
+      --shadow-sm:    0 1px 3px rgba(0,0,0,0.05), 0 2px 8px rgba(0,0,0,0.04);
+      --shadow:       0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.05);
+      --shadow-lg:    0 4px 12px rgba(0,0,0,0.08), 0 16px 40px rgba(0,0,0,0.06);
+      --toggle-bg:    #E8E4DC;
+      --moon-show:    block;
+      --sun-show:     none;
+    }
+
+    [data-theme="dark"] {
+      --bg:           #12161F;
+      --bg-card:      #1A2030;
+      --bg-2:         #222840;
+      --border:       #2A3352;
+      --border-2:     #374068;
+      --text:         #F0EDE8;
+      --text-2:       #C8C2B8;
+      --text-3:       #8F8880;
+      --text-4:       #5A5650;
+      --indigo:       #7B8EC8;
+      --indigo-deep:  #9AAEE0;
+      --indigo-mid:   #6678B0;
+      --sage:         #6BAF7A;
+      --sage-mid:     #4A7A5A;
+      --brass:        #C8A040;
+      --brass-mid:    #8A6818;
+      --indigo-tint:  rgba(123,142,200,0.12);
+      --sage-tint:    rgba(107,175,122,0.12);
+      --brass-tint:   rgba(200,160,64,0.12);
+      --shadow-sm:    0 1px 3px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.2);
+      --shadow:       0 2px 8px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.3);
+      --shadow-lg:    0 4px 16px rgba(0,0,0,0.5), 0 16px 48px rgba(0,0,0,0.4);
+      --toggle-bg:    #222840;
+      --moon-show:    none;
+      --sun-show:     block;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 999;
+      opacity: 0.022;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px;
+    }
+
+    .blob { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .blob-1 { width: 800px; height: 800px; top: -300px; right: -200px; background: radial-gradient(circle, rgba(44,58,98,0.065) 0%, transparent 60%); }
+    .blob-2 { width: 600px; height: 600px; bottom: -200px; left: -150px; background: radial-gradient(circle, rgba(74,122,90,0.065) 0%, transparent 60%); }
+    .blob-3 { width: 400px; height: 400px; top: 40%; left: 40%; background: radial-gradient(circle, rgba(138,104,24,0.04) 0%, transparent 60%); }
+    [data-theme="dark"] .blob-1 { background: radial-gradient(circle, rgba(123,142,200,0.08) 0%, transparent 60%); }
+    [data-theme="dark"] .blob-2 { background: radial-gradient(circle, rgba(107,175,122,0.08) 0%, transparent 60%); }
+    [data-theme="dark"] .blob-3 { background: radial-gradient(circle, rgba(200,160,64,0.05) 0%, transparent 60%); }
+
+    .page { position: relative; z-index: 1; min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; }
+
+    /* ─── Header ─── */
+    header {
+      padding: 1.75rem clamp(1.5rem, 5vw, 4rem);
+      display: flex; align-items: center; justify-content: space-between;
+      opacity: 0; animation: rise 0.6s ease 0.05s forwards;
+    }
+
+    .logo { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; }
+    .logo-text {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.38rem; font-weight: 500;
+      color: var(--indigo); letter-spacing: 0.01em;
+      transition: color 0.3s;
+    }
+
+    .header-right { display: flex; align-items: center; gap: 0.85rem; }
+
+    .coming-pill {
+      padding: 0.22rem 0.7rem; border-radius: 100px;
+      background: var(--sage-tint); border: 1px solid rgba(74,122,90,0.2);
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--sage);
+    }
+
+    .theme-toggle {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--toggle-bg); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 0.2s, border-color 0.2s;
+    }
+    .theme-toggle:hover { border-color: var(--border-2); }
+    .icon-moon { display: var(--moon-show); }
+    .icon-sun  { display: var(--sun-show); }
+
+    /* ─── Main ─── */
+    main {
+      padding: clamp(1rem, 3vw, 2.5rem) clamp(1.5rem, 5vw, 4rem) clamp(3rem, 6vw, 5rem);
+      display: flex; flex-direction: column; align-items: center;
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      max-width: 760px; text-align: center;
+      margin-bottom: 3.5rem;
+      opacity: 0; animation: rise 0.8s ease 0.18s forwards;
+    }
+
+    .category-label {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
+      color: var(--text-4); text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.7rem, 6.5vw, 5.2rem);
+      font-weight: 400; line-height: 1.07;
+      color: var(--text); letter-spacing: -0.018em;
+      margin-bottom: 1.5rem;
+    }
+    h1 em { font-style: italic; color: var(--sage); }
+
+    .hero-sub {
+      font-size: clamp(0.94rem, 1.7vw, 1.05rem);
+      color: var(--text-2); line-height: 1.88;
+      max-width: 600px; margin: 0 auto 0.6rem;
+    }
+
+    .hero-sub strong { color: var(--text); font-weight: 600; }
+
+    /* ─── System summary chips ─── */
+    .system-chips {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: center; gap: 0.4rem;
+      margin: 1.5rem 0 2.5rem;
+    }
+    .sys-chip {
+      display: inline-flex; align-items: center; gap: 0.32rem;
+      padding: 0.3rem 0.75rem; border-radius: 100px;
+      border: 1px solid var(--border); background: var(--bg-card);
+      font-size: 0.68rem; font-weight: 500; color: var(--text-2);
+      box-shadow: var(--shadow-sm);
+    }
+    .sys-chip-dot {
+      width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0;
+    }
+    .sys-chip-dot.sage   { background: var(--sage); }
+    .sys-chip-dot.indigo { background: var(--indigo); }
+    .sys-chip-dot.brass  { background: var(--brass); }
+    .sys-chip-dot.muted  { background: var(--text-4); }
+    .sys-arrow {
+      font-size: 0.7rem; color: var(--text-4); padding: 0 0.1rem;
+    }
+
+    /* ─── CTA Block ─── */
+    .cta-block {
+      display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
+    }
+
+    .founding-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.28rem 0.8rem; border-radius: 100px;
+      background: var(--brass-tint); border: 1px solid rgba(138,104,24,0.22);
+      font-size: 0.61rem; font-weight: 700; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--brass);
+    }
+    .founding-badge-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--brass); animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    .form-row {
+      display: flex; width: 100%; max-width: 440px;
+    }
+    .form-input {
+      flex: 1; padding: 0.92rem 1.1rem;
+      border: 1.5px solid var(--border); border-right: none;
+      border-radius: 12px 0 0 12px;
+      background: var(--bg-card); color: var(--text);
+      font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.88rem;
+      outline: none; transition: border-color 0.2s, background 0.3s;
+    }
+    .form-input:focus { border-color: var(--indigo); }
+    .form-input::placeholder { color: var(--text-4); }
+
+    .form-btn {
+      padding: 0.92rem 1.4rem;
+      background: var(--indigo); color: #fff;
+      border: none; border-radius: 0 12px 12px 0;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 0.83rem; font-weight: 600;
+      cursor: pointer; transition: background 0.2s;
+      white-space: nowrap; letter-spacing: 0.01em;
+    }
+    .form-btn:hover { background: var(--indigo-deep); }
+    .form-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+    [data-theme="dark"] .form-btn:hover { background: var(--indigo-mid); }
+
+    .form-note { font-size: 0.67rem; color: var(--text-4); }
+
+    .form-success {
+      display: none; padding: 0.85rem 1.4rem;
+      background: var(--sage-tint);
+      border: 1px solid rgba(74,122,90,0.2); border-radius: 12px;
+      font-size: 0.84rem; color: var(--sage); font-weight: 500;
+      width: 100%; max-width: 440px; text-align: center;
+    }
+    .form-error-msg {
+      display: none; font-size: 0.72rem; color: #c0392b;
+    }
+
+    /* ─── Trust strip ─── */
+    .trust-strip {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 0.4rem 1.4rem;
+      margin-top: 1.2rem;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 0.35rem;
+      font-size: 0.7rem; color: var(--text-3);
+    }
+    .trust-item svg { flex-shrink: 0; }
+    .trust-divider { width: 1px; height: 12px; background: var(--border); }
+    @media (max-width: 500px) { .trust-divider { display: none; } }
+
+    /* ─── Section label ─── */
+    .section-label {
+      width: 100%; max-width: 1060px;
+      margin-bottom: 0.85rem;
+    }
+    .section-label-text {
+      font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-4);
+    }
+
+    /* ─── How it works ─── */
+    .how-section {
+      width: 100%; max-width: 1060px;
+      margin-bottom: 1rem;
+      opacity: 0; animation: rise 0.8s ease 0.28s forwards;
+    }
+
+    .how-heading {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 400; color: var(--text);
+      margin-bottom: 0.55rem; line-height: 1.2;
+    }
+    .how-sub {
+      font-size: 0.85rem; color: var(--text-3);
+      line-height: 1.75; max-width: 560px; margin-bottom: 1.75rem;
+    }
+
+    .how-steps {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border); border-radius: 16px;
+      overflow: hidden; box-shadow: var(--shadow-sm);
+    }
+    .how-step {
+      background: var(--bg-card);
+      padding: 1.6rem 1.5rem;
+      display: flex; flex-direction: column; gap: 0.65rem;
+    }
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 300;
+      color: var(--border-2); line-height: 1;
+    }
+    .step-title {
+      font-weight: 600; font-size: 0.88rem; color: var(--text);
+    }
+    .step-desc {
+      font-size: 0.76rem; color: var(--text-3); line-height: 1.72;
+    }
+    .step-time {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.62rem; font-weight: 600;
+      color: var(--sage); letter-spacing: 0.04em;
+      text-transform: uppercase; margin-top: 0.2rem;
+    }
+
+    /* ─── Divider ─── */
+    .divider {
+      width: 100%; max-width: 1060px;
+      height: 1px; background: var(--border);
+      margin: clamp(2.5rem, 5vw, 3.5rem) 0;
+      opacity: 0; animation: rise 0.7s ease 0.34s forwards;
+    }
+
+    /* ─── Pillars ─── */
+    .pillars {
+      width: 100%; max-width: 1060px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.9rem;
+      margin-bottom: 0.5rem;
+      opacity: 0; animation: rise 0.9s ease 0.4s forwards;
+    }
+
+    .pillar {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 1.6rem 1.4rem;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; gap: 0.7rem;
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .pillar:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .pillar.sage:hover   { border-color: var(--sage); }
+    .pillar.indigo:hover { border-color: var(--indigo); }
+    .pillar.brass:hover  { border-color: var(--brass); }
+
+    .pillar::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      border-radius: 20px 20px 0 0;
+    }
+    .pillar.sage::before   { background: linear-gradient(90deg, var(--sage), var(--sage-mid)); }
+    .pillar.indigo::before { background: linear-gradient(90deg, var(--indigo), var(--indigo-mid)); }
+    .pillar.brass::before  { background: linear-gradient(90deg, var(--brass), var(--brass-mid)); }
+    .pillar.muted::before  { background: linear-gradient(90deg, var(--border), var(--border-2)); }
+
+    .wedge-badge {
+      position: absolute; top: 14px; right: 14px;
+      padding: 0.15rem 0.5rem; border-radius: 100px;
+      background: var(--sage-tint);
+      border: 1px solid rgba(74,122,90,0.2);
+      font-size: 0.55rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    .pillar-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pillar.sage   .pillar-icon { background: var(--sage-tint); }
+    .pillar.indigo .pillar-icon { background: var(--indigo-tint); }
+    .pillar.brass  .pillar-icon { background: var(--brass-tint); }
+    .pillar.muted  .pillar-icon { background: var(--bg-2); }
+
+    .pillar-label {
+      font-size: 0.57rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-4);
+    }
+    .pillar-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.15rem; font-weight: 600;
+      color: var(--text); line-height: 1.22;
+    }
+    .pillar-desc {
+      font-size: 0.765rem; color: var(--text-3);
+      line-height: 1.72; flex: 1;
+    }
+    .pillar-desc strong { color: var(--text-2); font-weight: 500; }
+
+    .ptags { display: flex; flex-wrap: wrap; gap: 0.28rem; margin-top: 0.15rem; }
+    .ptag {
+      font-size: 0.57rem; padding: 0.14rem 0.5rem;
+      border-radius: 100px; background: var(--bg-2);
+      border: 1px solid var(--border); color: var(--text-3);
+    }
+    .soon-row {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.59rem; font-weight: 600; color: var(--text-4);
+      letter-spacing: 0.04em; margin-top: 0.1rem;
+    }
+
+    /* ─── Scope strip ─── */
+    .scope-strip {
+      width: 100%; max-width: 1060px;
+      margin-bottom: 0.5rem;
+      opacity: 0; animation: rise 0.8s ease 0.46s forwards;
+    }
+    .scope-strip-inner {
+      display: flex; align-items: stretch; gap: 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+    .scope-col {
+      flex: 1; padding: 1.1rem 1.4rem;
+      display: flex; flex-direction: column; gap: 0.45rem;
+    }
+    .scope-col + .scope-col { border-left: 1px solid var(--border); }
+    .scope-col-label {
+      font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 0.15rem;
+    }
+    .scope-col.yes .scope-col-label { color: var(--sage); }
+    .scope-col.no  .scope-col-label { color: var(--text-4); }
+    .scope-chip {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.73rem; width: fit-content;
+    }
+    .scope-chip.yes { color: var(--text-2); font-weight: 450; }
+    .scope-chip.no  { color: var(--text-4); text-decoration: line-through; }
+    .scope-col.no .scope-note {
+      font-size: 0.67rem; color: var(--text-4);
+      font-style: italic; margin-top: 0.4rem; line-height: 1.55;
+    }
+
+    /* ─── FAQ ─── */
+    .faq-section {
+      width: 100%; max-width: 1060px;
+      opacity: 0; animation: rise 0.8s ease 0.52s forwards;
+    }
+
+    .faq-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border); border-radius: 16px;
+      overflow: hidden; box-shadow: var(--shadow-sm);
+    }
+    .faq-item {
+      background: var(--bg-card);
+      padding: 1.4rem 1.5rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .faq-q {
+      font-weight: 600; font-size: 0.83rem; color: var(--text);
+      line-height: 1.4;
+    }
+    .faq-a {
+      font-size: 0.76rem; color: var(--text-3); line-height: 1.75;
+    }
+    .faq-a strong { color: var(--text-2); font-weight: 500; }
+
+    /* ─── Built by ─── */
+    .built-by {
+      width: 100%; max-width: 1060px;
+      opacity: 0; animation: rise 0.8s ease 0.58s forwards;
+    }
+    .built-by-inner {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 2rem 2rem;
+      display: flex; align-items: flex-start;
+      gap: 1.5rem; box-shadow: var(--shadow-sm);
+    }
+    .avatar {
+      width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--indigo) 0%, var(--sage) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; color: #fff; margin-top: 2px;
+    }
+    .built-by-text { font-size: 0.82rem; color: var(--text-2); line-height: 1.8; }
+    .built-by-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 600; color: var(--text);
+      display: block; margin-bottom: 0.1rem;
+    }
+    .built-by-creds {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--indigo);
+      display: block; margin-bottom: 0.75rem;
+    }
+    .built-by-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.08rem; font-style: italic;
+      color: var(--text-2); line-height: 1.65;
+      border-left: 2px solid var(--sage);
+      padding-left: 0.9rem; margin: 0.75rem 0 0.85rem;
+    }
+
+    /* ─── Bottom CTA ─── */
+    .bottom-cta {
+      width: 100%; max-width: 1060px; text-align: center;
+      opacity: 0; animation: rise 0.8s ease 0.64s forwards;
+    }
+    .bottom-cta-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 400; color: var(--text);
+      line-height: 1.15; margin-bottom: 0.75rem;
+    }
+    .bottom-cta-heading em { font-style: italic; color: var(--sage); }
+    .bottom-cta-sub {
+      font-size: 0.88rem; color: var(--text-3); line-height: 1.75;
+      max-width: 520px; margin: 0 auto 1.8rem;
+    }
+    .bottom-cta-form {
+      display: flex; flex-direction: column; align-items: center; gap: 0.65rem;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      padding: 1.35rem clamp(1.5rem, 5vw, 4rem);
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;
+      opacity: 0; animation: rise 0.6s ease 0.72s forwards;
+    }
+    .footer-copy { font-size: 0.67rem; color: var(--text-4); }
+    .footer-nav { display: flex; gap: 1.2rem; }
+    .footer-nav a {
+      font-size: 0.67rem; color: var(--text-4);
+      text-decoration: none; transition: color 0.15s;
+    }
+    .footer-nav a:hover { color: var(--text-2); }
+
+    /* ─── Animations ─── */
+    @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 920px) {
+      .pillars { grid-template-columns: repeat(2, 1fr); }
+      .faq-grid { grid-template-columns: 1fr; }
+      .how-steps { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .scope-strip-inner { flex-direction: column; }
+      .scope-col + .scope-col { border-left: none; border-top: 1px solid var(--border); }
+    }
+    @media (max-width: 580px) {
+      .pillars { grid-template-columns: 1fr; }
+      .form-row { flex-direction: column; }
+      .form-input { border-right: 1.5px solid var(--border); border-radius: 12px; }
+      .form-btn { border-radius: 12px; }
+      .built-by-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="page">
+
+    <!-- ── Header ── -->
+    <header>
+      <a href="#" class="logo">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+          <path d="M16 27C16 27 7 21.5 7 14.5C7 10.4 10.2 7 14 7C14 7 12.5 10 14.5 13C16.5 9 20 7.5 22 7.5C23.7 7.5 25 9 25 10.5C25 10.5 22.5 10.5 21.5 13C23.2 11.2 26 12.5 26 16C26 20.5 21.5 24.5 16 27Z" stroke="var(--indigo)" stroke-width="1.3" fill="var(--indigo-tint)" stroke-linejoin="round"/>
+          <path d="M16 26C13.5 22.5 13.5 18.5 16 16.5C16 16.5 15.2 19.5 17 21.5C17.2 18 19.5 16 20 13.5C21.5 15.5 21 19.5 18.5 22.5" stroke="var(--sage)" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+        </svg>
+        <span class="logo-text">Wellovie</span>
+      </a>
+      <div class="header-right">
+        <span class="coming-pill">Early Access</span>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
+          <svg class="icon-sun"  width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ── Hero ── -->
+      <div class="hero">
+        <p class="category-label">Coming soon — Private practice growth platform for therapists</p>
+
+        <h1>Your practice should be as strong<br><em>outside</em> the room as it is inside it.</h1>
+
+        <p class="hero-sub">
+          Most therapists are exceptional clinicians and invisible online. Wellovie is being built to fix that — <strong>your website, your directory presence, your client tools, your clinical edge</strong> — in one subscription built by someone who actually does the work. We're not live yet, but we're close.
+        </p>
+
+        <!-- System flow chips -->
+        <div class="system-chips">
+          <div class="sys-chip"><div class="sys-chip-dot sage"></div> Get found</div>
+          <span class="sys-arrow">→</span>
+          <div class="sys-chip"><div class="sys-chip-dot indigo"></div> Present well</div>
+          <span class="sys-arrow">→</span>
+          <div class="sys-chip"><div class="sys-chip-dot brass"></div> Extend care between sessions</div>
+          <span class="sys-arrow">→</span>
+          <div class="sys-chip"><div class="sys-chip-dot muted"></div> Grow your craft</div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-block">
+          <div class="founding-badge">
+            <div class="founding-badge-dot"></div>
+            Founding member spots — first 100 therapists only
+          </div>
+          <div class="form-success" id="success-msg-hero">✓ You're in. You'll hear from us before anyone else — with founding member pricing.</div>
+          <div class="form-row" id="form-row-hero">
+            <input type="email" class="form-input" id="email-hero" placeholder="your@email.com" autocomplete="email">
+            <button class="form-btn" id="btn-hero" onclick="handleSubmit('hero')">Claim your spot</button>
+          </div>
+          <p class="form-error-msg" id="err-hero">Please enter a valid email address.</p>
+          <p class="form-note">Founding members get locked-in pricing and first access. One email at launch.</p>
+        </div>
+
+        <!-- Trust strip -->
+        <div class="trust-strip">
+          <div class="trust-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            No PHI ever stored
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Works alongside SimplePractice & TherapyNotes
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Built by a licensed counselor
+          </div>
+        </div>
+      </div>
+
+      <!-- ── How it works ── -->
+      <div class="how-section">
+        <div class="section-label"><span class="section-label-text">How it will work</span></div>
+        <h2 class="how-heading">From signup to your first client inquiry — in an afternoon.</h2>
+        <p class="how-sub">Here's what Wellovie is being built to do. Join the waitlist and be there when it launches.</p>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="step-num">01</div>
+            <div class="step-title">Answer questions about your practice</div>
+            <div class="step-desc">Tell Wellovie who you work with, what your approach is, and what makes your work distinct. No jargon required — just your honest answers.</div>
+            <div class="step-time">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              About 15 minutes
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="step-num">02</div>
+            <div class="step-title">Get your site, directory profile, and tools</div>
+            <div class="step-desc">Wellovie writes your copy, publishes your professional site, lists you in the verified directory, and unlocks your full worksheet and course library — automatically.</div>
+            <div class="step-time">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Same afternoon
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="step-num">03</div>
+            <div class="step-title">Clients find you. The work deepens.</div>
+            <div class="step-desc">Better-fit clients come through a directory built for specificity, not volume. And between sessions, your clients have tools that make the work compound — not just wait.</div>
+            <div class="step-time">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Ongoing
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ── What's included ── -->
+      <div class="section-label" style="opacity:0;animation:rise 0.7s ease 0.38s forwards">
+        <span class="section-label-text">What will be included in one subscription</span>
+      </div>
+
+      <div class="pillars">
+
+        <div class="pillar sage">
+          <span class="wedge-badge">Start here</span>
+          <div class="pillar-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div class="pillar-label">Website</div>
+          <div class="pillar-title">A therapist site that actually sounds like you</div>
+          <div class="pillar-desc">Answer a few questions. Wellovie <strong>writes your bio, generates your copy</strong>, and publishes a professional site in an afternoon. No designer. No developer. No template that looks like everyone else's.</div>
+          <div class="ptags">
+            <span class="ptag">AI-assisted copy</span>
+            <span class="ptag">Custom domain</span>
+            <span class="ptag">Directory-linked</span>
+          </div>
+        </div>
+
+        <div class="pillar indigo">
+          <div class="pillar-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--indigo)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          </div>
+          <div class="pillar-label">Directory</div>
+          <div class="pillar-title">Be found by clients who are already the right fit</div>
+          <div class="pillar-desc">Not a list of anyone with a license. A <strong>verified directory</strong> filtered by specialty, approach, language, identity, and insurance — so the people who reach out have already filtered themselves. Fewer cold inquiries. More good matches.</div>
+          <div class="ptags">
+            <span class="ptag">License-verified</span>
+            <span class="ptag">Approach filters</span>
+            <span class="ptag">Identity-affirming</span>
+          </div>
+        </div>
+
+        <div class="pillar brass">
+          <div class="pillar-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--brass)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="pillar-label">Worksheet Library</div>
+          <div class="pillar-title">A clinical library that earns its place between sessions</div>
+          <div class="pillar-desc">Grounded in <strong>CBT, DBT, ACT, ERP, and CBT-I</strong> — spanning anxiety, OCD, sleep, trauma, emotion regulation, relationships, and more. Not generic journaling prompts. The between-session work that makes the in-session work compound.</div>
+          <div class="ptags">
+            <span class="ptag">Clinically grounded</span>
+            <span class="ptag">Ever-growing</span>
+            <span class="ptag">Color &amp; B&amp;W</span>
+          </div>
+        </div>
+
+        <div class="pillar muted">
+          <div class="pillar-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div class="pillar-label">Courses &amp; Clinical Cards</div>
+          <div class="pillar-title">The craft your program assumed you'd figure out</div>
+          <div class="pillar-desc">Short courses on the skills that actually shape outcomes — <strong>silence, rupture repair, pacing, use of self, attunement</strong> — plus <strong>Clinical Cards</strong> for in-session reference. The training between a textbook and a supervisor.</div>
+          <div class="ptags">
+            <span class="ptag">Process skills</span>
+            <span class="ptag">Clinical Cards</span>
+            <span class="ptag">Modality courses</span>
+          </div>
+          <div class="soon-row">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Launching soon
+          </div>
+        </div>
+
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ── What Wellovie is not ── -->
+      <div class="section-label" style="opacity:0;animation:rise 0.7s ease 0.44s forwards">
+        <span class="section-label-text">Where we fit in your practice stack</span>
+      </div>
+
+      <div class="scope-strip">
+        <div class="scope-strip-inner">
+          <div class="scope-col yes">
+            <div class="scope-col-label">✓ &nbsp;Wellovie handles</div>
+            <div class="scope-chip yes">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Your professional website
+            </div>
+            <div class="scope-chip yes">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Getting you found by the right clients
+            </div>
+            <div class="scope-chip yes">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Clinical worksheets for between-session work
+            </div>
+            <div class="scope-chip yes">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Therapist education &amp; process skill courses
+            </div>
+          </div>
+          <div class="scope-col no">
+            <div class="scope-col-label">✕ &nbsp;Not our lane</div>
+            <div class="scope-chip no">Notes &amp; EHR</div>
+            <div class="scope-chip no">Billing &amp; insurance claims</div>
+            <div class="scope-chip no">Scheduling &amp; telehealth</div>
+            <div class="scope-chip no">PHI or clinical records</div>
+            <p class="scope-note">Wellovie is designed to sit on top of your existing practice tools — not replace them. Keep SimplePractice, TherapyNotes, or whatever you use. We handle everything outside the session.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ── FAQ ── -->
+      <div class="section-label" style="opacity:0;animation:rise 0.7s ease 0.5s forwards">
+        <span class="section-label-text">Common questions</span>
+      </div>
+
+      <div class="faq-section">
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div class="faq-q">Do I need to cancel my current tools to use Wellovie?</div>
+            <div class="faq-a">No. Wellovie is designed to sit <strong>alongside</strong> your existing stack. Keep your EHR, your scheduler, your telehealth platform. We handle everything Wellovie is built for — the rest stays exactly as-is.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">I already have a Psychology Today listing. Why do I need this?</div>
+            <div class="faq-a">Psychology Today puts you in a list. Wellovie builds your full presence — a professional site that sounds like you, a verified directory with real specialty filters, and tools that make clients want to reach out. <strong>It's the difference between being listed and being found.</strong></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">What if I'm not good at writing my own copy?</div>
+            <div class="faq-a">That's exactly what Wellovie solves. You answer questions about your work; Wellovie writes the copy. Built by a clinician who knows how therapists talk about their practice — not a generic AI template.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">How is founding member pricing different?</div>
+            <div class="faq-a">The first 100 therapists who join get a <strong>locked-in rate for as long as they're subscribed</strong> — meaning you'll never pay full price even as Wellovie grows. It's our way of building with the people who believed in it first.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ── Bottom CTA ── -->
+      <div class="bottom-cta">
+        <h2 class="bottom-cta-heading">
+          Your practice is already <em>good.</em><br>
+          Let's make sure people can find it — when we launch.
+        </h2>
+        <p class="bottom-cta-sub">Wellovie is in development. Join the founding waitlist to get first access, locked-in pricing, and a say in what gets built. First 100 therapists only.</p>
+        <div class="bottom-cta-form">
+          <div class="founding-badge">
+            <div class="founding-badge-dot"></div>
+            Founding member — pricing locked for life
+          </div>
+          <div class="form-success" id="success-msg-bottom">✓ You're in. Founding member pricing locked. You'll hear from us first.</div>
+          <div class="form-row" id="form-row-bottom">
+            <input type="email" class="form-input" id="email-bottom" placeholder="your@email.com" autocomplete="email">
+            <button class="form-btn" id="btn-bottom" onclick="handleSubmit('bottom')">Claim your spot</button>
+          </div>
+          <p class="form-error-msg" id="err-bottom">Please enter a valid email address.</p>
+          <p class="form-note">No spam. No obligation. One email when we launch.</p>
+        </div>
+      </div>
+
+    </main>
+
+    <footer>
+      <span class="footer-copy">© 2026 Wellovie. All rights reserved.</span>
+      <nav class="footer-nav">
+        <a href="mailto:hello@wellovie.com">Contact</a>
+        <a href="#">Privacy</a>
+        <a href="#">For Therapists</a>
+      </nav>
+    </footer>
+
+  </div>
+
+  <script>
+    /* ── Theme ── */
+    function toggleTheme() {
+      const html = document.documentElement;
+      const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('wv-theme', next);
+    }
+    (function () {
+      const saved = localStorage.getItem('wv-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    })();
+
+    /* ── Email submission via Web3Forms ──
+       SETUP: Replace YOUR_WEB3FORMS_KEY with your real key.
+       Get a free key (250 submissions/month, no credit card) at:
+       https://web3forms.com — takes about 30 seconds.
+    ── */
+    const WEB3FORMS_KEY = 'bf245b94-9d09-4522-87ba-f89f3656ce63';
+
+    async function handleSubmit(context) {
+      const emailEl   = document.getElementById('email-' + context);
+      const successEl = document.getElementById('success-msg-' + context);
+      const rowEl     = document.getElementById('form-row-' + context);
+      const errEl     = document.getElementById('err-' + context);
+      const btnEl     = document.getElementById('btn-' + context);
+
+      const email = emailEl.value.trim();
+
+      errEl.style.display = 'none';
+      emailEl.style.borderColor = '';
+
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        emailEl.style.borderColor = '#c0392b';
+        errEl.style.display = 'block';
+        emailEl.focus();
+        setTimeout(() => {
+          emailEl.style.borderColor = '';
+          errEl.style.display = 'none';
+        }, 2800);
+        return;
+      }
+
+      btnEl.disabled = true;
+      btnEl.textContent = 'Saving…';
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_KEY,
+            email: email,
+            subject: 'New Wellovie Founding Member Signup',
+            from_name: 'Wellovie Waitlist',
+            message: `New waitlist signup from: ${email} (source: ${context} form)`
+          })
+        });
+
+        if (WEB3FORMS_KEY === 'YOUR_WEB3FORMS_KEY') {
+          // Dev mode: simulate success when key not set yet
+          rowEl.style.display = 'none';
+          successEl.style.display = 'block';
+          return;
+        }
+
+        const data = await res.json();
+        if (data.success) {
+          rowEl.style.display = 'none';
+          successEl.style.display = 'block';
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (e) {
+        btnEl.disabled = false;
+        btnEl.textContent = 'Claim your spot';
+        errEl.textContent = 'Something went wrong. Please try again.';
+        errEl.style.display = 'block';
+        setTimeout(() => { errEl.style.display = 'none'; }, 3000);
+      }
+    }
+
+    // Enter key support for both forms
+    ['email-hero', 'email-bottom'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('keydown', e => {
+        if (e.key === 'Enter') handleSubmit(id === 'email-hero' ? 'hero' : 'bottom');
+      });
+    });
+  </script>
+
+</body>
+</html>
