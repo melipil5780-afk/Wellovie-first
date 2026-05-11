@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>When Anxiety Feels Like Love — Wellovie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root, [data-theme="light"] {
+      --bg: #F5F2ED; --bg-card: #FDFCFB; --border: #DDD8CF;
+      --text: #1A1A1A; --text-3: #6B6358; --text-4: #9A9088;
+      --indigo: #2C3A62; --indigo-deep: #1E2847; --sage: #4A7A5A;
+      --toggle-bg: #E8E4DC; --moon-show: block; --sun-show: none;
+    }
+    [data-theme="dark"] {
+      --bg: #12161F; --bg-card: #1A2030; --border: #2A3352;
+      --text: #F0EDE8; --text-3: #8F8880; --text-4: #5A5650;
+      --indigo: #7B8EC8; --indigo-deep: #9AAEE0; --sage: #6BAF7A;
+      --toggle-bg: #222840; --moon-show: none; --sun-show: block;
+    }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg); color: var(--text);
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 2rem; transition: background 0.3s, color 0.3s;
+    }
+    .theme-toggle {
+      position: fixed; top: 1.25rem; right: 1.25rem;
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--toggle-bg); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .icon-moon { display: var(--moon-show); }
+    .icon-sun  { display: var(--sun-show); }
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 2.75rem 2.5rem;
+      max-width: 460px; width: 100%; text-align: center;
+      position: relative; overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.04);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--indigo), var(--sage));
+    }
+    .logo { display: inline-flex; align-items: center; gap: 0.45rem; text-decoration: none; margin-bottom: 2rem; }
+    .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 500; color: var(--indigo); transition: color 0.3s; }
+    .category { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-4); margin-bottom: 0.6rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; line-height: 1.15; color: var(--text); margin-bottom: 0.75rem; }
+    h1 em { font-style: italic; color: var(--sage); }
+    .desc { font-size: 0.82rem; color: var(--text-3); line-height: 1.75; margin-bottom: 2rem; }
+    .download-btn {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      background: var(--indigo); color: #fff; text-decoration: none;
+      padding: 0.85rem 1.75rem; border-radius: 12px;
+      font-size: 0.85rem; font-weight: 600; transition: background 0.2s; margin-bottom: 1.5rem;
+    }
+    .download-btn:hover { background: var(--indigo-deep); }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.72rem; color: var(--text-4); text-decoration: none; transition: color 0.15s; }
+    .back-link:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
+    <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  </button>
+  <div class="card">
+    <a href="https://wellovie.com" class="logo">
+      <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+        <path d="M16 27C16 27 7 21.5 7 14.5C7 10.4 10.2 7 14 7C14 7 12.5 10 14.5 13C16.5 9 20 7.5 22 7.5C23.7 7.5 25 9 25 10.5C25 10.5 22.5 10.5 21.5 13C23.2 11.2 26 12.5 26 16C26 20.5 21.5 24.5 16 27Z" stroke="var(--indigo)" stroke-width="1.3" fill="rgba(44,58,98,0.07)" stroke-linejoin="round"/>
+        <path d="M16 26C13.5 22.5 13.5 18.5 16 16.5C16 16.5 15.2 19.5 17 21.5C17.2 18 19.5 16 20 13.5C21.5 15.5 21 19.5 18.5 22.5" stroke="var(--sage)" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+      </svg>
+      <span class="logo-text">Wellovie</span>
+    </a>
+    <p class="category">Anxiety Worksheet Library — Stage 2</p>
+    <h1>When Anxiety<br><em>Feels Like Love</em></h1>
+    <p class="desc">A worksheet for people who recognise that worrying and loving have become entangled — and want to begin separating the two.</p>
+    <a href="ws-s2-08-when-anxiety-feels-like-love-bw.pdf" download="ws-s2-08-when-anxiety-feels-like-love-bw.pdf" class="download-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download PDF
+    </a>
+    <br>
+    <a href="https://wellovie.com" class="back-link">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Wellovie
+    </a>
+  </div>
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('wv-theme', next);
+    }
+    (function () {
+      const saved = localStorage.getItem('wv-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    })();
+  </script>
+</body>
+</html>
