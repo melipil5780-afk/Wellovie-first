@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wellovie — The Private Practice Platform Built From Inside the Therapy Room</title>
+  <meta name="description" content="A website, a verified directory, a clinical worksheet library, and skill-building courses — one subscription for private practice therapists who want to grow without burning out.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root, [data-theme="light"] {
+      --bg:#F5F2ED;--bg-card:#FDFCFB;--bg-2:#EDE9E2;--border:#DDD8CF;--border-2:#CCC7BC;
+      --text:#1A1A1A;--text-2:#3D3730;--text-3:#6B6358;--text-4:#9A9088;
+      --indigo:#2C3A62;--indigo-deep:#1E2847;--indigo-mid:#3D4F82;
+      --sage:#4A7A5A;--sage-mid:#6BAF7A;--brass:#8A6818;--brass-mid:#B8901E;
+      --indigo-tint:rgba(44,58,98,0.08);--sage-tint:rgba(74,122,90,0.10);--brass-tint:rgba(138,104,24,0.10);
+      --shadow-sm:0 1px 3px rgba(0,0,0,0.05),0 2px 8px rgba(0,0,0,0.04);
+      --shadow:0 2px 6px rgba(0,0,0,0.06),0 8px 24px rgba(0,0,0,0.05);
+      --shadow-lg:0 4px 12px rgba(0,0,0,0.08),0 16px 40px rgba(0,0,0,0.06);
+      --toggle-bg:#E8E4DC;--moon-show:block;--sun-show:none;
+      --hero-overlay: rgba(10,12,22,0.58);
+    }
+    [data-theme="dark"] {
+      --bg:#12161F;--bg-card:#1A2030;--bg-2:#222840;--border:#2A3352;--border-2:#374068;
+      --text:#F0EDE8;--text-2:#C8C2B8;--text-3:#8F8880;--text-4:#5A5650;
+      --indigo:#7B8EC8;--indigo-deep:#9AAEE0;--indigo-mid:#6678B0;
+      --sage:#6BAF7A;--sage-mid:#4A7A5A;--brass:#C8A040;--brass-mid:#8A6818;
+      --indigo-tint:rgba(123,142,200,0.12);--sage-tint:rgba(107,175,122,0.12);--brass-tint:rgba(200,160,64,0.12);
+      --shadow-sm:0 1px 3px rgba(0,0,0,0.3),0 2px 8px rgba(0,0,0,0.2);
+      --shadow:0 2px 8px rgba(0,0,0,0.4),0 8px 24px rgba(0,0,0,0.3);
+      --shadow-lg:0 4px 16px rgba(0,0,0,0.5),0 16px 48px rgba(0,0,0,0.4);
+      --toggle-bg:#222840;--moon-show:none;--sun-show:block;
+      --hero-overlay: rgba(10,12,22,0.65);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg); color: var(--text);
+      min-height: 100vh; overflow-x: hidden;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    body::after {
+      content: ''; position: fixed; inset: 0;
+      pointer-events: none; z-index: 999; opacity: 0.022;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px;
+    }
+    .blob { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .blob-1 { width: 800px; height: 800px; top: -300px; right: -200px; background: radial-gradient(circle, rgba(44,58,98,0.065) 0%, transparent 60%); }
+    .blob-2 { width: 600px; height: 600px; bottom: -200px; left: -150px; background: radial-gradient(circle, rgba(74,122,90,0.065) 0%, transparent 60%); }
+    .blob-3 { width: 400px; height: 400px; top: 40%; left: 40%; background: radial-gradient(circle, rgba(138,104,24,0.04) 0%, transparent 60%); }
+    [data-theme="dark"] .blob-1 { background: radial-gradient(circle, rgba(123,142,200,0.08) 0%, transparent 60%); }
+    [data-theme="dark"] .blob-2 { background: radial-gradient(circle, rgba(107,175,122,0.08) 0%, transparent 60%); }
+    [data-theme="dark"] .blob-3 { background: radial-gradient(circle, rgba(200,160,64,0.05) 0%, transparent 60%); }
+    .page { position: relative; z-index: 1; min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; }
+
+    /* ─── Header ─── */
+    header {
+      padding: 1.75rem clamp(1.5rem, 5vw, 4rem);
+      display: flex; align-items: center; justify-content: space-between;
+      opacity: 0; animation: rise 0.6s ease 0.05s forwards;
+    }
+    .logo { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; }
+    .logo-text { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.38rem; font-weight: 500; color: var(--indigo); letter-spacing: 0.01em; transition: color 0.3s; }
+    .header-right { display: flex; align-items: center; gap: 0.85rem; }
+    .coming-pill { padding: 0.22rem 0.7rem; border-radius: 100px; background: var(--sage-tint); border: 1px solid rgba(74,122,90,0.2); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); }
+    .theme-toggle { width: 34px; height: 34px; border-radius: 50%; background: var(--toggle-bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s, border-color 0.2s; }
+    .theme-toggle:hover { border-color: var(--border-2); }
+    .icon-moon { display: var(--moon-show); }
+    .icon-sun  { display: var(--sun-show); }
+
+    /* ─── Main ─── */
+    main { padding: 0 0 clamp(3rem, 6vw, 5rem); display: flex; flex-direction: column; align-items: center; }
+
+    /* ─── Hero with background image ─── */
+    .hero-section {
+      width: 100%;
+      position: relative;
+      background-image: url('data:image/webp;base64,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');
+      background-size: cover;
+      background-position: center 40%;
+      background-repeat: no-repeat;
+      margin-bottom: 3.5rem;
+      opacity: 0; animation: rise 0.8s ease 0.18s forwards;
+    }
+    .hero-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--hero-overlay);
+      z-index: 0;
+    }
+    /* bottom fade to seamlessly blend into page bg */
+    .hero-section::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+      background: linear-gradient(to bottom, transparent, var(--bg));
+      z-index: 1;
+    }
+    .hero {
+      position: relative; z-index: 2;
+      max-width: 760px; text-align: center;
+      margin: 0 auto;
+      padding: clamp(3.5rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem) clamp(4rem, 9vw, 7rem);
+    }
+    .category-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; color: rgba(255,255,255,0.55); text-transform: uppercase; margin-bottom: 1.5rem; }
+    h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(2.7rem, 6.5vw, 5.2rem); font-weight: 400; line-height: 1.07; color: #F0EDE8; letter-spacing: -0.018em; margin-bottom: 1.5rem; }
+    h1 em { font-style: italic; color: var(--sage-mid); }
+    .hero-sub { font-size: clamp(0.94rem, 1.7vw, 1.05rem); color: rgba(240,237,232,0.82); line-height: 1.88; max-width: 600px; margin: 0 auto 0.6rem; }
+    .hero-sub strong { color: #F0EDE8; font-weight: 600; }
+    .system-chips { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.4rem; margin: 1.5rem 0 2.5rem; }
+    .sys-chip { display: inline-flex; align-items: center; gap: 0.32rem; padding: 0.3rem 0.75rem; border-radius: 100px; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.07); backdrop-filter: blur(8px); font-size: 0.68rem; font-weight: 500; color: rgba(240,237,232,0.85); box-shadow: var(--shadow-sm); }
+    .sys-chip-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+    .sys-chip-dot.sage   { background: var(--sage-mid); }
+    .sys-chip-dot.indigo { background: #9AAEE0; }
+    .sys-chip-dot.brass  { background: var(--brass-mid); }
+    .sys-chip-dot.muted  { background: rgba(255,255,255,0.4); }
+    .sys-arrow { font-size: 0.7rem; color: rgba(255,255,255,0.3); padding: 0 0.1rem; }
+    .cta-block { display: flex; flex-direction: column; align-items: center; gap: 0.7rem; }
+    .founding-badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.28rem 0.8rem; border-radius: 100px; background: rgba(138,104,24,0.25); border: 1px solid rgba(184,144,30,0.35); font-size: 0.61rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #D4A830; }
+    .founding-badge-dot { width: 5px; height: 5px; border-radius: 50%; background: #D4A830; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .form-row { display: flex; width: 100%; max-width: 440px; }
+    .form-input { flex: 1; padding: 0.92rem 1.1rem; border: 1.5px solid rgba(255,255,255,0.18); border-right: none; border-radius: 12px 0 0 12px; background: rgba(255,255,255,0.10); backdrop-filter: blur(12px); color: #F0EDE8; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.2s; }
+    .form-input:focus { border-color: rgba(255,255,255,0.4); }
+    .form-input::placeholder { color: rgba(255,255,255,0.38); }
+    .form-btn { padding: 0.92rem 1.4rem; background: var(--indigo); color: #fff; border: none; border-radius: 0 12px 12px 0; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.83rem; font-weight: 600; cursor: pointer; transition: background 0.2s; white-space: nowrap; letter-spacing: 0.01em; }
+    .form-btn:hover { background: var(--indigo-deep); }
+    .form-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+    .form-note { font-size: 0.67rem; color: rgba(255,255,255,0.38); }
+    .form-success { display: none; padding: 0.85rem 1.4rem; background: rgba(74,122,90,0.25); border: 1px solid rgba(107,175,122,0.3); border-radius: 12px; font-size: 0.84rem; color: var(--sage-mid); font-weight: 500; width: 100%; max-width: 440px; text-align: center; }
+    .form-error-msg { display: none; font-size: 0.72rem; color: #ff8080; }
+    .trust-strip { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.4rem 1.4rem; margin-top: 1.2rem; }
+    .trust-item { display: flex; align-items: center; gap: 0.35rem; font-size: 0.7rem; color: rgba(255,255,255,0.5); }
+    .trust-item svg { flex-shrink: 0; }
+    .trust-divider { width: 1px; height: 12px; background: rgba(255,255,255,0.15); }
+    @media (max-width: 500px) { .trust-divider { display: none; } }
+
+    /* ─── Below-hero sections ─── */
+    .below-hero { width: 100%; padding: 0 clamp(1.5rem, 5vw, 4rem); display: flex; flex-direction: column; align-items: center; }
+    .section-label { width: 100%; max-width: 1060px; margin-bottom: 0.85rem; }
+    .section-label-text { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-4); }
+    .how-section { width: 100%; max-width: 1060px; margin-bottom: 1rem; opacity: 0; animation: rise 0.8s ease 0.28s forwards; }
+    .how-heading { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 400; color: var(--text); margin-bottom: 0.55rem; line-height: 1.2; }
+    .how-sub { font-size: 0.85rem; color: var(--text-3); line-height: 1.75; max-width: 560px; margin-bottom: 1.75rem; }
+    .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); }
+    .how-step { background: var(--bg-card); padding: 1.6rem 1.5rem; display: flex; flex-direction: column; gap: 0.65rem; }
+    .step-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--border-2); line-height: 1; }
+    .step-title { font-weight: 600; font-size: 0.88rem; color: var(--text); }
+    .step-desc { font-size: 0.76rem; color: var(--text-3); line-height: 1.72; }
+    .step-time { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.62rem; font-weight: 600; color: var(--sage); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.2rem; }
+    .divider { width: 100%; max-width: 1060px; height: 1px; background: var(--border); margin: clamp(2.5rem, 5vw, 3.5rem) 0; opacity: 0; animation: rise 0.7s ease 0.34s forwards; }
+    .pillars { width: 100%; max-width: 1060px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.9rem; margin-bottom: 0.5rem; opacity: 0; animation: rise 0.9s ease 0.4s forwards; }
+    .pillar { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 1.6rem 1.4rem; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 0.7rem; transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease; box-shadow: var(--shadow-sm); }
+    .pillar:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .pillar.sage:hover { border-color: var(--sage); }
+    .pillar.indigo:hover { border-color: var(--indigo); }
+    .pillar.brass:hover { border-color: var(--brass); }
+    .pillar::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 20px 20px 0 0; }
+    .pillar.sage::before   { background: linear-gradient(90deg, var(--sage), var(--sage-mid)); }
+    .pillar.indigo::before { background: linear-gradient(90deg, var(--indigo), var(--indigo-mid)); }
+    .pillar.brass::before  { background: linear-gradient(90deg, var(--brass), var(--brass-mid)); }
+    .pillar.muted::before  { background: linear-gradient(90deg, var(--border), var(--border-2)); }
+    .wedge-badge { position: absolute; top: 14px; right: 14px; padding: 0.15rem 0.5rem; border-radius: 100px; background: var(--sage-tint); border: 1px solid rgba(74,122,90,0.2); font-size: 0.55rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); }
+    .pillar-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+    .pillar.sage   .pillar-icon { background: var(--sage-tint); }
+    .pillar.indigo .pillar-icon { background: var(--indigo-tint); }
+    .pillar.brass  .pillar-icon { background: var(--brass-tint); }
+    .pillar.muted  .pillar-icon { background: var(--bg-2); }
+    .pillar-label { font-size: 0.57rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-4); }
+    .pillar-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.15rem; font-weight: 600; color: var(--text); line-height: 1.22; }
+    .pillar-desc { font-size: 0.765rem; color: var(--text-3); line-height: 1.72; flex: 1; }
+    .pillar-desc strong { color: var(--text-2); font-weight: 500; }
+    .ptags { display: flex; flex-wrap: wrap; gap: 0.28rem; margin-top: 0.15rem; }
+    .ptag { font-size: 0.57rem; padding: 0.14rem 0.5rem; border-radius: 100px; background: var(--bg-2); border: 1px solid var(--border); color: var(--text-3); }
+    .soon-row { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.59rem; font-weight: 600; color: var(--text-4); letter-spacing: 0.04em; margin-top: 0.1rem; }
+    .scope-strip { width: 100%; max-width: 1060px; margin-bottom: 0.5rem; opacity: 0; animation: rise 0.8s ease 0.46s forwards; }
+    .scope-strip-inner { display: flex; align-items: stretch; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow-sm); overflow: hidden; }
+    .scope-col { flex: 1; padding: 1.1rem 1.4rem; display: flex; flex-direction: column; gap: 0.45rem; }
+    .scope-col + .scope-col { border-left: 1px solid var(--border); }
+    .scope-col-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.15rem; }
+    .scope-col.yes .scope-col-label { color: var(--sage); }
+    .scope-col.no  .scope-col-label { color: var(--text-4); }
+    .scope-chip { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.73rem; width: fit-content; }
+    .scope-chip.yes { color: var(--text-2); font-weight: 450; }
+    .scope-chip.no  { color: var(--text-4); text-decoration: line-through; }
+    .scope-col.no .scope-note { font-size: 0.67rem; color: var(--text-4); font-style: italic; margin-top: 0.4rem; line-height: 1.55; }
+    .faq-section { width: 100%; max-width: 1060px; opacity: 0; animation: rise 0.8s ease 0.52s forwards; }
+    .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); }
+    .faq-item { background: var(--bg-card); padding: 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .faq-q { font-weight: 600; font-size: 0.83rem; color: var(--text); line-height: 1.4; }
+    .faq-a { font-size: 0.76rem; color: var(--text-3); line-height: 1.75; }
+    .faq-a strong { color: var(--text-2); font-weight: 500; }
+    .bottom-cta { width: 100%; max-width: 1060px; text-align: center; opacity: 0; animation: rise 0.8s ease 0.64s forwards; }
+    .bottom-cta-heading { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 400; color: var(--text); line-height: 1.15; margin-bottom: 0.75rem; }
+    .bottom-cta-heading em { font-style: italic; color: var(--sage); }
+    .bottom-cta-sub { font-size: 0.88rem; color: var(--text-3); line-height: 1.75; max-width: 520px; margin: 0 auto 1.8rem; }
+    .bottom-cta-form { display: flex; flex-direction: column; align-items: center; gap: 0.65rem; }
+    .bottom-founding-badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.28rem 0.8rem; border-radius: 100px; background: var(--brass-tint); border: 1px solid rgba(138,104,24,0.22); font-size: 0.61rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--brass); }
+    .bottom-founding-badge-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--brass); animation: pulse 2s ease-in-out infinite; }
+    .bottom-form-input { flex: 1; padding: 0.92rem 1.1rem; border: 1.5px solid var(--border); border-right: none; border-radius: 12px 0 0 12px; background: var(--bg-card); color: var(--text); font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.2s, background 0.3s; }
+    .bottom-form-input:focus { border-color: var(--indigo); }
+    .bottom-form-input::placeholder { color: var(--text-4); }
+    footer { padding: 1.35rem clamp(1.5rem, 5vw, 4rem); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; opacity: 0; animation: rise 0.6s ease 0.72s forwards; }
+    .footer-copy { font-size: 0.67rem; color: var(--text-4); }
+    .footer-nav { display: flex; gap: 1.2rem; }
+    .footer-nav a { font-size: 0.67rem; color: var(--text-4); text-decoration: none; transition: color 0.15s; }
+    .footer-nav a:hover { color: var(--text-2); }
+    @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 920px) { .pillars { grid-template-columns: repeat(2, 1fr); } .faq-grid { grid-template-columns: 1fr; } .how-steps { grid-template-columns: 1fr; } }
+    @media (max-width: 680px) { .scope-strip-inner { flex-direction: column; } .scope-col + .scope-col { border-left: none; border-top: 1px solid var(--border); } }
+    @media (max-width: 580px) { .pillars { grid-template-columns: 1fr; } .form-row { flex-direction: column; } .form-input { border-right: 1.5px solid rgba(255,255,255,0.18); border-radius: 12px; } .form-btn { border-radius: 12px; } }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="page">
+
+    <header>
+      <a href="#" class="logo">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+          <path d="M16 27C16 27 7 21.5 7 14.5C7 10.4 10.2 7 14 7C14 7 12.5 10 14.5 13C16.5 9 20 7.5 22 7.5C23.7 7.5 25 9 25 10.5C25 10.5 22.5 10.5 21.5 13C23.2 11.2 26 12.5 26 16C26 20.5 21.5 24.5 16 27Z" stroke="var(--indigo)" stroke-width="1.3" fill="var(--indigo-tint)" stroke-linejoin="round"/>
+          <path d="M16 26C13.5 22.5 13.5 18.5 16 16.5C16 16.5 15.2 19.5 17 21.5C17.2 18 19.5 16 20 13.5C21.5 15.5 21 19.5 18.5 22.5" stroke="var(--sage)" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+        </svg>
+        <span class="logo-text">Wellovie</span>
+      </a>
+      <div class="header-right">
+        <span class="coming-pill">Early Access</span>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
+          <svg class="icon-sun"  width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- ── Hero with full-bleed background ── -->
+      <div class="hero-section">
+        <div class="hero">
+          <p class="category-label">Coming soon — Private practice growth platform for therapists</p>
+          <h1>Your practice should be as strong<br><em>outside</em> the room as it is inside it.</h1>
+          <p class="hero-sub">Most therapists are exceptional clinicians and invisible online. Wellovie is being built to fix that — <strong>your website, your directory presence, your client tools, your clinical edge</strong> — in one subscription built by someone who actually does the work. We're not live yet, but we're close.</p>
+          <div class="system-chips">
+            <div class="sys-chip"><div class="sys-chip-dot sage"></div> Get found</div>
+            <span class="sys-arrow">→</span>
+            <div class="sys-chip"><div class="sys-chip-dot indigo"></div> Present well</div>
+            <span class="sys-arrow">→</span>
+            <div class="sys-chip"><div class="sys-chip-dot brass"></div> Extend care between sessions</div>
+            <span class="sys-arrow">→</span>
+            <div class="sys-chip"><div class="sys-chip-dot muted"></div> Grow your craft</div>
+          </div>
+          <div class="cta-block">
+            <div class="founding-badge"><div class="founding-badge-dot"></div>Founding member spots — first 100 therapists only</div>
+            <div class="form-success" id="success-msg-hero">✓ You're in. You'll hear from us before anyone else — with founding member pricing.</div>
+            <div class="form-row" id="form-row-hero">
+              <input type="email" class="form-input" id="email-hero" placeholder="your@email.com" autocomplete="email">
+              <button class="form-btn" id="btn-hero" onclick="handleSubmit('hero')">Claim your spot</button>
+            </div>
+            <p class="form-error-msg" id="err-hero">Please enter a valid email address.</p>
+            <p class="form-note">Founding members get locked-in pricing and first access. One email at launch.</p>
+          </div>
+          <div class="trust-strip">
+            <div class="trust-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--sage-mid)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>No PHI ever stored</div>
+            <div class="trust-divider"></div>
+            <div class="trust-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--sage-mid)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Works alongside SimplePractice &amp; TherapyNotes</div>
+            <div class="trust-divider"></div>
+            <div class="trust-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--sage-mid)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Built by a licensed counselor</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Below-hero content ── -->
+      <div class="below-hero">
+        <div class="how-section">
+          <div class="section-label"><span class="section-label-text">How it will work</span></div>
+          <h2 class="how-heading">From signup to your first client inquiry — in an afternoon.</h2>
+          <p class="how-sub">Here's what Wellovie is being built to do. Join the waitlist and be there when it launches.</p>
+          <div class="how-steps">
+            <div class="how-step"><div class="step-num">01</div><div class="step-title">Answer questions about your practice</div><div class="step-desc">Tell Wellovie who you work with, what your approach is, and what makes your work distinct. No jargon required — just your honest answers.</div><div class="step-time"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>About 15 minutes</div></div>
+            <div class="how-step"><div class="step-num">02</div><div class="step-title">Get your site, directory profile, and tools</div><div class="step-desc">Wellovie writes your copy, publishes your professional site, lists you in the verified directory, and unlocks your full worksheet and course library — automatically.</div><div class="step-time"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Same afternoon</div></div>
+            <div class="how-step"><div class="step-num">03</div><div class="step-title">Clients find you. The work deepens.</div><div class="step-desc">Better-fit clients come through a directory built for specificity, not volume. And between sessions, your clients have tools that make the work compound — not just wait.</div><div class="step-time"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Ongoing</div></div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="section-label" style="opacity:0;animation:rise 0.7s ease 0.38s forwards"><span class="section-label-text">What will be included in one subscription</span></div>
+        <div class="pillars">
+          <div class="pillar sage"><span class="wedge-badge">Start here</span><div class="pillar-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div class="pillar-label">Website</div><div class="pillar-title">A therapist site that actually sounds like you</div><div class="pillar-desc">Answer a few questions. Wellovie <strong>writes your bio, generates your copy</strong>, and publishes a professional site in an afternoon. No designer. No developer. No template that looks like everyone else's.</div><div class="ptags"><span class="ptag">AI-assisted copy</span><span class="ptag">Custom domain</span><span class="ptag">Directory-linked</span></div></div>
+          <div class="pillar indigo"><div class="pillar-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--indigo)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div><div class="pillar-label">Directory</div><div class="pillar-title">Be found by clients who are already the right fit</div><div class="pillar-desc">Not a list of anyone with a license. A <strong>verified directory</strong> filtered by specialty, approach, language, identity, and insurance — so the people who reach out have already filtered themselves.</div><div class="ptags"><span class="ptag">License-verified</span><span class="ptag">Approach filters</span><span class="ptag">Identity-affirming</span></div></div>
+          <div class="pillar brass"><div class="pillar-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--brass)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="pillar-label">Worksheet Library</div><div class="pillar-title">A clinical library that earns its place between sessions</div><div class="pillar-desc">Grounded in <strong>CBT, DBT, ACT, ERP, and CBT-I</strong> — spanning anxiety, OCD, sleep, trauma, emotion regulation, relationships, and more. Not generic journaling prompts.</div><div class="ptags"><span class="ptag">Clinically grounded</span><span class="ptag">Ever-growing</span><span class="ptag">Color &amp; B&amp;W</span></div></div>
+          <div class="pillar muted"><div class="pillar-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div class="pillar-label">Courses &amp; Clinical Cards</div><div class="pillar-title">The craft your program assumed you'd figure out</div><div class="pillar-desc">Short courses on the skills that actually shape outcomes — <strong>silence, rupture repair, pacing, use of self, attunement</strong> — plus <strong>Clinical Cards</strong> for in-session reference.</div><div class="ptags"><span class="ptag">Process skills</span><span class="ptag">Clinical Cards</span><span class="ptag">Modality courses</span></div><div class="soon-row"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Launching soon</div></div>
+        </div>
+        <div class="divider"></div>
+        <div class="section-label" style="opacity:0;animation:rise 0.7s ease 0.44s forwards"><span class="section-label-text">Where we fit in your practice stack</span></div>
+        <div class="scope-strip">
+          <div class="scope-strip-inner">
+            <div class="scope-col yes">
+              <div class="scope-col-label">✓ &nbsp;Wellovie handles</div>
+              <div class="scope-chip yes"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Your professional website</div>
+              <div class="scope-chip yes"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Getting you found by the right clients</div>
+              <div class="scope-chip yes"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Clinical worksheets for between-session work</div>
+              <div class="scope-chip yes"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Therapist education &amp; process skill courses</div>
+            </div>
+            <div class="scope-col no">
+              <div class="scope-col-label">✕ &nbsp;Not our lane</div>
+              <div class="scope-chip no">Notes &amp; EHR</div>
+              <div class="scope-chip no">Billing &amp; insurance claims</div>
+              <div class="scope-chip no">Scheduling &amp; telehealth</div>
+              <div class="scope-chip no">PHI or clinical records</div>
+              <p class="scope-note">Wellovie is designed to sit on top of your existing practice tools — not replace them. Keep SimplePractice, TherapyNotes, or whatever you use.</p>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="section-label" style="opacity:0;animation:rise 0.7s ease 0.5s forwards"><span class="section-label-text">Common questions</span></div>
+        <div class="faq-section">
+          <div class="faq-grid">
+            <div class="faq-item"><div class="faq-q">Do I need to cancel my current tools to use Wellovie?</div><div class="faq-a">No. Wellovie is designed to sit <strong>alongside</strong> your existing stack. Keep your EHR, your scheduler, your telehealth platform. We handle everything Wellovie is built for — the rest stays exactly as-is.</div></div>
+            <div class="faq-item"><div class="faq-q">I already have a Psychology Today listing. Why do I need this?</div><div class="faq-a">Psychology Today puts you in a list. Wellovie builds your full presence — a professional site that sounds like you, a verified directory with real specialty filters, and tools that make clients want to reach out. <strong>It's the difference between being listed and being found.</strong></div></div>
+            <div class="faq-item"><div class="faq-q">What if I'm not good at writing my own copy?</div><div class="faq-a">That's exactly what Wellovie solves. You answer questions about your work; Wellovie writes the copy. Built by a clinician who knows how therapists talk about their practice — not a generic AI template.</div></div>
+            <div class="faq-item"><div class="faq-q">How is founding member pricing different?</div><div class="faq-a">The first 100 therapists who join get a <strong>locked-in rate for as long as they're subscribed</strong> — meaning you'll never pay full price even as Wellovie grows. It's our way of building with the people who believed in it first.</div></div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="bottom-cta">
+          <h2 class="bottom-cta-heading">Your practice is already <em>good.</em><br>Let's make sure people can find it — when we launch.</h2>
+          <p class="bottom-cta-sub">Wellovie is in development. Join the founding waitlist to get first access, locked-in pricing, and a say in what gets built. First 100 therapists only.</p>
+          <div class="bottom-cta-form">
+            <div class="bottom-founding-badge"><div class="bottom-founding-badge-dot"></div>Founding member — pricing locked for life</div>
+            <div class="form-success" id="success-msg-bottom">✓ You're in. Founding member pricing locked. You'll hear from us first.</div>
+            <div class="form-row" id="form-row-bottom">
+              <input type="email" class="bottom-form-input form-input" id="email-bottom" placeholder="your@email.com" autocomplete="email">
+              <button class="form-btn" id="btn-bottom" onclick="handleSubmit('bottom')">Claim your spot</button>
+            </div>
+            <p class="form-error-msg" id="err-bottom">Please enter a valid email address.</p>
+            <p class="form-note" style="color:var(--text-4)">No spam. No obligation. One email when we launch.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <span class="footer-copy">© 2026 Wellovie. All rights reserved.</span>
+      <nav class="footer-nav">
+        <a href="mailto:hello@wellovie.com">Contact</a>
+        <a href="#">Privacy</a>
+        <a href="#">For Therapists</a>
+      </nav>
+    </footer>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('wv-theme', next);
+    }
+    (function () {
+      const saved = localStorage.getItem('wv-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    })();
+    const WEB3FORMS_KEY = 'bf245b94-9d09-4522-87ba-f89f3656ce63';
+    async function handleSubmit(context) {
+      const emailEl=document.getElementById('email-'+context), successEl=document.getElementById('success-msg-'+context), rowEl=document.getElementById('form-row-'+context), errEl=document.getElementById('err-'+context), btnEl=document.getElementById('btn-'+context);
+      const email=emailEl.value.trim();
+      errEl.style.display='none'; emailEl.style.borderColor='';
+      if(!email||!email.includes('@')||!email.includes('.')){emailEl.style.borderColor='#ff6060';errEl.style.display='block';emailEl.focus();setTimeout(()=>{emailEl.style.borderColor='';errEl.style.display='none';},2800);return;}
+      btnEl.disabled=true; btnEl.textContent='Saving\u2026';
+      try {
+        const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:WEB3FORMS_KEY,email,subject:'New Wellovie Founding Member Signup',from_name:'Wellovie Waitlist',message:`New waitlist signup from: ${email} (source: ${context} form)`})});
+        const data=await res.json();
+        if(data.success){rowEl.style.display='none';successEl.style.display='block';}
+        else throw new Error();
+      } catch(e){btnEl.disabled=false;btnEl.textContent='Claim your spot';errEl.textContent='Something went wrong. Please try again.';errEl.style.display='block';setTimeout(()=>{errEl.style.display='none';},3000);}
+    }
+    ['email-hero','email-bottom'].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener('keydown',e=>{if(e.key==='Enter')handleSubmit(id==='email-hero'?'hero':'bottom');});});
+  </script>
+</body>
+</html>
